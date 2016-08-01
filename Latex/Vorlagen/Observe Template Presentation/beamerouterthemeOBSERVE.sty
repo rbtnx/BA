@@ -1,0 +1,155 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/outer/beamerouterthemeOBSERVE.sty,v 1.8 2007/01/28 20:48:30 tantau Exp $
+
+
+\setbeamercolor{section in head/foot}{parent=palette tertiary}
+\setbeamercolor{subsection in head/foot}{parent=palette secondary}
+\setbeamercolor{author in head/foot}{parent=subsection in head/foot}
+\setbeamercolor{title in head/foot}{parent=section in head/foot}
+
+
+\def\beamer@theme@footline@empty{}
+
+\newif\ifbeamer@theme@subsection
+\beamer@theme@subsectiontrue
+
+\DeclareOptionBeamer{footline}{\csname beamer@theme@footline@#1\endcsname}
+\DeclareOptionBeamer{subsection}[true]{\csname beamer@theme@subsection#1\endcsname}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+% Head
+\defbeamertemplate*{headline}{miniframes theme}
+{%
+ % \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  %\end{beamercolorbox}
+  %\begin{beamercolorbox}{section in head/foot}
+    %\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+\hspace*{0.28cm}
+\begin{tikzpicture}
+	\draw[line width=0.85pt,color=beamer@obgrey] (0,0.42) -- (9.6,0.42) -- (9.6,-0.1642) -- (9.8,-0.1642);
+	%\node at (11,0) {\includegraphics[scale=0.13]{figures/Logo_Observe_niedrig_bunt}};
+	\node at (10.9175,0) {\includegraphics[scale=0.13]{figures/Logo_Observe_lang}};
+
+%    \vskip2pt\insertnavigation{0.95\paperwidth}\vskip2pt
+	\end{tikzpicture}\hspace*{0cm}
+ % \end{beamercolorbox}%
+  \ifbeamer@theme@subsection%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+% Footline
+\defbeamertemplate*{footline}{miniframes theme}
+{%
+ % \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  %\end{beamercolorbox}
+  %\begin{beamercolorbox}{section in head/foot}
+    %\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+    \hspace{+0.265cm}
+\begin{tikzpicture}
+	\draw[line width=0.85pt,color=beamer@obgrey] (-0.5,0) -- (11.58,0);
+%\vspace{-0.61cm}
+%    \vskip2pt\insertnavigation{0.95\paperwidth}\vskip2pt
+	\end{tikzpicture}
+	
+	 \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      \leavevmode{\usebeamerfont{title in head/foot}\usebeamercolor[fg]{author in head/foot}\insertshortdate}%
+      \hfill%
+      {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertshortauthor}%
+      \hfill
+      {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertframenumber/\insertpresentationendpage}
+    \end{beamercolorbox}%
+    \vspace{0.1cm}
+ % \end{beamercolorbox}%
+  \ifbeamer@theme@subsection%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+% Sidebar left
+\defbeamertemplate*{sidebar left}{miniframes theme}
+{%
+ % \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  %\end{beamercolorbox}
+  %\begin{beamercolorbox}{section in head/foot}
+    %\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+	\vspace*{-1.1cm}    
+    \hspace*{0.3cm}
+\begin{tikzpicture}
+	\draw[line width=0.85pt,color=beamer@obgrey] (0,0) -- (0,8.86);
+%\vspace{-0.61cm}
+%    \vskip2pt\insertnavigation{0.95\paperwidth}\vskip2pt
+	\end{tikzpicture}
+
+ % \end{beamercolorbox}%
+  \ifbeamer@theme@subsection%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+% Sidebar right
+\defbeamertemplate*{sidebar right}{miniframes theme}
+{%
+ % \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  %\end{beamercolorbox}
+  %\begin{beamercolorbox}{section in head/foot}
+    %\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+	\vspace*{-0.09cm}    
+    \hspace*{-0.45cm}
+\begin{tikzpicture}
+	\draw[line width=0.825pt,color=beamer@obgrey] (0,0) -- (0,7.85);
+%\vspace{-0.61cm}
+%    \vskip2pt\insertnavigation{0.95\paperwidth}\vskip2pt
+	\end{tikzpicture}
+
+ % \end{beamercolorbox}%
+  \ifbeamer@theme@subsection%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+% Frametitle
+\setbeamertemplate{frametitle}{
+\vspace*{-7mm}\hspace*{-3mm}\insertframetitle}
+
+\mode
+<all>

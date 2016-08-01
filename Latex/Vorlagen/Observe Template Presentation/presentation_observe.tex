@@ -1,0 +1,156 @@
+ \makeatletter\let\ifGm@compatii\relax\makeatother
+
+ %***************************************************************************%
+ % Project presentation                                                      %
+ %                                                                           %
+ %                                                                           %
+ %                                                                           %
+ %  Title:           Template for Making Presentation with LaTeX             %
+ %                                                                           %
+ %                                                                           %
+ %                                                                           %
+ %***************************************************************************%
+
+ %   Template - Institute of Control Systems, Hamburg University of Technology
+ %
+ %   A. Popov
+ %
+ %   Updates:  AP: 29.08.2007;  AP: 17.09.2007; AP: 16.06.2009; GP/ES: 10.02.2011
+ %             GP: 29.06.2011
+ %
+ %   Version 1.0
+
+
+ %##########################################
+ %     R E A D      M E     F I R S T  !
+ %##########################################
+ % beamer package and manual can be downloaded from  %
+ % http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=powerdot
+ %
+ % Possible compilation processes:
+ % LaTeX -> DVI -> PS -> PDF   [recomended]
+ % LaTeX -> pdfTeX -> PDF
+ %##########################################
+
+
+
+
+ %%################ Document  settings ###################
+\include{header_haw_observe}    % make all adjustments to language and packages here
+\input{commands}
+
+\title{Title\\Title}
+
+\author[K. Kruppa]{Kai Kruppa\\\vspace{0cm} \scalebox{0.8}{Kai.Kruppa@haw-hamburg.de}\vspace{-1mm}}
+
+
+
+\institute{Hochschule f\"{u}r Angewandte Wissenschaften Hamburg\\ Fakult\"{a}t Life Sciences\vspace{-1mm}
+}
+
+\date[14. April 2015]{OBSERVE-Projekttreffen \\ 14. April 2015 \vspace{-4mm}}%\today}
+ % (optional, should be abbreviation of conference name)
+
+\subject{Observe, Heating Systems}
+
+% This makes a table of contents at the begining of each section. This is used to show where you are in the presentation and for navigation.
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Content}
+    \tableofcontents[currentsection,hideallsubsections]
+  \end{frame}
+}
+
+
+
+ %%########################  BEGIN THE PRESENTATION ############################
+\begin{document}
+
+ % Title page
+\begin{frame}\titlepage
+\end{frame}
+
+ % Table of contents (used also for navigation)
+\begin{frame}{Inhalt}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Inhalt}
+    \tableofcontents[currentsection,hideallsubsections]
+  \end{frame}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ %%############################################################################
+\section{Section 1}
+
+\begin{frame}\frametitle{Itemize}
+\begin{itemize}
+\item ITEM
+\item ITEM
+\item ITEM
+\item ITEM
+\end{itemize}
+\end{frame}
+
+\section{Section 2}
+\begin{frame}\frametitle{Enumerate}
+\begin{enumerate}
+\item ITEM
+\item ITEM
+\item ITEM
+\item ITEM
+\end{enumerate}
+\end{frame}
+
+\section{Section 3}
+\begin{frame}\frametitle{Block}
+\begin{block}{TEST}
+\begin{itemize}
+\item Equation
+\begin{align*}
+a^2=b^2+c^2
+\end{align*}
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\appendix
+\begin{frame}
+\begin{center}
+\huge Vielen Dank
+\end{center}
+\begin{center}
+\huge für Ihre Aufmerksamkeit!
+\end{center}
+\end{frame}
+
+
+
+
+\section*{Literatur}
+\subsection{Literatur}
+\begin{frame}
+\frametitle{Literatur}
+\small
+\begin{itemize}
+\item Kruppa, K., Pangalos, G., Lichtenberg, G. (2014). Multilinear Approximation of Nonlinear State Space Models. 19th IFAC World Congress
+\item Pangalos, G., Eichler, A. and Lichtenberg, G. (2013). Tensor Systems: Multilinear Modeling and Applications. 3rd Conference on Simulation and Modeling Methodologies, Technologies and Applications
+\item Lichtenberg, G. (2011). Hybrid Tensor Systems. Habilitation, TU Hamburg-Harburg
+\item Maciejowski, J. (2002). Predictive Control with Constraints. Pearson Education Limited
+\item Boyd, S., Vandenberghe, L. (2009). Convex Optimization. Cambridge University Press
+\end{itemize}
+\end{frame}
+
+
+%\setcounter{framenumber}{\value{lastframe}}
+\end{document}

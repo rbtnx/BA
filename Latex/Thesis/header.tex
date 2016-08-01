@@ -1,0 +1,177 @@
+%%%%%%%%%%%%%%%% Document settings %%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{ifpdf}	%% detection of pdfTeX or DVI
+\ifpdf
+	\documentclass[a4paper,12pt]{article}
+\else
+	\documentclass[a4paper,12pt,dvipdfm]{article}
+\fi
+
+\usepackage{graphicx}                %% special graphics
+\usepackage{color}                   %% allow colour
+\usepackage{latexsym}                %% symbols package
+\usepackage{amsmath}                 %% special mathematical functions
+\usepackage{theorem}
+\usepackage{amsfonts}
+%\usepackage{multirow}                %% multirow tables
+
+
+
+ %%############### Choose LANGUAGE
+ %%% English
+%	\usepackage[english]{babel}
+%	\selectlanguage{english}
+
+ %%% German
+	\usepackage[english, german]{babel}
+	\selectlanguage{german}
+   % %% In some cases you might need that
+   % \usepackage{german}
+	\usepackage[latin1]{inputenc}
+
+
+ %%############### Functions and Hyphenation rules
+\newcommand{\bbma} {\begin{bmatrix} }
+\newcommand{\ebma} {\end{bmatrix}}
+\newcommand{\real} {\mathbb{R}}
+\newcommand{\vs}[1]{\vspace{#1mm}}
+
+
+\hyphenation{Trenn-ungs-re-geln meh-re-re}
+
+
+ %%############### Enumeration of figures and equations
+\numberwithin{figure}{section}
+\numberwithin{equation}{section}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+
+
+ %%############### Figures
+\graphicspath{{figures/}} 				% Folder with the figures
+
+\ifpdf % pdfTeX
+	\DeclareGraphicsExtensions{.pdf,.png,.jpg,.gif,.pdftex}
+	\DeclareGraphicsRule{.pdftex}{pdf}{*}{}	% for xfig exported files
+	\newcommand{\xfig}[2]{\scalebox{#1}{\input{"figures/#2.pdftex_t"}}} % XFIG
+
+\else % DVI
+	\DeclareGraphicsExtensions{.eps,.pstex}
+	\DeclareGraphicsRule{.pstex}{eps}{*}{}		% for xfig exported files
+	\newcommand{\xfig}[2]{\scalebox{#1}{\input{"figures/#2.pstex_t"}}} % XFIG
+	%\usepackage{psfrag}		% might be useful
+\fi
+
+ % Other figures (e.g., MATLAB  EPS or PDF figures)
+\newcommand{\afig}[2]{\includegraphics[scale=#1]{#2}}
+
+ % figures defined in TeX files
+\newcommand{\tfig}[2]{\scalebox{#1}{\input{"#2.tex"}}}
+
+
+
+
+
+
+
+ %%############### Hyper References Settings
+%\ifpdf % pdfTeX
+%\else
+\usepackage[
+%a4paper=true;
+%letterpaper=false;
+hypertexnames = false,             % hyperlinks
+bookmarks=true,
+bookmarksnumbered=true,%
+linkbordercolor={0 1 1},%        % cyan
+urlbordercolor={0 0 1},%         % magenta
+plainpages=false,                % false - to fix the hyperpage links for index
+pdfsubject={Control Systems}]%
+{hyperref}
+%\fi
+
+
+
+
+
+ %%############### Page Size Settings
+%%% WAIT - before changing the settings make a back-up copy!!!
+%%% For more information about the meaning of the settings check
+%%% "The not so short introduction to LaTeX", page 125
+
+\setlength{\hoffset}{-1in}%               % To eliminate the standard offset
+\setlength{\voffset}{-1in}%
+\setlength{\evensidemargin}{23mm}%
+\setlength{\oddsidemargin}{35mm}%
+\setlength{\topmargin}{10mm}%
+\setlength{\headheight}{30pt}%
+
+\setlength{\headsep}{10mm}%
+\setlength{\textheight}{230mm}%
+\setlength{\textwidth}{160mm}%
+\setlength{\marginparsep}{0mm}%
+\setlength{\marginparwidth}{10mm}%
+\setlength{\footskip}{10mm}%
+
+\renewcommand{\textfraction}{0}%
+\renewcommand{\topfraction}{0.9}%
+\renewcommand{\bottomfraction}{0.9}%
+\renewcommand{\floatpagefraction}{1.5}
+
+\widowpenalty=10000      % penalty for creating widow line at top of page
+
+
+
+
+ %%############### Paragraph settings
+
+\setlength{\parindent}{0pt}%      % Paragraphs are not indent
+\setlength{\parskip}{5pt}%        % space between paragraphs
+
+\setlength{\labelwidth}{0.5cm}%
+\setlength{\labelsep}{0.5cm}%
+
+\renewcommand{\baselinestretch}{1.0}
+
+
+
+
+ %%############### % Numbered items
+%\setcounter{secnumdepth}{2}            % Number until 3th depth X.Y.Z
+%
+%\numberwithin{figure}  {section}       % Numbering of for the figures
+%\numberwithin{equation}{section}
+%
+%\newtheorem{definition} {Definition}[section]
+%\newtheorem{theorem}    {Theorem}   [section]
+
+
+
+
+ %%###############  Page Style settings
+%\usepackage{fancyhdr}                %% extended page layout formating
+
+%\pagestyle{fancy}
+%
+%\renewcommand{\chaptermark}[1]{\markboth{\thechapter. \MakeUppercase{#1}}{}}
+%\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+%\fancyhf{}%
+%\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.0pt}
+%
+% %% Single sinded
+%    \fancyhead[R]{\thepage}%%
+%    \fancyhead[L]{\rightmark}%%
+% \fancypagestyle{plain}{%
+%    \fancyhf{} % get rid of headers
+%    \renewcommand{\headrulewidth}{0pt}% get rid of the lines
+%    \renewcommand{\footrulewidth}{0pt}% get rid of the lines
+%}%
+%\makeatletter
+%\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page%
+%\else \thispagestyle{empty} \hbox{} \newpage%    
+%\fi\fi}%
+%\makeatother
+
+

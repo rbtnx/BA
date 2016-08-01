@@ -1,0 +1,19 @@
+\select@language {german}
+\contentsline {section}{\numberline {1}Das Schreiben mit LaTeX}{5}{section.3}
+\contentsline {subsection}{\numberline {1.1}Das Besondere an LaTeX}{5}{subsection.4}
+\contentsline {subsection}{\numberline {1.2}Normaler Text}{5}{subsection.5}
+\contentsline {subsubsection}{\numberline {1.2.1}Gliederungsebenen}{6}{subsubsection.6}
+\contentsline {subsection}{\numberline {1.3}Besondere Objekte}{6}{subsection.8}
+\contentsline {subsubsection}{\numberline {1.3.1}Bilder}{6}{subsubsection.9}
+\contentsline {subsubsection}{\numberline {1.3.2}Formeln}{7}{subsubsection.12}
+\contentsline {subsubsection}{\numberline {1.3.3}Symbole}{7}{subsubsection.14}
+\contentsline {subsubsection}{\numberline {1.3.4}Zitate}{7}{subsubsection.15}
+\contentsline {subsubsection}{\numberline {1.3.5}Inhaltsverzeichnis}{7}{subsubsection.16}
+\contentsline {subsubsection}{\numberline {1.3.6}Referenzen}{7}{subsubsection.17}
+\contentsline {section}{\numberline {2}Der wissenschaftliche Schreibstil}{8}{section.18}
+\contentsline {subsection}{\numberline {2.1}Korrektheit}{8}{subsection.19}
+\contentsline {subsection}{\numberline {2.2}Verst\"andlichkeit}{8}{subsection.20}
+\contentsline {subsection}{\numberline {2.3}Argumentationweise}{8}{subsection.21}
+\contentsline {subsection}{\numberline {2.4}Quellenangaben}{9}{subsection.28}
+\contentsline {subsection}{\numberline {2.5}Struktur}{9}{subsection.29}
+\contentsline {section}{\numberline {3}Zusammenfassung und Ausblick}{11}{section.30}

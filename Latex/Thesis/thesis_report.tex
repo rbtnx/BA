@@ -1,0 +1,115 @@
+ %***************************************************************************%
+ % Thesis work                                                               %
+ %                                                                           %
+ %                                                                           %
+ %                        B A C H E L O R   T H E S I S                      %
+ %                                                                           %
+ %                                                                           %
+ %  Title:                                                                   %
+ %                                                                           %
+ %  Author:                                                                  %
+ %                                                                           %
+ %  Supervisor:                                                              %
+ %                                                                           %
+ %  Date:                                                                    %
+ %                                                                           %
+ %***************************************************************************%
+
+ %   Template - Institute of Control Systems, TUHH
+ %
+ %   G. Lichtenberg
+ %
+ %   Updates:
+ %   GL: 31.07.2007
+ %   AP: 29.08.2007
+ %
+ %   Version 2.2
+
+ %##########################################
+ %     R E A D      M E     F I R S T  !
+ %##########################################
+ % Possible compilation processes:
+ % LaTeX -> DVI -> PS -> PDF   
+ % LaTeX -> pdfTeX -> PDF
+ %##########################################
+
+ %%################ Document  settings ###################
+\include{header}
+
+ %%#######################################################
+ %%################## Document Data ######################
+ % Titel der Arbeit
+\title{\vspace{2cm} Wie schreibt man eine Studien- oder Diplomarbeit? \vspace{3cm}}
+
+% Autoren
+\author{Gerwald Lichtenberg \vspace{2cm} \\
+ %  Die zutreffende Zeile auskommentieren ...
+ %  Betreuer: \\  Dr.-Ing. G.\ Lichtenberg  \\
+  \vspace{2cm} }
+
+\date{\today}
+
+
+ %%%%%%%%% Include only the sections you work with for faster compilation
+%\includeonly{}
+
+
+ %%##############################  CONTENTS ###################################
+\begin{document}
+
+ %% Title page
+\thispagestyle{empty}
+\maketitle
+\cleardoublepage
+
+
+ %% Erklärung der Eigenständigkeit  		%% Declaration
+\vspace{3cm}
+
+ %% English
+%Hereby I declare that I produced the present work myself only with the help of the indicated aids and sources.
+
+ %% Deutsch
+Hiermit erkläre ich, die vorliegende Arbeit selbstständig durchgeführt und keine weiteren Hilfsmittel und Quellen als die angegebenen genutzt zu haben.
+
+\vspace{3cm}
+
+Hamburg, \today  \hfill  Vorname Nachname
+
+
+ % Rücksetzen des Seitenzählers
+\cleardoublepage
+%\setcounter{page}{1}
+
+ %% Inhaltsverzeichnis							%% Table of Contents 
+\tableofcontents
+\cleardoublepage
+
+
+ %% Sections --------------------------------------------
+\include{kapitel_0}		% Einleitung
+
+\include{kapitel_1}
+
+\include{kapitel_2}
+
+\include{schluss}
+
+
+
+ %% References ------------------------------------------
+\bibliographystyle{IEEEtran}
+\bibliography{S:/Standards/BibTex/rts}
+
+ %%## Alternatively
+%\cleardoublepage
+%\begin{thebibliography}{99}
+%\bibitem{Skelton97} R. Skelton, T. Iwasaki and K. Grigoriadis,
+%"A unified approach to linear control design", Taylor \& Francis,
+%London, UK, 1997
+%\end{thebibliography}
+
+ %% Appendix ---------------------------------------------
+\appendix
+
+\end{document}

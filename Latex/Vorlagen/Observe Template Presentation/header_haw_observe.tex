@@ -1,0 +1,120 @@
+\makeatletter\let\ifGm@compatii\relax\makeatother
+%\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+\usepackage{pgfpages}
+
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm] 
+
+%\setbeameroption{show notes on second screen=right}
+%\setbeameroption{show notes}
+
+\mode<presentation>
+{
+  \usetheme{OBSERVE}
+  \setbeamercovered{transparent}
+  \usecolortheme{OBSERVE}
+}
+\usefonttheme{professionalfonts} 	% optional
+
+
+
+ %%######## Choose LANGUAGE
+
+ %%% English
+%    \usepackage[english]{babel}		% comment if cause of errors
+%    \selectlanguage{english}		% (due to MikTex - babel versions)
+
+ %%% German
+%    \usepackage[english,german]{babel}
+%    \selectlanguage{german}
+    %% In some cases you might need that
+  \usepackage{german}
+    \usepackage[latin1]{inputenc}
+    
+
+
+
+
+ %%######## Chose FONT
+%\usepackage[T1]{fontenc}
+% Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+%\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\makeatletter
+\newcommand{\gettikzxy}[3]{%
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}%
+  \edef#3{\the\pgf@y}%
+}
+\makeatother
+\usetikzlibrary{shapes,arrows,patterns,automata,calc,plotmarks,positioning,fit,decorations.pathmorphing}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{listings} 
+\usepackage{accents}
+\usepackage{gensymb}
+%\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt,language=c,emphstyle=\textbf, identifierstyle=\ttfamily, containsverbatim}
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt,language=c,emphstyle=\textbf, identifierstyle=\ttfamily}
+
+ %%######## GRAPHICS Options
+\graphicspath{{figures/}}				% Define the path to the figures
+
+\usepackage{ifpdf}
+
+\ifpdf % pdfTeX
+	\DeclareGraphicsExtensions{.pdf,.png,.jpg,.gif,.pdftex}
+	\DeclareGraphicsRule{.pdftex}{pdf}{*}{}	% for xfig exported files
+	\newcommand{\xfig}[2]{\scalebox{#1}{\input{"figures/#2.pdftex_t"}}} % XFIG
+\else % DVI
+	\DeclareGraphicsExtensions{.eps,.pstex}
+	\DeclareGraphicsRule{.pstex}{eps}{*}{}		% for xfig exported files
+	\newcommand{\xfig}[2]{\scalebox{#1}{\input{"figures/#2.pstex_t"}}} % XFIG
+	%\usepackage{psfrag}		% might be useful
+\fi
+
+ % Other figures (e.g., MATLAB  EPS or PDF figures)
+\newcommand{\afig}[2]{\includegraphics[scale=#1]{#2}}
+
+ % figures defined in TeX files
+\newcommand{\tfig}[2]{\scalebox{#1}{\input{"#2.tex"}}}
+\newcommand{\rd}{\color{red}}
+
+
+ %%######## Logos only on Title page
+\titlegraphic{
+\vspace{0.1cm}
+\includegraphics[height=1.8cm]{_logo_bmwi_}
+\hfill
+% Entsprechende Zeile auskommentieren
+\raisebox{-0mm}{\includegraphics[height=1.3cm]{_logo_haw}\hspace*{-0mm}}}
+
+
+ %%######## Other FUNCTIONS
+
+\newcommand{\vs}[1]{\vspace{#1mm}}
+
+\newtheorem{defn}{Definition}[section]
+ % Some color definitions
+\setbeamercolor{greenhead}{fg=white,bg=green!80!black}%
+\setbeamercolor{greenbody}{fg=black,bg=green!50!white}%
+
+\setbeamercolor{redhead}{fg=white,bg=red!80!black}%
+\setbeamercolor{redbody}{fg=black,bg=red!50!white}%
+
+\usepackage{caption}
+\captionsetup{labelformat=empty,labelsep=none}
+
+
+\newcommand{\eqh} {\mathrel{\widehat{=}}}
+\beamertemplatenavigationsymbolsempty 
+
+\newlength\figureheight
+\newlength\figurewidth 
+

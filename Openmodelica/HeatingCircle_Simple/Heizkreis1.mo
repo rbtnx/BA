@@ -1,0 +1,40 @@
+within HeatingCircle_Simple;
+
+model Heizkreis1
+  Buildings.Fluid.Movers.SpeedControlled_y ErzeugerPumpe(redeclare package Medium = Buildings.Media.Water, per.pressure(V_flow = {0.0003, 0.0006, 0.0008}, dp = {45, 35, 15} * 1000)) annotation(Placement(visible = true, transformation(origin = {0, 82}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Buildings.Fluid.FixedResistances.FixedResistanceDpM WidPrimVor(redeclare package Medium = Buildings.Media.Water, dp_nominal = 1500, m_flow_nominal = 0.2) annotation(Placement(visible = true, transformation(origin = {172, -22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  Buildings.Fluid.FixedResistances.FixedResistanceDpM WidPrimRueck(redeclare package Medium = Buildings.Media.Water, dp_nominal = 1000, m_flow_nominal = 0.2) annotation(Placement(visible = true, transformation(origin = {138, -22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  Buildings.Fluid.FixedResistances.SplitterFixedResistanceDpM spl(redeclare package Medium = Buildings.Media.Water, dp_nominal = {200, -200, 200}, m_flow_nominal = {0.2, -0.2, -0.2})  annotation(Placement(visible = true, transformation(origin = {10, 26}, extent = {{10, -10}, {-10, 10}}, rotation = 180)));
+  Buildings.Fluid.FixedResistances.SplitterFixedResistanceDpM spl1(redeclare package Medium = Buildings.Media.Water, dp_nominal = {1, -1, -1} * 200, m_flow_nominal = {0.2, -0.2, -0.2})  annotation(Placement(visible = true, transformation(origin = {-10, 4}, extent = {{10, -10}, {-10, 10}}, rotation = 180)));
+  Modelica.Blocks.Sources.Sine sine1(amplitude = 0.5, freqHz = 5 / 86400, offset = 0.5) annotation(Placement(visible = true, transformation(origin = {-34, 94}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Buildings.Fluid.Storage.ExpansionVessel exp(redeclare package Medium = Buildings.Media.Water, V_start = 1)  annotation(Placement(visible = true, transformation(origin = {-96, 58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Buildings.Fluid.Movers.SpeedControlled_y fan(redeclare package Medium = Buildings.Media.Water, per.pressure(V_flow = {0.0003, 0.0006, 0.0008}, dp = {45, 35, 15} * 1000)) annotation(Placement(visible = true, transformation(origin = {-60, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+  Buildings.Fluid.Movers.SpeedControlled_y fan1(redeclare package Medium = Buildings.Media.Water, per.pressure(V_flow = {0.0003, 0.0006, 0.0008}, dp = {45, 35, 15} * 1000)) annotation(Placement(visible = true, transformation(origin = {-118, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+  Modelica.Blocks.Sources.Constant const(k = 0.3) annotation(Placement(visible = true, transformation(origin = {-158, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Buildings.Fluid.Sources.Boundary_pT bou(redeclare package Medium = Buildings.Media.Water, nPorts = 2, p = 200000) annotation(Placement(visible = true, transformation(origin = {182, -98}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Buildings.Fluid.FixedResistances.SplitterFixedResistanceDpM spl2(redeclare package Medium = Buildings.Media.Water, dp_nominal = {1, -1, 1} * 200, m_flow_nominal = {0.2, -0.2, 0.2}) annotation(Placement(visible = true, transformation(origin = {90, -76}, extent = {{-10, 10}, {10, -10}}, rotation = 180)));
+  Buildings.Fluid.FixedResistances.SplitterFixedResistanceDpM spl3(redeclare package Medium = Buildings.Media.Water, dp_nominal = {1, -1, -1} * 200, m_flow_nominal = {0.2, -0.2, -0.2}) annotation(Placement(visible = true, transformation(origin = {120, -98}, extent = {{-10, 10}, {10, -10}}, rotation = 180)));
+  Buildings.Fluid.Sources.Boundary_pT bou1(redeclare package Medium = Buildings.Media.Water, nPorts = 2)  annotation(Placement(visible = true, transformation(origin = {-72, -68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Buildings.Fluid.Movers.SpeedControlled_y VerbraucherPumpe1(redeclare package Medium = Buildings.Media.Water, per.pressure(V_flow = {0.0003, 0.0006, 0.0008}, dp = {45, 35, 15} * 1000)) annotation(Placement(visible = true, transformation(origin = {106, -146}, extent = {{10, 10}, {-10, -10}}, rotation = 0)));
+  Modelica.Blocks.Sources.Sine sine2(amplitude = 0.5, freqHz = 2 / 86400, offset = 0.5) annotation(Placement(visible = true, transformation(origin = {72, -174}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+equation
+  connect(sine2.y, VerbraucherPumpe1.y) annotation(Line(points = {{83, -174}, {106, -174}, {106, -158}}, color = {0, 0, 127}));
+  connect(spl3.port_3, VerbraucherPumpe1.port_a) annotation(Line(points = {{120, -108}, {120, -108}, {120, -108}, {120, -108}, {120, -146}, {118, -146}, {118, -146}, {116, -146}, {116, -146}}, color = {0, 127, 255}));
+  connect(VerbraucherPumpe1.port_b, spl2.port_3) annotation(Line(points = {{96, -146}, {90, -146}, {90, -86}, {90, -86}}, color = {0, 127, 255}));
+  connect(spl3.port_1, bou.ports[2]) annotation(Line(points = {{130, -98}, {172, -98}}, color = {0, 127, 255}));
+  connect(spl3.port_2, fan1.port_a) annotation(Line(points = {{110, -98}, {-118, -98}, {-118, -20}}, color = {0, 127, 255}));
+  connect(WidPrimRueck.port_b, spl2.port_1) annotation(Line(points = {{138, -32}, {138, -76}, {100, -76}}, color = {0, 127, 255}));
+  connect(spl2.port_2, bou1.ports[2]) annotation(Line(points = {{80, -76}, {-60, -76}, {-60, -68}, {-62, -68}}, color = {0, 127, 255}));
+  connect(WidPrimVor.port_b, bou.ports[1]) annotation(Line(points = {{172, -32}, {172, -98}}, color = {0, 127, 255}));
+  connect(spl1.port_2, WidPrimRueck.port_a) annotation(Line(points = {{0, 4}, {138, 4}, {138, -12}}, color = {0, 127, 255}));
+  connect(spl.port_2, WidPrimVor.port_a) annotation(Line(points = {{20, 26}, {172, 26}, {172, -12}}, color = {0, 127, 255}));
+  connect(fan.port_a, bou1.ports[1]) annotation(Line(points = {{-60, -48}, {-60, -48}, {-60, -68}, {-62, -68}}, color = {0, 127, 255}));
+  connect(fan.port_b, spl1.port_1) annotation(Line(points = {{-60, -28}, {-60, 4}, {-20, 4}}, color = {0, 127, 255}));
+  connect(const.y, fan.y) annotation(Line(points = {{-147, -38}, {-72, -38}}, color = {0, 0, 127}));
+  connect(fan1.y, const.y) annotation(Line(points = {{-130, -10}, {-136, -10}, {-136, -38}, {-147, -38}}, color = {0, 0, 127}));
+  connect(fan1.port_b, spl.port_1) annotation(Line(points = {{-118, 0}, {-118, 26}, {0, 26}}, color = {0, 127, 255}));
+  connect(spl1.port_3, ErzeugerPumpe.port_a) annotation(Line(points = {{-10, 14}, {-10, 14}, {-10, 82}, {-10, 82}}, color = {0, 127, 255}));
+  connect(ErzeugerPumpe.port_b, spl.port_3) annotation(Line(points = {{10, 82}, {10, 82}, {10, 36}, {10, 36}}, color = {0, 127, 255}));
+  connect(sine1.y, ErzeugerPumpe.y) annotation(Line(points = {{-23, 94}, {0, 94}}, color = {0, 0, 127}));
+  annotation(uses(Buildings(version = "3.0.0"), Modelica(version = "3.2.1")), Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}})), version = "", experiment(StartTime = 0, StopTime = 86400, Tolerance = 1e-6, Interval = 60));
+end Heizkreis1;

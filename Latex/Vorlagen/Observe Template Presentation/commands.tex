@@ -1,0 +1,1223 @@
+\def\matlab{MATLAB }
+\def\simulink{SIMULINK }
+\def\colst#1{\color{blue}#1\color{black}} 
+\definecolor{lightblue}{rgb}{0,0.5,0}
+\def\colstd#1{\color{lightblue}#1\color{black}} 
+
+\newcommand\trp{T} % transpose
+\newcommand\ts{t_s}
+\newcommand\Ts{\colst{T_s}}
+\newcommand\dTs{\colst{\dot{T}_s}}
+\newcommand\Tr{\colst{T_r}} 
+\newcommand\dTr{\colst{\dot{T}_r}} 
+\newcommand\Tb{\colst{T_b}} 
+\newcommand\DTb{\Delta T_b}
+\def\Tbr{T_{br}} 
+\def\Ta{\colstd{T_a}}
+\def\Tam{T_{a,m}}
+\def\Td{\colst{T_{a1}}} 
+\def\dTd{\colst{T_{a2}}} 
+\def\Ty{\colst{T_{a3}}} 
+\def\dTy{\colst{T_{a4}}}
+\def\dotTd{\colst{\dot{T}_{a1}}} 
+\def\dotdTd{\colst{\dot{T}_{a2}}} 
+\def\dotTy{\colst{\dot{T}_{a3}}} 
+\def\dotdTy{\colst{\dot{T}_{a4}}}
+\newcommand\Xl{\colst{X_{l}}} 
+\newcommand\Xu{\colst{X_{u}}} 
+\newcommand\dV{\colstd{\dot{V}}} 
+\newcommand\Kel{K}
+\def\dVm{\dot{V}_m} 
+\def\dVa{\dot{V}_a} 
+\def\Vk{V_b}
+\def\Vv{V_c}
+\def\nst{\Phi}
+\def\kr{k_b}
+\def\khr{k_{r,b}}
+\def\kra{k_{b,a}}
+\def\Qab{\colstd{\dot{Q}_d}}
+\def\Hl{\colst{H_l}}
+\def\Hu{\colst{H_u}}
+\def\Hll{75 \degree \mbox{C}}
+\def\Hul{95 \degree \mbox{C}}
+\def\Inp{\colst{U}}
+\def\Pin{P_{max}\Inp}
+\def\quant{\beta}
+\def\mylabel{\label}
+\def\tens{\texttt}
+\def\xb{x}
+\def\ub{u}
+\def\monel{\mu}
+\def\comment#1{\color{red}
+
+\uppercase{#1}
+
+\color{black}} 
+
+
+\def\bmag#1#2{
+\left(\begin{array}{*{#1}{c}}
+#2
+\end{array}
+\right)
+}
+\def\unterlinie#1{\underline{#1}}
+
+\newcommand{\bbma} {\begin{bmatrix} }
+\newcommand{\ebma} {\end{bmatrix}}
+\newcommand{\bpma} {\begin{pmatrix} }
+\newcommand{\epma} {\end{pmatrix}}
+
+
+
+
+ \def\vec#1{\ensuremath{\mathchoice
+                     {\mbox{\boldmath$\displaystyle\mathbf{#1}$}}
+                     {\mbox{\boldmath$\textstyle\mathbf{#1}$}}
+                     {\mbox{\boldmath$\scriptstyle\mathbf{#1}$}}
+                     {\mbox{\boldmath$\scriptscriptstyle\mathbf{#1}$}}}}%
+
+% tensor
+\def\tens#1{\relax\ifmmode\mathsf{#1}\else\textsf{#1}\fi}
+
+\def\norm#1{\|#1\|} 
+
+\def\utilde{\undertilde}
+
+%\def\kruskal#1{\left[\left[\; #1 \;\right]\right]}
+
+\newcommand{\tucker}[2]{\left[ #1 \right] \cdot #2}
+\newcommand{\kruskalone}[1]{\left[ #1 \right] \cdot \tens{I}}
+\newcommand{\kruskal}[2]{\left[ #1 \right] \cdot #2 }
+\newcommand{\krusk}[1]{\left[ #1 \right] }
+\newcommand{\kruskaltwo}[2]{\left[ #1 \right] \cdot #2}
+
+%\newcommand{\cprod}[3]{\left\langle\!\!\!\left\langle \, #1 \,|\,  #2  \right.\right\rangle_{#3}}
+
+%\newcommand{\cprod}[3]{\left\langle #1 \,,\,  #2  \right\rangle_{#3}}
+
+\newcommand{\cprod}[3]{\left\langle\,#1\,\left|\,#2\,\right.\right\rangle_{#3}}
+\newcommand{\aprod}[3]{\left\langle\,#1\,\left|\,#2\,\right.\right\rangle^+_{#3}}
+\newcommand{\bprod}[3]{\left\langle\,#1\,\left|\,#2\,\right.\right\rangle^\Box_{#3}}
+\newcommand{\hprod}[3]{\left\langle\,#1\,\left|\,#2\,\right.\right\rangle^\boxplus_{#3}}
+
+%\newcommand{\cprod}[3]{\left\langle\,#1\,|\cdot |\,#2\,\right\rangle_{#3}}
+
+
+%\newcommand{\hprod}[3]{\left\langle\!\left\langle #1 \,|\, #2  \right.\right\rangle^*_{#3}}
+
+\newcommand{\iprod}[2]{\left\langle #1 \,,\,  #2  \right\rangle}
+
+
+\newcommand{\btens}[1]{ 
+\underline{\tens{#1}}}
+
+\newcommand{\htens}[1]{ 
+{\tens{#1}^*}}
+
+\newcommand{\ctens}[1]{ 
+\utilde{\tens{#1}}}
+
+%\newcommand{\atens}[1]{ 
+%\underline{\underline{\tens{#1}}}}
+
+\newcommand{\atens}[1]{ 
+\tens{#1}}
+
+\newcommand{\cvec}[1]{%\raisebox{1mm}{
+\utilde{%\raisebox{-1mm}{
+\mathbf{#1}
+%}}
+}}
+
+%commands for scalars 
+\newcommand{\cscal}[1]{%\raisebox{1mm}{
+\utilde{%\raisebox{-1mm}{
+#1
+%}}
+}}
+\newcommand{\bscal}[1]{%\raisebox{1mm}{
+\underline{%\raisebox{-1mm}{
+#1
+%}}
+}}
+
+\newcommand{\amat}[1]{ 
+\underline{\underline{\mat{#1}}}}
+
+%\newcommand{\amati}[1]{ 
+%\underline{\underline{\mat{#1}\hspace{-1pt}}}\hspace{1pt}}
+
+\newcommand{\amati}[1]{ 
+\mat{#1}}
+
+
+\newcommand{\cmat}[1]{%\raisebox{1mm}{
+\utilde{%\raisebox{-1mm}{
+\mat{#1}
+%}}
+}}
+
+
+\newcommand{\btensi}[1]{ 
+\underline{\tens{#1}\hspace{-1pt}}\hspace{1pt}}
+
+
+\newcommand{\ctensi}[1]{ 
+\utilde{\tens{#1}\hspace{-1pt}}\hspace{1pt}}
+
+\newcommand{\bvec}[1]{ 
+\underline{\vec{#1}}}
+
+
+
+\newcommand{\bveci}[1]{
+\underline{\vec{#1}\hspace{-1pt}}\hspace{1pt}}
+
+
+
+\newcommand{\tmat}[1]{\mbox{mat} \left( 
+\mathbf{#1} \right)}
+
+\newcommand{\tvec}[1]{\mbox{vec} \left( 
+\mathbf{#1} \right)}
+
+\newcommand{\hvec}[1]{ \mathbf{#1}}
+
+
+%\newcommand{\fone}[0]{\vec{\nu}_1 }
+%\newcommand{\fzero}[0]{\vec{\nu}_0 }
+%\newcommand{\fdcare}[0]{\vec{\nu}_{-}}
+
+%\newcommand{\fone}[0]{\boxminus_1 }
+
+\newcommand{\fone}[0]{\framebox[4mm]{1}}
+\newcommand{\fzero}[0]{\framebox[4mm]{0}}
+%\newcommand{\fdcare}[0]{\framebox[4mm]{\phantom{$0$}\hspace{-5pt}$-$}}
+\newcommand{\fdcare}[0]{\framebox[4mm]{\phantom{$0$}}}
+
+
+\newcommand{\mat}[1]{
+\mathbf{#1}}
+
+\newcommand{\bmati}[1]{ 
+\underline{\mathbf{#1}\hspace{-1pt}}\hspace{1pt}}
+
+\newcommand{\bmat}[1]{ 
+\underline{\mathbf{#1}}}
+
+
+\newcommand{\bighadamard}
+{ \bigotimes\hspace{-3.26ex}\bigoplus}
+
+\newcommand{\hadamard}
+{\circledast}
+%{ \otimes\hspace{-2.03ex}\oplus\;}
+
+\newcommand{\vecop}[1]
+{ \mbox{vec}\hspace{1mm}({#1}) }
+
+\newcommand{\mycitation}[2]
+{
+\vspace{-25mm}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\textit{#1}
+\end{minipage}
+\vspace{5mm}
+
+\hfill \textrm{#2}
+
+\vspace{15mm}
+}
+
+
+\newcommand{\tikzfig}[4]
+{
+\begin{figure}[h!]
+\begin{center}
+\scalebox{#3}{
+\input{../pic/#2/#1.tikz}
+%Figure
+}
+\end{center}
+\caption{#4}
+\label{fig:#2--#1}
+\end{figure}
+}
+
+
+\newcommand{\myfig}[4]
+{
+\begin{figure}[h!]
+\begin{center}
+\ifpdf
+	\includegraphics[scale = #3]{../pic/#2/#1.pdf}
+\else
+	\includegraphics[scale = #3]{../pic/#2/#1.eps}
+\fi
+%Figure
+\end{center}
+\caption{#4}
+\label{fig:#2--#1}
+\end{figure}
+}
+
+
+\newcommand{\tvlone}[1]
+{\mbox{$
+\begin{array}{c}
+\lceil 
+\texttt{#1} 
+\rfloor
+\end{array}
+$}}
+
+
+\newcommand{\tvlnotone}[1]
+{\mbox{$
+\begin{array}{c}
+\lceil 
+\overline{\texttt{#1} }
+\rfloor
+\end{array}
+$}}
+
+
+
+\newcommand{\tvltwo}[2]
+{\mbox{$
+\begin{array}{c@{\hspace{0pt}}c@{\hspace{0pt}}c}
+\lceil 
+ &\texttt{#1} \\[-3pt]
+ &\texttt{#2}
+&\rfloor
+\end{array}
+$}}
+
+\newcommand{\tvlthree}[3]
+{\mbox{$
+\begin{array}{c@{\hspace{0pt}}c@{\hspace{0pt}}c}
+\lceil 
+  &\texttt{#1} \\[-3pt]
+  &\texttt{#2} \\[-3pt]
+  &\texttt{#3}
+&\rfloor
+\end{array}
+$}}
+
+\newcommand{\tvlfour}[4]
+{\mbox{$
+\begin{array}{c@{\hspace{0pt}}c@{\hspace{0pt}}c}
+\lceil 
+  &\texttt{#1} \\[-3pt]
+  &\texttt{#2} \\[-3pt]
+  &\texttt{#3} \\[-3pt]
+  &\texttt{#4}
+&\rfloor
+\end{array}
+$}}
+
+
+\newcommand{\booleanfunctwod}[8]
+{
+\begin{tikzpicture}[auto,node distance=2cm,thick]
+\ifcase#1
+  \node[state]  (A) {#5};
+\or
+  \node[state,fill=gray,draw=none,text=white] (A) {#5};
+\fi
+\ifcase#2
+  \node[state] (B) [above of=A] {#6};
+\or
+  \node[state,fill=gray,draw=none,text=white] (B) [above of=A] {#6};
+\fi
+\ifcase#3
+  \node[state] (C) [right of=A] {#7};
+\or
+  \node[state,fill=gray,draw=none,text=white] (C) [right of=A] {#7};
+\fi
+\ifcase#4
+   \node[state] (D) [above of=C] {#8};
+\or
+  \node[state,fill=gray,draw=none,text=white] (D) [above of=C] {#8};
+\fi
+  \path (A) edge              node  {} (B)
+        (A) edge              node  {} (C)
+        (B) edge              node  {} (D)
+        (C) edge              node  {} (D);
+\end{tikzpicture}
+}
+
+
+%\newcommand{\booleanfuncthreed}[8]
+%{
+%\tikzstyle{state}=[circle,minimum size=2mm,draw=black!100]
+%\begin{tikzpicture}[auto,node distance=10mm,thick]
+%\ifcase#1
+%  \node[state]  (A) {};
+%\or
+%  \node[state,fill=gray,draw=none,text=white] (A) {};
+%\fi
+%\ifcase#2
+%  \node[state] (B) [right of=A] {};
+%\or
+%  \node[state,fill=gray,draw=none,text=white] (B) [right of=A] {};
+%\fi
+%\ifcase#3
+%  \node[state] (C) [above of=A] {};
+%\or
+%  \node[state,fill=gray,draw=none,text=white] (C) [above of=A] {};
+%\fi
+%\ifcase#4
+%   \node[state] (D) [above of=B] {};
+%\or
+%  \node[state,fill=gray,draw=none,text=white] (D) [above of=B] {};
+%\fi
+%\ifcase#5
+%  \node[state]  (E) [above left of=A,node distance=6mm] {};
+%\or
+%  \node[state,fill=gray,draw=none,text=white,node distance=6mm] (E)  [above left of=A] {};
+%\fi
+%\ifcase#6
+%  \node[state] (F) [right of=E] {};
+%\or
+%  \node[state,fill=gray,draw=none,text=white] (F) [right of=E] {};
+%\fi
+%\ifcase#7
+%  \node[state] (G) [above of=E] {};
+%\or
+%  \node[state,fill=gray,draw=none,text=white] (G) [above of=E] {};
+%\fi
+%\ifcase#8
+%   \node[state] (H) [above of=F] {};
+%\or
+%  \node[state,fill=gray,draw=none,text=white] (H) [above of=F] {};
+%\fi
+%
+%
+%  \path (A) edge              node  {} (B)
+%        (A) edge              node  {} (C)
+%        (A) edge              node  {} (E)
+%        (B) edge              node  {} (D)
+%        (B) edge              node  {} (F)
+%        (C) edge              node  {} (D)
+%        (C) edge              node  {} (G)
+%        (D) edge              node  {} (H)
+%        (E) edge              node  {} (F)
+%        (E) edge              node  {} (G)
+%        (F) edge              node  {} (H)
+%        (G) edge              node  {} (H);
+%\end{tikzpicture}
+%}
+
+\newcounter{ai}
+\newcounter{ni}
+
+\newcommand{\booleanfunctwodlist}[1]
+{
+\tikzstyle{state}=[circle,minimum size=2mm,draw=black!100,fill = gray]
+\begin{tikzpicture}[auto,node distance=10mm,thick]
+  \node[state] (A) {};
+  \node[state] (B) [right of=A] {};
+  \node[state] (C) [above of=A] {};
+  \node[state] (D) [above of=B] {};
+  \path (A) edge              node  {} (B)
+        (A) edge              node  {} (C)
+        (B) edge              node  {} (D)
+        (C) edge              node  {} (D);
+\setcounter{ai}{0}
+\foreach \a in {#1} {
+	\stepcounter{ai}
+	\setcounter{ni}{0}
+	\ifcase\a 
+		\foreach \n in {A,B,C,D} {
+			\stepcounter{ni}
+			\ifnum\value{ni}=\value{ai}
+  				\node[state,fill = white] at (node cs:name=\n) {};
+				\breakforeach
+			\fi
+		}
+	\fi
+}
+\end{tikzpicture}
+
+}
+
+
+\newcommand{\booleanfuncthreedlist}[1]
+{
+\tikzstyle{state}=[circle,minimum size=2mm,draw=black!100,fill = gray]
+\begin{tikzpicture}[auto,node distance=10mm,thick]
+  \node[state] (A) {};
+  \node[state] (B) [right of=A] {};
+  \node[state] (C) [above of=A] {};
+  \node[state] (D) [above of=B] {};
+  \node[state] (E) [above right of=A,node distance=6mm] {};
+  \node[state] (F) [right of=E] {};
+  \node[state] (G) [above of=E] {};
+  \node[state] (H) [above of=F] {};
+  \path (A) edge              node  {} (B)
+        (A) edge              node  {} (C)
+        (A) edge              node  {} (E)
+        (B) edge              node  {} (D)
+        (B) edge              node  {} (F)
+        (C) edge              node  {} (D)
+        (C) edge              node  {} (G)
+        (D) edge              node  {} (H)
+        (E) edge              node  {} (F)
+        (E) edge              node  {} (G)
+        (F) edge              node  {} (H)
+        (G) edge              node  {} (H);
+\setcounter{ai}{0}
+\foreach \a in {#1} {
+	\stepcounter{ai}
+	\setcounter{ni}{0}
+	\ifcase\a 
+		\foreach \n in {A,B,C,D,E,F,G,H} {
+			\stepcounter{ni}
+			\ifnum\value{ni}=\value{ai}
+  				\node[state,fill = white] at (node cs:name=\n) {};
+				\breakforeach
+			\fi
+		}
+	\fi
+}
+\end{tikzpicture}
+
+}
+
+
+
+\newcommand{\booleanfuncfourdlist}[1]
+{
+\tikzstyle{state}=[circle,minimum size=2mm,draw=black!100,fill = gray]
+\begin{tikzpicture}[auto,node distance=18mm,thick]
+  \node[state] (A) {};
+  \node[state] (B) [right of=A] {};
+  \node[state] (C) [above of=A] {};
+  \node[state] (D) [above of=B] {};
+  \node[state] (E) [above right of=A,node distance=10mm] {};
+  \node[state] (F) [right of=E] {};
+  \node[state] (G) [above of=E] {};
+  \node[state] (H) [above of=F] {};
+  \node[state] (I) [above left of=A,node distance=5mm] {};
+  \node[state] (J) [right of=I] {};
+  \node[state] (K) [above of=I] {};
+  \node[state] (L) [above of=J] {};
+  \node[state] (M) [above right of=I,node distance=10mm] {};
+  \node[state] (N) [right of=M] {};
+  \node[state] (O) [above of=M] {};
+  \node[state] (P) [above of=N] {};
+
+  \path (A) edge              node  {} (B)
+        (A) edge              node  {} (C)
+        (A) edge              node  {} (E)
+        (A) edge              node  {} (I)
+        (B) edge              node  {} (D)
+        (B) edge              node  {} (F)
+        (B) edge              node  {} (J)
+        (C) edge              node  {} (D)
+        (C) edge              node  {} (G)
+        (C) edge              node  {} (K)
+        (D) edge              node  {} (H)
+        (D) edge              node  {} (L)
+        (E) edge              node  {} (F)
+        (E) edge              node  {} (G)
+        (E) edge              node  {} (M)
+        (F) edge              node  {} (H)
+        (F) edge              node  {} (N)
+        (G) edge              node  {} (H)
+        (G) edge              node  {} (O)
+        (H) edge              node  {} (P)
+        (I) edge              node  {} (J)
+        (I) edge              node  {} (K)
+        (I) edge              node  {} (M)
+        (J) edge              node  {} (L)
+        (J) edge              node  {} (N)
+        (K) edge              node  {} (L)
+        (K) edge              node  {} (O)
+        (L) edge              node  {} (P)
+        (M) edge              node  {} (N)
+        (M) edge              node  {} (O)
+        (N) edge              node  {} (P)
+        (O) edge              node  {} (P);
+\setcounter{ai}{0}
+\foreach \a in {#1} {
+	\stepcounter{ai}
+	\setcounter{ni}{0}
+	\ifcase\a 
+		\foreach \n in {A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P} {
+			\stepcounter{ni}
+			\ifnum\value{ni}=\value{ai}
+  				\node[state,fill = white] at (node cs:name=\n) {};
+				\breakforeach
+			\fi
+		}
+	\fi
+}
+\end{tikzpicture}
+
+}
+
+
+
+%\begin{tikzpicture}[scale = 10]
+%\coordinate (A) at (0.1,0.2);
+%\coordinate (B) at (0.2,0.3);
+%\coordinate (C) at (0.4,0.7);
+%\coordinate (D) at (0.9,0.5);
+%\small
+%\node at (barycentric cs:A=0,B=1,C=1,D=0) {0110};
+%\node at (barycentric cs:A=1,B=0,C=0,D=1) {1001};
+%\node at (barycentric cs:A=0,B=0,C=0,D=0) {0000};
+%\node at (barycentric cs:A=1,B=1,C=1,D=1) {1111};
+%\end{tikzpicture}
+
+
+
+
+
+\newcommand{\tvlgraphtwo}[6]{
+\begin{tikzpicture}
+	\pgfmathparse{#1} \let\xpz\pgfmathresult
+	\pgfmathparse{#2} \let\xpo\pgfmathresult
+	\pgfmathparse{#3} \let\ypz\pgfmathresult
+	\pgfmathparse{#4} \let\ypo\pgfmathresult
+	\pgfmathparse{#6} \let\scale\pgfmathresult
+
+	\pgfmathparse{1-\xpz} \let\xnz\pgfmathresult
+	\pgfmathparse{1-\xpo} \let\xno\pgfmathresult
+	\pgfmathparse{1-\ypz} \let\ynz\pgfmathresult
+	\pgfmathparse{1-\ypo} \let\yno\pgfmathresult
+
+\ifcase#5
+     \tikzstyle{every node}=[draw,circle,fill=white,minimum size=9mm,
+                            inner sep=0pt]
+
+	\node (A) at (0,0) {\tvlone{}};
+	\node (B) at (\xpz*\ypz*\scale,\xpo*\ypo*\scale) {\tvlone{11}};
+	\node (C) at (\xnz*\ypz*\scale,\xno*\ypo*\scale) {\tvlone{01}};
+	\node (D) at (\xpz*\ynz*\scale,\xpo*\yno*\scale) {\tvlone{10}};
+	\node (E) at (\xnz*\ynz*\scale,\xno*\yno*\scale) {\tvlone{00}};
+   \node (F) at (\xpz*\scale,\xpo*\scale) {\tvlone{1-}}; 
+   \node (G) at (\xnz*\scale,\xno*\scale) {\tvlone{0-}}; 
+   \node (H) at (\ypz*\scale,\ypo*\scale) {\tvlone{-1}}; 
+   \node (I) at (\ynz*\scale,\yno*\scale) {\tvlone{-0}}; 
+   \node (J) at (\xnz*\ypz*\scale+\xpz*\ynz*\scale,\xno*\ypo*\scale+\xpo*\yno*\scale) {\tvltwo{01}{10}}; 
+   \node (K) at (\xnz*\scale+\xpz*\ynz*\scale,\xno*\scale+\xpo*\yno*\scale) {\tvlnotone{11}}; 
+   \node (L) at (\xnz*\scale+\xpz*\ypz*\scale,\xno*\scale+\xpo*\ypo*\scale) {\tvlnotone{10}}; 
+   \node (M) at (\ypz*\scale+\xpz*\ynz*\scale,\ypo*\scale+\xpo*\yno*\scale) {\tvlnotone{00}}; 
+   \node (N) at (\xnz*\ynz*\scale+\xpz*\ypz*\scale,\xno*\yno*\scale+\xpo*\ypo*\scale)  {\tvltwo{00}{11}}; 
+   \node (O) at (\ynz*\scale+\xpz*\ypz*\scale,\yno*\scale+\xpo*\ypo*\scale) {\tvlnotone{01}}; 
+   \node (P) at (\scale,\scale) {\tvlone{--}}; 
+\or 
+     \tikzstyle{every node}=[draw,circle,fill=blue,minimum size=1mm,
+                            inner sep=0pt]
+
+	\node (A) at (0,0) {};
+	\node (B) at (\xpz*\ypz*\scale,\xpo*\ypo*\scale) {};
+	\node (C) at (\xnz*\ypz*\scale,\xno*\ypo*\scale) {};
+	\node (D) at (\xpz*\ynz*\scale,\xpo*\yno*\scale) {};
+	\node (E) at (\xnz*\ynz*\scale,\xno*\yno*\scale) {};
+   \node (F) at (\xpz*\scale,\xpo*\scale) {};
+   \node (G) at (\xnz*\scale,\xno*\scale) {}; 
+   \node (H) at (\ypz*\scale,\ypo*\scale) {};
+   \node (I) at (\ynz*\scale,\yno*\scale){};
+   \node (J) at (\xnz*\ypz*\scale+\xpz*\ynz*\scale,\xno*\ypo*\scale+\xpo*\yno*\scale) {};
+   \node (K) at (\xnz*\scale+\xpz*\ynz*\scale,\xno*\scale+\xpo*\yno*\scale) {}; 
+   \node (L) at (\xnz*\scale+\xpz*\ypz*\scale,\xno*\scale+\xpo*\ypo*\scale) {};
+   \node (M) at (\ypz*\scale+\xpz*\ynz*\scale,\ypo*\scale+\xpo*\yno*\scale) {};
+   \node (N) at (\xnz*\ynz*\scale+\xpz*\ypz*\scale,\xno*\yno*\scale+\xpo*\ypo*\scale) {};
+   \node (O) at (\ynz*\scale+\xpz*\ypz*\scale,\yno*\scale+\xpo*\ypo*\scale) {};
+   \node (P) at (\scale,\scale) {};
+
+\fi
+
+
+	\path (A) edge (B);
+	\path	(A) edge (C);
+	\path	(A) edge (D);
+	\path	(A) edge (E);
+	\path (B) edge (F);
+	\path	(B) edge (H);
+	\path	(B) edge (N);
+	\path	(C) edge (H);
+	\path	(C) edge (J);
+	\path	(C) edge (G);
+	\path	(D) edge (F);
+	\path	(D) edge (I);
+	\path	(D) edge (J);
+	\path	(E) edge (I);
+	\path	(E) edge (G);
+	\path	(E) edge (N);
+	\path	(F) edge (M);
+	\path	(F) edge (O);
+	\path	(G) edge (K);
+	\path	(G) edge (L);
+	\path	(H) edge (M);
+	\path	(H) edge (L);
+	\path	(I) edge (K);
+	\path	(I) edge (O);
+	\path	(J) edge (K);
+	\path	(J) edge (M);
+	\path	(K) edge (P);
+	\path	(L) edge (N);
+	\path	(L) edge (P);
+	\path	(M) edge (P);
+	\path	(N) edge (L);	
+	\path	(N) edge (O);
+	\path	(O) edge (P);
+
+\end{tikzpicture}
+ }
+
+
+
+\newcommand{\zhegalkingraphtwo}[6]{
+\begin{tikzpicture}
+	\pgfmathparse{#1} \let\xpz\pgfmathresult
+	\pgfmathparse{#2} \let\xpo\pgfmathresult
+	\pgfmathparse{#3} \let\ypz\pgfmathresult
+	\pgfmathparse{#4} \let\ypo\pgfmathresult
+	\pgfmathparse{#6} \let\scale\pgfmathresult
+
+	\pgfmathparse{1-\xpz} \let\xnz\pgfmathresult
+	\pgfmathparse{1-\xpo} \let\xno\pgfmathresult
+	\pgfmathparse{1-\ypz} \let\ynz\pgfmathresult
+	\pgfmathparse{1-\ypo} \let\yno\pgfmathresult
+
+\ifcase#5
+     \tikzstyle{every node}=[draw,circle,fill=white,minimum size=15mm,
+                            inner sep=0pt]
+
+	\node (A) at (0,0) {$0$};
+	\node (B) at (\xpz*\ypz*\scale,\xpo*\ypo*\scale) {$x_1 x_2$};
+	\node (C) at (\xnz*\ypz*\scale,\xno*\ypo*\scale) {$\bar{x}_1 x_2$};
+	\node (D) at (\xpz*\ynz*\scale,\xpo*\yno*\scale) {$x_1 \bar{x}_2$};
+	\node (E) at (\xnz*\ynz*\scale,\xno*\yno*\scale) {$\bar{x}_1 \bar{x}_2$};
+   \node (F) at (\xpz*\scale,\xpo*\scale) {$x_1 $}; 
+   \node (G) at (\xnz*\scale,\xno*\scale) {$\bar{x}_1$}; 
+   \node (H) at (\ypz*\scale,\ypo*\scale) {$x_2$}; 
+   \node (I) at (\ynz*\scale,\yno*\scale) {$\bar{x}_2$}; 
+   \node (J) at (\xnz*\ypz*\scale+\xpz*\ynz*\scale,\xno*\ypo*\scale+\xpo*\yno*\scale) {$\bar{x}_1 x_2 + x_1 \bar{x}_2$}; 
+   \node (K) at (\xnz*\scale+\xpz*\ynz*\scale,\xno*\scale+\xpo*\yno*\scale) 
+{$1- x_1 x_2$}; 
+   \node (L) at (\xnz*\scale+\xpz*\ypz*\scale,\xno*\scale+\xpo*\ypo*\scale) 
+{$1- x_1 \bar{x}_2$}; 
+   \node (M) at (\ypz*\scale+\xpz*\ynz*\scale,\ypo*\scale+\xpo*\yno*\scale) {$1- \bar{x}_1 \bar{x}_2$}; 
+   \node (N) at (\xnz*\ynz*\scale+\xpz*\ypz*\scale,\xno*\yno*\scale+\xpo*\ypo*\scale)  {$\bar{x}_1 \bar{x}_2 + x_1 x_2$}; 
+   \node (O) at (\ynz*\scale+\xpz*\ypz*\scale,\yno*\scale+\xpo*\ypo*\scale) {$1-  \bar{x}_1 x_2$}; 
+   \node (P) at (\scale,\scale) {$1$}; 
+\or 
+     \tikzstyle{every node}=[draw,circle,fill=blue,minimum size=1mm,
+                            inner sep=0pt]
+
+	\node (A) at (0,0) {};
+	\node (B) at (\xpz*\ypz*\scale,\xpo*\ypo*\scale) {};
+	\node (C) at (\xnz*\ypz*\scale,\xno*\ypo*\scale) {};
+	\node (D) at (\xpz*\ynz*\scale,\xpo*\yno*\scale) {};
+	\node (E) at (\xnz*\ynz*\scale,\xno*\yno*\scale) {};
+   \node (F) at (\xpz*\scale,\xpo*\scale) {};
+   \node (G) at (\xnz*\scale,\xno*\scale) {}; 
+   \node (H) at (\ypz*\scale,\ypo*\scale) {};
+   \node (I) at (\ynz*\scale,\yno*\scale){};
+   \node (J) at (\xnz*\ypz*\scale+\xpz*\ynz*\scale,\xno*\ypo*\scale+\xpo*\yno*\scale) {};
+   \node (K) at (\xnz*\scale+\xpz*\ynz*\scale,\xno*\scale+\xpo*\yno*\scale) {}; 
+   \node (L) at (\xnz*\scale+\xpz*\ypz*\scale,\xno*\scale+\xpo*\ypo*\scale) {};
+   \node (M) at (\ypz*\scale+\xpz*\ynz*\scale,\ypo*\scale+\xpo*\yno*\scale) {};
+   \node (N) at (\xnz*\ynz*\scale+\xpz*\ypz*\scale,\xno*\yno*\scale+\xpo*\ypo*\scale) {};
+   \node (O) at (\ynz*\scale+\xpz*\ypz*\scale,\yno*\scale+\xpo*\ypo*\scale) {};
+   \node (P) at (\scale,\scale) {};
+
+\fi
+
+
+	\path (A) edge (B);
+	\path	(A) edge (C);
+	\path	(A) edge (D);
+	\path	(A) edge (E);
+	\path (B) edge (F);
+	\path	(B) edge (H);
+	\path	(B) edge (N);
+	\path	(C) edge (H);
+	\path	(C) edge (J);
+	\path	(C) edge (G);
+	\path	(D) edge (F);
+	\path	(D) edge (I);
+	\path	(D) edge (J);
+	\path	(E) edge (I);
+	\path	(E) edge (G);
+	\path	(E) edge (N);
+	\path	(F) edge (M);
+	\path	(F) edge (O);
+	\path	(G) edge (K);
+	\path	(G) edge (L);
+	\path	(H) edge (M);
+	\path	(H) edge (L);
+	\path	(I) edge (K);
+	\path	(I) edge (O);
+	\path	(J) edge (K);
+	\path	(J) edge (M);
+	\path	(K) edge (P);
+	\path	(L) edge (N);
+	\path	(L) edge (P);
+	\path	(M) edge (P);
+	\path	(N) edge (L);	
+	\path	(N) edge (O);
+	\path	(O) edge (P);
+
+\end{tikzpicture}
+ }
+
+
+% The top side of a cube
+%\newcommand\topside[4]{
+%  \fill[fill=#4, draw=black,opacity=0.6,shift={(210:#1)},shift={(-30:#2)},
+%  shift={(90:#3)}] (0,0) -- (30:0.7) -- (0,0.7) --(150:0.7)--(0,0);
+%}
+%
+% The left side of a cube
+%\newcommand\leftside[4]{
+%  \fill[fill=#4, draw=black,opacity=0.8,shift={(210:#1)},shift={(-30:#2)},
+%  shift={(90:#3)}] (0,0) -- (0,-0.7) -- (210:0.7) --(150:0.7)--(0,0);
+%}
+%
+% The right side of a cube
+%\newcommand\rightside[4]{
+%  \fill[fill=#4, draw=black,opacity=1.0,shift={(210:#1)},shift={(-30:#2)},
+%  shift={(90:#3)}] (0,0) -- (30:0.7) -- (-30:0.7) --(0,-0.7)--(0,0);
+%}
+
+
+%\newcommand\topside[7]{
+%  \fill[fill=#4, draw=black,opacity=0.6,shift={(210:#1)},shift={(-30:#2)},
+%  shift={(90:#3)}] (0,0) -- (30:#5) -- (0,#6) --(150:#7)--(0,0);
+%}
+
+% The left side of a cube
+%\newcommand\leftside[7]{
+%  \fill[fill=#4, draw=black,opacity=0.8,shift={(210:#1)},shift={(-30:#2)},
+%  shift={(90:#3)}] (0,0) -- (0,-#5) -- (210:#6) --(150:#7)--(0,0);
+%}
+%
+% The right side of a cube
+%\newcommand\rightside[7]{
+%  \fill[fill=#4, draw=black,opacity=1.0,shift={(210:#1)},shift={(-30:#2)},
+%  shift={(90:#3)}] (0,0) -- (30:#5) -- (-30:#6) --(0,-#7)--(0,0);
+%}
+
+
+\newcommand\leftside[6]{
+\pgfpathmoveto{\pgfpointxyz{#1}{#2}{#3}}
+\pgfpathlineto{\pgfpointxyz{#1}{#2+#5}{#3}}
+\pgfpathlineto{\pgfpointxyz{#1}{#2+#5}{#3+#6}}
+\pgfpathlineto{\pgfpointxyz{#1}{#2}{#3+#6}}
+\pgfpathlineto{\pgfpointxyz{#1}{#2}{#3}}
+\pgfsetfillcolor{#4}
+\pgfusepath{fill}
+}
+
+
+\newcommand\topside[6]{
+\pgfpathmoveto{\pgfpointxyz{#1}{#2}{#3}}
+\pgfpathlineto{\pgfpointxyz{#1+#5}{#2}{#3}}
+\pgfpathlineto{\pgfpointxyz{#1+#5}{#2+#6}{#3}}
+\pgfpathlineto{\pgfpointxyz{#1}{#2+#6}{#3}}
+\pgfpathlineto{\pgfpointxyz{#1}{#2}{#3}}
+\pgfsetfillcolor{#4}
+\pgfusepath{fill}
+}
+
+
+\newcommand\rightside[6]{
+\pgfpathmoveto{\pgfpointxyz{#1}{#2}{#3}}
+\pgfpathlineto{\pgfpointxyz{#1+#5}{#2}{#3}}
+\pgfpathlineto{\pgfpointxyz{#1+#5}{#2}{#3+#6}}
+\pgfpathlineto{\pgfpointxyz{#1}{#2}{#3+#6}}
+\pgfpathlineto{\pgfpointxyz{#1}{#2}{#3}}
+\pgfsetfillcolor{#4}
+\pgfusepath{fill}
+}
+
+% The cube 
+\newcommand\cube[6]{
+%\pgfsetxvec{\pgfpoint{7mm}{7mm}}
+%\pgfsetyvec{\pgfpoint{-7mm}{7mm}}
+%\pgfsetzvec{\pgfpoint{0}{-10mm}}
+
+\pgfsetfillopacity{0.6}
+  \topside{#1}{#2}{#3}{#4}{0.6}{0.6} 
+\pgfsetfillopacity{1.0}
+  \leftside{#1}{#2}{#3}{#5}{0.6}{0.6} 
+\pgfsetfillopacity{0.8}
+  \rightside{#1}{#2}{#3}{#6}{0.6}{0.6} 
+}
+
+\newcommand\cubevar[9]{
+%\pgfsetxvec{\pgfpoint{7mm}{7mm}}
+%\pgfsetyvec{\pgfpoint{-7mm}{7mm}}
+%\pgfsetzvec{\pgfpoint{0}{-10mm}}
+%\pgfsetfillopacity{0.6}
+  \topside{#1}{#2}{#3}{#4}{#7}{#8} 
+%\pgfsetfillopacity{1.0}
+  \leftside{#1}{#2}{#3}{#5}{#8}{#9} 
+%\pgfsetfillopacity{0.8}
+  \rightside{#1}{#2}{#3}{#6}{#7}{#9} 
+}
+
+
+
+\newcommand\setanglesthreed{
+\pgfsetxvec{\pgfpoint{8mm}{6mm}}
+\pgfsetyvec{\pgfpoint{-6mm}{8mm}}
+\pgfsetzvec{\pgfpoint{0}{-10mm}}
+}
+
+\newcommand\setanglesthreedalt{
+\pgfsetxvec{\pgfpoint{8mm}{6mm}}
+\pgfsetyvec{\pgfpoint{-6mm}{8mm}}
+\pgfsetzvec{\pgfpoint{0}{10mm}}
+}
+
+\newcommand\setanglesthreedsquare{
+\pgfsetxvec{\pgfpoint{10mm}{0mm}}
+\pgfsetyvec{\pgfpoint{0mm}{10mm}}
+\pgfsetzvec{\pgfpoint{-7mm}{-7mm}}
+}
+
+\newcommand\fiberz[7]{
+\pgfsetfillopacity{0.8}
+  \topside{#1}{#2}{#3}{#4}{0.6}{0.6} 
+\pgfsetfillopacity{0.6}
+  \leftside{#1}{#2}{#3}{#5}{0.6}{#7}
+\pgfsetfillopacity{1.0}
+  \rightside{#1}{#2}{#3}{#6}{0.6}{#7} 
+}
+
+\newcommand\fibery[7]{
+\pgfsetfillopacity{0.6}
+\topside{#1}{#2}{#3}{#4}{0.6}{#7} 
+\pgfsetfillopacity{0.8}
+\leftside{#1}{#2}{#3}{#5}{#7}{0.6} 
+\pgfsetfillopacity{1.0}
+\rightside{#1}{#2}{#3}{#6}{0.6}{0.6} 
+}
+
+\newcommand\fiberx[7]{
+\pgfsetfillopacity{0.6}
+\topside{#1}{#2}{#3}{#4}{#7}{0.6} 
+\pgfsetfillopacity{0.8}
+\leftside{#1}{#2}{#3}{#5}{0.6}{0.6} 
+\pgfsetfillopacity{1.0}
+\rightside{#1}{#2}{#3}{#6}{#7}{0.6} 
+}
+
+
+\newcommand\slicex[8]{
+\pgfsetfillopacity{0.6}
+  \topside{#1}{#2}{#3}{#4}{0.6}{#7} 
+\pgfsetfillopacity{0.8}
+  \leftside{#1}{#2}{#3}{#5}{#7}{#8}
+\pgfsetfillopacity{1.0}
+  \rightside{#1}{#2}{#3}{#6}{0.6}{#8} 
+}
+
+\newcommand\slicey[8]{
+\pgfsetfillopacity{0.6}
+  \topside{#1}{#2}{#3}{#4}{#7}{0.6}
+\pgfsetfillopacity{1.0}
+  \leftside{#1}{#2}{#3}{#5}{0.6}{#8}
+\pgfsetfillopacity{0.8}
+  \rightside{#1}{#2}{#3}{#6}{#7}{#8}
+}
+
+
+\newcommand\slicez[8]{
+\pgfsetfillopacity{0.6}
+  \topside{#1}{#2}{#3}{#4}{#7}{#8}
+\pgfsetfillopacity{0.8}
+  \leftside{#1}{#2}{#3}{#5}{#8}{0.6}
+\pgfsetfillopacity{1.0}
+  \rightside{#1}{#2}{#3}{#6}{#7}{0.6}
+}
+
+
+
+% Definition of \planepartition
+% To draw the following plane partition, just write \planepartition{ {a, b, c}, {d,e} }.
+%  a b c
+%  d e
+
+\newcounter{x}
+\newcounter{y}
+\newcounter{z}
+
+
+\newcommand\planepartition[1]{
+ \setcounter{x}{-1}
+  \foreach \a in {#1} {
+    \addtocounter{x}{1}
+    \setcounter{y}{-1}
+    \foreach \b in \a {
+      \addtocounter{y}{1}
+      \setcounter{z}{-1}
+      \foreach \c in {1,...,\b} {
+        \addtocounter{z}{1}
+        \cube{\value{x}}{\value{y}}{\value{z}}{white}{gray}{black}
+      }
+    }
+  }
+}
+\newcommand\tensorplotthree[4]{
+ \setcounter{x}{-1}
+  \foreach \a in {#1} {
+    \addtocounter{x}{1}
+    \setcounter{y}{-1}
+    \foreach \b in \a {
+      \addtocounter{y}{1}
+      \setcounter{z}{-1}
+      \foreach \c in {1,...,\b} {
+        \addtocounter{z}{1}
+        \cube{\value{x}}{\value{y}}{\value{z}}{#2}{#3}{#4}
+      }
+    }
+  }
+}
+
+
+
+\tikzstyle{block} = [ draw, rectangle, % fill=blue!20, 
+                      minimum height = 2em, 
+                      minimum width = 2em ] %, node distance=15mm ]
+\tikzstyle{sum} = [  draw, fill=gray!20, circle]
+%\tikzstyle{fork} = [ fill, circle, maximum size=2pt ] 
+\tikzstyle{fork} = [coordinate]%,node distance=10mm] 
+\tikzstyle{input} = [coordinate]%,node distance=10mm]
+\tikzstyle{output} = [coordinate]%,node distance=10mm]
+\tikzstyle{pin} = [coordinate] % [pin edge={to-,thin,black}]
+
+\newcommand\BDstandardcontrolloop[3]{
+
+%\begin{tikzpicture}[node distance=15mm, auto]%, > = triangle 45 ]
+\begin{tikzpicture}[node distance=12mm, auto, > =latex', thick ]
+    % We need to set at bounding box first. Otherwise the diagram
+    % will change position for each frame.
+    \path[use as bounding box] (-1,0) rectangle (12,-2);
+    \path[->]<1-> node[input] (reference) {};
+    \path[->]<1-> node[block, right of=reference] (ff-controller) {#3}
+                  (reference) edge node {$r$} (ff-controller);
+    \path[->]<1-> node[sum, right of=ff-controller] (sume) {}
+                  (ff-controller) edge node {} (sume);
+    \path[->]<1-> node[block, right of=sume] (fb-controller) {#2}
+                  (sume) edge node {$e$} (fb-controller);
+    \path[->]<1-> node[sum, right of=fb-controller] (sumu) {}
+                  (fb-controller) edge node {$u$} (sumu);
+    \path[->]<1-> node[input, above of=sumu] (u) {load disturbance}
+                  (u) edge node {$d$} (sumu);
+    \path[->]<1-> node[block, right of=sumu] (plant) {#1}
+                  (sumu) edge node {$v$} (plant);
+    \path[->]<1-> node[sum, right of=plant] (sumy) {}
+                  (plant) edge node {$x$} (sumy);
+    \path[->]<1-> node[input, above of=sumy] (n) {}
+                  (n) edge node {$n$} (sumy);
+    \path[-]<1-> node[coordinate, right of=sumy,node distance=4mm]  (forky) {}
+                  (sumy) edge node {} (forky);
+    \path[->]<1-> node[output, right of=forky,node distance=8mm] (out) {$y$}
+                  (forky) edge node {$y$} (out);
+    \path[->, draw]<1-> (forky) -- +(0,-1) -| node[pos=0.8] {$-$} (sume);
+
+\end{tikzpicture}
+}
+
+
+\newcommand\BDsystemwithsignals[3]{
+\begin{tikzpicture}
+\begin{axis}[
+anchor=outer east,
+ymin=0,ymax=2,
+xmin=-0.1,xmax=2,
+height=4cm,width=4cm,
+enlargelimits=false,
+%xtick=\empty,
+%ytick=\empty,
+xtick={0,1,2},
+ytick={1,2},
+%xlabel = $t$,
+%ylabel = $u$,
+axis on top=false]
+\addplot[thick,blue]  
+        plot[id=step,domain=-0.1:2,samples=52]
+        function {#2};
+\end{axis}
+\begin{scope}[node distance=20mm, auto,> =latex',thick,anchor = east]
+   \path[->]<1-> node[input] (input) {};
+    \path[->]<1-> node[draw, rectangle, fill=blue!20, 
+                      minimum height = 1cm, 
+                      minimum width = 15mm , right of=input] (plant) {#1}
+                  (input) edge node {} (plant);
+    \path[->]<1-> node[output, right of=plant] (output) {}
+                  (plant) edge node {} (output);
+ \end{scope} 
+ \path[->]<1-> node[coordinate,right of=output] (outplot) {} ;
+\begin{axis}[ at={(output)},
+anchor=outer west,
+ymin=0,ymax=2,
+xmin=-0.1,xmax=2,
+height=4cm,width=4cm,
+enlargelimits=false,
+xtick={0,1,2},
+ytick={1,2},
+%xlabel = $t$,
+%ylabel = $y$,
+axis on top=false]
+\addplot[thick,blue,smooth] 
+        plot[id=step,domain=-0.1:2,samples=52]
+        function {#3};
+\end{axis} 
+\end{tikzpicture}
+}
+
+\newcommand\BDsystemwithtext[3]{
+\begin{tikzpicture}
+  \draw node[anchor= east] (intext) {#2};
+  \begin{scope}[node distance=20mm, auto,> =latex',thick,anchor = east]
+     \path[->] node[input] (input) {};
+     \path[->] node[draw, 
+                      %fill=blue!20, 
+                      rectangle, 
+                      minimum height = 10mm, 
+                      minimum width = 20mm , right of=input] (plant) {#1}
+                  (input) edge node {} (plant);
+     \path[->] node[output, right of=plant] (output) {}
+                  (plant) edge node {} (output);
+  \end{scope} 
+  \draw node[anchor= west,at={(output)}] (outtext) {#3};
+\end{tikzpicture}
+}
+
+\tikzstyle{lblock} = [ draw, rectangle, % fill=blue!20, 
+                      minimum height = 10mm, 
+                      minimum width = 25mm ] %, node distance=15mm ]
+
+\newcommand\BDstandardhybridsystem[9]{
+
+%\begin{tikzpicture}[node distance=15mm, auto]%, > = triangle 45 ]
+\begin{tikzpicture}[node distance=25mm, auto, > =latex', thick]
+    % We need to set at bounding box first. Otherwise the diagram
+    % will change position for each frame.
+    \path[use as bounding box] (-1,0) rectangle (12,-2);
+    \node[input] (uc) {};
+    \node[lblock, right of=uc, node distance=30mm] (sc) {#1};
+    \node[lblock, below right of=sc] (qn) {#3};
+    \node[lblock, below left of=qn] (sd) {#2};
+    \node[lblock, above left of=sd] (in) {#4};
+    \node[input,right of =sd, node distance=30mm] (ud) {#7};
+    \node[output,right of =sc, node distance=30mm] (yc) {#6};
+    \node[output,left of =sd, node distance=30mm] (yd) {#8};
+    \draw[->, link] (sc.-10) -| node [pos=0.7, auto]  {#9} (qn.north);
+    \draw[<-, link] (sc.-170) -| (in.north);
+    \draw[->, link] (sd.170) -| (in.south);
+    \draw[<-, link] (sd.10) -| (qn.south);
+    \draw[->, link] (ud) -- node [pos=0.3, auto]  {#7} (sd.east);
+    \draw[->, link] (uc) -- node [pos=0.3, auto]  {#5} (sc.west);
+    \draw[<-, link] (yd) -- node [pos=0.3, auto, swap]  {#8} (sd.west);
+    \draw[<-, link] (yc) -- node [pos=0.3, auto, swap]  {#6} (sc.east);
+
+%
+%    \path[->, draw] (qn.south) -- (sd.east)+(0,0.2) {};
+%    \path[->, draw] (sd.west)+(0,0.2)  -| (in.south) {} ;
+%    \path[->, draw] (in.north)  |- (sc.west)+(0,-0.2) {} ;
+%    \path[->, draw]<1-> (sc.east) -- +(0,-0.2) -| node[pos=0.8] {} (q.north);
+%    \path[->, draw]<1-> (sc.east) -- +(0,-0.2) -| node[pos=0.8] {} (q.north);
+%     \node[input, right of = sd ] (ud) {};
+%    \path[->, draw] (ud)+(0,-0.2) -- (sd.east) +(0,-0.2) {} ;
+\end{tikzpicture}
+}
+
+
+\newcounter{parlevel}
+\newcounter{serlevel}
+
+%define a parallel block:  a tikz-pic with two nodes drawn on top of each other and some connecting lines
+%the node contents comes from  #1 and #2
+%the two nodes are named &#39;nTsp&#39;  and &#39;nBsp&#39;     where s and p are serial and parallel levels which increment
+\newcommand{\parblock}[2]
+{
+   \tikz[baseline,remember picture,inner sep=0pt,outer sep=0pt,node distance=0.25cm]
+   {
+       \addtocounter{parlevel}{1}
+       %special names for the two nodes:
+       \def\nTsp{nT-\arabic{serlevel}-\arabic{parlevel}}
+       \def\nBsp{nB-\arabic{serlevel}-\arabic{parlevel}}
+       %
+       %define the two nodes:
+       \node(\nTsp){#1};
+       \node[below=of \nTsp](\nBsp){#2};
+       %
+       %use bounding box so that the lines are based on the widest one
+       \path (current bounding box.west) -- +(-0.125,0) coordinate (source);
+       \path (current bounding box.east) -- +( 0.125,0) coordinate (dest);
+       %
+       %draw up/down and across from source (left)
+       \draw (source) |- (\nTsp.west);
+       \draw (source) |- (\nBsp.west);
+       %
+       %draw across and up/down to dest (right)
+       \draw (\nTsp.east) -| (dest);
+       \draw (\nBsp.east) -| (dest);
+       %
+       %add extra horizontal lines at source and dest
+       \draw (source) -- +(-0.125,0);
+       \draw (dest) -- +( 0.125,0);
+       \addtocounter{parlevel}{-1}
+   }
+}
+
+
+%\newcommand{\block}[1]
+%{
+%   \tikz[baseline,remember picture,inner sep=2pt]
+%   {
+%       \node[draw,shape=rectangle](#1){#1};
+%   }
+%}
+
+%define a series block:  a tikz-pic with two nodes drawn next to each other and some connecting lines
+%the node contents comes from  #1 and #2
+%the two nodes are named &#39;nAsp&#39;  and &#39;nBsp&#39;     where x,y are serial and parallel levels which increment
+\newcommand{\serblock}[2]
+{
+   \tikz[baseline,remember picture,inner sep=0pt,outer sep=0pt,node distance=0.25cm]
+   {
+       \addtocounter{serlevel}{1}
+       %special names for the two nodes:
+       \def\nLsp{nL-\arabic{serlevel}-\arabic{parlevel}}
+       \def\nRsp{nR-\arabic{serlevel}-\arabic{parlevel}}
+       %
+       %define the two nodes:
+       \node(\nLsp){#1};
+       \node[right=of \nLsp](\nRsp){#2};
+       %
+       %define source and dest just past the nAsp and nBsp nodes
+       \path (\nLsp.west) -- +(-0.125,0) coordinate (source);
+       \path (\nRsp.east) -- +( 0.125,0) coordinate (dest);
+       %
+       %add lines at extreme ends
+       \draw (source) -- (\nLsp.west);
+       \draw (\nLsp.east) -- (\nRsp.west);
+       \draw (\nRsp.east) -- (dest);
+       \addtocounter{serlevel}{-1}
+   }
+}
+
+
+
+
+\definecolor{darkblue}{rgb}{0,0,.4}
+\definecolor{darkred}{rgb}{.4,0,0}
+\definecolor{darkgreen}{rgb}{0,.4,0}
+
+
+
+
