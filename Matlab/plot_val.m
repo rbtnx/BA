@@ -1,8 +1,8 @@
 function plot_val(start_date,M)
 
 
-inputfile = load('/home/kathrin/Uni/BA/Fette Daten/input.mat');
-outputfile = load('/home/kathrin/Uni/BA/Fette Daten/output.mat');
+inputfile = load('/home/kathrin/Uni/BA/Fette Daten/input_calc.mat');
+outputfile = load('/home/kathrin/Uni/BA/Fette Daten/output_rawdata_fixed.mat');
 
 iNames = fieldnames(inputfile.input);
 oNames = fieldnames(outputfile.output);
@@ -25,10 +25,10 @@ val_output = transpose(val_output);
 
 val_calc = val_input * M;
 
-f = figure;
+f = figure(1);
 p = uipanel(f,'Title','Control','Position',[.60 .07 .30 .25]);
 vor = uicontrol(p,'Style', 'pushbutton', 'String', 'Vor','Units','normalized','Position',[.1 .55 .3 .3],'Callback', {@vor_Callback,start,M});
-zur = uicontrol(p,'Style', 'pushbutton', 'String', 'Zurueck','Units','normalized','Position',[.5 .55 .3 .3], 'Callback', '@zur_Callback');
+zur = uicontrol(p,'Style', 'pushbutton', 'String', 'Zurueck','Units','normalized','Position',[.5 .55 .3 .3], 'Callback', {@zurueck_Callback,start,M});
 
 
 
@@ -39,17 +39,24 @@ for loopIndex = 1:5
     plot(time, val_calc(:,loopIndex));
     %axis([datenum(time(1)) datenum(time(1440)) -10 20])
     xlim([datenum(time(1)) datenum(time(1440))])
-    legend('gemessen', 'berechnet');
+    %legend('gemessen', 'berechnet');
     title(oNames(loopIndex));
 end
+legend('gemessen', 'berechnet', 'Location', 'best');
 
 end
 
 function vor_Callback(hObject, eventdata, x,y)
 start_neu = datestr(datenum(2016,1,1 + (x+1439)/24/60));
 display(start_neu);
+display(x);
+clf;
 plot_val(start_neu, y);
 end
 
-function zurueck_Callback(hObject, eventdata, handles)
+function zurueck_Callback(hObject, eventdata, x,y)
+start_neu = datestr(datenum(2016,1,1 + (x-1441)/24/60));
+display(start_neu);
+clf;
+plot_val(start_neu, y);
 end
