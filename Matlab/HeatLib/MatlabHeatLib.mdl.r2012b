@@ -1,0 +1,7512 @@
+Library {
+  Name			  "MatlabHeatLib"
+  Version		  8.0
+  MdlSubVersion		  0
+  SavedCharacterEncoding  "windows-1252"
+  LibraryType		  "BlockLibrary"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  FPTRunName		  "Run 1"
+  MaxMDLFileLineLength	  120
+  Object {
+    $PropName		    "BdWindowsInfo"
+    $ObjectID		    1
+    $ClassName		    "Simulink.BDWindowsInfo"
+    Object {
+      $PropName		      "WindowsInfo"
+      $ObjectID		      2
+      $ClassName	      "Simulink.WindowInfo"
+      IsActive		      [1]
+      Location		      [-8.0, -8.0, 1616.0, 876.0]
+      Object {
+	$PropName		"ModelBrowserInfo"
+	$ObjectID		3
+	$ClassName		"Simulink.ModelBrowserInfo"
+	Visible			[0]
+	DockPosition		"Left"
+	Width			[50]
+	Height			[50]
+	Filter			[9]
+      }
+      Object {
+	$PropName		"ExplorerBarInfo"
+	$ObjectID		4
+	$ClassName		"Simulink.ExplorerBarInfo"
+	Visible			[1]
+      }
+      Object {
+	$PropName		"EditorsInfo"
+	$ObjectID		5
+	$ClassName		"Simulink.EditorInfo"
+	IsActive		[1]
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
+	Extents			[1564.0, 708.0]
+	ZoomFactor		[1.39]
+	Offset			[0.0, 0.0]
+      }
+    }
+  }
+  Created		  "Thu May 27 12:01:10 2010"
+  Creator		  "Kai"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "abp412"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri Jun 27 13:21:48 2014"
+  RTWModifiedTimeStamp	  325770094
+  ModifiedHistory	  "Version 2.0 09.05.2011 10:37 Aktuelle Version der MatlabHeatLib"
+  ModelVersionFormat	  "1.30.%<AutoIncrement:63>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowDesignRanges	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	on
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  RecordCoverage	  off
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      6
+      Version		      "1.12.1"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  7
+	  Version		  "1.12.1"
+	  StartTime		  "0.0"
+	  StopTime		  "10.0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  EnableConcurrentExecution off
+	  ConcurrentTasks	  off
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  8
+	  Version		  "1.12.1"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  9
+	  Version		  "1.12.1"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    7
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  10
+	  Version		  "1.12.1"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "UseLocalSettings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	  SFUndirectedBroadcastEventsDiag "warning"
+	  SFTransitionActionBeforeConditionDiag	"warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  11
+	  Version		  "1.12.1"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  12
+	  Version		  "1.12.1"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  13
+	  Version		  "1.12.1"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  14
+	  Version		  "1.12.1"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    6
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  PackageGeneratedCodeAndArtifacts off
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  PortableWordSizes	  off
+	  GenerateErtSFunction	  off
+	  CreateSILPILBlock	  "None"
+	  CodeExecutionProfiling  off
+	  CodeExecutionProfileVariable "executionProfile"
+	  CodeProfilingSaveOptions "SummaryOnly"
+	  CodeProfilingInstrumentation off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateWebview	  off
+	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      15
+	      Version		      "1.12.1"
+	      Array {
+		Type			"Cell"
+		Dimension		19
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      OperatorAnnotations     off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InternalIdentifier      "Classic"
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      16
+	      Version		      "1.12.1"
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"PortableWordSizes"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      CodeReplacementLibrary  "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      ConcurrentExecutionCompliant on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns off
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      GRTInterface	      on
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      RTWCAPIRootIO	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition     [ 200, 197, 1080, 827 ] 
+    }
+    PropName		    "ConfigurationSets"
+  }
+  ExplicitPartitioning	  off
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  MaskDefaults {
+    SelfModifiable	    "off"
+    IconFrame		    "on"
+    IconOpaque		    "on"
+    RunInitForIconRedraw    "off"
+    IconRotate		    "none"
+    PortRotate		    "default"
+    IconUnits		    "autoscale"
+  }
+  MaskParameterDefaults {
+    Evaluate		    "on"
+    Tunable		    "on"
+    NeverSave		    "off"
+    Internal		    "off"
+    ReadOnly		    "off"
+    Enabled		    "on"
+    Visible		    "on"
+    ToolTip		    "on"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Abs
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Bias
+      Bias		      "0"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Clock
+      DisplayTime	      off
+      Decimation	      "10"
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      DotProduct
+      SampleTime	      "-1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      ContinuousStateAttributes	"''"
+    }
+    Block {
+      BlockType		      Logic
+      Operator		      "AND"
+      Inputs		      "2"
+      IconShape		      "rectangular"
+      AllPortsSameDT	      on
+      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Math
+      Operator		      "exp"
+      OutputSignalType	      "auto"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      IntermediateResultsDataTypeStr "Inherit: Inherit via internal rule"
+      AlgorithmType	      "Newton-Raphson"
+      Iterations	      "3"
+    }
+    Block {
+      BlockType		      Memory
+      X0		      "0"
+      InheritSampleTime	      off
+      LinearizeMemory	      off
+      LinearizeAsDelay	      off
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      RelationalOperator
+      Operator		      ">="
+      InputSameDT	      on
+      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
+      ZeroCross		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      S-Function
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimitSource	      "Dialog"
+      UpperLimit	      "0.5"
+      LowerLimitSource	      "Dialog"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+    }
+    Block {
+      BlockType		      Signum
+      ZeroCross		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      SFBlockType	      "NONE"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Switch
+      Criteria		      "u2 >= Threshold"
+      Threshold		      "0"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      AllowDiffInputSizes     off
+    }
+    Block {
+      BlockType		      UnaryMinus
+      SampleTime	      "-1"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      UnitDelay
+      InitialCondition	      "0"
+      InputProcessing	      "Inherited"
+      SampleTime	      "1"
+      StateMustResolveToSignalObject off
+      CodeGenStateStorageClass "Auto"
+      HasFrameUpgradeWarning  on
+    }
+  }
+  System {
+    Name		    "MatlabHeatLib"
+    Location		    [-8, -8, 1608, 868]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "centimeters"
+    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "139"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "638"
+    Block {
+      BlockType		      SubSystem
+      Name		      "BHKW"
+      SID		      "359"
+      Ports		      [4, 2]
+      Position		      [55, 39, 175, 96]
+      ZOrder		      -1
+      BackgroundColor	      "red"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		17
+	$ClassName		"Simulink.Mask"
+	Type			"BHKW"
+	Description		"Eingänge:\n- T_Rl, dV_ein:  Volumenstrom dV_ein mit der Temperatur T_Rl\n- BHKW an/aus: öffnet und schl"
+	"ießt das Ventil des BHKW's \n- Modulation:     variiert die zugeführte Leistung Q_zu, \n                        das S"
+	"ignal liegt im Intervall [0,1]\nAugänge:\n-T_BHKW, dV_BHKW: Wasser fließt mit einem Volumenstrom \n                  "
+	"              dV_BHKW und der Temperatur T_BHKW ab\nDie Berechnung der Ausgangstemperatur erfolgt über die \nWärmelei"
+	"stungsbilanz:\ndQ_BHKW = dQ_zu - dQ_Verlust + dQ_BHKW,Rl - dQ_BHKW,Vl\nDie zugeführte Leistung Q_zu wird auf eine min"
+	"imale und eine \nmaximale Leistung begrenzt. Ist das BHKW ausgeschaltet, fließt \nkein Volumenstrom durch die Kompone"
+	"nte.\nEntwickelt auf Grundlage der Bachelorarbeit \"Vergleich \nverschiedener Wärmeversorgungssysteme\", 2010 von Her"
+	"rn Kai \nKruppa.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public License"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  8
+	  Object {
+	    $ObjectID		    18
+	    Type		    "edit"
+	    Name		    "V_BHKW"
+	    Prompt		    "Volumen [m^3]"
+	    Value		    "1.02"
+	  }
+	  Object {
+	    $ObjectID		    19
+	    Type		    "edit"
+	    Name		    "P_min"
+	    Prompt		    "minimale Leistung [kW]"
+	    Value		    "100"
+	  }
+	  Object {
+	    $ObjectID		    20
+	    Type		    "edit"
+	    Name		    "P_max"
+	    Prompt		    "maximale Leistung [kW]"
+	    Value		    "200"
+	  }
+	  Object {
+	    $ObjectID		    21
+	    Type		    "edit"
+	    Name		    "k_BHKW"
+	    Prompt		    "Verlustleistungskoeffizient [kW/K]"
+	    Value		    "2681"
+	  }
+	  Object {
+	    $ObjectID		    22
+	    Type		    "edit"
+	    Name		    "c"
+	    Prompt		    "spez. Wärmekapazität [J/(kg*K)]"
+	    Value		    "4182"
+	  }
+	  Object {
+	    $ObjectID		    23
+	    Type		    "edit"
+	    Name		    "rho"
+	    Prompt		    "Dichte [kg/m^3]"
+	    Value		    "1000"
+	  }
+	  Object {
+	    $ObjectID		    24
+	    Type		    "edit"
+	    Name		    "BHKWInit"
+	    Prompt		    "Anfangstemperatur [K]"
+	    Value		    "273+70"
+	  }
+	  Object {
+	    $ObjectID		    25
+	    Type		    "edit"
+	    Name		    "T_Umgebung"
+	    Prompt		    "Umgebungstemperatur [K]"
+	    Value		    "273+30"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"BHKW"
+	Location		[0, 0, 800, 860]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"125"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Rl"
+	  SID			  "360"
+	  Position		  [20, 133, 50, 147]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_ein"
+	  SID			  "361"
+	  Position		  [20, 278, 50, 292]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "BHKW an/aus"
+	  SID			  "362"
+	  Position		  [20, 53, 50, 67]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Modulation"
+	  SID			  "363"
+	  Position		  [20, 18, 50, 32]
+	  ZOrder		  -4
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Divide"
+	  SID			  "364"
+	  Ports			  [2, 1]
+	  Position		  [465, 102, 495, 133]
+	  ZOrder		  -5
+	  Inputs		  "*/"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain"
+	  SID			  "365"
+	  Position		  [515, 103, 535, 137]
+	  ZOrder		  -6
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Integrator"
+	  SID			  "366"
+	  Ports			  [1, 1]
+	  Position		  [555, 104, 585, 136]
+	  ZOrder		  -7
+	  InitialCondition	  "BHKWInit"
+	  LowerSaturationLimit	  "273"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Q_Verlust"
+	  SID			  "367"
+	  Ports			  [1, 1]
+	  Position		  [270, 91, 370, 129]
+	  ZOrder		  -8
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Q_Verlust"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "175"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_BHKW"
+	      SID		      "368"
+	      Position		      [20, 23, 50, 37]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "370"
+	      Ports		      [2, 1]
+	      Position		      [100, 20, 120, 40]
+	      ZOrder		      -2
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|+-"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "T_Umgebung"
+	      SID		      "369"
+	      Position		      [15, 60, 85, 90]
+	      ZOrder		      -3
+	      Value		      "T_Umgebung"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "k_BHKW "
+	      SID		      "371"
+	      Position		      [145, 14, 200, 46]
+	      ZOrder		      -4
+	      Gain		      "k_BHKW"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_Verlust"
+	      SID		      "372"
+	      Position		      [240, 23, 270, 37]
+	      ZOrder		      -5
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "k_BHKW "
+	      SrcPort		      1
+	      DstBlock		      "Q_Verlust"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "T_BHKW"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "k_BHKW "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "T_Umgebung"
+	      SrcPort		      1
+	      Points		      [20, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Annotation {
+	      SID		      "614"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [217, 127]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Q_Vl-Q_Rl"
+	  SID			  "373"
+	  Ports			  [3, 1]
+	  Position		  [280, 147, 355, 193]
+	  ZOrder		  -9
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Q_Vl-Q_Rl"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "378"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_Rl"
+	      SID		      "374"
+	      Position		      [15, 18, 45, 32]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dV"
+	      SID		      "375"
+	      Position		      [15, 93, 45, 107]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_Vl"
+	      SID		      "376"
+	      Position		      [15, 58, 45, 72]
+	      ZOrder		      -3
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product2"
+	      SID		      "377"
+	      Ports		      [2, 1]
+	      Position		      [135, 17, 165, 48]
+	      ZOrder		      -4
+	      ShowName		      off
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum1"
+	      SID		      "378"
+	      Ports		      [2, 1]
+	      Position		      [80, 15, 100, 35]
+	      ZOrder		      -5
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|-+"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "c*rho"
+	      SID		      "379"
+	      Position		      [210, 19, 270, 51]
+	      ZOrder		      -6
+	      Gain		      "c*rho"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_Vl-Q_Rl"
+	      SID		      "380"
+	      Position		      [315, 28, 345, 42]
+	      ZOrder		      -7
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Product2"
+	      SrcPort		      1
+	      DstBlock		      "c*rho"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum1"
+	      SrcPort		      1
+	      DstBlock		      "Product2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "T_Rl"
+	      SrcPort		      1
+	      DstBlock		      "Sum1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "dV"
+	      SrcPort		      1
+	      Points		      [60, 0; 0, -60]
+	      DstBlock		      "Product2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "T_Vl"
+	      SrcPort		      1
+	      Points		      [40, 0]
+	      DstBlock		      "Sum1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "c*rho"
+	      SrcPort		      1
+	      DstBlock		      "Q_Vl-Q_Rl"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      SID		      "615"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [150, 134]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Q_zu"
+	  SID			  "381"
+	  Ports			  [2, 1]
+	  Position		  [280, 13, 360, 57]
+	  ZOrder		  -10
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Q_zu"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "200"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Modulation"
+	      SID		      "382"
+	      Position		      [15, 23, 45, 37]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "an/aus"
+	      SID		      "383"
+	      Position		      [15, 103, 45, 117]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "P_max"
+	      SID		      "386"
+	      Position		      [70, 15, 115, 45]
+	      ZOrder		      -3
+	      Gain		      "P_max*1000"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product"
+	      SID		      "387"
+	      Ports		      [2, 1]
+	      Position		      [215, 87, 245, 118]
+	      ZOrder		      -4
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Saturate
+	      Name		      "Saturation"
+	      SID		      "388"
+	      Ports		      [1, 1]
+	      Position		      [145, 15, 175, 45]
+	      ZOrder		      -5
+	      InputPortMap	      "u0"
+	      UpperLimit	      "P_max*1000"
+	      LowerLimit	      "P_min*1000"
+	    }
+	    Block {
+	      BlockType		      Switch
+	      Name		      "Switch1"
+	      SID		      "389"
+	      Position		      [120, 83, 145, 137]
+	      ZOrder		      -6
+	      Criteria		      "u2 > Threshold"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "an"
+	      SID		      "384"
+	      Position		      [70, 73, 90, 97]
+	      ZOrder		      -7
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "aus"
+	      SID		      "385"
+	      Position		      [70, 123, 90, 147]
+	      ZOrder		      -8
+	      Value		      "0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_zu"
+	      SID		      "390"
+	      Position		      [275, 98, 305, 112]
+	      ZOrder		      -9
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Switch1"
+	      SrcPort		      1
+	      DstBlock		      "Product"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "P_max"
+	      SrcPort		      1
+	      DstBlock		      "Saturation"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Saturation"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, 65]
+	      DstBlock		      "Product"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "aus"
+	      SrcPort		      1
+	      Points		      [0, -5]
+	      DstBlock		      "Switch1"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "an"
+	      SrcPort		      1
+	      Points		      [0, 5]
+	      DstBlock		      "Switch1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Labels		      [0, 0]
+	      SrcBlock		      "an/aus"
+	      SrcPort		      1
+	      DstBlock		      "Switch1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Modulation"
+	      SrcPort		      1
+	      DstBlock		      "P_max"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Product"
+	      SrcPort		      1
+	      DstBlock		      "Q_zu"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      SID		      "613"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [218, 178]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum5"
+	  SID			  "397"
+	  Ports			  [3, 1]
+	  Position		  [390, 100, 410, 120]
+	  ZOrder		  -11
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "+--"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "398"
+	  Position		  [180, 135, 230, 175]
+	  ZOrder		  -12
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay"
+	  SID			  "399"
+	  Position		  [185, 208, 220, 242]
+	  ZOrder		  -13
+	  BlockMirror		  on
+	  InputProcessing	  "Elements as channels (sample based)"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Volumenstrom"
+	  SID			  "391"
+	  Ports			  [2, 1]
+	  Position		  [85, 240, 140, 300]
+	  ZOrder		  -14
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Volumenstrom"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "250"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "an/aus"
+	      SID		      "392"
+	      Position		      [15, 53, 45, 67]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dV_ein"
+	      SID		      "393"
+	      Position		      [15, 13, 45, 27]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Switch
+	      Name		      "Switch"
+	      SID		      "394"
+	      Position		      [100, 26, 125, 94]
+	      ZOrder		      -3
+	      Criteria		      "u2 > Threshold"
+	      Threshold		      "0.5"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "ka_BHKW1"
+	      SID		      "395"
+	      Position		      [50, 71, 75, 89]
+	      ZOrder		      -4
+	      ShowName		      off
+	      Value		      "0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dV"
+	      SID		      "396"
+	      Position		      [160, 53, 190, 67]
+	      ZOrder		      -5
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "ka_BHKW1"
+	      SrcPort		      1
+	      DstBlock		      "Switch"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "an/aus"
+	      SrcPort		      1
+	      DstBlock		      "Switch"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "dV_ein"
+	      SrcPort		      1
+	      Points		      [15, 0; 0, 20]
+	      DstBlock		      "Switch"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Switch"
+	      SrcPort		      1
+	      DstBlock		      "dV"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      SID		      "616"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [216, 122]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "c*rho*V_BHKW"
+	  SID			  "400"
+	  Position		  [410, 155, 440, 185]
+	  ZOrder		  -15
+	  Value			  "c*rho*V_BHKW"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_BHKW"
+	  SID			  "401"
+	  Position		  [615, 113, 645, 127]
+	  ZOrder		  -16
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV_BHKW"
+	  SID			  "402"
+	  Position		  [615, 263, 645, 277]
+	  ZOrder		  -17
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Volumenstrom"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    Points		    [110, 0]
+	    Branch {
+	      Labels		      [0, 0]
+	      Points		      [0, -100]
+	      DstBlock		      "Q_Vl-Q_Rl"
+	      DstPort		      2
+	    }
+	    Branch {
+	      DstBlock		      "dV_BHKW"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    Points		    [0, -115]
+	    DstBlock		    "Switch"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Integrator"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    DstBlock		    "T_BHKW"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Labels		    [0, 0]
+	    Points		    [0, 105; -345, 0]
+	    Branch {
+	      Points		      [0, -40]
+	      DstBlock		      "Q_Vl-Q_Rl"
+	      DstPort		      3
+	    }
+	    Branch {
+	      Points		      [-10, 0]
+	      Branch {
+		Points			[0, -115]
+		DstBlock		"Q_Verlust"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Unit Delay"
+		DstPort			1
+	      }
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Gain"
+	  SrcPort		  1
+	  DstBlock		  "Integrator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "BHKW an/aus"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    Points		    [195, 0]
+	    DstBlock		    "Q_zu"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Volumenstrom"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Sum5"
+	  SrcPort		  1
+	  DstBlock		  "Divide"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Modulation"
+	  SrcPort		  1
+	  DstBlock		  "Q_zu"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "dV_ein"
+	  SrcPort		  1
+	  DstBlock		  "Volumenstrom"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Q_Verlust"
+	  SrcPort		  1
+	  DstBlock		  "Sum5"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Q_Vl-Q_Rl"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  DstBlock		  "Sum5"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Q_zu"
+	  SrcPort		  1
+	  Points		  [35, 0]
+	  DstBlock		  "Sum5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Divide"
+	  SrcPort		  1
+	  DstBlock		  "Gain"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "c*rho*V_BHKW"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Divide"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "T_Rl"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Q_Vl-Q_Rl"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Unit Delay"
+	  SrcPort		  1
+	  Points		  [-15, 0]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Annotation {
+	  SID			  "612"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [220, 346]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Gebäude"
+      SID		      "590"
+      Ports		      [2, 2]
+      Position		      [215, 291, 305, 349]
+      ZOrder		      1
+      BackgroundColor	      "cyan"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		26
+	$ClassName		"Simulink.Mask"
+	Type			"Gebäude"
+	Description		"Eingänge: \n- T_Rl: Rücklauftemperatur\n- Ta:  Außentemperatur\n\nAusgänge: \n- Tg: Gebäudetemperatur\n"
+	"- Q_ab: Wärmeleistungsbedarf\nDas Gebäude wird als 1 Zonen Modell angenommen. Die \nBerechnung der Gebäudetemperatur "
+	"erfolgt über die \nWärmeleistungsbilanz\nkg*dTg = krg(T_Rl-Tg)-kga(Tg-Ta).\nDer Wärmeleistungsbedarf lautet\nQ_ab = k"
+	"rg(T_Rl-Tg).\nEntwickelt auf Grundlage von \"Tensor Systems: Multilinear \nModeling and Applications\", 3rd Int. Conf"
+	"erence on Simulation \nand Modeling Methodologies, Technologies and Applications, \n2013, Pangalos, G., Eichler, A., "
+	"Lichtenberg, G.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public License"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    27
+	    Type		    "edit"
+	    Name		    "kg"
+	    Prompt		    "Wärmekapazität"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    28
+	    Type		    "edit"
+	    Name		    "krg"
+	    Prompt		    "Wärmeübvergnagskoeffizient (Heizung -> Gebäude)"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    29
+	    Type		    "edit"
+	    Name		    "kga"
+	    Prompt		    "Wärmeübvergnagskoeffizient (Gebäude -> Umgebung)"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    30
+	    Type		    "edit"
+	    Name		    "TgInit"
+	    Prompt		    "Anfangswert der Gebäudetemperatur [K]"
+	    Value		    "0"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"Gebäude"
+	Location		[0, 0, 800, 860]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"150"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Rl"
+	  SID			  "591"
+	  Position		  [30, 193, 60, 207]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Ta"
+	  SID			  "592"
+	  Position		  [30, 78, 60, 92]
+	  ZOrder		  -1
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain"
+	  SID			  "593"
+	  Position		  [175, 69, 240, 101]
+	  ZOrder		  -11
+	  Gain			  "kga/kg"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain "
+	  SID			  "594"
+	  Position		  [283, 125, 317, 165]
+	  ZOrder		  -11
+	  BlockRotation		  270
+	  Gain			  "1/kg"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain  "
+	  SID			  "595"
+	  Position		  [175, 184, 235, 216]
+	  ZOrder		  -11
+	  Gain			  "krg"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Integrator"
+	  SID			  "596"
+	  Ports			  [1, 1]
+	  Position		  [350, 70, 380, 100]
+	  ZOrder		  -2
+	  InitialCondition	  "TgInit"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum2"
+	  SID			  "597"
+	  Ports			  [2, 1]
+	  Position		  [130, 75, 150, 95]
+	  ZOrder		  -32
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "+-|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum3"
+	  SID			  "598"
+	  Ports			  [2, 1]
+	  Position		  [95, 190, 115, 210]
+	  ZOrder		  -32
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "-+|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum4"
+	  SID			  "599"
+	  Ports			  [2, 1]
+	  Position		  [290, 75, 310, 95]
+	  ZOrder		  -32
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|-+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Tg"
+	  SID			  "600"
+	  Position		  [435, 78, 465, 92]
+	  ZOrder		  -9
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Q_ab"
+	  SID			  "601"
+	  Position		  [435, 193, 465, 207]
+	  ZOrder		  -9
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Sum4"
+	  SrcPort		  1
+	  DstBlock		  "Integrator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain "
+	  SrcPort		  1
+	  DstBlock		  "Sum4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Gain  "
+	  SrcPort		  1
+	  Points		  [60, 0]
+	  Branch {
+	    DstBlock		    "Q_ab"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Gain "
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "T_Rl"
+	  SrcPort		  1
+	  DstBlock		  "Sum3"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Ta"
+	  SrcPort		  1
+	  DstBlock		  "Sum2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Sum3"
+	  SrcPort		  1
+	  DstBlock		  "Gain  "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain"
+	  SrcPort		  1
+	  DstBlock		  "Sum4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum2"
+	  SrcPort		  1
+	  DstBlock		  "Gain"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Integrator"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    Points		    [0, -65; -265, 0]
+	    Branch {
+	      Points		      [-35, 0]
+	      DstBlock		      "Sum3"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "Sum2"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "Tg"
+	    DstPort		    1
+	  }
+	}
+	Annotation {
+	  SID			  "638"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [232, 254]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Heizkurve"
+      SID		      "188"
+      Ports		      [1, 1]
+      Position		      [225, 223, 295, 257]
+      ZOrder		      -2
+      BackgroundColor	      "green"
+      LibraryVersion	      "1.225"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		31
+	$ClassName		"Simulink.Mask"
+	Type			"Heizkurve"
+	Description		"Eingang:\n-Ta: Aussentemperatur\nAusgang:\n-Tsoll: Vorlaufsolltemperatur\nAnhand der Außentemperatur wi"
+	"rd über eine gesättigte lineare \nHeizkurve die Vorlaufsolltemperatur bestimmt. Die Heizkurve wird \ndurch zwei Punkt"
+	"e, die als Parameter angegeben werden, \nbestimmt.\n         Tsoll\n           |\nTsoll2 _| _______\n           |    "
+	"           \\ \n           |                  \\\n           |                     \\\nTsoll1 _|                     "
+	"   \\________\n           |            \n           |_______________________Ta\n                         |           "
+	"|\n                       Ta2        Ta1\nEntwickelt auf Grundlage der Bachelorarbeit \"Vergleich \nverschiedener Wär"
+	"meversorgungssysteme\", 2010 von Herrn Kai \nKruppa.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \n"
+	"GNU General Public License"
+	Initialization		"Ta1=Ta1c+273.15;\nTa2=Ta2c+273.15;\nTs1=Ts1c+273.15;\nTs2=Ts2c+273.15;\n"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    32
+	    Type		    "edit"
+	    Name		    "Ta1c"
+	    Prompt		    "Ta1 [°C]"
+	    Value		    "20"
+	  }
+	  Object {
+	    $ObjectID		    33
+	    Type		    "edit"
+	    Name		    "Ta2c"
+	    Prompt		    "Ta2 [°C]"
+	    Value		    "-12"
+	  }
+	  Object {
+	    $ObjectID		    34
+	    Type		    "edit"
+	    Name		    "Ts1c"
+	    Prompt		    "Tsoll1 [°C]"
+	    Value		    "60"
+	  }
+	  Object {
+	    $ObjectID		    35
+	    Type		    "edit"
+	    Name		    "Ts2c"
+	    Prompt		    "Tsoll2 [°C]"
+	    Value		    "85"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"Heizkurve"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"446"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Ta"
+	  SID			  "189"
+	  Position		  [15, 23, 45, 37]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "192"
+	  Ports			  [1, 1]
+	  Position		  [205, 15, 235, 45]
+	  ZOrder		  -2
+	  InputPortMap		  "u0"
+	  UpperLimit		  "Ts2"
+	  LowerLimit		  "Ts1"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "193"
+	  Ports			  [2, 1]
+	  Position		  [150, 20, 170, 40]
+	  ZOrder		  -3
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "a"
+	  SID			  "191"
+	  Position		  [70, 14, 120, 46]
+	  ZOrder		  -4
+	  Gain			  "(Ts1-Ts2)/(Ta1-Ta2)"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "b"
+	  SID			  "190"
+	  Position		  [70, 66, 125, 94]
+	  ZOrder		  -5
+	  Value			  "Ts1-(Ts1-Ts2)/(Ta1-Ta2)*Ta1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Tsoll"
+	  SID			  "194"
+	  Position		  [270, 23, 300, 37]
+	  ZOrder		  -6
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "Tsoll"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "a"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "b"
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Ta"
+	  SrcPort		  1
+	  DstBlock		  "a"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "631"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [217, 125]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Kessel"
+      SID		      "314"
+      Ports		      [4, 3]
+      Position		      [55, 124, 175, 181]
+      ZOrder		      -3
+      BackgroundColor	      "red"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		36
+	$ClassName		"Simulink.Mask"
+	Type			"Kessel"
+	Description		"Eingänge:\n- T_Rl, dV_ein:  Volumenstrom dV_ein mit der Temperatur T_Rl\n- Kessel an/aus: schaltet die "
+	"zugeführte Leistung Q_zu an oder ab \n- Modulation:     variiert die zugeführte Leistung Q_zu, \n                    "
+	"    das Signal liegt im Intervall [0,1]\nAugänge:\n-T_Kessel, dV_Kessel: das erhitzte Wasser fließt mit einem \n     "
+	"                            Volumenstrom dV_Kessel und der \n                                 Temperatur T_Kessel wie"
+	"der ab\n-Notaus:                     gibt an, ob der Kessel sich im \n                                 Notausbetrieb "
+	"befindet\nDie Berechnung der Ausgangstemperatur erfolgt über die \nWärmeleistungsbilanz:\ndQ_Kessel = dQ_zu - dQ_Verl"
+	"ust + dQ_Kessel,Rl - dQ_Kessel,Vl\nDie zugeführte Leistung Q_zu wird auf eine minimale und eine \nmaximale Leistung b"
+	"egrenzt.\nSonderfälle:\nVolumenstrom dV_ein beträgt 0: kein Wasser fließt durch den \nKessel -> das im Kessel befindl"
+	"iche Wasser heizt sich auf.\nNotausbetrieb: T_Kessel > Notaustemperatur -> Q_zu = 0 für \ndie Dauer der Notauszeit.\n"
+	"Entwickelt auf Grundlage der Bachelorarbeit \"Vergleich \nverschiedener Wärmeversorgungssysteme\", 2010 von Herrn Kai"
+	" \nKruppa.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public License"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  10
+	  Object {
+	    $ObjectID		    37
+	    Type		    "edit"
+	    Name		    "V_Kessel"
+	    Prompt		    "Volumen [m^3]"
+	    Value		    "2"
+	  }
+	  Object {
+	    $ObjectID		    38
+	    Type		    "edit"
+	    Name		    "P_min"
+	    Prompt		    "Minimale Leistung [kW]"
+	    Value		    "200"
+	  }
+	  Object {
+	    $ObjectID		    39
+	    Type		    "edit"
+	    Name		    "P_max"
+	    Prompt		    "Maximale Leistung [kW]"
+	    Value		    "15000"
+	  }
+	  Object {
+	    $ObjectID		    40
+	    Type		    "edit"
+	    Name		    "k_Kessel"
+	    Prompt		    "Verlustleistungsfaktor [kW/K]"
+	    Value		    "5000"
+	  }
+	  Object {
+	    $ObjectID		    41
+	    Type		    "edit"
+	    Name		    "c"
+	    Prompt		    "Spez. Wärmekapazität [J/(kg*K)]"
+	    Value		    "4182"
+	  }
+	  Object {
+	    $ObjectID		    42
+	    Type		    "edit"
+	    Name		    "rho"
+	    Prompt		    "Dichte [kg/m^3]"
+	    Value		    "1000"
+	  }
+	  Object {
+	    $ObjectID		    43
+	    Type		    "edit"
+	    Name		    "notaustemp"
+	    Prompt		    "Notaustemperatur [K]"
+	    Value		    "273+95"
+	  }
+	  Object {
+	    $ObjectID		    44
+	    Type		    "edit"
+	    Name		    "notauszeit"
+	    Prompt		    "Notauszeit [s]"
+	    Value		    "10"
+	  }
+	  Object {
+	    $ObjectID		    45
+	    Type		    "edit"
+	    Name		    "KesselInit"
+	    Prompt		    "Anfangstemperatur [K]"
+	    Value		    "273+70"
+	  }
+	  Object {
+	    $ObjectID		    46
+	    Type		    "edit"
+	    Name		    "T_Umgebung"
+	    Prompt		    "Umgebungstemperatur [K]"
+	    Value		    "273+30"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"Kessel"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"222"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Rl"
+	  SID			  "315"
+	  Position		  [15, 128, 45, 142]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_ein"
+	  SID			  "316"
+	  Position		  [15, 178, 45, 192]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Kessel\nan/aus"
+	  SID			  "317"
+	  Position		  [15, 238, 45, 252]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Modulation"
+	  SID			  "318"
+	  Position		  [15, 208, 45, 222]
+	  ZOrder		  -4
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Divide"
+	  SID			  "319"
+	  Ports			  [2, 1]
+	  Position		  [375, 142, 405, 173]
+	  ZOrder		  -5
+	  Inputs		  "*/"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Integrator"
+	  SID			  "320"
+	  Ports			  [1, 1]
+	  Position		  [425, 145, 455, 175]
+	  ZOrder		  -6
+	  InitialCondition	  "KesselInit"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator1"
+	  SID			  "321"
+	  Ports			  [1, 1]
+	  Position		  [460, 224, 490, 256]
+	  ZOrder		  -7
+	  Operator		  "NOT"
+	  AllPortsSameDT	  off
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Notausberechnung"
+	  SID			  "322"
+	  Ports			  [1, 1]
+	  Position		  [320, 222, 430, 258]
+	  ZOrder		  -8
+	  LibraryVersion	  "1.216"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Notausberechnung"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "339"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_Kessel"
+	      SID		      "323"
+	      Position		      [15, 23, 45, 37]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Compare\nTo Constant"
+	      SID		      "324"
+	      Ports		      [1, 1]
+	      Position		      [70, 14, 150, 46]
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	      SourceType	      "Compare To Constant"
+	      relop		      ">"
+	      const		      "notaustemp"
+	      OutDataTypeStr	      "uint8"
+	      ZeroCross		      on
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Compare\nTo Zero"
+	      SID		      "325"
+	      Ports		      [1, 1]
+	      Position		      [305, 15, 335, 45]
+	      ZOrder		      -3
+	      LibraryVersion	      "1.281"
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
+	      SourceType	      "Compare To Zero"
+	      relop		      "=="
+	      OutDataTypeStr	      "uint8"
+	      ZeroCross		      on
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum of\nElements"
+	      SID		      "326"
+	      Ports		      [1, 1]
+	      Position		      [245, 15, 275, 45]
+	      ZOrder		      -4
+	      Inputs		      "+"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Tapped Delay"
+	      SID		      "327"
+	      Ports		      [1, 1]
+	      Position		      [180, 12, 215, 48]
+	      ZOrder		      -5
+	      LibraryVersion	      "1.281"
+	      SourceBlock	      "simulink/Discrete/Tapped Delay"
+	      SourceType	      "Tapped Delay Line"
+	      vinit		      "0.0"
+	      samptime		      "-1"
+	      NumDelays		      "1/ts*notauszeit"
+	      DelayOrder	      "Oldest"
+	      includeCurrent	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Notaus"
+	      SID		      "328"
+	      Position		      [365, 23, 395, 37]
+	      ZOrder		      -6
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "T_Kessel"
+	      SrcPort		      1
+	      DstBlock		      "Compare\nTo Constant"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Tapped Delay"
+	      SrcPort		      1
+	      DstBlock		      "Sum of\nElements"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum of\nElements"
+	      SrcPort		      1
+	      DstBlock		      "Compare\nTo Zero"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Compare\nTo Zero"
+	      SrcPort		      1
+	      DstBlock		      "Notaus"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Compare\nTo Constant"
+	      SrcPort		      1
+	      DstBlock		      "Tapped Delay"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      SID		      "626"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [215, 100]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Q_Rl-Q_Vl"
+	  SID			  "329"
+	  Ports			  [3, 1]
+	  Position		  [170, 121, 265, 179]
+	  ZOrder		  -9
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Q_Rl-Q_Vl"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "300"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_Kessel"
+	      SID		      "330"
+	      Position		      [15, 13, 45, 27]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_Rl"
+	      SID		      "331"
+	      Position		      [15, 53, 45, 67]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dV_ein"
+	      SID		      "332"
+	      Position		      [15, 108, 45, 122]
+	      ZOrder		      -3
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product1"
+	      SID		      "333"
+	      Ports		      [2, 1]
+	      Position		      [195, 52, 225, 83]
+	      ZOrder		      -4
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "334"
+	      Ports		      [2, 1]
+	      Position		      [70, 50, 90, 70]
+	      ZOrder		      -5
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "-+|"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "c*rho"
+	      SID		      "335"
+	      Position		      [115, 45, 155, 75]
+	      ZOrder		      -6
+	      Gain		      "c*rho"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_Rl - Q_Vl"
+	      SID		      "336"
+	      Position		      [250, 63, 280, 77]
+	      ZOrder		      -7
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "c*rho"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "c*rho"
+	      SrcPort		      1
+	      DstBlock		      "Product1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "T_Kessel"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "T_Rl"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Product1"
+	      SrcPort		      1
+	      DstBlock		      "Q_Rl - Q_Vl"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "dV_ein"
+	      SrcPort		      1
+	      Points		      [115, 0; 0, -40]
+	      DstBlock		      "Product1"
+	      DstPort		      2
+	    }
+	    Annotation {
+	      SID		      "624"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [217, 155]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Q_Verlust"
+	  SID			  "337"
+	  Ports			  [1, 1]
+	  Position		  [170, 58, 265, 102]
+	  ZOrder		  -10
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Q_Verlust"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "250"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_Kessel"
+	      SID		      "338"
+	      Position		      [25, 23, 55, 37]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "340"
+	      Ports		      [2, 1]
+	      Position		      [90, 20, 110, 40]
+	      ZOrder		      -2
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|+-"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "T_Umgebung"
+	      SID		      "341"
+	      Position		      [15, 55, 90, 85]
+	      ZOrder		      -3
+	      Value		      "T_Umgebung"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "k_Kessel"
+	      SID		      "339"
+	      Position		      [135, 15, 165, 45]
+	      ZOrder		      -4
+	      Gain		      "k_Kessel"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_Verlust"
+	      SID		      "342"
+	      Position		      [190, 23, 220, 37]
+	      ZOrder		      -5
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "T_Umgebung"
+	      SrcPort		      1
+	      Points		      [5, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "k_Kessel"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "T_Kessel"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "k_Kessel"
+	      SrcPort		      1
+	      DstBlock		      "Q_Verlust"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      SID		      "623"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [218, 125]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Q_zu"
+	  SID			  "343"
+	  Ports			  [3, 1]
+	  Position		  [175, 205, 265, 255]
+	  ZOrder		  -11
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Q_zu"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "250"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Modulation"
+	      SID		      "344"
+	      Position		      [15, 23, 45, 37]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "an/aus"
+	      SID		      "345"
+	      Position		      [15, 78, 45, 92]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Notaus"
+	      SID		      "346"
+	      Position		      [15, 108, 45, 122]
+	      ZOrder		      -3
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Logic
+	      Name		      "Logical\nOperator"
+	      SID		      "347"
+	      Ports		      [3, 1]
+	      Position		      [130, 68, 160, 102]
+	      ZOrder		      -4
+	      Inputs		      "3"
+	      AllPortsSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "P_max"
+	      SID		      "348"
+	      Position		      [80, 15, 110, 45]
+	      ZOrder		      -5
+	      Gain		      "P_max * 1000"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product"
+	      SID		      "349"
+	      Ports		      [2, 1]
+	      Position		      [190, 21, 220, 54]
+	      ZOrder		      -6
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Saturate
+	      Name		      "Saturation"
+	      SID		      "350"
+	      Ports		      [1, 1]
+	      Position		      [130, 15, 160, 45]
+	      ZOrder		      -7
+	      InputPortMap	      "u0"
+	      UpperLimit	      "P_max*1000"
+	      LowerLimit	      "P_min*1000"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_zu"
+	      SID		      "351"
+	      Position		      [245, 33, 275, 47]
+	      ZOrder		      -8
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Modulation"
+	      SrcPort		      1
+	      Points		      [10, 0]
+	      Branch {
+		DstBlock		"P_max"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 45]
+		DstBlock		"Logical\nOperator"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "P_max"
+	      SrcPort		      1
+	      DstBlock		      "Saturation"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Saturation"
+	      SrcPort		      1
+	      DstBlock		      "Product"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Logical\nOperator"
+	      SrcPort		      1
+	      Points		      [5, 0; 0, -40]
+	      DstBlock		      "Product"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Notaus"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, -20]
+	      DstBlock		      "Logical\nOperator"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Product"
+	      SrcPort		      1
+	      DstBlock		      "Q_zu"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "an/aus"
+	      SrcPort		      1
+	      DstBlock		      "Logical\nOperator"
+	      DstPort		      2
+	    }
+	    Annotation {
+	      SID		      "625"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [218, 156]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "352"
+	  Ports			  [3, 1]
+	  Position		  [285, 140, 305, 160]
+	  ZOrder		  -12
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "-++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "353"
+	  Position		  [90, 130, 140, 170]
+	  ZOrder		  -13
+	  Criteria		  "u2 ~= 0"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay"
+	  SID			  "354"
+	  Position		  [95, 28, 130, 62]
+	  ZOrder		  -14
+	  BlockMirror		  on
+	  InputProcessing	  "Elements as channels (sample based)"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "c*rho*V_Kessel"
+	  SID			  "355"
+	  Position		  [315, 160, 345, 190]
+	  ZOrder		  -15
+	  Value			  "c*rho*V_Kessel"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_Kessel"
+	  SID			  "356"
+	  Position		  [510, 153, 540, 167]
+	  ZOrder		  -16
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV_Kessel"
+	  SID			  "357"
+	  Position		  [510, 13, 540, 27]
+	  ZOrder		  -17
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Notaus"
+	  SID			  "358"
+	  Position		  [510, 233, 540, 247]
+	  ZOrder		  -18
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "dV_ein"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    Points		    [0, -35]
+	    Branch {
+	      Points		      [0, -130]
+	      DstBlock		      "dV_Kessel"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "Switch"
+	      DstPort		      2
+	    }
+	  }
+	  Branch {
+	    Points		    [90, 0; 0, -15]
+	    DstBlock		    "Q_Rl-Q_Vl"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "Q_zu"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Q_Verlust"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Q_Rl-Q_Vl"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Divide"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "c*rho*V_Kessel"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  DstBlock		  "Divide"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide"
+	  SrcPort		  1
+	  DstBlock		  "Integrator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "T_Rl"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Integrator"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    DstBlock		    "T_Kessel"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -115; -320, 0]
+	    Branch {
+	      DstBlock		      "Unit Delay"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 35]
+	      Branch {
+		Points			[0, 50]
+		DstBlock		"Q_Rl-Q_Vl"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Q_Verlust"
+		DstPort			1
+	      }
+	    }
+	  }
+	  Branch {
+	    Points		    [0, 50; -165, 0]
+	    DstBlock		    "Notausberechnung"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Q_Rl-Q_Vl"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Unit Delay"
+	  SrcPort		  1
+	  Points		  [-20, 0; 0, 120]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Notausberechnung"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    DstBlock		    "Logical\nOperator1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Labels		    [0, 0]
+	    Points		    [0, 35; -290, 0; 0, -30]
+	    DstBlock		    "Q_zu"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator1"
+	  SrcPort		  1
+	  DstBlock		  "Notaus"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Kessel\nan/aus"
+	  SrcPort		  1
+	  Points		  [100, 0; 0, -15]
+	  DstBlock		  "Q_zu"
+	  DstPort		  2
+	}
+	Line {
+	  Labels		  [0, 0]
+	  SrcBlock		  "Modulation"
+	  SrcPort		  1
+	  DstBlock		  "Q_zu"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "622"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [218, 306]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Mischventil"
+      SID		      "201"
+      Ports		      [4, 2]
+      Position		      [340, 129, 420, 186]
+      ZOrder		      -4
+      BackgroundColor	      "lightBlue"
+      LibraryVersion	      "1.29.4"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		47
+	$ClassName		"Simulink.Mask"
+	Type			"Mischventil"
+	Description		"Es handelt sich um ein 3-Wege-Mischventil.\nEingänge:\n-T_1, dV_1: Temperatur und Volumenstrom des erst"
+	"en Stromes\n-T_2:           Temperatur des zweiten Volumenstromes\n-k:               Mischverhältnis\nAusgänge:\n-T_m"
+	"isch, dV_misch: Temperatur und Volumenstrom des Mischprodukts\nDem Volumenstrom dV1 kann, abhängig vom Mischverhältni"
+	"s k, Wasser \naus einem zweiten Volumenstrom dV2 beigemischt werden. Das\nMischverhältnis ist auf den Volumenstrom dV"
+	"1 bezogen.\nk = dV_2/dV_1\nFür das Mischprodukt ergibt sich:\ndV_misch = (1 + k)*dV_1,\nT_misch = (T_1 + k*T_2)/(1+k)"
+	".\nEntwickelt auf Grundlage der Bachelorarbeit \"Vergleich verschiedener \nWärmeversorgungssysteme\", 2010 von Herrn "
+	"Kai Kruppa.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public License"
+      }
+      System {
+	Name			"Mischventil"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"a4letter"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"261"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_1"
+	  SID			  "202"
+	  Position		  [15, 13, 45, 27]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_1"
+	  SID			  "203"
+	  Position		  [15, 208, 45, 222]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_2"
+	  SID			  "204"
+	  Position		  [15, 43, 45, 57]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "k"
+	  SID			  "205"
+	  Position		  [15, 148, 45, 162]
+	  ZOrder		  -4
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  SID			  "207"
+	  Position		  [75, 90, 105, 120]
+	  ZOrder		  -5
+	  BlockRotation		  270
+	  BlockMirror		  on
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Divide"
+	  SID			  "208"
+	  Ports			  [2, 1]
+	  Position		  [210, 132, 240, 163]
+	  ZOrder		  -6
+	  Inputs		  "*/"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product"
+	  SID			  "209"
+	  Ports			  [2, 1]
+	  Position		  [210, 192, 240, 223]
+	  ZOrder		  -7
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product1"
+	  SID			  "210"
+	  Ports			  [2, 1]
+	  Position		  [105, 42, 135, 73]
+	  ZOrder		  -8
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "211"
+	  Ports			  [2, 1]
+	  Position		  [110, 190, 130, 210]
+	  ZOrder		  -9
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  "212"
+	  Ports			  [2, 1]
+	  Position		  [110, 145, 130, 165]
+	  ZOrder		  -10
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum2"
+	  SID			  "213"
+	  Ports			  [2, 1]
+	  Position		  [160, 50, 180, 70]
+	  ZOrder		  -11
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_misch"
+	  SID			  "214"
+	  Position		  [265, 143, 295, 157]
+	  ZOrder		  -12
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV_misch"
+	  SID			  "215"
+	  Position		  [265, 203, 295, 217]
+	  ZOrder		  -13
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Divide"
+	  SrcPort		  1
+	  DstBlock		  "T_misch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum2"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 80]
+	  DstBlock		  "Divide"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Product1"
+	  SrcPort		  1
+	  DstBlock		  "Sum2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "T_1"
+	  SrcPort		  1
+	  Points		  [120, 0]
+	  DstBlock		  "Sum2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "T_2"
+	  SrcPort		  1
+	  DstBlock		  "Product1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Product"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "Divide"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  Points		  [0, 5]
+	  Branch {
+	    Points		    [0, 45]
+	    DstBlock		    "Sum"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Sum1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Product"
+	  SrcPort		  1
+	  DstBlock		  "dV_misch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "k"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    Points		    [0, -90]
+	    DstBlock		    "Product1"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 45]
+	    DstBlock		    "Sum"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Sum1"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "dV_1"
+	  SrcPort		  1
+	  DstBlock		  "Product"
+	  DstPort		  2
+	}
+	Annotation {
+	  SID			  "628"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [219, 265]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Mischverhältnis"
+      SID		      "404"
+      Ports		      [3, 1]
+      Position		      [350, 212, 410, 268]
+      ZOrder		      -5
+      BackgroundColor	      "green"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		48
+	$ClassName		"Simulink.Mask"
+	Type			"Mischverhältnis"
+	Description		"Eingänge:\n-T_soll: Vorlaufsolltemperatur\n-T_1:    Temperatur des Volumenstroms 1\n-T_2:    Temperatur"
+	" des Volumenstroms 2\nAusgang:\n-k: Mischverhältnis\nEs wird berechnet, wieviel Wasser durch den Volumenstrom 2 dem \n"
+	"Volumenstrom 1 zugeführt werden muss, um eine gewünschte\nTemperatur des Mischprodukts zu erhalten. Die gewünschte \n"
+	"Temperatur wird durch die Solltemperatur vorgegeben.\nDas Mischverhältinis k berechnet sich aus\nk = (T_1-T_soll)/(T_"
+	"soll-T_2).\nEntwickelt auf Grundlage der Bachelorarbeit \"Vergleich verschiedener \nWärmeversorgungssysteme\", 2010 v"
+	"on Herrn Kai Kruppa.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public License"
+      }
+      System {
+	Name			"Mischverhältnis"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"245"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_soll"
+	  SID			  "437"
+	  Position		  [15, 68, 45, 82]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_1"
+	  SID			  "438"
+	  Position		  [15, 118, 45, 132]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_2"
+	  SID			  "439"
+	  Position		  [15, 173, 45, 187]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Absenkung"
+	  SID			  "440"
+	  Ports			  [4, 1]
+	  Position		  [210, 185, 270, 240]
+	  ZOrder		  -4
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Absenkung"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "175"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_soll"
+	      SID		      "441"
+	      Position		      [15, 78, 45, 92]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_1"
+	      SID		      "442"
+	      Position		      [15, 128, 45, 142]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_2"
+	      SID		      "443"
+	      Position		      [15, 43, 45, 57]
+	      ZOrder		      -3
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "k"
+	      SID		      "444"
+	      Position		      [15, 13, 45, 27]
+	      ZOrder		      -4
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      SID		      "445"
+	      Position		      [80, 80, 110, 110]
+	      ZOrder		      -5
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant1"
+	      SID		      "446"
+	      Position		      [80, 185, 110, 215]
+	      ZOrder		      -6
+	      Value		      "0"
+	    }
+	    Block {
+	      BlockType		      RelationalOperator
+	      Name		      "Relational\nOperator"
+	      SID		      "447"
+	      Ports		      [2, 1]
+	      Position		      [170, 42, 200, 73]
+	      ZOrder		      -7
+	      Operator		      "<="
+	      InputSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      RelationalOperator
+	      Name		      "Relational\nOperator1"
+	      SID		      "448"
+	      Ports		      [2, 1]
+	      Position		      [80, 127, 110, 158]
+	      ZOrder		      -8
+	      Operator		      ">"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Switch
+	      Name		      "Switch"
+	      SID		      "449"
+	      Position		      [235, 40, 285, 80]
+	      ZOrder		      -9
+	      Criteria		      "u2 > Threshold"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Switch
+	      Name		      "Switch1"
+	      SID		      "450"
+	      Position		      [140, 125, 190, 165]
+	      ZOrder		      -10
+	      Criteria		      "u2 > Threshold"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "k_ab"
+	      SID		      "451"
+	      Position		      [305, 53, 335, 67]
+	      ZOrder		      -11
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Switch1"
+	      SrcPort		      1
+	      Points		      [20, 0; 0, -70]
+	      DstBlock		      "Switch"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Constant1"
+	      SrcPort		      1
+	      Points		      [0, -40]
+	      DstBlock		      "Switch1"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      Points		      [10, 0]
+	      DstBlock		      "Switch1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Relational\nOperator1"
+	      SrcPort		      1
+	      DstBlock		      "Switch1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Relational\nOperator"
+	      SrcPort		      1
+	      DstBlock		      "Switch"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "k"
+	      SrcPort		      1
+	      Points		      [165, 0; 0, 25]
+	      DstBlock		      "Switch"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "T_2"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      Branch {
+		DstBlock		"Relational\nOperator"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Relational\nOperator1"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "T_soll"
+	      SrcPort		      1
+	      Points		      [0, -20]
+	      DstBlock		      "Relational\nOperator"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "T_1"
+	      SrcPort		      1
+	      DstBlock		      "Relational\nOperator1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Switch"
+	      SrcPort		      1
+	      DstBlock		      "k_ab"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      SID		      "635"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [217, 251]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Anhebung"
+	  SID			  "452"
+	  Ports			  [4, 1]
+	  Position		  [210, 15, 270, 70]
+	  ZOrder		  -5
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Anhebung"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "303"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_soll"
+	      SID		      "453"
+	      Position		      [15, 43, 45, 57]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_1"
+	      SID		      "454"
+	      Position		      [15, 103, 45, 117]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_2"
+	      SID		      "455"
+	      Position		      [15, 138, 45, 152]
+	      ZOrder		      -3
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "k"
+	      SID		      "456"
+	      Position		      [15, 13, 45, 27]
+	      ZOrder		      -4
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant2"
+	      SID		      "457"
+	      Position		      [90, 55, 120, 85]
+	      ZOrder		      -5
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant3"
+	      SID		      "458"
+	      Position		      [90, 160, 120, 190]
+	      ZOrder		      -6
+	      Value		      "0"
+	    }
+	    Block {
+	      BlockType		      RelationalOperator
+	      Name		      "Relational\nOperator2"
+	      SID		      "459"
+	      Ports		      [2, 1]
+	      Position		      [165, 27, 195, 58]
+	      ZOrder		      -7
+	      InputSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      RelationalOperator
+	      Name		      "Relational\nOperator3"
+	      SID		      "460"
+	      Ports		      [2, 1]
+	      Position		      [90, 102, 120, 133]
+	      ZOrder		      -8
+	      Operator		      "<"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Switch
+	      Name		      "Switch2"
+	      SID		      "461"
+	      Position		      [235, 25, 285, 65]
+	      ZOrder		      -9
+	      Criteria		      "u2 > Threshold"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Switch
+	      Name		      "Switch3"
+	      SID		      "462"
+	      Position		      [155, 100, 205, 140]
+	      ZOrder		      -10
+	      Criteria		      "u2 > Threshold"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "k_an"
+	      SID		      "463"
+	      Position		      [310, 38, 340, 52]
+	      ZOrder		      -11
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Relational\nOperator2"
+	      SrcPort		      1
+	      DstBlock		      "Switch2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Relational\nOperator3"
+	      SrcPort		      1
+	      DstBlock		      "Switch3"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Constant2"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, 35]
+	      DstBlock		      "Switch3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant3"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, -40]
+	      DstBlock		      "Switch3"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Switch3"
+	      SrcPort		      1
+	      Points		      [5, 0; 0, -60]
+	      DstBlock		      "Switch2"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "T_1"
+	      SrcPort		      1
+	      DstBlock		      "Relational\nOperator3"
+	      DstPort		      1
+	    }
+	    Line {
+	      Labels		      [2, 0]
+	      SrcBlock		      "k"
+	      SrcPort		      1
+	      Points		      [165, 0; 0, 10]
+	      DstBlock		      "Switch2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Switch2"
+	      SrcPort		      1
+	      DstBlock		      "k_an"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "T_2"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, -20]
+	      Branch {
+		Points			[0, -90]
+		DstBlock		"Relational\nOperator2"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Relational\nOperator3"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "T_soll"
+	      SrcPort		      1
+	      DstBlock		      "Relational\nOperator2"
+	      DstPort		      2
+	    }
+	    Annotation {
+	      SID		      "634"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [218, 221]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  RelationalOperator
+	  Name			  "Relational\nOperator4"
+	  SID			  "464"
+	  Ports			  [2, 1]
+	  Position		  [225, 102, 255, 133]
+	  ZOrder		  -6
+	  Operator		  "<"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "465"
+	  Ports			  [1, 1]
+	  Position		  [365, 105, 395, 135]
+	  ZOrder		  -7
+	  InputPortMap		  "u0"
+	  UpperLimit		  "1"
+	  LowerLimit		  "0"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch4"
+	  SID			  "466"
+	  Position		  [295, 100, 345, 140]
+	  ZOrder		  -8
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "k "
+	  SID			  "467"
+	  Ports			  [3, 1]
+	  Position		  [120, 99, 170, 151]
+	  ZOrder		  -9
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "k "
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "175"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_soll"
+	      SID		      "468"
+	      Position		      [15, 18, 45, 32]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_1"
+	      SID		      "469"
+	      Position		      [15, 48, 45, 62]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "T_2"
+	      SID		      "470"
+	      Position		      [15, 93, 45, 107]
+	      ZOrder		      -3
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Abs
+	      Name		      "Abs"
+	      SID		      "471"
+	      Position		      [165, 80, 195, 110]
+	      ZOrder		      -4
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      SID		      "472"
+	      Position		      [165, 170, 195, 200]
+	      ZOrder		      -5
+	      Value		      "eps"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Divide"
+	      SID		      "473"
+	      Ports		      [2, 1]
+	      Position		      [345, 17, 375, 48]
+	      ZOrder		      -6
+	      Inputs		      "*/"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      RndMeth		      "Floor"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product"
+	      SID		      "474"
+	      Ports		      [2, 1]
+	      Position		      [220, 132, 250, 163]
+	      ZOrder		      -7
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Signum
+	      Name		      "Sign"
+	      SID		      "475"
+	      Position		      [165, 125, 195, 155]
+	      ZOrder		      -8
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "476"
+	      Ports		      [2, 1]
+	      Position		      [75, 15, 95, 35]
+	      ZOrder		      -9
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|-+"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum1"
+	      SID		      "477"
+	      Ports		      [2, 1]
+	      Position		      [75, 65, 95, 85]
+	      ZOrder		      -10
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|+-"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Switch
+	      Name		      "Switch"
+	      SID		      "478"
+	      Position		      [270, 70, 320, 110]
+	      ZOrder		      -11
+	      Threshold		      "eps"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "k"
+	      SID		      "479"
+	      Position		      [395, 28, 425, 42]
+	      ZOrder		      -12
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "T_soll"
+	      SrcPort		      1
+	      Points		      [5, 0]
+	      Branch {
+		Points			[0, 50]
+		DstBlock		"Sum1"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Sum"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Divide"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum1"
+	      SrcPort		      1
+	      Points		      [40, 0]
+	      Branch {
+		DstBlock		"Switch"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 20]
+		Branch {
+		  DstBlock		  "Abs"
+		  DstPort		  1
+		}
+		Branch {
+		  Points		  [0, 45]
+		  DstBlock		  "Sign"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Abs"
+	      SrcPort		      1
+	      Points		      [0, -5]
+	      DstBlock		      "Switch"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sign"
+	      SrcPort		      1
+	      DstBlock		      "Product"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      Points		      [5, 0]
+	      DstBlock		      "Product"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Product"
+	      SrcPort		      1
+	      DstBlock		      "Switch"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Switch"
+	      SrcPort		      1
+	      Points		      [5, 0]
+	      DstBlock		      "Divide"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Divide"
+	      SrcPort		      1
+	      DstBlock		      "k"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "T_1"
+	      SrcPort		      1
+	      Points		      [35, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "T_2"
+	      SrcPort		      1
+	      DstBlock		      "Sum1"
+	      DstPort		      2
+	    }
+	    Annotation {
+	      SID		      "633"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [215, 235]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "k"
+	  SID			  "481"
+	  Position		  [420, 113, 450, 127]
+	  ZOrder		  -10
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Relational\nOperator4"
+	  SrcPort		  1
+	  DstBlock		  "Switch4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Absenkung"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Switch4"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Anhebung"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Switch4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "T_soll"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    Points		    [40, 0]
+	    Branch {
+	      Points		      [90, 0; 0, 50]
+	      DstBlock		      "Relational\nOperator4"
+	      DstPort		      2
+	    }
+	    Branch {
+	      DstBlock		      "k "
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    Points		    [0, 115]
+	    DstBlock		    "Absenkung"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -55]
+	    DstBlock		    "Anhebung"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "T_1"
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  Branch {
+	    Points		    [20, 0]
+	    Branch {
+	      Points		      [0, -40; 105, 0; 0, 25]
+	      DstBlock		      "Relational\nOperator4"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "k "
+	      DstPort		      2
+	    }
+	  }
+	  Branch {
+	    Points		    [0, 80]
+	    DstBlock		    "Absenkung"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, -90]
+	    DstBlock		    "Anhebung"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "T_2"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  Branch {
+	    Points		    [15, 0]
+	    DstBlock		    "k "
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [0, 40]
+	    DstBlock		    "Absenkung"
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [0, -130]
+	    DstBlock		    "Anhebung"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "k "
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    Points		    [0, -60]
+	    DstBlock		    "Anhebung"
+	    DstPort		    4
+	  }
+	  Branch {
+	    Points		    [0, 110]
+	    DstBlock		    "Absenkung"
+	    DstPort		    4
+	  }
+	}
+	Line {
+	  SrcBlock		  "Switch4"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "k"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "632"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [217, 280]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Pumpe"
+      SID		      "602"
+      Ports		      [1, 1]
+      Position		      [460, 216, 560, 274]
+      ZOrder		      2
+      BackgroundColor	      "lightBlue"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		49
+	$ClassName		"Simulink.Mask"
+	Type			"Pumpe"
+	Description		"Eingang:\n- Tg: Gebäudetemperatur\nAusgang:\n- dV: Volumenstrom\nDie Pumpe bestimmt den Volumenstrom in"
+	" Abhängigkeit von der Differenz zwischen tatsächlicher und Soll-Gebäudetemperatur. Aufgrund der Thermostatventile im "
+	"Verbraucher entsteht ein linearer Zusammenhang, der sich außerhalb der Sättigungstemperaturdifferenz in Sättigung bef"
+	"indet.\ndV=\ndVm - dVa,                     für Tg-Tg_soll > Delta_Tg\ndVm + dVa/Delta_Tg(Tg-Tg_soll) für -Delta_Tg<T"
+	"g-Tg_soll<Delta_Tg\ndVm + dVa                      für Tg-Tg_soll < Delta_Tg\nEntwickelt auf Grundlage von \"Tensor S"
+	"ystems: Multilinear Modeling and\nApplications\", 3rd Int. Conference on Simulation and Modeling Methodologies, Techn"
+	"ologies and Applications, 2013, Pangalos, G., Eichler, A., Lichtenberg, G.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamb"
+	"urg, Life Sciences, \nGNU General Public License"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    50
+	    Type		    "edit"
+	    Name		    "dVm"
+	    Prompt		    "Mittlerer Volumenstrom [m^3/s]"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    51
+	    Type		    "edit"
+	    Name		    "dVa"
+	    Prompt		    "Volumenstromamplitude [m^3/s]"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    52
+	    Type		    "edit"
+	    Name		    "Tg_soll"
+	    Prompt		    "Soll-Gebäudetemperatur [K]"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    53
+	    Type		    "edit"
+	    Name		    "DeltaTg"
+	    Prompt		    "Sättigungstemperaturdifferenz [K]"
+	    Value		    "0"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"Pumpe"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"341"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Tg"
+	  SID			  "603"
+	  Position		  [15, 88, 45, 102]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "604"
+	  Position		  [50, 24, 100, 56]
+	  ZOrder		  -5
+	  Value			  "Tg_soll"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "605"
+	  Position		  [290, 24, 340, 56]
+	  ZOrder		  -5
+	  Value			  "dVm"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain"
+	  SID			  "606"
+	  Position		  [250, 73, 340, 117]
+	  ZOrder		  -8
+	  Gain			  "dVa/DeltaTg"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  SID			  "607"
+	  Ports			  [1, 1]
+	  Position		  [165, 80, 195, 110]
+	  ZOrder		  -15
+	  InputPortMap		  "u0"
+	  UpperLimit		  "DeltaTg"
+	  LowerLimit		  "-DeltaTg"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "608"
+	  Ports			  [2, 1]
+	  Position		  [110, 85, 130, 105]
+	  ZOrder		  -18
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "+-|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  "609"
+	  Ports			  [2, 1]
+	  Position		  [380, 85, 400, 105]
+	  ZOrder		  -18
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV"
+	  SID			  "610"
+	  Position		  [435, 88, 465, 102]
+	  ZOrder		  -9
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  Points		  [45, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "dV"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  DstBlock		  "Gain"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Tg"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Annotation {
+	  SID			  "636"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [215, 161]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Rücklaufanhebung"
+      SID		      "425"
+      Ports		      [3, 3]
+      Position		      [445, 42, 565, 98]
+      ZOrder		      -6
+      BackgroundColor	      "lightBlue"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		54
+	$ClassName		"Simulink.Mask"
+	Description		"Es handelt sich um ein 3-Wege-Mischventil, das in den Rücklauf geschaltet wird.\nEingänge:\n- T_Rl,dV_R"
+	"l: Temperatur und Volumenstrom des Rücklaufs\n- T_Vl: Vorlauftemperatur\nAusgänge:\n- dV_Vl: Vorlaufvolumenstrom\n- T"
+	"_misch: Temperatur des Mischprodukts\n- dV_misch: Volumenstrom des Mischprodukts\nDem Rücklauf kann warmes Wasser aus"
+	" dem Vorlauf beigemischt \nwerden, um die Rücklauftemperatur zu erhöhen. Es kann somit in \ngewissen Grenzen sicherge"
+	"stellt, dass die Rücklauftemperatur nicht \nunter eine bestimmte Mindestrücklauftemperatur fällt.\nEntwickelt auf Gru"
+	"ndlage der Bachelorarbeit \"Vergleich verschiedener \nWärmeversorgungssysteme\", 2010 von Herrn Kai Kruppa.\n\nCopyri"
+	"ght (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public License"
+	Object {
+	  $PropName		  "Parameters"
+	  $ObjectID		  55
+	  $ClassName		  "Simulink.MaskParameter"
+	  Type			  "edit"
+	  Name			  "T_min"
+	  Prompt		  "Mindestrücklauftemperatur [K]"
+	  Value			  "273+60"
+	}
+      }
+      System {
+	Name			"Rücklaufanhebung"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"347"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Rl"
+	  SID			  "426"
+	  Position		  [15, 18, 45, 32]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_Rl"
+	  SID			  "427"
+	  Position		  [15, 48, 45, 62]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Vl"
+	  SID			  "428"
+	  Position		  [15, 78, 45, 92]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Mischventil"
+	  SID			  "429"
+	  Ports			  [4, 2]
+	  Position		  [245, 34, 325, 91]
+	  ZOrder		  -4
+	  BackgroundColor	  "lightBlue"
+	  LibraryVersion	  "1.30.56"
+	  SourceBlock		  "MatlabHeatLib/Mischventil"
+	  SourceType		  "Mischventil"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Mischverhältnis"
+	  SID			  "430"
+	  Ports			  [3, 1]
+	  Position		  [150, 109, 210, 161]
+	  ZOrder		  -5
+	  BackgroundColor	  "green"
+	  LibraryVersion	  "1.30.56"
+	  SourceBlock		  "MatlabHeatLib/Mischverhältnis"
+	  SourceType		  "Mischverhältnis"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "431"
+	  Ports			  [1, 1]
+	  Position		  [95, 85, 125, 115]
+	  ZOrder		  -6
+	  InputPortMap		  "u0"
+	  UpperLimit		  "inf"
+	  LowerLimit		  "T_min"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV_Vl"
+	  SID			  "432"
+	  Position		  [350, 13, 380, 27]
+	  ZOrder		  -7
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_misch"
+	  SID			  "433"
+	  Position		  [350, 43, 380, 57]
+	  ZOrder		  -8
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV_misch"
+	  SID			  "434"
+	  Position		  [350, 73, 380, 87]
+	  ZOrder		  -9
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Mischventil"
+	  SrcPort		  2
+	  DstBlock		  "dV_misch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "dV_Rl"
+	  SrcPort		  1
+	  Points		  [170, 0]
+	  Branch {
+	    Points		    [0, -35]
+	    DstBlock		    "dV_Vl"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Mischventil"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Mischventil"
+	  SrcPort		  1
+	  DstBlock		  "T_misch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Mischverhältnis"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, -50]
+	  DstBlock		  "Mischventil"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "T_Rl"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  Branch {
+	    Points		    [135, 0; 0, 15]
+	    DstBlock		    "Mischventil"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 75]
+	    Branch {
+	      Points		      [0, 35]
+	      DstBlock		      "Mischverhältnis"
+	      DstPort		      2
+	    }
+	    Branch {
+	      DstBlock		      "Saturation"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Mischverhältnis"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "T_Vl"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    Points		    [0, -15]
+	    DstBlock		    "Mischventil"
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [0, 65]
+	    DstBlock		    "Mischverhältnis"
+	    DstPort		    3
+	  }
+	}
+	Annotation {
+	  SID			  "621"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [219, 190]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Speicherkette"
+      SID		      "486"
+      Ports		      [4, 4]
+      Position		      [60, 209, 175, 266]
+      ZOrder		      -7
+      BackgroundColor	      "blue"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		56
+	$ClassName		"Simulink.Mask"
+	Type			"Speicherkette"
+	Description		"Eingänge:\nT1_ein: Eingangstemperatur des Vol.stroms 1\ndV1:     Volumenstrom 1\nT2_ein: Eingangstemper"
+	"atur des Vol.stroms 2\ndV2:     Volumenstrom 2\nAusgänge:\nT1_aus:    Eingangstemperatur des Vol.stroms 1\nT2_aus:   "
+	" Eingangstemperatur des Vol.stroms 2\n[T_mess]: Temperaturen der Messpunkte\n[T]:          Temperaturen der Speichers"
+	"chichten\nMit dem Speicher kann warmes Wasser gespeichert und zu einem \nspäteren Zeitpunkt zur Verfügung gestellt we"
+	"rden. Die \nDurchflussrichtung des Speichers ergibt sich aus den Größen \nvon dV1 und dV2. Die Berechnung der \nSpeic"
+	"herschichttemperaturen erfolgt über ein nichtlineares \nModell, dass durch einen integrierten C-Code berechnet wird. "
+	"\nEntwickelt auf Grundlage der Masterarbeit \"Entwicklung einer \nnichtlinearen modellprädiktiven Heizungsregelung zu"
+	"r energetisch \noptimierten Nutzung eines Warmwasserspeichers\", 2012 von \nHerrn Jan Seifert.\n\nCopyright (C) 2014 "
+	"Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public License"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  12
+	  Object {
+	    $ObjectID		    57
+	    Type		    "edit"
+	    Name		    "k"
+	    Prompt		    "Anzahl der Speichertanks (1 - 10)"
+	    Value		    "4"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    58
+	    Type		    "edit"
+	    Name		    "n"
+	    Prompt		    "Anzahl der Rechenknoten pro Tank (1 - 100)"
+	    Value		    "40"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    59
+	    Type		    "edit"
+	    Name		    "mode"
+	    Prompt		    "Zuflussmodus: '0' feste Position, '1' Schichtladung"
+	    Value		    "0"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    60
+	    Type		    "edit"
+	    Name		    "Tinit"
+	    Prompt		    "Anfangstemperaturen der Sensoren in allen Speichern [K]"
+	    Value		    "linspace(50,40,8)"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    61
+	    Type		    "edit"
+	    Name		    "Hsensors"
+	    Prompt		    "Anschlusshöhen der Temperatursensoren in einem Speicher [m]"
+	    Value		    "[1.285, 0.289]"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    62
+	    Type		    "edit"
+	    Name		    "Tenv"
+	    Prompt		    "Umgebungstemperatur [K]"
+	    Value		    "273+20"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    63
+	    Type		    "edit"
+	    Name		    "Vtank"
+	    Prompt		    "Volumen jedes Speichers [m^3]"
+	    Value		    "0.772"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    64
+	    Type		    "edit"
+	    Name		    "Htank"
+	    Prompt		    "Höhe jedes Speichers [m]"
+	    Value		    "1.64"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    65
+	    Type		    "edit"
+	    Name		    "Hin"
+	    Prompt		    "Anschlusshöhe des Ladezuflusses [m]"
+	    Value		    "1.469"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    66
+	    Type		    "edit"
+	    Name		    "Hout"
+	    Prompt		    "Anschlusshöhe des Ladeabflusses [m]"
+	    Value		    "0.059"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    67
+	    Type		    "edit"
+	    Name		    "U"
+	    Prompt		    "Wärmedurchgangskoeffizient [W/(m^2 K)]"
+	    Value		    "9.367"
+	    Tunable		    "off"
+	  }
+	  Object {
+	    $ObjectID		    68
+	    Type		    "edit"
+	    Name		    "keff"
+	    Prompt		    "Effektive vertikale Wärmeleitfähigkeit [W/(m K)]"
+	    Value		    "10"
+	    Tunable		    "off"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"Speicherkette"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"a4letter"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"175"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T1_ein"
+	  SID			  "487"
+	  Position		  [15, 23, 45, 37]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV1"
+	  SID			  "488"
+	  Position		  [15, 58, 45, 72]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T2_ein"
+	  SID			  "489"
+	  Position		  [15, 93, 45, 107]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV2"
+	  SID			  "490"
+	  Position		  [15, 128, 45, 142]
+	  ZOrder		  -4
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  SID			  "491"
+	  Ports			  [1, 2]
+	  Position		  [265, 29, 270, 96]
+	  ZOrder		  -7
+	  ShowName		  off
+	  Outputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux4"
+	  SID			  "492"
+	  Ports			  [4, 1]
+	  Position		  [75, 14, 80, 151]
+	  ZOrder		  -16
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Speicherkette"
+	  SID			  "493"
+	  Ports			  [1, 3]
+	  Position		  [105, 58, 205, 112]
+	  ZOrder		  -5
+	  FunctionName		  "storage_tank"
+	  Parameters		  "mode, n, k, Vtank, Htank, Hin, Hout, U, keff, Tinit, Hsensors, Tenv"
+	  EnableBusSupport	  off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T1_aus"
+	  SID			  "494"
+	  Position		  [300, 38, 330, 52]
+	  ZOrder		  -18
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T2_aus"
+	  SID			  "495"
+	  Position		  [300, 73, 330, 87]
+	  ZOrder		  -19
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "[T_mess]"
+	  SID			  "496"
+	  Position		  [300, 108, 330, 122]
+	  ZOrder		  -20
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "[T]"
+	  SID			  "497"
+	  Position		  [300, 143, 330, 157]
+	  ZOrder		  -21
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Speicherkette"
+	  SrcPort		  3
+	  Points		  [15, 0; 0, 45]
+	  DstBlock		  "[T]"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  DstBlock		  "T1_aus"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  DstBlock		  "T2_aus"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Speicherkette"
+	  SrcPort		  1
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Speicherkette"
+	  SrcPort		  2
+	  Points		  [35, 0; 0, 30]
+	  DstBlock		  "[T_mess]"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Mux4"
+	  SrcPort		  1
+	  DstBlock		  "Speicherkette"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "dV2"
+	  SrcPort		  1
+	  DstBlock		  "Mux4"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "T2_ein"
+	  SrcPort		  1
+	  DstBlock		  "Mux4"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "dV1"
+	  SrcPort		  1
+	  DstBlock		  "Mux4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "T1_ein"
+	  SrcPort		  1
+	  DstBlock		  "Mux4"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "630"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [215, 201]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Verbraucher"
+      SID		      "7"
+      Ports		      [3, 2]
+      Position		      [60, 293, 180, 347]
+      ZOrder		      -8
+      BackgroundColor	      "cyan"
+      LibraryVersion	      "*1.27"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		69
+	$ClassName		"Simulink.Mask"
+	Type			"Verbraucher"
+	Description		"Eingänge: \n- Q_ab:                    vom Verbraucher aufgenommene Leistung\n- T_Verb., dV_Verb.: Volu"
+	"menstrom dV_Verb. mit der Temperatur\n                               T_Verb. fließt hinein\nAusgänge: \n- T_Rl, dV_Rl"
+	": das Wasser wird durch den Volumenstrom dV_Rl \n                      mit der Temperatur T_Rl abgeführt\nDie Ausgang"
+	"stemperatur des Verbraucher berechnet sich aus der \nWärmeleistungsbilanz:\ndQ_Verbraucher = dQ_Verbraucher,Vl - dQ_V"
+	"erbraucher,Rl - dQ_ab\nEntwickelt auf Grundlage der Bachelorarbeit \"Vergleich \nverschiedener Wärmeversorgungssystem"
+	"e\", 2010 von Herrn Kai \nKruppa.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public "
+	"License"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    70
+	    Type		    "edit"
+	    Name		    "V_Ver"
+	    Prompt		    "Volumen des Verbrauchers [m^3]"
+	    Value		    "10"
+	  }
+	  Object {
+	    $ObjectID		    71
+	    Type		    "edit"
+	    Name		    "c"
+	    Prompt		    " spez. Wärmekapazität [J/(kg*K)]"
+	    Value		    "4182"
+	  }
+	  Object {
+	    $ObjectID		    72
+	    Type		    "edit"
+	    Name		    "rho"
+	    Prompt		    "Dichte [kg/m^3]"
+	    Value		    "1000"
+	  }
+	  Object {
+	    $ObjectID		    73
+	    Type		    "edit"
+	    Name		    "InitTempVerbr"
+	    Prompt		    "Anfangstemperatur [K]"
+	    Value		    "335"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"Verbraucher"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"259"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Q_ab"
+	  SID			  "43"
+	  Position		  [25, 18, 55, 32]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Q_ab"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Verbraucher"
+	  SID			  "44"
+	  Position		  [25, 48, 55, 62]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_Verbraucher"
+	  SID			  "45"
+	  Position		  [25, 78, 55, 92]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  SID			  "46"
+	  Position		  [330, 16, 395, 44]
+	  ZOrder		  -4
+	  BlockMirror		  on
+	  ShowName		  off
+	  Value			  "1/(c*rho*V_Ver)"
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Integrator"
+	  SID			  "47"
+	  Ports			  [1, 1]
+	  Position		  [395, 55, 425, 85]
+	  ZOrder		  -5
+	  InitialCondition	  "InitTempVerbr"
+	  UpperSaturationLimit	  "373"
+	  LowerSaturationLimit	  "273"
+	  Port {
+	    PortNumber		    1
+	    Name		    "T_Rl [K]"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product"
+	  SID			  "48"
+	  Ports			  [2, 1]
+	  Position		  [155, 62, 185, 93]
+	  ZOrder		  -6
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product1"
+	  SID			  "49"
+	  Ports			  [2, 1]
+	  Position		  [220, 56, 250, 89]
+	  ZOrder		  -7
+	  Port {
+	    PortNumber		    1
+	    Name		    "Q_Ver"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product2"
+	  SID			  "50"
+	  Ports			  [2, 1]
+	  Position		  [345, 52, 375, 83]
+	  ZOrder		  -8
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product4"
+	  SID			  "51"
+	  Ports			  [2, 1]
+	  Position		  [220, 108, 250, 137]
+	  ZOrder		  -9
+	  Port {
+	    PortNumber		    1
+	    Name		    "Q_Rl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "52"
+	  Ports			  [3, 1]
+	  Position		  [295, 65, 315, 85]
+	  ZOrder		  -10
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "-+-"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "c*rho"
+	  SID			  "53"
+	  Position		  [95, 80, 125, 110]
+	  ZOrder		  -11
+	  Value			  "c*rho"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_Rl"
+	  SID			  "54"
+	  Position		  [490, 63, 520, 77]
+	  ZOrder		  -12
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV_Rl"
+	  SID			  "55"
+	  Position		  [490, 158, 520, 172]
+	  ZOrder		  -13
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Product2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  Points		  [0, 30]
+	  DstBlock		  "Product2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "c*rho"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  DstBlock		  "Product"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "Q_ab"
+	  Labels		  [0, 0; 2, 1]
+	  SrcBlock		  "Q_ab"
+	  SrcPort		  1
+	  Points		  [245, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "Q_Rl"
+	  Labels		  [0, 0; 2, 1]
+	  SrcBlock		  "Product4"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "T_Rl [K]"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Integrator"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  Branch {
+	    Labels		    [3, 0]
+	    Points		    [0, 85; -270, 0; 0, -25]
+	    DstBlock		    "Product4"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "T_Rl"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Product2"
+	  SrcPort		  1
+	  DstBlock		  "Integrator"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "Q_Ver"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Product1"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Product"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    Labels		    [1, 0]
+	    Points		    [0, 35]
+	    DstBlock		    "Product4"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Product1"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "T_Verbraucher"
+	  SrcPort		  1
+	  Points		  [140, 0; 0, 10]
+	  DstBlock		  "Product1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "dV_Verbraucher"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    Points		    [0, -15]
+	    DstBlock		    "Product"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 80]
+	    DstBlock		    "dV_Rl"
+	    DstPort		    1
+	  }
+	}
+	Annotation {
+	  SID			  "637"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [225, 213]
+	}
+	Annotation {
+	  SID			  "484"
+	  Name			  "1/(c*rho*V_Ver)"
+	  Position		  [365, 6]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Volumenstromverteilung"
+      SID		      "8"
+      Ports		      [3, 2]
+      Position		      [220, 129, 300, 181]
+      ZOrder		      -9
+      BackgroundColor	      "lightBlue"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		74
+	$ClassName		"Simulink.Mask"
+	Type			"Volumenstromverteilung"
+	Description		"Eingänge:\n-Schalter: Vektor mit den Schaltersignalen der einzelnen \n               Wärmeerzeuger\n-T_"
+	"Rl:       Temperatur des Rücklaufvolumenstroms\n-dV_ges:   gesamter Volumenstrom des Rücklaufs\nAusgänge:\n-[T_Rl]: V"
+	"ektor mit den Rücklauftemperaturen für die Eingänge der \n             einzelnen Wärmeerzeuger\n-[dV]:    Vektor mit "
+	"den dazugehörigen Volumenströmen\nAnhand der Schaltersignale wird der gesamte Volumenstrom auf die \nWärmeerzeuger au"
+	"fgeteilt. Über die Schaltersignale wird festgelegt, in \nwelchem Verhältnis die Aufteilung erfolgen soll. Dieses Verh"
+	"ältnis kann \nabsolut oder prozentual angegeben werden.\nDie Temperatur dieser einzelnen Volumenströme ist die des ge"
+	"samten Rücklaufs.\nEntwickelt auf Grundlage der Bachelorarbeit \"Vergleich verschiedener \nWärmeversorgungssysteme\","
+	" 2010 von Herrn Kai Kruppa.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public Licens"
+	"e"
+      }
+      System {
+	Name			"Volumenstromverteilung"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"a4letter"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"245"
+	Block {
+	  BlockType		  Inport
+	  Name			  "[Schalter]"
+	  SID			  "9"
+	  Position		  [15, 118, 45, 132]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Rl"
+	  SID			  "10"
+	  Position		  [15, 208, 45, 222]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_ges"
+	  SID			  "11"
+	  Position		  [15, 13, 45, 27]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Bias
+	  Name			  "Bias"
+	  SID			  "197"
+	  Position		  [85, 160, 125, 190]
+	  ZOrder		  -4
+	  Bias			  "1"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Divide"
+	  SID			  "12"
+	  Ports			  [2, 1]
+	  Position		  [300, 102, 330, 133]
+	  ZOrder		  -5
+	  Inputs		  "/*"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "Volumenstromanteile"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Divide1"
+	  SID			  "199"
+	  Ports			  [2, 1]
+	  Position		  [215, 187, 245, 218]
+	  ZOrder		  -6
+	  Inputs		  "/*"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product"
+	  SID			  "14"
+	  Ports			  [2, 1]
+	  Position		  [390, 12, 420, 43]
+	  ZOrder		  -7
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product1"
+	  SID			  "198"
+	  Ports			  [2, 1]
+	  Position		  [155, 192, 185, 223]
+	  ZOrder		  -8
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum of\nElements"
+	  SID			  "15"
+	  Ports			  [1, 1]
+	  Position		  [85, 65, 115, 95]
+	  ZOrder		  -9
+	  Inputs		  "+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "Anzahl der eingeschalteten Erzeuger"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "200"
+	  Position		  [450, 60, 500, 100]
+	  ZOrder		  -10
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "[T_Rl]"
+	  SID			  "16"
+	  Position		  [520, 198, 550, 212]
+	  ZOrder		  -11
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "[dV]"
+	  SID			  "17"
+	  Position		  [520, 73, 550, 87]
+	  ZOrder		  -12
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "[Schalter]"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    Points		    [0, -45]
+	    DstBlock		    "Sum of\nElements"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 50]
+	    DstBlock		    "Bias"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [220, 0]
+	    Branch {
+	      DstBlock		      "Divide"
+	      DstPort		      2
+	    }
+	    Branch {
+	      Points		      [0, 25; 150, 0; 0, -55]
+	      DstBlock		      "Switch"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "dV_ges"
+	  SrcPort		  1
+	  DstBlock		  "Product"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "Volumenstromanteile"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Divide"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, -85]
+	  DstBlock		  "Product"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "Anzahl der eingeschalteten Erzeuger"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Sum of\nElements"
+	  SrcPort		  1
+	  Points		  [160, 0]
+	  Branch {
+	    Points		    [0, 30]
+	    DstBlock		    "Divide"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Switch"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Bias"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    Points		    [0, 25]
+	    DstBlock		    "Product1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [60, 0; 0, 20]
+	    DstBlock		    "Divide1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "T_Rl"
+	  SrcPort		  1
+	  DstBlock		  "Product1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Product1"
+	  SrcPort		  1
+	  DstBlock		  "Divide1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide1"
+	  SrcPort		  1
+	  DstBlock		  "[T_Rl]"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Product"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 35]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "[dV]"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "627"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [217, 270]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Vorlaufmischer"
+      SID		      "223"
+      Ports		      [4, 2]
+      Position		      [445, 130, 570, 185]
+      ZOrder		      -10
+      BackgroundColor	      "lightBlue"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		75
+	$ClassName		"Simulink.Mask"
+	Type			"Vorlaufmischer"
+	Description		"Es handelt sich um ein 3-Wege-Ventil, das zwischen Vor- und Rücklauf \ngeschaltet wird.\nEingänge:\n-T_"
+	"Vl, dV_Vl: Temperatur und Volumenstrom des Vorlaufs\n-T_soll:          Vorlaufsolltemperatur\n-T_Rl:            Tempe"
+	"ratur des Rücklaufs\nAusgänge:\n-T_Verb., dV_Verb.: Temperatur und Volumenstrom des Mischprodukts\nDem warmen Vorlauf"
+	" kann kälteres Wasser aus dem Rücklauf \nbeigemischt werden, um eine bestimmte vorgegebene Vorlaufsolltemperatur zu e"
+	"rhalten. Die Solltemperatur \nmuss dazu zwischen der Vor- und der Rücklauftemperatur liegen.\nDie Ausgangstemperatur "
+	"kann so in gewissen Maßen begrenzt werden.\nEntwickelt auf Grundlage der Bachelorarbeit \"Vergleich verschiedener \nW"
+	"ärmeversorgungssysteme\", 2010 von Herrn Kai Kruppa.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \n"
+	"GNU General Public License"
+      }
+      System {
+	Name			"Vorlaufmischer"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"384"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Vl"
+	  SID			  "224"
+	  Position		  [15, 13, 45, 27]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_Vl"
+	  SID			  "226"
+	  Position		  [15, 48, 45, 62]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_soll"
+	  SID			  "228"
+	  Position		  [15, 83, 45, 97]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Rl"
+	  SID			  "229"
+	  Position		  [15, 113, 45, 127]
+	  ZOrder		  -4
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Mischventil"
+	  SID			  "233"
+	  Ports			  [4, 2]
+	  Position		  [185, 34, 265, 91]
+	  ZOrder		  -5
+	  BackgroundColor	  "lightBlue"
+	  LibraryVersion	  "1.30.56"
+	  SourceBlock		  "MatlabHeatLib/Mischventil"
+	  SourceType		  "Mischventil"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Mischverhältnis"
+	  SID			  "245"
+	  Ports			  [3, 1]
+	  Position		  [95, 79, 155, 131]
+	  ZOrder		  -6
+	  BackgroundColor	  "green"
+	  LibraryVersion	  "1.30.56"
+	  SourceBlock		  "MatlabHeatLib/Mischverhältnis"
+	  SourceType		  "Mischverhältnis"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_Verbraucher"
+	  SID			  "225"
+	  Position		  [295, 43, 325, 57]
+	  ZOrder		  -7
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV_Verbraucher"
+	  SID			  "227"
+	  Position		  [295, 73, 325, 87]
+	  ZOrder		  -8
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Mischverhältnis"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, -20]
+	  DstBlock		  "Mischventil"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Mischventil"
+	  SrcPort		  1
+	  DstBlock		  "T_Verbraucher"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Mischventil"
+	  SrcPort		  2
+	  DstBlock		  "dV_Verbraucher"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "T_Vl"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, 20]
+	  Branch {
+	    DstBlock		    "Mischventil"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 65]
+	    DstBlock		    "Mischverhältnis"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "dV_Vl"
+	  SrcPort		  1
+	  DstBlock		  "Mischventil"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "T_Rl"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    Points		    [0, -50]
+	    DstBlock		    "Mischventil"
+	    DstPort		    3
+	  }
+	  Branch {
+	    DstBlock		    "Mischverhältnis"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "T_soll"
+	  SrcPort		  1
+	  DstBlock		  "Mischverhältnis"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "629"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [215, 177]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Vorlaufsammler"
+      SID		      "4"
+      Ports		      [2, 2]
+      Position		      [350, 41, 410, 94]
+      ZOrder		      -11
+      BackgroundColor	      "lightBlue"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		76
+	$ClassName		"Simulink.Mask"
+	Type			"Vorlaufsammler  "
+	Description		"Knotenpunkt für die ankommenden Volumenströme aus den einzelnen Wärmeerzeugern.\nEingänge:\n-[T]:  Vekt"
+	"or mit den Temperaturen der Volumenströme aus den   \n         Wärmerzeugern\n-[dV]: Vektor, der die dazugehörigen Vo"
+	"lumenströme beinhaltet\nAusgänge:\n-T_Vl:  Temperatur des Vorlaufs\n-dV_Vl: Vorlaufvolumenstrom\nDer Volumenstrom des"
+	" Vorlaufs berechnet sich aus der Addition der ankommenden Volumenströme.\ndV_Vl = dV1 + dV2 + ... +dVn\nDie Vorlaufte"
+	"mperatur ergibt sich aus der Wärmeleistungsbilanz am Knotenpunkt.\nT_Vl = (T1*dV1+T2+dV2+...Tn*dVn)/dV_Vl\nEntwickelt"
+	" auf Grundlage der Bachelorarbeit \"Vergleich verschiedener \nWärmeversorgungssysteme\", 2010 von Herrn Kai Kruppa.\n"
+	"\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, \nGNU General Public License"
+      }
+      System {
+	Name			"Vorlaufsammler"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"a4letter"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"268"
+	Block {
+	  BlockType		  Inport
+	  Name			  "[T]"
+	  SID			  "18"
+	  Position		  [15, 13, 45, 27]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "[dV]"
+	  SID			  "19"
+	  Position		  [15, 163, 45, 177]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "20"
+	  Position		  [160, 73, 185, 87]
+	  ZOrder		  -3
+	  Value			  "eps"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Divide"
+	  SID			  "21"
+	  Ports			  [2, 1]
+	  Position		  [285, 22, 315, 53]
+	  ZOrder		  -4
+	  Inputs		  "*/"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DotProduct
+	  Name			  "Dot Product"
+	  SID			  "22"
+	  Position		  [75, 12, 105, 43]
+	  ZOrder		  -5
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Memory
+	  Name			  "Memory1"
+	  SID			  "23"
+	  Position		  [401, 120, 419, 145]
+	  ZOrder		  -6
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  X0			  "273+80"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum of\nElements"
+	  SID			  "24"
+	  Ports			  [1, 1]
+	  Position		  [75, 155, 105, 185]
+	  ZOrder		  -7
+	  Inputs		  "+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "dV_Vl"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "keine Division \ndurvh '0'"
+	  SID			  "25"
+	  Position		  [215, 40, 245, 90]
+	  ZOrder		  -8
+	  Criteria		  "u2 > Threshold"
+	  Threshold		  "eps"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "wenn dV=0\n-->alter wert"
+	  SID			  "26"
+	  Position		  [365, 75, 395, 125]
+	  ZOrder		  -9
+	  NamePlacement		  "alternate"
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_Vl"
+	  SID			  "27"
+	  Position		  [465, 93, 495, 107]
+	  ZOrder		  -10
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV_Vl"
+	  SID			  "28"
+	  Position		  [470, 163, 500, 177]
+	  ZOrder		  -11
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "[dV]"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    DstBlock		    "Sum of\nElements"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -135]
+	    DstBlock		    "Dot Product"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "[T]"
+	  SrcPort		  1
+	  DstBlock		  "Dot Product"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "keine Division \ndurvh '0'"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "dV_Vl"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Sum of\nElements"
+	  SrcPort		  1
+	  Points		  [35, 0]
+	  Branch {
+	    Points		    [185, 0]
+	    Branch {
+	      DstBlock		      "dV_Vl"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, -70]
+	      DstBlock		      "wenn dV=0\n-->alter wert"
+	      DstPort		      2
+	    }
+	  }
+	  Branch {
+	    Points		    [0, -120; 45, 0]
+	    Branch {
+	      Points		      [0, 15]
+	      DstBlock		      "keine Division \ndurvh '0'"
+	      DstPort		      2
+	    }
+	    Branch {
+	      DstBlock		      "keine Division \ndurvh '0'"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Dot Product"
+	  SrcPort		  1
+	  DstBlock		  "Divide"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "keine Division \ndurvh '0'"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, -20]
+	  DstBlock		  "Divide"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Memory1"
+	  SrcPort		  1
+	  Points		  [-65, 0; 0, -35]
+	  DstBlock		  "wenn dV=0\n-->alter wert"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Divide"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, 45]
+	  DstBlock		  "wenn dV=0\n-->alter wert"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "wenn dV=0\n-->alter wert"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    DstBlock		    "Memory1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "T_Vl"
+	    DstPort		    1
+	  }
+	}
+	Annotation {
+	  SID			  "620"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [216, 233]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Wärmeübertrager"
+      SID		      "507"
+      Ports		      [4, 2]
+      Position		      [200, 37, 315, 98]
+      ZOrder		      -12
+      BackgroundColor	      "red"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		77
+	$ClassName		"Simulink.Mask"
+	Type			"Wärmeübertrager"
+	Description		"Eingänge:\nT_1,ein: Temperatur des einfließenden Vol.stroms (Primärseite)\nT_2,ein: Temperatur des einf"
+	"ließenden Vol.stroms (Sekundärseite)\ndV_1:     Volumenstrom auf der Primärseite\ndV_2:     Volumenstrom auf der Seku"
+	"ndärseite\nAusgänge:\nT_1,aus: Temperatur des ausfließenden Vol.stroms (Primärseite)\nT_2,aus: Temperatur des ausflie"
+	"ßenden Vol.stroms(Sekundärseite)\nMit dem Wärmeübertrager kann themische Energie von einem \nVolumenstrom (Primärseit"
+	"e) auf einen zweiten Volumenstrom\nübertragen werden. Es handelt sich um einen Gegenstrom-\nWärmeübertrager. Die Mode"
+	"llierung erfolgt über Wärmeleistungs-\nbilanzen, wobei ein statsches Verhalten der Ausgangs-\ntemperaturen vorausgese"
+	"tzt wird. Somit lassen sich die Ausgangs-\ntemperaturen analytisch berechnen. Außerdem wird der Einfluss \nder intern"
+	"en Verschmutzung des Wärmeübertragers auf den \nWärmeübergangskoeffizienten berücksichtigt. \nEntwickelt auf Grundlag"
+	"e der Studienarbeit \"Modellierung des \nWärmetauschers des Bezirksregierungsgebäudes in Düsseldorf\", \n2011 von Her"
+	"rn Max Schmidt und der Bachelorarbeit \n\"Modellbildung einer Fernwärmeheizungsanlage und Identifikation \nder thermi"
+	"schen und hydraulischen Parameter\", 2011 von Herrn \nTimo Spengler.\n\nCopyright (C) 2014 Kai Kruppa, HAW Hamburg, L"
+	"ife Sciences, \nGNU General Public License"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  8
+	  Object {
+	    $ObjectID		    78
+	    Type		    "edit"
+	    Name		    "R_f"
+	    Prompt		    "Wärmeleitwiderstand [m^2K/W]"
+	    Value		    "0.0023"
+	  }
+	  Object {
+	    $ObjectID		    79
+	    Type		    "edit"
+	    Name		    "R_inf"
+	    Prompt		    "Wärmeleitwiderstand für t->inf [m^2K/W]"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    80
+	    Type		    "edit"
+	    Name		    "beta"
+	    Prompt		    "Schichtwachstumskoeffizient [1/s]"
+	    Value		    "-1.5e-5"
+	  }
+	  Object {
+	    $ObjectID		    81
+	    Type		    "edit"
+	    Name		    "ts"
+	    Prompt		    "Abtastzeit [s]"
+	    Value		    "300"
+	  }
+	  Object {
+	    $ObjectID		    82
+	    Type		    "edit"
+	    Name		    "rho"
+	    Prompt		    "Dichte [kg/m^3]"
+	    Value		    "1000"
+	  }
+	  Object {
+	    $ObjectID		    83
+	    Type		    "edit"
+	    Name		    "c"
+	    Prompt		    "Spez. Wärmekapazität [J/kg K]"
+	    Value		    "4182"
+	  }
+	  Object {
+	    $ObjectID		    84
+	    Type		    "edit"
+	    Name		    "F"
+	    Prompt		    "Fläche einer Übertragungsplatte"
+	    Value		    "0.14"
+	  }
+	  Object {
+	    $ObjectID		    85
+	    Type		    "edit"
+	    Name		    "n"
+	    Prompt		    "Anzahl der Übertragungsplatten"
+	    Value		    "99"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"Wärmeübertrager"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"209"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_1,ein"
+	  SID			  "508"
+	  Position		  [30, 23, 60, 37]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_2,ein"
+	  SID			  "509"
+	  Position		  [30, 58, 60, 72]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_1"
+	  SID			  "510"
+	  Position		  [35, 203, 65, 217]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_2"
+	  SID			  "511"
+	  Position		  [35, 238, 65, 252]
+	  ZOrder		  -4
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  " "
+	  SID			  "512"
+	  Ports			  [3, 3]
+	  Position		  [125, 169, 260, 251]
+	  ZOrder		  -5
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    " "
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "209"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "k"
+	      SID		      "513"
+	      Position		      [15, 168, 45, 182]
+	      ZOrder		      -1
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dV_1"
+	      SID		      "514"
+	      Position		      [15, 23, 45, 37]
+	      ZOrder		      -2
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dV_2"
+	      SID		      "515"
+	      Position		      [15, 118, 45, 132]
+	      ZOrder		      -3
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "F"
+	      SID		      "516"
+	      Position		      [110, 190, 140, 220]
+	      ZOrder		      -4
+	      Value		      "F"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "517"
+	      Position		      [110, 14, 170, 46]
+	      ZOrder		      -5
+	      Gain		      "rho"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain1"
+	      SID		      "518"
+	      Position		      [110, 109, 170, 141]
+	      ZOrder		      -6
+	      Gain		      "rho"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Math
+	      Name		      "Math\nFunction"
+	      SID		      "519"
+	      Ports		      [1, 1]
+	      Position		      [460, 130, 490, 160]
+	      ZOrder		      -7
+	      ShowName		      off
+	    }
+	    Block {
+	      BlockType		      Math
+	      Name		      "Math\nFunction1"
+	      SID		      "520"
+	      Ports		      [1, 1]
+	      Position		      [270, 90, 300, 120]
+	      ZOrder		      -13
+	      Operator		      "reciprocal"
+	    }
+	    Block {
+	      BlockType		      Math
+	      Name		      "Math\nFunction2"
+	      SID		      "521"
+	      Ports		      [1, 1]
+	      Position		      [270, 155, 300, 185]
+	      ZOrder		      -13
+	      Operator		      "reciprocal"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product"
+	      SID		      "522"
+	      Ports		      [2, 1]
+	      Position		      [190, 87, 220, 118]
+	      ZOrder		      -15
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product1"
+	      SID		      "523"
+	      Ports		      [2, 1]
+	      Position		      [190, 37, 220, 68]
+	      ZOrder		      -16
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product2"
+	      SID		      "524"
+	      Ports		      [2, 1]
+	      Position		      [310, 47, 340, 78]
+	      ZOrder		      -17
+	      ShowName		      off
+	      Inputs		      "*/"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product5"
+	      SID		      "525"
+	      Ports		      [2, 1]
+	      Position		      [270, 212, 300, 243]
+	      ZOrder		      -18
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product6"
+	      SID		      "526"
+	      Ports		      [2, 1]
+	      Position		      [410, 127, 440, 158]
+	      ZOrder		      -19
+	      ShowName		      off
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product7"
+	      SID		      "527"
+	      Ports		      [2, 1]
+	      Position		      [515, 87, 545, 118]
+	      ZOrder		      -20
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product8"
+	      SID		      "528"
+	      Ports		      [2, 1]
+	      Position		      [190, 217, 220, 248]
+	      ZOrder		      -21
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product9"
+	      SID		      "529"
+	      Ports		      [2, 1]
+	      Position		      [190, 152, 220, 183]
+	      ZOrder		      -22
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum1"
+	      SID		      "530"
+	      Ports		      [2, 1]
+	      Position		      [315, 125, 335, 145]
+	      ZOrder		      -23
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "-+"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      UnaryMinus
+	      Name		      "Unary Minus"
+	      SID		      "531"
+	      Position		      [60, 15, 90, 45]
+	      ZOrder		      -35
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "c"
+	      SID		      "532"
+	      Position		      [125, 65, 155, 95]
+	      ZOrder		      -36
+	      Value		      "c"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "n-1"
+	      SID		      "533"
+	      Position		      [110, 240, 140, 270]
+	      ZOrder		      -37
+	      Value		      "n-1"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "C_1/C_2"
+	      SID		      "534"
+	      Position		      [580, 58, 610, 72]
+	      ZOrder		      -9
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "exp((1/C_2-1/C_1)*k(n-1)F)"
+	      SID		      "535"
+	      Position		      [580, 138, 610, 152]
+	      ZOrder		      -9
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "C_1/C_2*exp(...)"
+	      SID		      "536"
+	      Position		      [580, 98, 610, 112]
+	      ZOrder		      -40
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Math\nFunction1"
+	      SrcPort		      1
+	      Points		      [20, 0]
+	      DstBlock		      "Sum1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain1"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      Branch {
+		DstBlock		"Product9"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Product"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "dV_1"
+	      SrcPort		      1
+	      DstBlock		      "Unary Minus"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Product1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Unary Minus"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "k"
+	      SrcPort		      1
+	      DstBlock		      "Product9"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Product9"
+	      SrcPort		      1
+	      Points		      [5, 0; 0, 50]
+	      DstBlock		      "Product5"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "n-1"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      DstBlock		      "Product8"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Product8"
+	      SrcPort		      1
+	      DstBlock		      "Product5"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "F"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      DstBlock		      "Product8"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Product7"
+	      SrcPort		      1
+	      DstBlock		      "C_1/C_2*exp(...)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Math\nFunction"
+	      SrcPort		      1
+	      Points		      [5, 0]
+	      Branch {
+		DstBlock		"exp((1/C_2-1/C_1)*k(n-1)F)"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Product7"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Product2"
+	      SrcPort		      1
+	      Points		      [155, 0]
+	      Branch {
+		DstBlock		"C_1/C_2"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Product7"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Product6"
+	      SrcPort		      1
+	      DstBlock		      "Math\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Product5"
+	      SrcPort		      1
+	      Points		      [35, 0; 0, -80]
+	      DstBlock		      "Product6"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum1"
+	      SrcPort		      1
+	      DstBlock		      "Product6"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Math\nFunction2"
+	      SrcPort		      1
+	      Points		      [20, 0]
+	      DstBlock		      "Sum1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Product"
+	      SrcPort		      1
+	      Points		      [20, 0]
+	      Branch {
+		Points			[0, 65]
+		DstBlock		"Math\nFunction2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -35]
+		DstBlock		"Product2"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Product1"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      Branch {
+		DstBlock		"Math\nFunction1"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Product2"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "dV_2"
+	      SrcPort		      1
+	      DstBlock		      "Gain1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "c"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      Branch {
+		DstBlock		"Product1"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"Product"
+		DstPort			1
+	      }
+	    }
+	    Annotation {
+	      SID		      "619"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [217, 310]
+	    }
+	    Annotation {
+	      SID		      "539"
+	      Name		      "1/C_2 - 1/C_1"
+	      Position		      [368, 125]
+	    }
+	    Annotation {
+	      SID		      "538"
+	      Name		      "C_2"
+	      Position		      [233, 96]
+	    }
+	    Annotation {
+	      SID		      "537"
+	      Name		      "C_1"
+	      Position		      [231, 44]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "540"
+	  Position		  [230, 100, 260, 130]
+	  ZOrder		  -4
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "541"
+	  Position		  [305, 145, 335, 175]
+	  ZOrder		  -4
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  SID			  "542"
+	  Position		  [305, 260, 335, 290]
+	  ZOrder		  -4
+	  BlockRotation		  270
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Divide"
+	  SID			  "543"
+	  Ports			  [2, 1]
+	  Position		  [390, 107, 420, 138]
+	  ZOrder		  -8
+	  Inputs		  "*/"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Divide1"
+	  SID			  "544"
+	  Ports			  [2, 1]
+	  Position		  [390, 202, 420, 233]
+	  ZOrder		  -8
+	  Inputs		  "*/"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product"
+	  SID			  "545"
+	  Ports			  [2, 1]
+	  Position		  [480, 57, 510, 88]
+	  ZOrder		  -19
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product1"
+	  SID			  "546"
+	  Ports			  [2, 1]
+	  Position		  [480, 197, 510, 228]
+	  ZOrder		  -19
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "547"
+	  Ports			  [2, 1]
+	  Position		  [285, 105, 305, 125]
+	  ZOrder		  -32
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  "548"
+	  Ports			  [2, 1]
+	  Position		  [310, 200, 330, 220]
+	  ZOrder		  -32
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "+-|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum2"
+	  SID			  "549"
+	  Ports			  [2, 1]
+	  Position		  [310, 225, 330, 245]
+	  ZOrder		  -32
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|-+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum3"
+	  SID			  "550"
+	  Ports			  [2, 1]
+	  Position		  [85, 55, 105, 75]
+	  ZOrder		  -32
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "-+|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum4"
+	  SID			  "551"
+	  Ports			  [2, 1]
+	  Position		  [560, 65, 580, 85]
+	  ZOrder		  -32
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum5"
+	  SID			  "552"
+	  Ports			  [2, 1]
+	  Position		  [530, 205, 550, 225]
+	  ZOrder		  -32
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "++|"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Wärmedurch-\ngangskoeffizeient"
+	  SID			  "553"
+	  Ports			  [0, 1]
+	  Position		  [15, 134, 85, 176]
+	  ZOrder		  -38
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Wärmedurch-\ngangskoeffizeient"
+	    Location		    [-8, -8, 1608, 868]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "267"
+	    Block {
+	      BlockType		      Bias
+	      Name		      "Bias"
+	      SID		      "554"
+	      Position		      [250, 150, 290, 180]
+	      ZOrder		      -1
+	      Bias		      "1"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Clock
+	      Name		      "Clock"
+	      SID		      "555"
+	      Position		      [20, 155, 40, 175]
+	      ZOrder		      -2
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Divide"
+	      SID		      "556"
+	      Ports		      [2, 1]
+	      Position		      [325, 67, 355, 98]
+	      ZOrder		      -3
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      RndMeth		      "Floor"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Divide1"
+	      SID		      "557"
+	      Ports		      [3, 1]
+	      Position		      [90, 149, 120, 181]
+	      ZOrder		      -4
+	      Inputs		      "**/"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      RndMeth		      "Floor"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain1"
+	      SID		      "558"
+	      Position		      [195, 150, 225, 180]
+	      ZOrder		      -5
+	      Gain		      "-1"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Math
+	      Name		      "Math\nFunction1"
+	      SID		      "559"
+	      Ports		      [1, 1]
+	      Position		      [140, 150, 170, 180]
+	      ZOrder		      -6
+	    }
+	    Block {
+	      BlockType		      Math
+	      Name		      "Math\nFunction2"
+	      SID		      "560"
+	      Ports		      [1, 1]
+	      Position		      [410, 15, 440, 45]
+	      ZOrder		      -7
+	      Operator		      "reciprocal"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "R_f"
+	      SID		      "561"
+	      Position		      [15, 15, 45, 45]
+	      ZOrder		      -5
+	      Value		      "R_f"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "R_f,inf"
+	      SID		      "562"
+	      Position		      [15, 60, 45, 90]
+	      ZOrder		      -5
+	      Value		      "R_inf"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "563"
+	      Ports		      [2, 1]
+	      Position		      [360, 20, 380, 40]
+	      ZOrder		      -10
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|++"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "beta"
+	      SID		      "564"
+	      Position		      [15, 110, 45, 140]
+	      ZOrder		      -5
+	      Value		      "beta"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "ts"
+	      SID		      "565"
+	      Position		      [15, 191, 45, 219]
+	      ZOrder		      -12
+	      Value		      "ts"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "k"
+	      SID		      "566"
+	      Position		      [475, 23, 505, 37]
+	      ZOrder		      -13
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "beta"
+	      SrcPort		      1
+	      Points		      [15, 0; 0, 30]
+	      DstBlock		      "Divide1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "R_f,inf"
+	      SrcPort		      1
+	      DstBlock		      "Divide"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "R_f"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Math\nFunction2"
+	      SrcPort		      1
+	      DstBlock		      "k"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "ts"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, -30]
+	      DstBlock		      "Divide1"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Clock"
+	      SrcPort		      1
+	      DstBlock		      "Divide1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Math\nFunction2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Divide"
+	      SrcPort		      1
+	      Points		      [10, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Bias"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, -75]
+	      DstBlock		      "Divide"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Gain1"
+	      SrcPort		      1
+	      DstBlock		      "Bias"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Math\nFunction1"
+	      SrcPort		      1
+	      DstBlock		      "Gain1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Divide1"
+	      SrcPort		      1
+	      DstBlock		      "Math\nFunction1"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      SID		      "618"
+	      Name		      "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	      Position		      [217, 254]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_1,aus"
+	  SID			  "567"
+	  Position		  [605, 208, 635, 222]
+	  ZOrder		  -9
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_2,aus"
+	  SID			  "568"
+	  Position		  [605, 68, 635, 82]
+	  ZOrder		  -9
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Sum5"
+	  SrcPort		  1
+	  DstBlock		  "T_1,aus"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum4"
+	  SrcPort		  1
+	  DstBlock		  "T_2,aus"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Product1"
+	  SrcPort		  1
+	  DstBlock		  "Sum5"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Product"
+	  SrcPort		  1
+	  DstBlock		  "Sum4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide1"
+	  SrcPort		  1
+	  DstBlock		  "Product1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, -45]
+	  DstBlock		  "Product"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Sum3"
+	  SrcPort		  1
+	  Points		  [330, 0]
+	  Branch {
+	    Points		    [0, 140]
+	    DstBlock		    "Product1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Product"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "T_2,ein"
+	  SrcPort		  1
+	  DstBlock		  "Sum3"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "T_1,ein"
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  Branch {
+	    Points		    [445, 0]
+	    Branch {
+	      DstBlock		      "Sum5"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [30, 0]
+	      DstBlock		      "Sum4"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "Sum3"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Sum2"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, -10]
+	  Branch {
+	    Points		    [0, -95]
+	    DstBlock		    "Divide"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Divide1"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "Sum2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  " "
+	  SrcPort		  3
+	  DstBlock		  "Sum2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "Divide1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Divide"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " "
+	  SrcPort		  2
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " "
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "dV_1"
+	  SrcPort		  1
+	  DstBlock		  " "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Wärmedurch-\ngangskoeffizeient"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  DstBlock		  " "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "dV_2"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  DstBlock		  " "
+	  DstPort		  3
+	}
+	Annotation {
+	  SID			  "617"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, HAW Hamburg, Life Sciences, GNU General Public License"
+	  Position		  [237, 319]
+	}
+      }
+    }
+    Annotation {
+      SID		      "611"
+      Name		      "Copyright (C) 2014 Kai Kruppa, , HAW Hamburg, Life Sciences\n\n    This program is free software: y"
+      "ou can redistribute it and/or modify it under the terms of the GNU General Public License \nas published by the "
+      "Free Software Foundation, either version 3 of the License, or (at your option) any later version.\n\nThis progra"
+      "m is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; \nwithout even the implied warran"
+      "ty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \nSee the GNU General Public License for more details"
+      ".\n\n    You should have received a copy of the GNU General Public License along with this program.  If not, see"
+      " <http://www.gnu.org/licenses/>.\n\nContact: kai.kruppa@haw-hamburg.de"
+      Position		      [352, 445]
+    }
+  }
+}

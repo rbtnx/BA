@@ -1,0 +1,2246 @@
+Model {
+  Name			  "demo_heatlib_v2"
+  Version		  8.0
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    5
+    Inport {
+      BusObject		      ""
+      Name		      "an_aus"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "dV_ein"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "dQ_ab"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "dV_V"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "T_aussen"
+    }
+    NumRootOutports	    11
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "Tvl_ges"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "Trl_ges"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "Tvl_V"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "Trl_V"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "Tmess"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "dV_bhkw,vl"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "dV_kessel"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "mod_bhkw"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "mod_kessel"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "dV_verb"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "T_misch"
+    }
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.107"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  FPTRunName		  "Run 1"
+  MaxMDLFileLineLength	  120
+  InitFcn		  "% Copyright (C) 2014 Kai Kruppa\n% \n% This program is free software: you can redistribute it and/or mod"
+  "ify it under \n% the terms of the GNU General Public License as published by the Free Software \n% Foundation, eithe"
+  "r version 3 of the License, or (at your option) any later version.\n% \n% This program is distributed in the hope th"
+  "at it will be useful, but WITHOUT ANY \n% WARRANTY; without even the implied warranty of MERCHANTABILITY or\n% FITNE"
+  "SS FOR A PARTICULAR PURPOSE. See the GNU General Public License for \n% more details.\n% \n% You should have receive"
+  "d a copy of the GNU General Public License along with \n% this program.  If not, see <http://www.gnu.org/licenses/>."
+  "\n\n% Kompiliere CMEX-Funktion falls notwendig\nif exist('storage_tank','file') ~= 3\n    mex storage_tank.c;\nend\n"
+  "\n% Simulationseingang für Modell\nts     = 1;\nN      = 24*60;\nt      = 60*(0:N-1)';\nan_aus_BHKW  = ones(N,1);\na"
+  "n_aus_Kessel = ones(N,1);\ndV_ein_Kessel  = [zeros(N/4,1);3/3600*ones(N/2,1);zeros(N/4,1)];\ndV_ein_BHKW  = [4*ones("
+  "N/4,1);1*ones(N/2,1);4*ones(N/4,1)]/3600;\nan_aus   = [an_aus_Kessel,an_aus_BHKW];\ndV_ein   = [dV_ein_Kessel,dV_ein"
+  "_BHKW];\ndQ_ab   = [50e3*ones(N/4,1);100e3*ones(N/8,1);200e3*ones(N/4,1);150e3*ones(N/8,1);75e3*ones(N/4,1)];\ndV_V "
+  "  = [2*ones(N/4,1);3*ones(N/2,1);5*ones(N/4,1)]/3600;\nT_aussen1 = 20;\nT_aussen2 = 5;\nT_aussen = [273+T_aussen1*on"
+  "es(N/8,1);273+5*ones(3*N/4,1);273+20*ones(N/8,1)];\nsimin = [t, an_aus, dV_ein, dQ_ab, dV_V, T_aussen]; \n\n\n% Para"
+  "meter Heizkurve\nTa1 = 20;\nTa2 = 0;\nTs1 = 70;\nTs2 = 90;\n\n\n% Parameter Kessel:\nV_K1    = 1;\nPmin_K1 = 0;\nPma"
+  "x_K1 = 500;\nk_K1    = 1e2;\nc    = 4200;\nrho  = 1000;\nKesselNotaus = 273+99;\nNotausZeit   = 1000;\nT0_K1   = 273"
+  "+80;\nTu_K1 = 273+30;\n\n% Parameter BHKW\nV_B = 2;\nPmin_B = 10;\nPmax_B = 350;\nk_B = 4e3;\nT0_B = 273+70;\nTu_B ="
+  " 273+30;\n\n% Parameter Rücklaufanhebung\nTrl_bhkw_min = 273+50;\n\n% Parameter Speicherkette:\nk_tank  = 4;    % An"
+  "zahl der Speichertanks (1 - 10)\nn_tank  = 40;   % Anzahl der Rechenknoten pro Tank (1 - 100)\nmode    = 0;    % Zuf"
+  "lussmodus: '0' feste Position, '1' Schichtladung\nH_sens  = [1.285, 0.289]; % Anschlusshöhe der Temperatursensoren i"
+  "n einem Speicher [m]\nT_env   = 273+20;    % Umgebungstemperatur [K]\nV_tank  = 0.772; % Volumen jedes Speichers [m^"
+  "3]\nH_tank  = 1.640; % Höhe jedes Speichers [m]\nH_in    = 1.469; % Anschlusshöhe des Ladezuflusses [m]\nH_out   = 0"
+  ".059; % Anschlusshöhe des Ladeabflusses [m]\nU_loss  = 9.367; % Wärmedurchgangskoeffizient [W/(m^2 K)]\nk_eff   = 10"
+  ".000; % Effektive vertikale Wärmeleitfähigkeit [W/(m K)]\nT0_mess = linspace(273+50,273+40,length(H_sens)*k_tank);\n"
+  "                  % Anfangstemperaturen der Sensoren in allen Speichern [°C]\n    \n% Parameter Verbraucher:\nV_V = "
+  "0.1;\nT0_V  = 273+50;\n\n% Parameter der PID Regler\nP_bhkw = 0.1;\nI_bhkw = 0.01;\nP_kessel = 1;\nI_kessel = 1e-5;\n"
+  StopFcn		  "% Copyright (C) 2014 Kai Kruppa\n% \n% This program is free software: you can redistribute it and/or mod"
+  "ify it under \n% the terms of the GNU General Public License as published by the Free Software \n% Foundation, eithe"
+  "r version 3 of the License, or (at your option) any later version.\n% \n% This program is distributed in the hope th"
+  "at it will be useful, but WITHOUT ANY \n% WARRANTY; without even the implied warranty of MERCHANTABILITY or\n% FITNE"
+  "SS FOR A PARTICULAR PURPOSE. See the GNU General Public License for \n% more details.\n% \n% You should have receive"
+  "d a copy of the GNU General Public License along with \n% this program.  If not, see <http://www.gnu.org/licenses/>."
+  "\n\nTvl_K  = Y(:,1);\nTrl_K  = Y(:,2);\nTvl_V  = Y(:,3);\nTrl_V  = Y(:,4);\nT_mess = Y(:,4+(1:length(H_sens)*k_tank)"
+  ");\ndV_bhkw_vl = Y(:,4+length(H_sens)*k_tank+1);\ndV_kessel = Y(:,4+length(H_sens)*k_tank+2);\nmod_bhkw = Y(:,5+leng"
+  "th(H_sens)*k_tank+2);\nmod_kessel = Y(:,6+length(H_sens)*k_tank+2);\ndV_verb = Y(:,7+length(H_sens)*k_tank+2);\nT_mi"
+  "sch = Y(:,8+length(H_sens)*k_tank+2);\n\n% Heizkurve\nTa_min = -10;\nTa_max = 30;\na = (Ts1 - Ts2)/(Ta1 - Ta2);\nb ="
+  " Ts1 - Ta1*a;\nTa_plot = [Ta_min:1:Ta_max]';\nTs_plot = [Ts2*ones(Ta2-Ta_min,1); a*[Ta2:1:Ta1]'+b; Ts1*ones(Ta_max-T"
+  "a1,1)];\n\nfigure(1);\nsubplot(4,2,1);\n    stairs(t/3600,T_aussen-273,'b'); \n    title('Aussentemperatur');\n    l"
+  "egend('T_{aussen}','Location','SouthEast');\n    xlabel('Zeit [h]');\n    ylabel('Temperatur [°C]');\n    xlim([0 24"
+  "]);\n    ylim([0 22]);\nsubplot(4,2,2);\n    plot(Ta_plot,Ts_plot,'b'); hold on;\n    plot(T_aussen1, a*T_aussen1+b,"
+  "'r*');\n    plot(T_aussen2, a*T_aussen2+b,'g*');hold off\n    title('Heizkurve');\n    legend('T_{soll}','T_{aussen}"
+  " = 20°C','T_{aussen} = 5°C','Location','SouthEast');\n    xlabel('T_{aussen} [°C]');\n    ylabel('T_{soll} [°C]');\n"
+  "    ylim([65 95]);\nsubplot(4,2,3);\n    stairs(tsim/3600,Tvl_K-273,'r'); hold on;\n    stairs(tsim/3600,Trl_K-273,'"
+  "b'); \n    stairs(tsim/3600,T_misch-273,'g');\n    hold off;\n    title({'Gemeinsame Vorlauf- und Rücklauftemperatur"
+  " von BHKW und Kessel' 'sowie die angehobene Rücklautemperatur des BHKWs'});\n    legend('Tvl_{ges}','Trl_{ges}', 'Tr"
+  "l_{BHKW}','Location','SouthEast');\n    xlabel('Zeit [h]');\n    ylabel('Temperatur [°C]');\n    xlim([0 24]);\n    "
+  "ylim([35 90]);\nsubplot(4,2,4);\n    stairs(tsim/3600,Tvl_V-273,'r'); hold on;\n    stairs(tsim/3600,Trl_V-273,'b');"
+  " hold off;\n    title('Gemeinsame Vorlauf- und Rücklauftemperatur der Last');\n    legend('Tvl_V','Trl_V','Location'"
+  ",'SouthEast');\n    xlabel('Zeit [h]');\n    ylabel('Temperatur [°C]');\n    xlim([0 24]);\n    ylim([25 90]);\nsubp"
+  "lot(4,2,5);\n    stairs(tsim/3600,T_mess-273,'b');\n    legend('T_{speicher}','Location','South');\n    title('Senso"
+  "rtemperaturen in der Speicherkette');\n    xlabel('Zeit [h]');\n    ylabel('Temperatur [°C]');\n    xlim([0 24]);\n "
+  "   ylim([35 90]);\nsubplot(4,2,6);    \n    stairs(tsim/3600,mod_kessel,'r'); hold on;\n    stairs(tsim/3600,mod_bhk"
+  "w,'b'); hold off;\n    legend('mod_{Kessel}','mod_{BHKW}','Location','East');\n    title('Modulationssignale von BHK"
+  "W und Kessel');\n    xlabel('Zeit [h]');\n    ylabel('Modulation');\n    xlim([0 24]);\nsubplot(4,2,7);\n    stairs("
+  "tsim/3600,(dV_kessel+dV_bhkw_vl-dV_verb)*3600,'b'); hold on;\n    stairs(t/3600,zeros(N,1),'k:'); hold off;\n    leg"
+  "end('dV_{speicher}','Location','NorthEast');\n    title('Volumenstrom im Speicher (positv = laden)');\n    xlabel('Z"
+  "eit [h]');\n    ylabel('Volumenstrom [m^3/h]');\n    xlim([0 24]);\nsubplot(4,2,8);\n    stairs(t/3600,dQ_ab/1000,'r"
+  "');\n    legend('dQ_{ab}','Location','NorthEast');\n    title('Abgegebene Leistung in der Last');\n    xlabel('Zeit "
+  "[h]');\n    ylabel('Leistung [kW]');\n    xlim([0 24]);\nset(gcf,'Position',[100   100   900   750])"
+  Object {
+    $PropName		    "BdWindowsInfo"
+    $ObjectID		    1
+    $ClassName		    "Simulink.BDWindowsInfo"
+    Array {
+      Type		      "Simulink.WindowInfo"
+      Dimension		      2
+      Object {
+	$ObjectID		2
+	IsActive		[0]
+	Location		[16.0, 52.0, 1402.0, 817.0]
+	Object {
+	  $PropName		  "ModelBrowserInfo"
+	  $ObjectID		  3
+	  $ClassName		  "Simulink.ModelBrowserInfo"
+	  Visible		  [0]
+	  DockPosition		  "Left"
+	  Width			  [50]
+	  Height		  [50]
+	  Filter		  [9]
+	}
+	Object {
+	  $PropName		  "ExplorerBarInfo"
+	  $ObjectID		  4
+	  $ClassName		  "Simulink.ExplorerBarInfo"
+	  Visible		  [1]
+	}
+	Object {
+	  $PropName		  "EditorsInfo"
+	  $ObjectID		  5
+	  $ClassName		  "Simulink.EditorInfo"
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "67"
+	  Extents		  [1350.0, 641.0]
+	  ZoomFactor		  [2.87]
+	  Offset		  [0.0, 0.0]
+	}
+      }
+      Object {
+	$ObjectID		6
+	IsActive		[1]
+	Location		[-8.0, -8.0, 1616.0, 876.0]
+	Object {
+	  $PropName		  "ModelBrowserInfo"
+	  $ObjectID		  7
+	  $ClassName		  "Simulink.ModelBrowserInfo"
+	  Visible		  [0]
+	  DockPosition		  "Left"
+	  Width			  [50]
+	  Height		  [50]
+	  Filter		  [9]
+	}
+	Object {
+	  $PropName		  "ExplorerBarInfo"
+	  $ObjectID		  8
+	  $ClassName		  "Simulink.ExplorerBarInfo"
+	  Visible		  [1]
+	}
+	Object {
+	  $PropName		  "EditorsInfo"
+	  $ObjectID		  9
+	  $ClassName		  "Simulink.EditorInfo"
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1564.0, 700.0]
+	  ZoomFactor		  [1.1546391752577319]
+	  Offset		  [-265.39285714285722, 0.87499999999999822]
+	}
+      }
+      PropName		      "WindowsInfo"
+    }
+  }
+  Created		  "Wed Aug 29 10:57:00 2012"
+  Creator		  "Kai Kruppa"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "abp412"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Sun Jan 12 14:30:35 2014"
+  RTWModifiedTimeStamp	  311437572
+  ModelVersionFormat	  "1.%<AutoIncrement:107>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "disabled"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowDesignRanges	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  Object {
+    $PropName		    "DataLoggingOverride"
+    $ObjectID		    10
+    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
+    model_		    "demo_heatlib_v2"
+    overrideMode_	    [0.0]
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      "demo_heatlib_v2"
+      PropName		      "logAsSpecifiedByModels_"
+    }
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      []
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      11
+      Version		      "1.12.1"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  12
+	  Version		  "1.12.1"
+	  StartTime		  "t(1)"
+	  StopTime		  "t(end)"
+	  AbsTol		  "auto"
+	  FixedStep		  "ts"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  EnableConcurrentExecution off
+	  ConcurrentTasks	  off
+	  Solver		  "ode1"
+	  SolverName		  "ode1"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "LineSearch"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  13
+	  Version		  "1.12.1"
+	  Decimation		  "1"
+	  ExternalInput		  "simin"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  off
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  on
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tsim"
+	  OutputSaveName	  "Y"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  14
+	  Version		  "1.12.1"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    8
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    Cell		    "UseSpecifiedMinMax"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  15
+	  Version		  "1.12.1"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "EnableAllAsWarning"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	  SFUndirectedBroadcastEventsDiag "warning"
+	  SFTransitionActionBeforeConditionDiag	"warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  16
+	  Version		  "1.12.1"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  17
+	  Version		  "1.12.1"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  18
+	  Version		  "1.12.1"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  19
+	  Version		  "1.12.1"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    9
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    Cell		    "GenerateWebview"
+	    Cell		    "GenerateCodeMetricsReport"
+	    Cell		    "GenerateCodeReplacementReport"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  PackageGeneratedCodeAndArtifacts off
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  PortableWordSizes	  off
+	  GenerateErtSFunction	  off
+	  CreateSILPILBlock	  "None"
+	  CodeExecutionProfiling  off
+	  CodeExecutionProfileVariable "executionProfile"
+	  CodeProfilingSaveOptions "SummaryOnly"
+	  CodeProfilingInstrumentation off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateWebview	  off
+	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      20
+	      Version		      "1.12.1"
+	      Array {
+		Type			"Cell"
+		Dimension		21
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"InsertPolySpaceComments"
+		Cell			"SFDataObjDesc"
+		Cell			"MATLABFcnDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      OperatorAnnotations     off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InternalIdentifier      "Classic"
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      21
+	      Version		      "1.12.1"
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      CodeReplacementLibrary  "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      ConcurrentExecutionCompliant on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns on
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      GRTInterface	      off
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      RTWCAPIRootIO	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Data Import//Export"
+      ConfigPrmDlgPosition     [ 243, 78, 1124, 628 ] 
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    11
+  }
+  Object {
+    $PropName		    "DataTransfer"
+    $ObjectID		    22
+    $ClassName		    "Simulink.GlobalDataTransfer"
+    DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
+    DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
+    DefaultTransitionBetweenContTasks "Ensure deterministic transfer (minimum delay)"
+    DefaultExtrapolationMethodBetweenContTasks "None"
+    AutoInsertRateTranBlk   [0]
+  }
+  ExplicitPartitioning	  off
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  MaskDefaults {
+    SelfModifiable	    "off"
+    IconFrame		    "on"
+    IconOpaque		    "on"
+    RunInitForIconRedraw    "off"
+    IconRotate		    "none"
+    PortRotate		    "default"
+    IconUnits		    "autoscale"
+  }
+  MaskParameterDefaults {
+    Evaluate		    "on"
+    Tunable		    "on"
+    NeverSave		    "off"
+    Internal		    "off"
+    ReadOnly		    "off"
+    Enabled		    "on"
+    Visible		    "on"
+    ToolTip		    "on"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      SFBlockType	      "NONE"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+  }
+  System {
+    Name		    "demo_heatlib_v2"
+    Location		    [-8, -8, 1608, 868]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "115"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "176"
+    Block {
+      BlockType		      Inport
+      Name		      "an_aus"
+      SID		      "9"
+      Position		      [15, 158, 45, 172]
+      ZOrder		      -1
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "dV_ein"
+      SID		      "11"
+      Position		      [15, 238, 45, 252]
+      ZOrder		      -1
+      Port		      "2"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "dQ_ab"
+      SID		      "14"
+      Position		      [15, 283, 45, 297]
+      ZOrder		      -1
+      Port		      "3"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "dV_V"
+      SID		      "15"
+      Position		      [15, 323, 45, 337]
+      ZOrder		      -1
+      Port		      "4"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "T_aussen"
+      SID		      "128"
+      Position		      [15, 13, 45, 27]
+      ZOrder		      -1
+      Port		      "5"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      " "
+      SID		      "122"
+      Position		      [365, 160, 385, 180]
+      ZOrder		      -5
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "  "
+      SID		      "124"
+      Position		      [720, 190, 740, 210]
+      ZOrder		      -5
+    }
+    Block {
+      BlockType		      Product
+      Name		      "    "
+      SID		      "24"
+      Ports		      [2, 1]
+      Position		      [135, 232, 165, 263]
+      ZOrder		      -13
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "BHKW mit\nRl.-anhebung"
+      SID		      "67"
+      Ports		      [4, 3]
+      Position		      [235, 195, 335, 260]
+      ZOrder		      -14
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"BHKW mit\nRl.-anhebung"
+	Location		[-8, -8, 1608, 868]
+	Open			on
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"286"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_Rl"
+	  SID			  "69"
+	  Position		  [15, 13, 45, 27]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dV_Rl"
+	  SID			  "71"
+	  Position		  [15, 48, 45, 62]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "an_aus"
+	  SID			  "121"
+	  Position		  [15, 158, 45, 172]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Modulation"
+	  SID			  "79"
+	  Position		  [15, 188, 45, 202]
+	  ZOrder		  -4
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "BHKW"
+	  SID			  "153"
+	  Ports			  [4, 2]
+	  Position		  [95, 129, 215, 186]
+	  ZOrder		  -5
+	  BackgroundColor	  "red"
+	  LibraryVersion	  "1.30.56"
+	  SourceBlock		  "MatlabHeatLib/BHKW"
+	  SourceType		  "BHKW"
+	  V_BHKW		  "V_B"
+	  P_min			  "Pmin_B"
+	  P_max			  "Pmax_B"
+	  k_BHKW		  "k_B"
+	  c			  "c"
+	  rho			  "rho"
+	  BHKWInit		  "T0_B"
+	  T_Umgebung		  "Tu_B"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rücklaufanhebung"
+	  SID			  "22"
+	  Ports			  [3, 3]
+	  Position		  [95, 27, 215, 83]
+	  ZOrder		  -6
+	  BackgroundColor	  "lightBlue"
+	  LibraryVersion	  "1.30.56"
+	  SourceBlock		  "MatlabHeatLib/Rücklaufanhebung"
+	  SourceType		  ""
+	  T_min			  "Trl_bhkw_min"
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  SID			  "150"
+	  Position		  [265, 170, 285, 190]
+	  ZOrder		  -5
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_BHKW"
+	  SID			  "68"
+	  Position		  [260, 138, 290, 152]
+	  ZOrder		  -8
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "dV_Vl"
+	  SID			  "70"
+	  Position		  [260, 18, 290, 32]
+	  ZOrder		  -9
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "T_misch"
+	  SID			  "73"
+	  Position		  [260, 48, 290, 62]
+	  ZOrder		  -10
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Rücklaufanhebung"
+	  SrcPort		  3
+	  Points		  [5, 0; 0, 25; -175, 0; 0, 50]
+	  DstBlock		  "BHKW"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "BHKW"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    DstBlock		    "T_BHKW"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -25; -155, 0; 0, -45]
+	    DstBlock		    "Rücklaufanhebung"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "Rücklaufanhebung"
+	  SrcPort		  2
+	  Points		  [15, 0]
+	  Branch {
+	    DstBlock		    "T_misch"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 55; -175, 0; 0, 25]
+	    DstBlock		    "BHKW"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "T_Rl"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, 15]
+	  DstBlock		  "Rücklaufanhebung"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "an_aus"
+	  SrcPort		  1
+	  DstBlock		  "BHKW"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Rücklaufanhebung"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -10]
+	  DstBlock		  "dV_Vl"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "dV_Rl"
+	  SrcPort		  1
+	  DstBlock		  "Rücklaufanhebung"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Modulation"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -15]
+	  DstBlock		  "BHKW"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "BHKW"
+	  SrcPort		  2
+	  Points		  [5, 0; 0, 5]
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "175"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, GNU General Public License"
+	  Position		  [149, 246]
+	}
+      }
+    }
+    Block {
+      BlockType		      Demux
+      Name		      "Demux"
+      SID		      "6"
+      Ports		      [1, 2]
+      Position		      [70, 146, 75, 184]
+      ZOrder		      -7
+      ShowName		      off
+      Outputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Demux
+      Name		      "Demux1"
+      SID		      "126"
+      Ports		      [1, 2]
+      Position		      [740, 361, 745, 399]
+      ZOrder		      -6
+      ShowName		      off
+      Outputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Demux
+      Name		      "Demux2"
+      SID		      "8"
+      Ports		      [1, 2]
+      Position		      [70, 226, 75, 264]
+      ZOrder		      -7
+      ShowName		      off
+      Outputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Heizkurve"
+      SID		      "127"
+      Ports		      [1, 1]
+      Position		      [475, 28, 545, 62]
+      ZOrder		      -18
+      BlockMirror	      on
+      BackgroundColor	      "green"
+      LibraryVersion	      "1.30.56"
+      SourceBlock	      "MatlabHeatLib/Heizkurve"
+      SourceType	      "Heizkurve"
+      Ta1c		      "Ta1"
+      Ta2c		      "Ta2"
+      Ts1c		      "Ts1"
+      Ts2c		      "Ts2"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Kessel"
+      SID		      "1"
+      Ports		      [4, 3]
+      Position		      [225, 119, 345, 176]
+      ZOrder		      -19
+      BackgroundColor	      "red"
+      LibraryVersion	      "1.30.56"
+      SourceBlock	      "MatlabHeatLib/Kessel"
+      SourceType	      "Kessel"
+      V_Kessel		      "V_K1"
+      P_min		      "Pmin_K1"
+      P_max		      "Pmax_K1"
+      k_Kessel		      "k_K1"
+      c			      "c"
+      rho		      "rho"
+      notaustemp	      "KesselNotaus"
+      notauszeit	      "NotausZeit"
+      KesselInit	      "T0_K1"
+      T_Umgebung	      "Tu_K1"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      SID		      "12"
+      Ports		      [2, 1]
+      Position		      [430, 121, 435, 159]
+      ZOrder		      -16
+      ShowName		      off
+      Inputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux1"
+      SID		      "13"
+      Ports		      [2, 1]
+      Position		      [430, 201, 435, 239]
+      ZOrder		      -16
+      ShowName		      off
+      Inputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Regelung"
+      SID		      "87"
+      Ports		      [3, 2]
+      Position		      [205, 37, 365, 93]
+      ZOrder		      -22
+      BlockMirror	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Regelung"
+	Location		[-8, -8, 1608, 868]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"250"
+	Block {
+	  BlockType		  Inport
+	  Name			  "T_soll"
+	  SID			  "89"
+	  Position		  [15, 28, 45, 42]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Tvl_BHKW"
+	  SID			  "120"
+	  Position		  [15, 63, 45, 77]
+	  ZOrder		  -1
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Tvl_Kessel"
+	  SID			  "115"
+	  Position		  [15, 118, 45, 132]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "PID Controller"
+	  SID			  "85"
+	  Ports			  [1, 1]
+	  Position		  [150, 14, 205, 56]
+	  ZOrder		  -6
+	  LibraryVersion	  "1.281"
+	  SourceBlock		  "simulink/Continuous/PID Controller"
+	  SourceType		  "PID 1dof"
+	  Controller		  "PID"
+	  TimeDomain		  "Continuous-time"
+	  SampleTime		  "ts"
+	  IntegratorMethod	  "Forward Euler"
+	  FilterMethod		  "Forward Euler"
+	  Form			  "Parallel"
+	  P			  "P_bhkw"
+	  I			  "I_bhkw"
+	  D			  "0"
+	  N			  "100"
+	  InitialConditionSource  "internal"
+	  InitialConditionForIntegrator	"0.6"
+	  InitialConditionForFilter "0"
+	  ExternalReset		  "none"
+	  IgnoreLimit		  off
+	  ZeroCross		  on
+	  LimitOutput		  on
+	  UpperSaturationLimit	  "1"
+	  LowerSaturationLimit	  "0"
+	  LinearizeAsGain	  off
+	  AntiWindupMode	  "none"
+	  Kb			  "1"
+	  TrackingMode		  off
+	  Kt			  "1"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	  LockScale		  off
+	  PParamMin		  "[]"
+	  PParamMax		  "[]"
+	  PParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IParamMin		  "[]"
+	  IParamMax		  "[]"
+	  IParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  DParamMin		  "[]"
+	  DParamMax		  "[]"
+	  DParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  NParamMin		  "[]"
+	  NParamMax		  "[]"
+	  NParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KbParamMin		  "[]"
+	  KbParamMax		  "[]"
+	  KbParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KtParamMin		  "[]"
+	  KtParamMax		  "[]"
+	  KtParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  POutMin		  "[]"
+	  POutMax		  "[]"
+	  POutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IOutMin		  "[]"
+	  IOutMax		  "[]"
+	  IOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  DOutMin		  "[]"
+	  DOutMax		  "[]"
+	  DOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  NOutMin		  "[]"
+	  NOutMax		  "[]"
+	  NOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KbOutMin		  "[]"
+	  KbOutMax		  "[]"
+	  KbOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KtOutMin		  "[]"
+	  KtOutMax		  "[]"
+	  KtOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IntegratorOutMin	  "[]"
+	  IntegratorOutMax	  "[]"
+	  IntegratorOutDataTypeStr "Inherit: Inherit via internal rule"
+	  FilterOutMin		  "[]"
+	  FilterOutMax		  "[]"
+	  FilterOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumOutMin		  "[]"
+	  SumOutMax		  "[]"
+	  SumOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI1OutMin		  "[]"
+	  SumI1OutMax		  "[]"
+	  SumI1OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI2OutMin		  "[]"
+	  SumI2OutMax		  "[]"
+	  SumI2OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI3OutMin		  "[]"
+	  SumI3OutMax		  "[]"
+	  SumI3OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumDOutMin		  "[]"
+	  SumDOutMax		  "[]"
+	  SumDOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumAccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI1AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI2AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI3AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumDAccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturationOutMin	  "[]"
+	  SaturationOutMax	  "[]"
+	  SaturationOutDataTypeStr "Inherit: Same as input"
+	  IntegratorContinuousStateAttributes "''"
+	  IntegratorStateMustResolveToSignalObject off
+	  IntegratorRTWStateStorageClass "Auto"
+	  FilterContinuousStateAttributes "''"
+	  FilterStateMustResolveToSignalObject off
+	  FilterRTWStateStorageClass "Auto"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "PID Controller2"
+	  SID			  "116"
+	  Ports			  [1, 1]
+	  Position		  [150, 74, 205, 116]
+	  ZOrder		  -6
+	  LibraryVersion	  "1.281"
+	  SourceBlock		  "simulink/Continuous/PID Controller"
+	  SourceType		  "PID 1dof"
+	  Controller		  "PID"
+	  TimeDomain		  "Continuous-time"
+	  SampleTime		  "ts"
+	  IntegratorMethod	  "Forward Euler"
+	  FilterMethod		  "Forward Euler"
+	  Form			  "Parallel"
+	  P			  "P_kessel"
+	  I			  "I_kessel"
+	  D			  "0"
+	  N			  "100"
+	  InitialConditionSource  "internal"
+	  InitialConditionForIntegrator	"0"
+	  InitialConditionForFilter "0"
+	  ExternalReset		  "none"
+	  IgnoreLimit		  off
+	  ZeroCross		  on
+	  LimitOutput		  on
+	  UpperSaturationLimit	  "1"
+	  LowerSaturationLimit	  "0"
+	  LinearizeAsGain	  off
+	  AntiWindupMode	  "none"
+	  Kb			  "1"
+	  TrackingMode		  off
+	  Kt			  "1"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	  LockScale		  off
+	  PParamMin		  "[]"
+	  PParamMax		  "[]"
+	  PParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IParamMin		  "[]"
+	  IParamMax		  "[]"
+	  IParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  DParamMin		  "[]"
+	  DParamMax		  "[]"
+	  DParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  NParamMin		  "[]"
+	  NParamMax		  "[]"
+	  NParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KbParamMin		  "[]"
+	  KbParamMax		  "[]"
+	  KbParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KtParamMin		  "[]"
+	  KtParamMax		  "[]"
+	  KtParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  POutMin		  "[]"
+	  POutMax		  "[]"
+	  POutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IOutMin		  "[]"
+	  IOutMax		  "[]"
+	  IOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  DOutMin		  "[]"
+	  DOutMax		  "[]"
+	  DOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  NOutMin		  "[]"
+	  NOutMax		  "[]"
+	  NOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KbOutMin		  "[]"
+	  KbOutMax		  "[]"
+	  KbOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  KtOutMin		  "[]"
+	  KtOutMax		  "[]"
+	  KtOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  IntegratorOutMin	  "[]"
+	  IntegratorOutMax	  "[]"
+	  IntegratorOutDataTypeStr "Inherit: Inherit via internal rule"
+	  FilterOutMin		  "[]"
+	  FilterOutMax		  "[]"
+	  FilterOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumOutMin		  "[]"
+	  SumOutMax		  "[]"
+	  SumOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI1OutMin		  "[]"
+	  SumI1OutMax		  "[]"
+	  SumI1OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI2OutMin		  "[]"
+	  SumI2OutMax		  "[]"
+	  SumI2OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI3OutMin		  "[]"
+	  SumI3OutMax		  "[]"
+	  SumI3OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumDOutMin		  "[]"
+	  SumDOutMax		  "[]"
+	  SumDOutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumAccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI1AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI2AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumI3AccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SumDAccumDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturationOutMin	  "[]"
+	  SaturationOutMax	  "[]"
+	  SaturationOutDataTypeStr "Inherit: Same as input"
+	  IntegratorContinuousStateAttributes "''"
+	  IntegratorStateMustResolveToSignalObject off
+	  IntegratorRTWStateStorageClass "Auto"
+	  FilterContinuousStateAttributes "''"
+	  FilterStateMustResolveToSignalObject off
+	  FilterRTWStateStorageClass "Auto"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  "117"
+	  Ports			  [2, 1]
+	  Position		  [90, 85, 110, 105]
+	  ZOrder		  -18
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum4"
+	  SID			  "86"
+	  Ports			  [2, 1]
+	  Position		  [90, 25, 110, 45]
+	  ZOrder		  -18
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "mod_bhkw"
+	  SID			  "88"
+	  Position		  [235, 28, 265, 42]
+	  ZOrder		  -20
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "mod_kessel"
+	  SID			  "95"
+	  Position		  [235, 88, 265, 102]
+	  ZOrder		  -21
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Sum4"
+	  SrcPort		  1
+	  DstBlock		  "PID Controller"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "PID Controller"
+	  SrcPort		  1
+	  DstBlock		  "mod_bhkw"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "T_soll"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    DstBlock		    "Sum4"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 60]
+	    DstBlock		    "Sum1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Tvl_Kessel"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "PID Controller2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "PID Controller2"
+	  SrcPort		  1
+	  DstBlock		  "mod_kessel"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Tvl_BHKW"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  DstBlock		  "Sum4"
+	  DstPort		  2
+	}
+	Annotation {
+	  SID			  "174"
+	  Name			  "Copyright (C) 2014 Kai Kruppa, GNU General Public License"
+	  Position		  [147, 181]
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Speicherkette"
+      SID		      "152"
+      Ports		      [4, 4]
+      Position		      [585, 149, 700, 206]
+      ZOrder		      -23
+      BackgroundColor	      "blue"
+      LibraryVersion	      "1.30.56"
+      SourceBlock	      "MatlabHeatLib/Speicherkette"
+      SourceType	      "Speicherkette"
+      k			      "k_tank"
+      n			      "n_tank"
+      mode		      "mode"
+      Tinit		      "T0_mess"
+      Hsensors		      "H_sens"
+      Tenv		      "T_env"
+      Vtank		      "V_tank"
+      Htank		      "H_tank"
+      Hin		      "H_in"
+      Hout		      "H_out"
+      U			      "U_loss"
+      keff		      "k_eff"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Verbraucher"
+      SID		      "5"
+      Ports		      [3, 2]
+      Position		      [585, 258, 705, 312]
+      ZOrder		      -24
+      BackgroundColor	      "cyan"
+      LibraryVersion	      "1.30.56"
+      SourceBlock	      "MatlabHeatLib/Verbraucher"
+      SourceType	      "Verbraucher"
+      V_Ver		      "V_V"
+      c			      "c"
+      rho		      "rho"
+      InitTempVerbr	      "T0_V"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Vorlaufsammler"
+      SID		      "3"
+      Ports		      [2, 2]
+      Position		      [470, 141, 530, 194]
+      ZOrder		      -25
+      BackgroundColor	      "lightBlue"
+      LibraryVersion	      "1.30.56"
+      SourceBlock	      "MatlabHeatLib/Vorlaufsammler"
+      SourceType	      "Vorlaufsammler  "
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Tvl_ges"
+      SID		      "16"
+      Position		      [780, 133, 810, 147]
+      ZOrder		      -9
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Trl_ges"
+      SID		      "17"
+      Position		      [780, 103, 810, 117]
+      ZOrder		      -9
+      Port		      "2"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Tvl_V"
+      SID		      "18"
+      Position		      [780, 163, 810, 177]
+      ZOrder		      -9
+      Port		      "3"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Trl_V"
+      SID		      "19"
+      Position		      [780, 268, 810, 282]
+      ZOrder		      -9
+      Port		      "4"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Tmess"
+      SID		      "20"
+      Position		      [780, 193, 810, 207]
+      ZOrder		      -9
+      Port		      "5"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "dV_bhkw,vl"
+      SID		      "50"
+      Position		      [780, 353, 810, 367]
+      ZOrder		      -9
+      Port		      "6"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "dV_kessel"
+      SID		      "51"
+      Position		      [780, 388, 810, 402]
+      ZOrder		      -9
+      Port		      "7"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "mod_bhkw"
+      SID		      "84"
+      Position		      [15, 43, 45, 57]
+      ZOrder		      -9
+      BlockMirror	      on
+      Port		      "8"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "mod_kessel"
+      SID		      "103"
+      Position		      [15, 73, 45, 87]
+      ZOrder		      -9
+      BlockMirror	      on
+      Port		      "9"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "dV_verb"
+      SID		      "108"
+      Position		      [780, 323, 810, 337]
+      ZOrder		      -9
+      Port		      "10"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "T_misch"
+      SID		      "149"
+      Position		      [780, 423, 810, 437]
+      ZOrder		      -9
+      Port		      "11"
+      IconDisplay	      "Port number"
+    }
+    Line {
+      SrcBlock		      "Verbraucher"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	DstBlock		"Trl_V"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -40; -165, 0; 0, -50]
+	DstBlock		"Speicherkette"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "Speicherkette"
+      SrcPort		      2
+      Points		      [45, 0]
+      Branch {
+	DstBlock		"Tvl_V"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 75; -195, 0; 0, 40]
+	DstBlock		"Verbraucher"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "an_aus"
+      SrcPort		      1
+      DstBlock		      "Demux"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "dV_ein"
+      SrcPort		      1
+      DstBlock		      "Demux2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      2
+      Points		      [35, 0]
+      Branch {
+	Points			[0, 65]
+	DstBlock		"    "
+	DstPort			1
+      }
+      Branch {
+	Labels			[0, 0]
+	Points			[75, 0; 0, 60]
+	DstBlock		"BHKW mit\nRl.-anhebung"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "Kessel"
+      SrcPort		      1
+      Points		      [40, 0]
+      Branch {
+	DstBlock		"Mux"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -45]
+	DstBlock		"Regelung"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "Kessel"
+      SrcPort		      2
+      Points		      [40, 0; 0, 60]
+      DstBlock		      "Mux1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      Points		      [10, 0; 0, 15]
+      DstBlock		      "Vorlaufsammler"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Mux1"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[0, -40]
+	DstBlock		"Vorlaufsammler"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, 160]
+	DstBlock		"Demux1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Vorlaufsammler"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[0, -15]
+	DstBlock		"Tvl_ges"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"Speicherkette"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Vorlaufsammler"
+      SrcPort		      2
+      Points		      [10, 0; 0, -10]
+      DstBlock		      "Speicherkette"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Speicherkette"
+      SrcPort		      1
+      Points		      [45, 0; 0, -45]
+      Branch {
+	Points			[-550, 0]
+	Branch {
+	  Points		  [0, 15]
+	  DstBlock		  "Kessel"
+	  DstPort		  1
+	}
+	Branch {
+	  Labels		  [0, 0]
+	  Points		  [0, 95]
+	  DstBlock		  "BHKW mit\nRl.-anhebung"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	DstBlock		"Trl_ges"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "dQ_ab"
+      SrcPort		      1
+      Points		      [490, 0; 0, -25]
+      DstBlock		      "Verbraucher"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "dV_V"
+      SrcPort		      1
+      Points		      [490, 0]
+      Branch {
+	DstBlock		"dV_verb"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -25]
+	DstBlock		"Verbraucher"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "Speicherkette"
+      SrcPort		      3
+      Points		      [55, 0; 0, 15]
+      DstBlock		      "Tmess"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "BHKW mit\nRl.-anhebung"
+      SrcPort		      2
+      DstBlock		      "Mux1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Demux2"
+      SrcPort		      2
+      DstBlock		      "    "
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "    "
+      SrcPort		      1
+      Points		      [0, -30]
+      DstBlock		      "BHKW mit\nRl.-anhebung"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "BHKW mit\nRl.-anhebung"
+      SrcPort		      3
+      Points		      [50, 0; 0, 180]
+      DstBlock		      "T_misch"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "BHKW mit\nRl.-anhebung"
+      SrcPort		      1
+      Points		      [35, 0; 0, -15; 30, 0; 0, -45]
+      Branch {
+	DstBlock		"Mux"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -85]
+	DstBlock		"Regelung"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Demux2"
+      SrcPort		      1
+      Points		      [20, 0; 0, -95]
+      DstBlock		      "Kessel"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      1
+      DstBlock		      "Kessel"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Kessel"
+      SrcPort		      3
+      DstBlock		      " "
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Speicherkette"
+      SrcPort		      4
+      DstBlock		      "  "
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Regelung"
+      SrcPort		      2
+      Points		      [-10, 0]
+      Branch {
+	Points			[0, 90]
+	DstBlock		"Kessel"
+	DstPort			4
+      }
+      Branch {
+	DstBlock		"mod_kessel"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Regelung"
+      SrcPort		      1
+      Points		      [-20, 0]
+      Branch {
+	Points			[0, 200]
+	DstBlock		"BHKW mit\nRl.-anhebung"
+	DstPort			4
+      }
+      Branch {
+	DstBlock		"mod_bhkw"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Verbraucher"
+      SrcPort		      2
+      Points		      [20, 0; 0, -75; -165, 0; 0, -25]
+      DstBlock		      "Speicherkette"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Demux1"
+      SrcPort		      1
+      Points		      [10, 0; 0, -10]
+      DstBlock		      "dV_bhkw,vl"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux1"
+      SrcPort		      2
+      Points		      [10, 0; 0, 5]
+      DstBlock		      "dV_kessel"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Heizkurve"
+      SrcPort		      1
+      DstBlock		      "Regelung"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "T_aussen"
+      SrcPort		      1
+      Points		      [520, 0; 0, 25]
+      DstBlock		      "Heizkurve"
+      DstPort		      1
+    }
+    Annotation {
+      SID		      "176"
+      Name		      "Copyright (C) 2014 Kai Kruppa\n\n    This program is free software: you can redistribute it and/or "
+      "modify it under the terms of the GNU General Public License \nas published by the Free Software Foundation, eith"
+      "er version 3 of the License, or (at your option) any later version.\n\nThis program is distributed in the hope t"
+      "hat it will be useful, but WITHOUT ANY WARRANTY; \nwithout even the implied warranty of MERCHANTABILITY or FITNE"
+      "SS FOR A PARTICULAR PURPOSE. \nSee the GNU General Public License for more details.\n\n    You should have recei"
+      "ved a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/"
+      ">."
+      Position		      [387, 529]
+    }
+    Annotation {
+      SID		      "167"
+      Position		      [374, 77]
+    }
+  }
+}
