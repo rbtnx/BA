@@ -2,9 +2,11 @@ clear;
 
 % Output
 
-load('/home/kathrin/Uni/BA/Fette Daten/output_rawdata_fixed.mat');
-start = (datenum(2016,4,29)-datenum(2016,1,1))*24*60+1;
-ende = (datenum(2016,5,29)-datenum(2016,1,1))*24*60;
+load('/home/kathrin/Uni/BA/Fette Daten/rawdata_fixed/output_rawdata_fixed.mat');
+start = 1;
+ende = 309480;
+%start = (datenum(2016,4,29)-datenum(2016,1,1))*24*60+1;
+%ende = (datenum(2016,5,29)-datenum(2016,1,1))*24*60;
 
 oNames = fieldnames(output);
 result_out = zeros(ende-start+1,5);
@@ -30,7 +32,7 @@ end
 
 % Input
 
-load('/home/kathrin/Uni/BA/Fette Daten/input_rawdata_fixed.mat');
+load('/home/kathrin/Uni/BA/Fette Daten/rawdata_fixed/input_rawdata_fixed.mat');
 
 iNames = fieldnames(input);
 result_in = zeros(ende-start+1,9);
@@ -49,6 +51,6 @@ result_in_corr(:,4) =  0.4826*result_in_corr(:,4) + 38.528;
 result_in_corr(:,5) =  1.03*result_in_corr(:,5) - 3.03;
 
 for i = 1:9
-    subplot(2,3,i)
-    plot(time,result_out(:,i),time,result_out_corr(:,i));
+    subplot(3,3,i)
+    plot(time,result_in(:,i),time,result_in_corr(:,i));
 end

@@ -1,7 +1,10 @@
-load('/home/kathrin/Uni/BA/Fette Daten/input_rawdata_fixed.mat');
+load('/home/kathrin/Uni/BA/Fette Daten/rawdata_fixed/input_rawdata_fixed.mat');
 
-start = (datenum(2016,4,29)-datenum(2016,1,1))*24*60+1;
-ende = (datenum(2016,5,29)-datenum(2016,1,1))*24*60;
+start = 1;
+ende = 309480;
+
+%start = (datenum(2016,4,29)-datenum(2016,1,1))*24*60+1;
+%ende = (datenum(2016,5,29)-datenum(2016,1,1))*24*60;
 
 iNames = fieldnames(input);
 result_in = zeros(ende-start+1,9);

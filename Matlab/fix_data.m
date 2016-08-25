@@ -1,8 +1,8 @@
 clear;
-load('/home/kathrin/Uni/BA/Fette Daten/input_rawdata.mat');
+load('/home/kathrin/Uni/BA/Fette Daten/rawdata/erzeuger.mat');
 oNames = fieldnames(input);
 
-for loopIndex = 1:length(oNames) - 1
+for loopIndex = 1:length(oNames)
     nans = find(input.(oNames{loopIndex})>1000 | input.(oNames{loopIndex})<-1000);    % Finde unplausible Werte
     time = 1:length(input.(oNames{loopIndex}));    % Erstelle numerischen Zeitvektor
     i = time;                               % Kopiere Zeitvektor

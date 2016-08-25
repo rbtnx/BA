@@ -2,9 +2,12 @@ clear;
 
 % Output
 
-load('/home/kathrin/Uni/BA/Fette Daten/output_rawdata_fixed.mat');
-start = (datenum(2016,4,29)-datenum(2016,1,1))*24*60+1;
-ende = (datenum(2016,5,29)-datenum(2016,1,1))*24*60;
+load('/home/kathrin/Uni/BA/Fette Daten/rawdata_fixed/output_rawdata_fixed.mat');
+
+start = 1;
+ende = 309480;
+%start = (datenum(2016,4,29)-datenum(2016,1,1))*24*60+1;
+%ende = (datenum(2016,5,29)-datenum(2016,1,1))*24*60;
 
 oNames = fieldnames(output);
 result_out = zeros(ende-start+1,5);
