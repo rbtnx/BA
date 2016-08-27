@@ -1,13 +1,18 @@
-clear;
-load('/home/kathrin/Uni/BA/Fette Daten/rawdata/erzeuger.mat');
-oNames = fieldnames(input);
+function y = fix_data(sensor,mode)
 
-for loopIndex = 1:length(oNames)
-    nans = find(input.(oNames{loopIndex})>1000 | input.(oNames{loopIndex})<-1000);    % Finde unplausible Werte
-    time = 1:length(input.(oNames{loopIndex}));    % Erstelle numerischen Zeitvektor
-    i = time;                               % Kopiere Zeitvektor
-    sens_fixed = input.(oNames{loopIndex});          % Kopiere Volumenstromvektor
-    i(nans) = [];                           % Lösche Zeitwerte für unpl. Werte
-    sens_fixed(nans) = [];                  % Lösche unplausible Werte
-    input.(oNames{loopIndex}) = interp1(i,sens_fixed,time,'linear');    %lin. Interpolation
+% mode 1: eliminiere Nullen
+% mode 2: eliminiere +unendlich und -unendlich
+
+if mode == 1
+    nans = find(sensor == 0);            % Finde unplausible Werte
+elseif mode == 2
+    nans = find(sensor > 1000 | sensor < -1000);
+end
+time = 1:length(sensor);                % Erstelle numerischen Zeitvektor
+i = time;                               % Kopiere Zeitvektor
+sens_fixed = sensor;                    % Kopiere Volumenstromvektor
+i(nans) = [];                           % Lösche Zeitwerte für unpl. Werte
+sens_fixed(nans) = [];                  % Lösche unplausible Werte
+y = interp1(i,sens_fixed,time,'linear');    %lin. Interpolation
+
 end
