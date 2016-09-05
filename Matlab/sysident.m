@@ -1,6 +1,6 @@
 function [M] = sysident(start_date)
-in_file = load('/home/kathrin/Uni/BA/Fette Daten/input_nur_erzeuger.mat');
-o_file = load('/home/kathrin/Uni/BA/Fette Daten/output_rawdata_fixed.mat');
+in_file = load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/input_corr.mat');
+o_file = load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/output_corr.mat');
 
 iNames = fieldnames(in_file.input);
 oNames = fieldnames(o_file.output);
