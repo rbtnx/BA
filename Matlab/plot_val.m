@@ -1,8 +1,8 @@
-function plot_val(start_date,M)
+function val_calc = plot_val(start_date,M)
 
 
-inputfile = load('/home/kathrin/Uni/BA/Fette Daten/input_nur_erzeuger.mat');
-outputfile = load('/home/kathrin/Uni/BA/Fette Daten/output_rawdata_fixed.mat');
+inputfile = load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/input_corr.mat');
+outputfile = load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/output_corr.mat');
 
 iNames = fieldnames(inputfile.input);
 oNames = fieldnames(outputfile.output);
