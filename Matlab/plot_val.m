@@ -1,5 +1,6 @@
-function val_calc = plot_val(start_date,M)
+function val_calc = plot_val(start_date,M,simzeit)
 
+% Änderung 09-07: simzeit hinzugefügt
 
 inputfile = load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/input_corr.mat');
 outputfile = load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/output_corr.mat');
@@ -8,7 +9,7 @@ iNames = fieldnames(inputfile.input);
 oNames = fieldnames(outputfile.output);
 
 start = (datenum(start_date) - datenum(2016,1,1,0,0,0))*24*60 + 1;
-ende = start + 1439;        % 1439 = 24*60 - 1 (00:00 - 23:59)
+ende = start + simzeit*1440-1;        
 
 for loopIndex = 1:length(iNames)-1
     val_input(loopIndex,:) = inputfile.input.(iNames{loopIndex})(start:ende);
