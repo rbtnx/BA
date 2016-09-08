@@ -1,10 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% Systemidentifikation des Rings                     %%%%
-%%%% Version 0.1 - 07.09.2016
+
+%%%% VERALTET!!!!
+
 %%%% 
-%%%% Erstellt Zustandsraummodelle für die Berechnung
-%%%% von Vorlauf-,Rücklauftemp und Volumenstrom aller
-%%%% Punkte im Ring zu jedem Zeitpunkt
+%%%% 
+%%%% 
+%%%%
+%%%% 
+%%%% 
 %%%% 
 
 
@@ -104,3 +107,4 @@ for i=1:5
    plot(wae.waerme.time(startsim:endsim),tr_m.trueck.(rNames{i})(startsim:endsim),wae.waerme.time(startsim:endsim),smooth(tr.(rNames{i}),21));
 end
 legend('gemeSS_tven','berechnet','Location', 'best');
+

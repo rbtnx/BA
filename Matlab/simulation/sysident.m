@@ -6,7 +6,7 @@ iNames = fieldnames(in_file.input);
 oNames = fieldnames(o_file.output);
 
 start = (datenum(start_date) - datenum(2016,1,1,0,0,0))*24*60 + 1
-ende = start + 3*1440-1;                 % 23h, 59 min = 1439 min
+ende = start + 3*1440-1;                 %start + 3 Tage
 
 
 for loopIndex = 1:length(iNames)-1
