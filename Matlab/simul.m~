@@ -1,0 +1,34 @@
+function y = simul(ss,sensor,start_date)
+
+start = (datenum(start_date)-datenum(2016,1,1))*24*60+121;
+ende = start + 1439;
+
+display(start);
+display(ende);
+
+y = sim(ss,sensor(start:ende)');
+t = 0:1439;
+plot(t,sensor(start:ende));
+hold on;
+plot(t,y);
+
+f = figure(1);
+p = uipanel(f,'Title','Control','Position',[.80 .80 .20 .20]);
+vor = uicontrol(p,'Style', 'pushbutton', 'String', 'Vor','Units','normalized','Position',[.1 .40 .3 .3],'Callback', {@vor_Callback,ss,sensor,start_date});
+zur = uicontrol(p,'Style', 'pushbutton', 'String', 'Zurueck','Units','normalized','Position',[.5 .40 .3 .3], 'Callback', {@zurueck_Callback,ss,sensor,start_date});
+
+
+end
+
+function vor_Callback(hObject, eventdata, x,y,z)
+start_neu = (datenum(z) - datenum(2016,1,1))*24*60+1 + 1440;
+display(start_neu);
+clf;
+simul(x,y,start_neu);
+end
+
+function zurueck_Callback(hObject, eventdata, x,y,z)
+start_neu = (datenum(z) - datenum(2016,1,1))*24*60+1 - 1440;
+clf;
+simul(x,y,start_neu);
+end
