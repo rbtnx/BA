@@ -1,8 +1,11 @@
 function val_calc = plot_val(start_date,M,simzeit)
 
 % Änderung 09-07: simzeit hinzugefügt
+% Änderung 09-09: Nur erzeuger als input
 
-inputfile = load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/input_corr.mat');
+% 09-09: Nur Erzeuger-Daten als input! Keine Genauigkeitsveränderung zu 9
+% inputs (alte Version)
+inputfile = load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/input_erzeuger.mat');
 outputfile = load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/output_corr.mat');
 
 iNames = fieldnames(inputfile.input);
@@ -26,7 +29,7 @@ val_output = transpose(val_output);
 
 val_calc = val_input * M;
 
-f = figure(6);
+f = figure(1);
 p = uipanel(f,'Title','Control','Position',[.60 .07 .30 .25]);
 vor = uicontrol(p,'Style', 'pushbutton', 'String', 'Vor','Units','normalized','Position',[.1 .55 .3 .3],'Callback', {@vor_Callback,start,M});
 zur = uicontrol(p,'Style', 'pushbutton', 'String', 'Zurueck','Units','normalized','Position',[.5 .55 .3 .3], 'Callback', {@zurueck_Callback,start,M});
