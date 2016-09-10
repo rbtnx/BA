@@ -26,6 +26,7 @@ function [SS_tv,SS_q,SS_dt,M,wp_calc,start,ende,est_data] = fette_ident(start_da
 
     Options = n4sidOptions;
     Options.Focus = 'simulation';
+    Options.N4Weight = 'CVA';
     
     % Systemidentifikation mit n4sid für T(vorlauf)
 
@@ -33,6 +34,8 @@ function [SS_tv,SS_q,SS_dt,M,wp_calc,start,ende,est_data] = fette_ident(start_da
 
     for i=1:5
         if i == 2
+            [SS_tv.(sNames{i}),SS_tv.(sNames{i+5})] = n4sid(est_data.(eNames{i}),2);
+        elseif i == 5
             [SS_tv.(sNames{i}),SS_tv.(sNames{i+5})] = n4sid(est_data.(eNames{i}),2);
         else
             [SS_tv.(sNames{i}),SS_tv.(sNames{i+5})] = n4sid(est_data.(eNames{i}),'best');
@@ -54,7 +57,7 @@ function [SS_tv,SS_q,SS_dt,M,wp_calc,start,ende,est_data] = fette_ident(start_da
 
     for i=1:5
         [SS_q.(sNames{i}),SS_q.(sNames{i+5})] = n4sid(est_data.(eNames{i+5}),'best');
-        [SS_dt.(sNames{i}),SS_dt.(sNames{i+5})] = n4sid(est_data.(eNames{i+10}),2);
+        [SS_dt.(sNames{i}),SS_dt.(sNames{i+5})] = n4sid(est_data.(eNames{i+10}),1);
     end
     
   
