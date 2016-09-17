@@ -1,16 +1,74 @@
-\section{Modellentwurf und Simulation}
+\section{Strukturierte Modellbildung}
+
+\subsection{Charakterisierung der Wärmeversorgungsanlage der \\LMT Fette Werkzeugtechnik GmbH \& Co. KG}
+Die Wärmeversorgungsanlage der LMT Fette beinhaltet drei Erzeugergruppen, die Wasser mit definierter Vorlauftemperatur an verschiedenen Punkten eines Wärmeversorgungsrings einspeisen. Sämtliche Verbraucher beziehen ihre Vorlauftemperatur aus dem Versorgungskreis und speisen unterschiedliche Rücklauftemperaturen in den Kreis ein. Das Zusammenspiel aus dezentraler Energieversorgung und strukturell unterschiedlichen Verbrauchertypen bildet eine komplexe Wärmeversorgungsanlage, die im Folgenden genauer charakterisiert werden soll.
+
+\subsubsection{Aufbau der Anlage}
+Der Wärmeveresorgungsring besteht aus einer Vorlauf- und einer Rücklaufleitung, die parallel verlegt worden sind und in einem geschlossenen Ring über das gesamte Betriebsgelände führen. An mehreren Stellen des Rings sind Heizkreisverteiler installiert, über die Verbraucher und Erzeuger das benötigte Vorlauf- bzw. Rücklaufwasser beziehen.\par
+
+Die drei Erzeugergruppen bestehen aus folgenden Komponenten:
+\begin{itemize}
+	\item Heizzentrale 1 (HZ1): Drei Kessel in Kaskadenschaltung, 2x Gaskessel Viessmann Vitorond 200 und 1x Gaskessel Viessmann Vietrond mit einer Gesamtheizleistung von \textcolor{red}{\textbf{<kommt noch, Plenum fragen>}}
+	\item Heizzentrale 2 (HZ2): \textcolor{red}{\textbf{<kommt noch, Plenum fragen>}}
+	\item Kompressor: Drei Kompressoren in Kaskadenschaltung, \textcolor{red}{\textbf{<kommt noch, Plenum fragen>}}
+\end{itemize}
+
+HZ1 sichert die Wärmegrundversorgung und wird die meiste Zeit des Jahres entweder für die Warmwasserversorgung und/oder für die Heizwärmeveresorgung beansprucht. Die Kompressoren dienen der Wärmerückgewinnung und nutzen die Abwärme der Herstellungsprozesse des Betriebes, um Warmwasser zu erzeugen. Sie können mit einer maximalen Vorlauftemperatur von 72 °C in den Versorgungsring einspeisen. Die Laufzeit der Kompressoren und damit auch der Beitrag der Wärmemenge im Heizkreis ist stark von den Produktionszeiten des Betriebes abhängig. In den Sommermonaten kann die Wärmeleistung der- 2 Kompressoren allein sogar zur Warmwassergewinnung ausreichen. HZ2 wird als Wärmeerzeuger dazugeschaltet, wenn die Leistung von HZ1 und Kompressoren nicht ausreichen.\par
+
+\begin{figure}[htbp] 
+  \centering
+     \includegraphics[width=1.0\textwidth]{fette_schema.pdf}
+  \caption{Schematische Darstellung der Heizanlage}
+  \label{fig:fette_schema}
+\end{figure}
+
+Über den Versorgungsring werden zehn Hallen unterschiedlicher Größe sowie mehrere Bürogebäude und die Kantine mit Warmwasser beliefert. Der Wärmebedarf unterscheidet sich je nach Verbraucherart deutlich: Einige Produktionshallen benötigen durch die Abwärme der Maschinen während des Betriebes keine zusätzliche Heizwärme, müssen bei Produktionsstillstand jedoch auf einer Raumtemperatur von 20 - 22 °C gehalten werden, um die Präzision der Maschinen zu gewährleisten.
+\begin{figure}[htbp] 
+  \centering
+     \includegraphics[width=1.0\textwidth]{verbrauch_halle5.pdf}
+  \caption{Wärmebedarf von Halle 5}
+  \label{fig:verbrauch_h5}
+\end{figure}
+
+Je nachdem, welche Erzeuger gerade in der Wärmeversorgungsring einspeisen und wie groß der Wärmebedarf der Verbraucher ist, kommt es im Ring zu unterschiedlichen Betriebsmodi, da sich die Flussrichtung im Ring an bestimmten Punkten umkehren kann, worauf in Kapitel \ref{a:modi} genauer eingegangen werden soll.
+
+\subsubsection{Verfügbare Messdaten}
+Wärmemengenzähler wurden an insgesamt fünf Stellen des Versorgungsrings, an jedem der drei Erzeugergruppen sowie an fünf Verbrauchern durch die Firma Plenum Ingenieursgesellschaft mbH angebracht. Die Messdaten liegen in einer zeitlichen Auflösung von 60 Sekunden vor und werden durch die IngSoft GmbH online zur Verfügung gestellt. 
+\begin{figure}[htbp] 
+  \centering
+     \includegraphics[width=1.0\textwidth]{lageplan.pdf}
+  \caption{Lageplan der Messtellen}
+  \label{fig:lageplan}
+\end{figure}
+
+Bei der Auswertung der Daten hat sich gezeigt, dass einige Wärmemengenzähler falsch oder gar nicht kalibriert wurden. Die genutzten Messdaten wurden nach Empfehlung der Plenum Ingenieursgesellschaft mit Korrekturfaktoren versehen \cite{Ple1}.
+
+\subsubsection{Betriebsmodi der Anlage}\label{a:modi}
+Der Durchflussstrom des Wassers im Versorgungsring wird durch den Betrieb der Erzeuger- und Verbraucherpumpen bestimmt. So kann es vorkommen, dass sich an einigen Punkten der Versorgungsrings die Fließrichtung des Wassers umkehrt. Für die Modellbildung spielt die Fließrichtung eine entscheidende Rolle, da für die Berechnung der Vor- und Rücklauftemperaturen die Temperatur des zuvor durchflossenen Wärmemengenzählers genutzt wird \textcolor{red}{\textbf{Blöd, bzw. so allein nicht verständlich.. Bild erstellen!}}.\par
+
+Neben der Umkehr der Fließrichtung, die durch Erzeuger- und Verbraucherpumpen beeinflusst wird und sich im laufenden Betrieb einstellt, kann der Ring ein unterschiedliches hydrodynamisches Verhalten durch Eingriffe der Haustechnik aufweisen. So wurde im Winter 2015/2016 die Entscheidung getroffen, den Versorgungsring mit Hilfe eines Schiebers an der Stelle zwischen Halle 7 und Halle 3 und teilweise auch zwischen Halle 1 und Halle 5 \textcolor{red}{\textbf{Stimmt so? PLENUM fragen!}} (siehe \ref{fig:lageplan}) zu unterbrechen. Die daraus resultierenden veränderten Volumenströme zeigen ein anderes beschreiben ein anderes Systemverhalten, was in der Modellbildung berücksichtigt werden muss.
+
+\subsubsection{Strukturbild der Anlage}
+Da an fünf Punkten des Rings Messdaten zur Verfügung stehen, wurde zur Modellbildung das System als vereinfacht als Fünfeck betrachtet, an dessen Ecken alle Zustände bekannt sind, bzw. simuliert werden sollen. An Punkten entlang der Kanten des Fünfecks speisen die Erzeuger ein und Verbraucher beziehen die benötigte Vorlauftemperatur aus dem Fünfeck. Gibt es mehrere Verbraucher zwischen zwei Punkten des Fünfecks, so werden diese zu einem Gesamtverbraucher zusammengefasst.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\usetikzlibrary{shapes,arrows,spy,positioning,snakes}
+\node[red,line width=0.5mm,regular polygon, rotate=36, regular polygon sides=5, minimum size=6cm, draw] at (5*2,0) {};
+\node[blue,line width=0.5mm,regular polygon, rotate=36,regular polygon sides=5, minimum size=5.7cm, draw] at (5*2,0) {};
+\end{tikzpicture}
+\caption{vereinfachtes Strukturbild der Anlage}
+\label{fig:diagramm}
+\end{figure}
 
 \subsection{Randbedingungen}
+
 \subsubsection{Untersuchte Modi}
 \subsubsection{Einfluss des Kompressors}
 \subsubsection{Qualität der Messdaten}
 
 \subsection{Modellbeschreibung}
 \subsubsection{Inputs und Outputs}
+\subsubsection{Beschreibung der Teilsysteme}
 \subsubsection{Blockschaltbild}
-
-\subsection{Parameteridentikation der Untersysteme}
-\subsubsection{Volumenstrom}
-\subsubsection{Vorlauftemperatur}
-\subsubsection{Wärmemenge}
-\subsubsection{Rücklauftemperatur}
