@@ -33,13 +33,7 @@ function [SS_tv,SS_q,SS_dt,M,wp_calc,start,ende,est_data] = fette_ident(start_da
     sNames = {'SS1';'SS2';'SS3';'SS4';'SS5';'x0_1';'x0_2';'x0_3';'x0_4';'x0_5'};
 
     for i=1:5
-        if i == 2
-            [SS_tv.(sNames{i}),SS_tv.(sNames{i+5})] = n4sid(est_data.(eNames{i}),2);
-        elseif i == 5
-            [SS_tv.(sNames{i}),SS_tv.(sNames{i+5})] = n4sid(est_data.(eNames{i}),2);
-        else
-            [SS_tv.(sNames{i}),SS_tv.(sNames{i+5})] = n4sid(est_data.(eNames{i}),'best');
-        end
+        [SS_tv.(sNames{i}),SS_tv.(sNames{i+5})] = n4sid(est_data.(eNames{i}),2);
     end
 
 
