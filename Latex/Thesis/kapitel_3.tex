@@ -1,28 +1,29 @@
 \section{Strukturierte Modellbildung}
+Das nachfolgende Kapitel gibt zunächst einen Überblick über die Struktur der untersuchten Wärmeversorgungsanlage und beschreibt, welchen Randbedingungen das entworfene Modell unterliegt. Abschließend wird das Gesamtmodell des Heizsystems vorgestellt und die mathematischen Gleichungen der Teilmodelle werden erläutert.
 
-\subsection{Charakterisierung der Wärmeversorgungsanlage der \\LMT Fette Werkzeugtechnik GmbH \& Co. KG}
-Die Wärmeversorgungsanlage der LMT Fette beinhaltet drei Erzeugergruppen, die Wasser mit definierter Vorlauftemperatur an verschiedenen Punkten eines Wärmeversorgungsrings einspeisen. Sämtliche Verbraucher beziehen ihre Vorlauftemperatur aus dem Versorgungskreis und speisen unterschiedliche Rücklauftemperaturen in den Kreis ein. Das Zusammenspiel aus dezentraler Energieversorgung und strukturell unterschiedlichen Verbrauchertypen bildet eine komplexe Wärmeversorgungsanlage, die im Folgenden genauer charakterisiert werden soll.
+\subsection{Charakterisierung der Wärmeversorgungsanlage}
+Die Wärmeversorgungsanlage der LMT~Group Schwarzenbek beinhaltet drei dezentral angeordnete Erzeugergruppen, die Wasser mit definierter Vorlauftemperatur an verschiedenen Punkten eines Wärmeversorgungsrings einspeisen. In den hydraulischen Kreisen der Erzeuger sind Umwälzpumpen installiert, die das Wasser in den Vorlauf des Versorgungsring pumpen. Sämtliche Verbraucher beziehen ihre Vorlauftemperatur aus dem Versorgungskreis und speisen Wasser mit unterschiedlichen Rücklauftemperaturen in den Kreis zurück. Das Zusammenspiel aus dezentraler Energieversorgung und strukturell unterschiedlichen Verbrauchertypen bildet eine komplexe Wärmeversorgungsanlage, die im Folgenden genauer charakterisiert werden soll.
 
 \subsubsection{Aufbau der Anlage}
-Der Wärmeveresorgungsring besteht aus einer Vorlauf- und einer Rücklaufleitung, die parallel verlaufen und in einem geschlossenen Ring über das gesamte Betriebsgelände führen. An mehreren Stellen des Rings sind Heizkreisverteiler installiert, über welche Verbraucher und Erzeuger das benötigte Vorlauf- bzw. Rücklaufwasser aus dem Versorgungsring beziehen.\par
+Der Wärmeversorgungsring besteht aus einer Vorlauf- und einer Rücklaufleitung, die parallel verlaufen und in einem geschlossenen Ring über das gesamte Betriebsgelände führen, was in Abbildung \ref{fig:fette_schema} dargestellt ist. An mehreren Stellen des Rings sind Heizkreisverteiler installiert, über welche Verbraucher und Erzeuger das benötigte Vorlauf- bzw. Rücklaufwasser aus dem Versorgungsring beziehen. Abbildung \ref{fig:fette_schema} zeigt eine schematische Darstellung des Rings und veranschaulicht, an welchen Stellen die Erzeuger Warmwasser einspeisen und Verbraucher Warmwasser beziehen.\par
 
 Die drei Erzeugergruppen bestehen aus folgenden Komponenten:
 \begin{itemize}
-	\item Heizzentrale 1 (HZ1): Drei Kessel in Kaskadenschaltung, 2x Gaskessel Viessmann Vitorond 200 und 1x Gaskessel Viessmann Vietrond mit einer Gesamtheizleistung von \textcolor{red}{\textbf{<kommt noch, Plenum fragen>}}
+	\item Heizzentrale 1 (HZ1): Drei Kessel in Kaskadenschaltung, 2x Gaskessel Viessmann Vitorond 200 und 1x Gaskessel Viessmann Vietorond mit einer Gesamtheizleistung von 600 kW
 	\item Heizzentrale 2 (HZ2): \textcolor{red}{\textbf{<kommt noch, Plenum fragen>}}
 	\item Kompressor: Drei Kompressoren in Kaskadenschaltung, \textcolor{red}{\textbf{<kommt noch, Plenum fragen>}}
 \end{itemize}
 
-HZ1 sichert die Wärmegrundversorgung und wird die meiste Zeit des Jahres entweder für die Warmwasserversorgung und/oder für die Heizwärmeveresorgung beansprucht. Die Kompressoren dienen der Wärmerückgewinnung und nutzen die Abwärme der Herstellungsprozesse des Betriebes, um Warmwasser zu erzeugen. Sie können mit einer maximalen Vorlauftemperatur von 72 °C in den Versorgungsring einspeisen. Die Laufzeit der Kompressoren und damit auch der Beitrag der Wärmemenge im Heizkreis ist stark von den Produktionszeiten des Betriebes abhängig. In den Sommermonaten kann die Wärmeleistung der drei Kompressoren allein sogar zur Warmwassererzeugung ausreichen. HZ2 wird als Wärmeerzeuger dazugeschaltet, wenn die Leistung von HZ1 und Kompressoren nicht ausreichen.\par
+HZ1 sichert die Wärmegrundversorgung und wird die meiste Zeit des Jahres entweder für die Warmwasserversorgung und/oder für die Heizwärmeveresorgung beansprucht. Die Kompressoren erzeugen Druckluft, die für verschiedene Produktionsprozesse des Werks benötigt wird. Dabei entsteht Abwärme, die mit Hilfe von Wärmetauschern genutzt wird, um das Wasser des Rücklaufkreises auf ein höheres Temperaturniveau anzuheben und Warmwasser mit einer maximalen Vorlauftemperatur von 72~°C in den Versorgungsring einzuspeisen. Die Laufzeit der Kompressoren und damit auch deren Beitrag zur gesamten Heizleistung ist stark von den Produktionszeiten des Betriebes abhängig. In den Sommermonaten kann die Wärmeleistung der drei Kompressoren allein sogar zur Warmwassererzeugung ausreichen. Die HZ2 wird als Wärmeerzeuger dazugeschaltet, wenn die Heizleistungen von der HZ1 und den Kompressoren nicht ausreichen.\par
 
 \begin{figure}[htbp] 
   \centering
      \includegraphics[width=1.0\textwidth]{fette_schema.pdf}
-  \caption{Schematische Darstellung der Heizanlage}
+  \caption{Schematische Darstellung der Heizanlage, \cite{Ple3}}
   \label{fig:fette_schema}
 \end{figure}
 
-Über den Versorgungsring werden zehn Hallen unterschiedlicher Größe sowie mehrere Bürogebäude und die Kantine mit Warmwasser beliefert. Der Wärmebedarf unterscheidet sich je nach Verbraucherart deutlich: Einige Produktionshallen benötigen durch die Abwärme der Maschinen während des Betriebes keine zusätzliche Heizwärme, müssen bei Produktionsstillstand jedoch auf einer Raumtemperatur von 20 - 22 °C gehalten werden, um die Präzision der Maschinen zu gewährleisten.
+Über den Versorgungsring werden zehn Hallen unterschiedlicher Größe sowie mehrere Bürogebäude und die Kantine mit Warmwasser beliefert. Der Wärmebedarf unterscheidet sich je nach Verbraucherart deutlich: Einige Produktionshallen benötigen durch die Abwärme der Maschinen während des Betriebes keine zusätzliche Heizwärme, müssen bei Produktionsstillstand jedoch auf einer Raumtemperatur von 20~-~22~°C gehalten werden, um die Präzision der Maschinen zu gewährleisten.
 %\begin{figure}[htbp] 
 %  \centering
 %     \includegraphics[width=1.0\textwidth]{verbrauch_halle5.pdf}
@@ -33,84 +34,101 @@ HZ1 sichert die Wärmegrundversorgung und wird die meiste Zeit des Jahres entwede
 Je nachdem, welche Erzeuger gerade in der Wärmeversorgungsring einspeisen und wie groß der Wärmebedarf der Verbraucher ist, kommt es im Ring zu unterschiedlichen Betriebsmodi, da sich die Flussrichtung im Ring an bestimmten Punkten umkehren kann, worauf in Kapitel \ref{a:modi} genauer eingegangen werden soll.
 
 \subsubsection{Verfügbare Messdaten}
-Wärmemengenzähler wurden an insgesamt fünf Stellen des Versorgungsrings, an jedem der drei Erzeugergruppen sowie an fünf Verbrauchern durch die Firma Plenum Ingenieursgesellschaft mbH angebracht. Die Wärmemengenzähler zeichnen Vorlauftemperatur, Rücklauftemperatur und Massen- bzw. Volumenströme mit einer zeitlichen Auflösung von 60 Sekunden auf. Seit dem 1. Oktober 2015 existieren Messdaten und werden durch die IngSoft GmbH online bereitgestellt. 
+Wärmemengenzähler wurden an insgesamt fünf Stellen des Versorgungsrings, an jedem der drei Erzeugergruppen sowie an fünf Verbrauchern durch die Firma Plenum Ingenieursgesellschaft mbH angebracht. Die Wärmemengenzähler zeichnen Vorlauftemperatur, Rücklauftemperatur und Massen- bzw. Volumenströme mit einer Abtastzeit von $T_a$~=~60 Sekunden auf. Seit dem 1. Oktober 2015 existieren Messdaten, diese werden durch die IngSoft GmbH online bereitgestellt. Abbildung \ref{fig:lageplan} zeigt die Positionierung der Messstellen. Zu beachten ist, dass nicht für jeden Verbrauchen Wärmemengenzähler installiert wurden. Dadurch ist der Wärmebedarf einiger Verbraucher nicht beobachtbar und kann nur indirekt aus dem zeitlichen Wärmeleistungsverlauf im Ring abgeschätzt werden.
 \begin{figure}[htbp] 
   \centering
      \includegraphics[width=1.0\textwidth]{lageplan.pdf}
-  \caption{Lageplan der Messtellen}
+  \caption{Lageplan der Messtellen,\cite{Ple2}}
   \label{fig:lageplan}
 \end{figure}
 
-\subsubsection{Betriebsmodi der Anlage}\label{a:modi}
-\subsubsection*{Intrinsische Änderung der Fließrichtung}
-Der Durchflussstrom des Wassers im Versorgungsring wird durch den Betrieb der Erzeuger- und Verbraucherpumpen bestimmt. So kann es vorkommen, dass sich an einigen Punkten der Versorgungsrings die Fließrichtung des Wassers umkehrt, wenn die Pumpe einer Heizzentrale oder eines Verbrauchers größere Wassermengen fördert. Die Umkehr der Fließrichtung wird in den Messdaten durch eine Vorzeichenumkehr des Volumen- bzw. Massenstroms abgebildet. Im Versorgungsring entsprechen positive Volumenströme einer Fließrichtung im Uhrzeigersinn, negative Volumenströme einer Fließrichtung gegen den Uhrzeigersinn. Für die Modellbildung spielt die Fließrichtung eine entscheidende Rolle, da für die Berechnung der Vor- und Rücklauftemperaturen die Temperatur des zuvor durchflossenen Wärmemengenzählers genutzt wird \textcolor{red}{\textbf{Blöd, bzw. so allein nicht verständlich.. Bild erstellen!}}.\par
-
-\subsubsection*{Änderung der Fließrichtung durch Abriegelung des Rings}
-Neben der Umkehr der Fließrichtung, die durch Erzeuger- und Verbraucherpumpen beeinflusst wird und sich im laufenden Betrieb einstellt, kann der Ring ein unterschiedliches hydrodynamisches Verhalten durch Eingriffe der Haustechnik aufweisen. So wurde im Winter 2015/2016 die Entscheidung getroffen, den Versorgungsring mit Hilfe eines Schiebers an der Stelle zwischen Halle 7 und Halle 6 und teilweise auch zwischen Halle 8 und Halle 5 (siehe \ref{fig:lageplan}) zu unterbrechen. Die daraus resultierenden veränderten Volumenströme zeigen ein anderes beschreiben ein anderes Systemverhalten, was in der Modellbildung berücksichtigt werden muss.
-
 \subsubsection{Strukturbild der Anlage}
-Da an fünf Punkten des Rings Messdaten zur Verfügung stehen, wurde zur Modellbildung das System als vereinfacht als Fünfeck betrachtet, an dessen Ecken alle Zustände bekannt sind, bzw. simuliert werden sollen. An Punkten entlang der Kanten des Fünfecks speisen die Erzeuger ein und Verbraucher beziehen die benötigte Vorlauftemperatur aus dem Fünfeck. Gibt es mehrere Verbraucher zwischen zwei Punkten des Fünfecks, so werden diese zu einem Gesamtverbraucher zusammengefasst. Im weiteren Verlauf der Arbeit werden die Eckpunkte des Fünfecks als P1 .. P5 bezeichnet, nummeriert im Uhrzeigersinn beginnend mit Punkt P1 in der rechten oberen Ecke. \textcolor{red}{\textbf{Hier: grober Entwurf des Diagramms, Ausarbeitung kommt noch}}
+Da an fünf Punkten des Rings Messdaten aus Wärmemengenzählern zur Verfügung stehen, wurde zur Modellbildung das System vereinfacht als Fünfeck betrachtet, an dessen Ecken die drei Zustandsgrößen Vorlauftemperatur, Rücklauftemperatur und Volumenstrom existieren. In Abbildung \ref{fig:diagramm} ist das vereinfachte Strukturbild der Anlage dargestellt. An verschiedenen Stellen entlang der Kanten des Fünfecks speisen die Erzeuger ein und Verbraucher beziehen die benötigte Vorlauftemperatur aus dem Fünfeck. Gibt es mehrere Verbraucher zwischen zwei Eckpunkten des Fünfecks, so werden diese zu einem Gesamtverbraucher zusammengefasst. Im weiteren Verlauf der Arbeit werden die Eckpunkte des Fünfecks als $P_1$ \ldots $P_5$ bezeichnet, nummeriert im Uhrzeigersinn beginnend mit Punkt $P_1$ in der rechten oberen Ecke. \textcolor{red}{\textbf{Hier: grober Entwurf des Diagramms, Ausarbeitung kommt noch}}
 
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
 \usetikzlibrary{shapes,arrows,spy,positioning,snakes}
 \node (Tv) [red,line width=0.5mm,regular polygon, rotate=36, regular polygon sides=5, minimum size=6cm, draw] at (5*2,0) {};
-\node at (Tv.corner 1) [anchor=72*1+230] {\scriptsize\texttt{P5}};
-\node at (Tv.corner 2) [anchor=72*2+230] {\scriptsize\texttt{P4}};
-\node at (Tv.corner 3) [anchor=72*3+230] {\scriptsize\texttt{P3}};
-\node at (Tv.corner 4) [anchor=72*4+230] {\scriptsize\texttt{P2}};
-\node at (Tv.corner 5) [anchor=72*5+230] {\scriptsize\texttt{P1}};
+\node at (Tv.corner 1) [anchor=72*1+230] {\scriptsize\texttt{$P_5$: $\begin{pmatrix}T_{V,5} \\ T_{R,5} \\ \dot{V}_5\end{pmatrix}$}};
+\node at (Tv.corner 2) [anchor=72*2+230] {\scriptsize\texttt{$P_4$: $\begin{pmatrix}T_{V,4} \\ T_{R,4} \\ \dot{V}_4\end{pmatrix}$}};
+\node at (Tv.corner 3) [anchor=72*3+230] {\scriptsize\texttt{$P_3$: $\begin{pmatrix}T_{V,3} \\ T_{R,3} \\ \dot{V}_3\end{pmatrix}$}};
+\node at (Tv.corner 4) [anchor=72*4+230] {\scriptsize\texttt{$P_2$: $\begin{pmatrix}T_{V,2} \\ T_{R,2} \\ \dot{V}_2\end{pmatrix}$}};
+\node at (Tv.corner 5) [anchor=72*5+230] {\scriptsize\texttt{$P_1$: $\begin{pmatrix}T_{V,1} \\ T_{R,1} \\ \dot{V}_1\end{pmatrix}$}};
 \node (Tr) [blue,line width=0.5mm,regular polygon, rotate=36,regular polygon sides=5, minimum size=5.7cm, draw] at (5*2,0) {};
 \end{tikzpicture}
 \caption{vereinfachtes Strukturbild der Anlage}
 \label{fig:diagramm}
 \end{figure}
 
+\subsubsection{Betriebsmodi der Anlage}\label{a:modi}
+Verschiedene Faktoren bewirken an einigen Punkten des Wärmeversorgungsrings eine Änderung der Fließrichtung. Die Umkehr der Fließrichtung wird in den Messdaten durch eine Vorzeichenumkehr des Volumen- bzw. Massenstroms abgebildet. Im Versorgungsring entsprechen positive Volumenströme einer Fließrichtung im Uhrzeigersinn, negative Volumenströme einer Fließrichtung gegen den Uhrzeigersinn. Welches Vorzeichen der Volumenstrom in jedem der Eckpunkte der als Fünfeck vereinfachten Wärmeversorgungsanlage zu einem gegebenen Zeitpunkt besitzt, bestimmt den in den nachfolgenden Kapiteln Betriebsmodus genannten Zustand der Anlage. Wird für alle Punkt $P_i$ angenommen, dass zu jedem Zeitpunkt entweder ein positiver oder ein negativer Volumenstrom existiert, können sich theoretisch $2^5 = 32$ verschiedene Betriebsmodi einstellen. Die Anzahl der tatsächlich beobachteten Betriebsmodi liegt jedoch weit unter dieser Zahl, wie in Kapitel \ref{a:u_modi} genauer erläutert wird.\par
+
+Für die Modellbildung spielt die Fließrichtung eine entscheidende Rolle. Die Wechsel der Betriebsmodi, also die Änderung der Fließrichtungen in mindestens einem Punkt, lassen sich durch zwei unterschiedliche Effekte erklären, worauf nachfolgend genauer eingegangen werden soll.
+
+\subsubsection*{Intrinsische Änderung der Fließrichtung}
+Der Volumenstrom des Wassers im Versorgungsring wird durch den Betrieb der Erzeuger- und Verbraucherpumpen bestimmt. So kann es vorkommen, dass sich an einigen Punkten des Versorgungsrings die Fließrichtung des Wassers umkehrt, wenn eine Änderung der Pumpleistung erfolgt. Dies geschieht beispielsweise, wenn eine Heizzentrale eingeschaltet wird, da das im Kessel erwärmte Wasser mit dem von der Umwälzpumpe des Erzeugerkreises vorgegebenen Volumenstrom in den Versorgungsring eingespeist wird. Wird die Heizzentrale abgeschaltet, stellt auch die Pumpe den Betrieb ein, um kein kaltes Wasser in den Vorlauf des Versorgungsrings einzuspeisen.
+
+\subsubsection*{Änderung der Fließrichtung durch Abriegelung des Rings}
+Neben der Umkehr der Fließrichtung, die durch Erzeuger- und Verbraucherpumpen beeinflusst wird und sich im laufenden Betrieb einstellt, kann der Ring ein unterschiedliches hydrodynamisches Verhalten durch Eingriffe der Haustechnik aufweisen. So wurde im Winter 2015/2016 die Entscheidung getroffen, den Versorgungsring mit Hilfe eines Schiebers an der Stelle zwischen Halle~7 und Halle~6 und teilweise auch zwischen Halle 8 und Halle 5 (siehe Abbildung \ref{fig:lageplan}) zu unterbrechen. Die daraus resultierenden veränderten Volumenströme beschreiben ein anderes Systemverhalten, was in der Modellbildung berücksichtigt werden muss.
+
 \subsection{Randbedingungen}
 Für die Modellbildung und anschließende Validierung wurden hauptsächlich Messdaten aus dem Zeitraum vom 11. April 2016 bis 05. August 2016 genutzt. Diese Einschränkung wurde vor allem auf Grundlage der zur Verfügung stehenden Betriebsmodi des Ringes getroffen, was im Folgenden genauer erläutert werden soll.
 
-\subsubsection{Untersuchte Modi}
-Die in dieser Arbeit durchgeführte Modellbildung sollte in erster Linie das Systemverhalten des geschlossenen Wärmeversorgungsrings untersuchen. Zwischen Halle 6 und Halle 7 wurde der Ring bis zum 11. April 2016 durch einen Schieber getrennt, wodurch das System ein anderes Systemverhalten aufweist. Messdaten vor dem 11. April 2016 wurden daher nicht zur Parameteridentifikation genutzt. Da die Heizzentrale 2 zu diesem Zeitpunkt aufgrund von milden Außentemperaturen schon nicht mehr im Betrieb war, konnte der Einfluss der HZ2 ebenfalls nicht mehr genauer untersucht werden.
+\subsubsection{Untersuchte Modi}\label{a:u_modi}
+Die in dieser Arbeit durchgeführte Modellbildung sollte in erster Linie das Systemverhalten des geschlossenen Wärmeversorgungsrings untersuchen. Zwischen Halle~6 und Halle~7 wurde der Ring bis zum 11. April 2016 durch einen Schieber getrennt, wodurch das System ein anderes Systemverhalten aufweist. Messdaten vor dem 11. April 2016 wurden daher nicht zur Parameteridentifikation genutzt. \par
+Von den in \ref{a:modi} erwähnten 32 theoretisch möglichen Betriebsmodi stellten sich im untersuchten Zeitraum nur drei unterschiedliche Modi ein. Tabelle \ref{tab:u_modi} zeigt die beobachteten Modi, wobei die positive Volumenströme am entsprechenden Punkt mit einem $+$ und negative Volumenströme mit einem $-$ gekennzeichnet sind. Da die HZ2 zu diesem Zeitpunkt aufgrund von milden Außentemperaturen schon nicht mehr im Betrieb war, konnte der Einfluss der HZ2 ebenfalls nicht mehr genauer untersucht werden.
 
+\begin{table}[]
+\centering
+\caption{Beobachtete Betriebsmodi im untersuchten Zeitraum}
+\label{tab:u_modi}
+\begin{tabular}{clllll}
+\toprule
+Betriebsmodus  & $\dot{V}_1$ & $\dot{V}_2$ & $\dot{V}_3$ & $\dot{V}_4$ & $\dot{V}_5$ \\ 
+\midrule
+1 & $+$  & $+$  & $+$  & $+$  & $-$  \\
+2 & $+$  & $+$  & $-$  & $+$  & $-$  \\
+3 & $+$  & $+$  & $-$  & $+$  & $+$  \\ 
+\bottomrule
+\end{tabular}
+\end{table}
 \subsubsection{Qualität der Messdaten}
-Bei der Auswertung der Daten hat sich gezeigt, dass einige Durchflussmessungen mit falscher oder gar ohne Kalibrierung durchgeführt werden. Die genutzten Messdaten wurden nach Empfehlung der Plenum Ingenieursgesellschaft mit Korrekturfaktoren versehen \cite{Ple1}. Einzelne Durchflusswerte, die keinen Messwert (NaN) oder unplausible Messwerte im Bereich $\pm$ \SI{e5}{\cubic\metre\per\hour} aufweisen, wurden durch lineare Interpolation mit Hilfe des Matlab-Befehls \texttt{interp1} ersetzt.\par 
-Die Volumenströme an den Punkten P2 und P3 des Fünfecks sind mit großen Unsicherheiten behaftet, was von der Plenum Ingenieursgesellschaft an Punkt P2 mit suboptimaler Anbringung der Sensoren und an Punkt P3 mit stark wechselnden Änderungen der Fließrichtung begründet wurde \textcolor{red}{Quelle? Mündlich..}. Die Vor- und Rücklauftemperaturen an den Punkten P1 und an der Messstelle zur Heizzentrale 1 zeigen ca. 5 °C niedrigere Temperaturen als erwartet an, was auf darauf zurückzuführen ist, dass die Tauchfühler nicht vollständig in das Rohr eintauchen. 
+Bei der Auswertung der Daten hat sich gezeigt, dass einige Durchflussmessungen mit falscher oder gar ohne Kalibrierung durchgeführt werden. Die genutzten Messdaten wurden nach Empfehlung der Plenum Ingenieursgesellschaft mit Korrekturfaktoren versehen,~\cite{Ple1}. Einzelne Durchflusswerte, die keinen Messwert (NaN) oder unplausible Messwerte im Bereich $\pm$ \SI{e5}{\cubic\metre\per\hour} aufweisen, wurden durch lineare Interpolation mit Hilfe des Matlab-Befehls \texttt{interp1} ersetzt.\par 
+Die Volumenströme an den Punkten $P_2$ und $P_3$ des Fünfecks sind mit großen Unsicherheiten behaftet, was von der Plenum Ingenieursgesellschaft an $P_2$ mit suboptimaler Anbringung der Sensoren und an Punkt $P_{3}$ mit stark wechselnden Änderungen der Fließrichtung begründet wurde, \cite{Ple4}. Die Vor- und Rücklauftemperaturen an den Punkten $P_1$ und an der Messstelle zur HZ1 zeigen ca. 5~°C niedrigere Temperaturen als erwartet an, was darauf zurückzuführen ist, dass die Messstellen aufgrund der baulichen Gegebenheiten vor Ort nicht optimal angebracht werden konnten und die Tauchfühler nicht vollständig in das Rohr eintauchen. Da keine Referenzwerte zu den Vorlauf- und Rücklauftemperaturen der genannten Stellen existieren, wurde keine Offsetbereinigung durchgeführt.
 
-\subsection{Modellbeschreibung}
-Das Modell der Wärmeversorgungsanlage soll später Teil eines prädiktiven Reglers sein. Dabei wurde besonderer Augenmerk bei der Modellentwicklung darauf gelegt, eine Anpassung des Modells an die verschiedenen Betriebsmodi zu ermöglichen. Das Modell  ist in der Entwicklungsumgebung \textsc{Matlab} inklusive System Identification Toolbox erstellt worden. Mit Hilfe eines Simulationsscripts ist es möglich, die drei beobachtbaren Zustandsgrößen Vorlauftemperatur, Rücklauftemperatur und Volumenstrom jedes Knotenpunktes $P_{n}$ des Fünfecks für die folgenden sieben Tage zu berechnen. Das Gesamtmodell ist aus drei Teilmodellen zusammengesetzt:
+\subsection{Modellbeschreibung}\label{a:modellbeschreibung}
+Das Modell der Wärmeversorgungsanlage soll später Teil eines prädiktiven Reglers sein. Dabei wurde besonderer Augenmerk bei der Modellentwicklung darauf gelegt, eine Anpassung des Modells an die verschiedenen Betriebsmodi zu ermöglichen. Mit Hilfe des Modells ist es möglich, die drei beobachtbaren Zustandsgrößen Vorlauftemperatur, Rücklauftemperatur und Volumenstrom jedes Knotenpunktes $P_{i}$ mit $i = 1, \ldots ,5$ des Fünfecks für die folgenden sieben Tage zu berechnen. Das Gesamtmodell ist dabei aus drei Teilmodellen zusammengesetzt:
 \begin{itemize}
-\item einem statischen Teilmodell, das die Hydrodynamik des Systems, also die Volumenströme $\dot{V_{n}}$, abbildet
+\item einem statischen Teilmodell, das die Hydrodynamik des Systems - also die Volumenströme $\dot{V_{i}}$ - abbildet
 \item einem dynamischen Teilmodell, welches die thermodynamischen Zustandsgrößen berechnet und wiederum unterteilt ist in zwei Teilmodelle:
 	\begin{itemize}
-	\item ein Modell zur Berechnung der Vorlauftemperatur $T_{V,n}$ in Abhängigkeit zum Betriebsmodus bzw. zur Fließrichtung des Volumenstroms
-	\item ein Verbrauchermodell, in dem die außentemperaturabhängige Wärmemenge $Q_{n}$ Einfluss findet.
+	\item ein Modell zur Berechnung der Vorlauftemperatur $T_{V,i}$ in Abhängigkeit vom Betriebsmodus bzw. zur Fließrichtung des Volumenstroms,
+	\item ein Verbrauchermodell, in dem die außentemperaturabhängige Wärmeleistung~$\dot{Q}_{i}$ Einfluss findet.
 	\end{itemize}
 \end{itemize}
-Damit sind alle Größen zur Berechnung der Rücklauftemperatur $T_{R,n}$ nach \eqref{eq:waermemenge} bekannt, so dass diese ebenfalls berechnet werden kann.
+Damit sind alle Größen zur Berechnung der Rücklauftemperatur $T_{R,i}$ nach \eqref{eq:waermemenge} bekannt, so dass diese anhand einer statischen nichtlinearen Funktion berechnet werden kann.\par
 
-\subsubsection*{Beschreibung der Simulation}
-Das Simulationsscript führt zunächst eine Parameteridentifikation aus den Daten der vergangenen 72 Stunden durch, um zeitnahe Informationen über das Systemverhalten zu erhalten. Die Parameter für jedes Teilmodell werden gespeichert, anschließend werden die Volumenströme $\dot{V}_{n}$ sowie der Vorlauftemperaturen $T_{V,n}$ aus den Eingangsgrößen für den vorgegebenen Simulationszeitraum berechnet, wobei der voreingestellte Zeitraum 7 Tage beträgt. Nach Berechnung von $Q_{n}$ und $T_{R,n}$ werden die Simulationen geplottet und die errechneten Werte abgespeichert.\par
-Als Eingangsgrößen benötigt das Script die Vorlauftemperaturen $T_{V,HZn}$ und Volumenströme $\dot{V}_{HZn}$ der Erzeugergruppen sowie die Außentemperatur $T_{a}$. Als Teil eines prädiktiven Reglers würden $T_{V,HZn}$ und $\dot{V}_{HZn}$ von einem Kesselmodell vorgegeben werden. Die Vorlauftemperatur und der Volumenstrom des Kompressors wird ebenfalls zur Berechnung der Zustände des Modells benötigt, allerdings wird der Kompressor in Abhängigkeit zur Produktion betrieben und ist somit nicht regelbar. Die Inputs des Kompressor werden daher im weiteren Verlauf als Störgrößen betrachtet.
+In Tabelle \ref{tab:input_output} sind die Eingangs-, Ausgangs- sowie Störgrößen des Modells aufgeführt. Als Teil eines prädiktiven Reglers würden $T_{V,HZi}$ und $\dot{V}_{HZi}$ von einem Kesselmodell vorgegeben werden. Die Vorlauftemperatur und der Volumenstrom des Kompressors wird ebenfalls zur Berechnung der Zustände des Modells benötigt, allerdings wird der Kompressor in Abhängigkeit zur Produktion betrieben und ist somit nicht regelbar. Die Inputs des Kompressor werden daher im weiteren Verlauf als messbare Störgrößen betrachtet.
 
 \begin{table}[h]
 \centering
 \caption{Eingangs- und Ausgangsgrößen des Modells}
 \label{tab:input_output}
-\begin{tabular}{c||c||c}
+\begin{tabular}{l|l}
 \hline
-Eingangsgrößen & Ausgangsgrößen & Störgrößen    \\ \hline
-$T_{V,HZ1}$         & $T_{V,n}$           & $T_{V,Kompressor}$ \\
-$T_{V,HZ2}$         & $T_{R,n}$           & $\dot{V}_{Kompressor}$ \\
-$\dot{V}_{HZ1}$         & $V_{n}$             &               \\
-$\dot{V}_{HZ2}$         &                &               \\
-$T_{A}$            &                &               \\ \hline
+\rowcolor[HTML]{EFEFEF} 
+Eingangsgrößen  & $T_{V,HZ1}$, $T_{V,HZ2}$, $\dot{V}_{HZ1}$, $\dot{V}_{HZ2}$, $T_A$  \\
+Ausgangsgrößen & $T_{V,i}$, $\dot{V}_i$, $T_{R,i}$      \\
+\rowcolor[HTML]{EFEFEF} 
+Störgrößen     & $T_{V,Kompressor}$, $\dot{V}_{Kompressor}$ \\
+\hline
+
 \end{tabular}
 \end{table}
 
-\subsubsection{Beschreibung der Teilsysteme}
-\subsubsection*{Statisches Volumenstrommodell}
-Die Untersuchung der Volumenströme im Versorgungsring hat ergeben, dass das System anhand eines statischen Modells ausreichend genau beschrieben werden kann:
+\subsubsection{Statisches Volumenstrommodell}
+Die Untersuchung der Volumenströme im Versorgungsring hat ergeben, dass das System anhand eines statischen Modells 
 
 \begin{equation}
 \begin{pmatrix} \dot{V}_{1} & \dot{V}_{2} & \dot{V}_{3} & \dot{V}_{4} & \dot{V}_{5} \end{pmatrix} = 
@@ -119,10 +137,83 @@ Die Untersuchung der Volumenströme im Versorgungsring hat ergeben, dass das Syst
 				a_{21} & a_{22} & a_{23} & a_{24} & a_{25} \\
 				a_{31} & a_{32} & a_{33} & a_{34} & a_{35} \\
 \end{bmatrix}
+\label{eq:volumenstrommodell}
 \end{equation}
 
-Lange Rohrleitungen über das Gelände und eine Veränderung des Rohrvolumens in den Heizkreisverteilern entsprechen zwar hydrodynamischen Energiespeichern, die ein dynamisches Volumenstrommodell rechtfertigen könnten. Die Annäherung durch ein statisches Modell innerhalb des Abtastzeitraums von 60 Sekunden zeigt jedoch zur Modellbildung genügende Simulationsergebnisse. Die Berechnung der Volumenströme erfolgt zudem entkoppelt von den thermodynamischen Zustandsgrößen des Wärmeversorgungsrings. 
+ausreichend genau beschrieben werden kann. Lange Rohrleitungen über das Gelände und eine Veränderung des Rohrvolumens in den Heizkreisverteilern entsprechen zwar hydrodynamischen Energiespeichern, die ein dynamisches Volumenstrommodell rechtfertigen könnten. Die Annäherung durch ein statisches Modell innerhalb des Abtastzeitraums von 60 Sekunden zeigt jedoch ausreichende Genauigkeit, um als Modell für einen Regler genutzt zu werden. Die Berechnung der Volumenströme erfolgt zudem entkoppelt von den thermodynamischen Zustandsgrößen des Wärmeversorgungsrings, da die Temperaturabhängigkeit der Druckverluste entlang der Rohre ebenfalls für den betrachteten Abtastzeitraum vernachlässigt werden kann.
 
-\subsubsection*{Vorlauftemperatur}
+\subsubsection{Modell der Vorlauftemperatur}\label{a:vorlauftemp}
+Die Vorlauftemperatur $T_{V,i}$ wird in Abhängigkeit zur Fließrichtung des Heizwasserstroms über die Vorlauftemperatur des zuvor durchflossenen Punktes oder durch die Vorlauftemperatur eines Erzeugers oder mehrerer Erzeuger berechnet. Damit ergeben sich fünf diskrete Zustandsraummodelle 
+
+\begin{subequations}
+\begin{align}
+x_{V,i}(k+1) &= A_{V,i}~x_{V,i}(k) + B_{V,i}~u_{V,i}(k) + K_{V,i}~e_{V,i}(k) \\
+y_{V,i}(k) &= C_{V,i}~x_{V,i}(k) + e_{V,i}(k) , \label{eq:tv_modell}
+\end{align}
+\end{subequations}
+für die fünf Vorlauftemperaturen. $T_{V,1}$ wird in allen untersuchten Modi lediglich durch die Vorlauftemperatur $T_{V,HZ1}$ der HZ1 beeinflusst. Für $T_{V,4}$ überwiegt im beobachteten Zeitraum der Einfluss der Wärmeleistung des Kompressor und der HZ2. $T_{V,2}$, $T_{V,3}$ und $T_{V,5}$ lassen sich durch Fallunterscheidungen je nach Fließrichtung berechnen durch 
+
+\begin{align*}
+	u_{V,i} &= T_{V,HZ1} & \quad & \text{für }i=1 , \\
+    u_{V,i} &= 
+    \begin{cases}
+    \begin{array}{ll}
+      T_{V,i-1} & \text{für }\dot{V}_i > 0   \\
+      T_{V,i+1} & \text{für }\dot{V}_i < 0   \\
+    \end{array}
+    \end{cases} & \quad & \text{für }i=2,3 , \\
+    u_{V,i} &= \begin{pmatrix} T_{V,Kompressor} \\ T_{V,HZ2} \end{pmatrix} & \quad & \text{für }i = 4 , \\
+    u_{V,i} &= 
+    \left\{
+    \begin{array}{ll}
+      T_{V,i-1} & \text{für }\dot{V}_i > 0   \\
+      T_{V,HZ1} & \text{für }\dot{V}_i < 0   \\
+    \end{array}
+    \right\} & \quad & \text{für }i=5 .
+\end{align*}
+
+Die Systemmatrizen $A_{V,i}$, $B_{V,i}$ und $C_{V,i}$ werden mit Hilfe der in \ref{a:n4sid} beschriebenen Methode der Subspace Identifikation aus Messdaten geschätzt. Dabei wurde dem Algorithmus eine Systemordnung der Größe 2 vorgegeben.
+
+\subsubsection{Modell der Wärmeleistung}
+Die Wärmeleistung $\dot{Q}_{n}$ an jedem Punkt des Fünfecks wird anhand der Vorlauftemperatur $T_{V,n}$ im selben Punkt und der Außentemperatur $T_{A}$ berechnet. Das Modell wird durch das Zustandsraummodell
+
+\begin{subequations}
+\begin{align}
+x_{q,i}(k+1) & = A_{q,i}~x_{q,i}(k) + B_{q,i}~u_{q,i} + K_{q,i}~e_{q,i}(k), &\\
+y_{q,i}(k) &= C_{q,i}~x_{q,i}(k) + e_{q,i}(k) 
+\end{align}
+\end{subequations}
+beschrieben mit den Eingangsgrößen
+\begin{align}
+u_{q,i} &= \begin{pmatrix} T_A \\ T_{V,i} \end{pmatrix} & \quad & \quad & \quad & \text{für } i = 1, \ldots ,5 .
+\end{align}
+
+Die Parameter des diskreten Zustandsraummodells werden ebenfalls mittels Subspace Identifikation ermittelt, die Systemordnung wird durch den Algorithmus abgeschätzt. Bei diesem Ansatz spiegelt sich der Verlauf des Wärmebedarfs der Verbraucher lediglich durch eine Außentemperaturabhängigkeit wieder.\par
+Ein weiterer Ansatz bestand in der Abschätzung von Wärmeprofilen. Dazu wurden die Wärmemleistungen, welche die Verbraucher aus dem Versorgungskreis entziehen, über einen vorgegebenen Zeitraum gemittelt. Die gemittelten Werte sollten idealerweise eine geringe Abweichung vom tatsächlich gemessenen Wärmebedarf aufweisen, um eine brauchbare Vorhersage des Verbraucherverhaltens zu liefern. Durch die sehr große Streuung der gemessenen Wärmebedarfe wiesen die gemittelten Werte allerdings hohe Standardabweichungen auf, daher wurde dieser Ansatz verworfen. Die Schätzung des Wärmebedarfs anhand einer Black-box liefert zwar bessere, aber insgesamt ebenfalls recht ungenaue Simulationsergebnisse, was in \ref{a:waerme_val} genauer beleuchtet wird.
+
+\subsubsection{Modell der Rücklauftemperatur}
+Gemäß \eqref{eq:waermemenge} gilt für die Temperaturdifferenz an jedem Knotenpunkt des Fünfecks:
+\begin{equation}
+\Delta T_i = T_{V,i} - T_{R,i} = \frac{\dot{Q}_{i}}{c_w \cdot \rho \cdot \dot{V}_{i}}
+\label{eq: delta_t}
+\end{equation}
+Aus $\dot{Q}_{n}$, $\dot{V}_{n}$ und $T_{V,n}$ kann nun direkt $T_{R,n}$ berechnet werden mittels
+
+\begin{align}
+T_{R,i} &= T_{V,i} - \frac{\dot{Q}_{i}}{c_w \cdot \rho \cdot \dot{V}_{i}} & \quad & \text{für } i = 1, \dots ,5 .
+\end{align}
+In diesem Modell spiegelt sich die Nichtlinearität des Systems wider, wobei durch vorheriger Berechnung von $T_{V,i}$, $\dot{V}_i$ und $\dot{Q}_{i}$ eine statische Nichtlinearität angenommen wird.\par
+Ein zweiter Ansatz bestand darin, die Temperaturdifferenz $\Delta T_i$ über das Verfahren der Subspace Identifikation abzuschätzen. Dieser Ansatz entspricht einer Linearisierung des nichtlinearen Zusammenhangs, der in \eqref{eq: delta_t} ersichtlich ist. Das Modell wird beschrieben durch das Zustandsraummodell
+\begin{subequations}
+\begin{align}
+x_{\Delta T,i}(k+1) & = A_{\Delta T,i}~x_{\Delta T,i}(k) + B_{\Delta T,i}~u_{\Delta T,i} + K_{\Delta T,i}~e_{\Delta T,i}(k) &\\
+y_{\Delta T,i}(k) &= C_{\Delta T,i}~x_{\Delta T,i}(k) + e_{\Delta T,i}(k)
+\end{align}
+\end{subequations}
+mit den Eingangsgrößen
+\begin{align}
+u_{\Delta T,i} &= \begin{pmatrix} \dot{Q}_i \\ (c_w~\rho~\dot{V}_i)^{-1} \end{pmatrix} & \quad & \quad & \text{für } i = 1, \ldots ,5 .
+\end{align}
+
 
 \subsubsection{Blockschaltbild}

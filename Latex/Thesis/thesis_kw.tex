@@ -59,9 +59,12 @@ Betreuer: \\  Prof. Dr.-Ing. Gerwald Lichtenberg \\ M. Sc. Kai Kruppa  \\
 \begin{document}
 
  %% Title page
+ 
 \thispagestyle{empty}
+
 \maketitle
 \cleardoublepage
+\pagenumbering{Roman}
 
 
  %% Erklärung der Eigenständigkeit  		%% Declaration
@@ -90,6 +93,8 @@ Hamburg, \today  \hfill  Kathrin Weihe
  %% Sections --------------------------------------------
 \include{kapitel_0}		% Einleitung
 
+\setcounter{page}{1}
+\pagenumbering{arabic}
 \include{kapitel_1}
 
 \include{kapitel_2}

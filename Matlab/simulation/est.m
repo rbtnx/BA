@@ -24,7 +24,8 @@ function [est_tv,est_q,est_dt] = est(number,start,ende)
         est_dt = misdata(iddata(dt',[wae.waerme.Q2(start:ende);1./wmz.WMZ.WMZ2.c0070(start:ende)]',60));
     elseif number == 3
         %est_tv = iddata(wmz.WMZ.WMZ3.c0172(start:ende)',[wmz.WMZ.WMZ2.c0114(start:ende);erz.erzeuger.HZ2.c0154(start:ende);wpr.wprofil.W3(start:ende)]',60);
-        est_tv = iddata(wmz.WMZ.WMZ3.c0172(start:ende)',[wmz.WMZ.WMZ2.c0114(start:ende);erz.erzeuger.HZ2.c0154(start:ende)]',60);
+        %est_tv = iddata(wmz.WMZ.WMZ3.c0172(start:ende)',[wmz.WMZ.WMZ2.c0114(start:ende);erz.erzeuger.HZ2.c0154(start:ende)]',60);
+        est_tv = iddata(wmz.WMZ.WMZ3.c0172(start:ende)',wmz.WMZ.WMZ2.c0114(start:ende)',60);
         est_q = iddata(wae.waerme.Q3(start:ende)',[ta.t_aussen.aussentemp(start:ende);wmz.WMZ.WMZ3.c0172(start:ende)]',60);
         dt = wmz.WMZ.WMZ3.c0172(start:ende) - wmz.WMZ.WMZ3.c0173(start:ende);
         est_dt = misdata(iddata(dt',[wae.waerme.Q3(start:ende);1./wmz.WMZ.WMZ3.c0178(start:ende)]',60));

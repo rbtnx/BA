@@ -28,7 +28,8 @@ tv.(tNames{1}) = sim(SS_tv.SS1,hz1_input',simOpt_tv.Tv1);
 %tv.(tNames{2}) = sim(SS_tv.SS2,[tv.Tv1,wp_calc.W2'],simOpt_tv.Tv2);
 tv.(tNames{2}) = sim(SS_tv.SS2,tv.Tv1,simOpt_tv.Tv2);
 %tv.(tNames{3}) = sim(SS_tv.SS3,[tv.Tv2,hz2_input',wp_calc.W3'],simOpt_tv.Tv3);
-tv.(tNames{3}) = sim(SS_tv.SS3,[tv.Tv2,hz2_input'],simOpt_tv.Tv3);
+%tv.(tNames{3}) = sim(SS_tv.SS3,[tv.Tv2,hz2_input'],simOpt_tv.Tv3);
+tv.(tNames{3}) = sim(SS_tv.SS3,[tv.Tv2],simOpt_tv.Tv3);
 %tv.(tNames{4}) = sim(SS_tv.SS4,[komp_input;hz2_input;wp_calc.W5]',simOpt_tv.Tv4);
 tv.(tNames{4}) = sim(SS_tv.SS4,[komp_input;hz2_input]',simOpt_tv.Tv4);
 tv.(tNames{5}) = sim(SS_tv.SS5,hz1_input',simOpt_tv.Tv5);
@@ -38,6 +39,7 @@ for i = 1:5
     q.(qNames{i}) = sim(SS_q.(sNames{i*2-1}),[ta',tv.(tNames{i})],simOpt_q.(qNames{i}));
     dt.(dtNames{i}) = sim(SS_dt.(sNames{i*2-1}),[q.(qNames{i}),1./v_calc(:,i)],simOpt_dt.(dtNames{i}));
     tr.(trNames{i}) = tv.(tNames{i}) - dt.(dtNames{i});
+   
 end
 
 save('tv.mat','tv');

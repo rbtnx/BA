@@ -1,5 +1,5 @@
-\section{Stand der Technik}
-
+\section{Grundlagen}
+Das folgende Kapitel fasst die theoretischen Grundlagen der physikalischen, mathematischen und systemtheoretischen Konzepte zusammen, die in dieser Arbeit Anwendung gefunden haben. Sie sollen dem Leser als Nachschlagewerk dienen und zum Verständnis des in dieser Arbeit gewählten Modellierungsansatzes beitragen. 
 \subsection{Thermodynamik von Heizkreisen}
 Wärmemengeformel:
 \begin{equation}
@@ -11,10 +11,99 @@ Wärmemengeformel:
 \subsubsection{Verbraucher}
 
 \subsection{Modellbildung}
-\subsubsection{White box}
-\subsubsection{Grey box}
-\subsubsection{Black box}
+Ziel der Modellbildung ist es, ein Abbild eines realen Prozesses zu erhalten, wobei das Abbild idealerweise dasselbe Systemverhalten zeigt wie der reale Prozess. Die Modelle können ganz unterschiedlichen Zwecken dienen, beispielsweise der reinen Informationsgewinnung über das Systemverhalten oder aber als Grundlage für eine Regelung. Die Modellbildung wird in der Regel in folgenden Schritten vollzogen, \cite{Lun1}:
+\begin{enumerate}
+\item Beschreibung des Modellierungsziels
+\item Auswahl der Modellannahmen
+\item Verbale Beschreibung des Modells
+\item Aufstellung des Blockschaltbildes
+\item Aufstellung der Modellgleichungen
+\end{enumerate}
+Die Modellgleichungen, also das zeitlich veränderliche Verhalten von Modellen, werden in der Regel durch Differentialgleichungen beschrieben, wobei die zeitlich veränderlichen Größen Signale genannt werden. Die Aufstellung der Modellgleichungen kann dabei auf unterschiedliche Weise erfolgen, wie nachfolgend erläutert wird.
+\subsubsection{Modellierungstypen}
+Grundsätzlich können drei verschiedene Ansätze zur Modellierung von Systemen unteschieden werden, \cite{DIT04}:
+\begin{description}
+\item[White-Box-Modelle:]
+Werden Modelle anhand physikalischer Gesetze wie den Gesetzen zur Energie- und Impulserhaltung aufgestellt, spricht man von theoretischer Modellbildung. Die so erhaltenen Modelle werden auch als White-box-Modelle oder auch \textit{first-Principles-Modell} bezeichnet. Die Modellierung kann sich je nach Aufgabe sehr zeitaufwendig gestalten, da ein umfangreiches Wissen über das System und sämtliche Wechselwirkungen vorhanden sein müssen.
+\item[Black-box-Modelle:]
+Ein Modell lässt sich auch aus der Analyse von Eingangs- und Ausgangssignalen gewinnen. Solche Modelle werden auf Grundlage von Messdaten aus Experimenten erstellt. Sie spiegeln lediglich das Übertragungsverhalten von Eingangsgrößen auf die Ausgangsgrößen wider und lassen keine physikalische Deutung auf die dem System innewohnenden physikalischen Zusammenhänge zu.
+\item[Grey-box-Modelle:]
+Eine Mischung aus theoretischer Modellbildung und der Analyse des Eingangs- und Ausgangsverhaltens führt zu sogenannten Grey-box-Modellen. Hierfür ist das Wissen über strukturelle physikalische Zusammenhänge des Systems notwendig. Unbekannte Wechselwirkungen zum Beispiel durch unbekannte Störgrößen können durch einen Black-box-Modellierungsansatz als Teilmodell identifiziert werden und mit White-box-Modellen gekoppelt werden.
+\end{description}
+
+\subsubsection{Modellformen zur Beschreibung von Systemen}
+Systeme lassen sich anhand der Beschaffenheit der sie beschreibenden Signale in verschiedene Klassen einteilen. Wird ein System von einem Eingangssignale $u \in \mathbb{R}^n$ und einem Ausgangssignal $y \in \mathbb{R}^m$ charakterisiert, so spricht man von einem SISO (single input single output) System. Mehrere Eingangs- und Ausgangssignale beschreiben ein MIMO (multiple input multiple output) System, wobei auch Mischformen (MISO, SIMO) möglich sind. Es können viele weitere Kriterien für die Einteilung von Systemen gefunden werden, zum Beispiel ob die systembeschreibenden Signale zeitvariant oder zeitinvariant sind, ob sie deterministisch oder stochastisch, zeitkontinuierlich oder zeitdiskret sind,\cite{GIR07}. Zeitdiskrete Systeme finden häufig Anwendung, wenn $u$ und $y$ aus einem Satz von Messdaten mit einer Abtastzeit $T_a$ bestehen. Die in dieser Arbeit untersuchten Systeme gehören alle der Klasse der zeitinvarianten zeitdiskreten Systeme an, wobei innerhalb dieser Gruppe weiterhin unterschieden wird zwischen folgenden drei Unterklassen:
+\begin{description}
+\item[Lineare statische Systeme:] Statische Systeme besitzen keinerlei Energiespeicher und zeigen kein zeitveränderliches Systemverhalten. Die Ausgangssignale $y$ können durch Linearkombination der Eingangssignale $u$ mit den Parametern $P \in \mathbb{R}^{m\times n}$ beschrieben werden
+\begin{equation}
+y = P\cdot u .
+\label{eq:linstat}
+\end{equation}
+\item[Lineare dynamische Systeme:] Lineare dynamische Systeme unterscheiden sich von linearen statischen Systemen, da die Ausgangsgrößen nicht nur von den Eingangsgrößen, sondern bei zeitkontinuierlichen Signalen auch von den Ableitungen der Eingangs- und Ausgangsgrößen abhängen, sie werden durch also Differentialgleichungen beschrieben. Zeitdiskrete lineare dynamische Systeme können dagegen durch die allgemeine Differenzengleichung
+\begin{equation}
+y(k) = \frac{1}{a_0}\left(\sum_{n=0}^N b_n u(k-n) - \sum_{n=1}^N a_n y(k-n) \right)
+\label{eq:dynstat}
+\end{equation}
+beschrieben werden, wobei $u(k)$ und $y(k)$ dem Eingangs- bzw. Ausgangssignal im Zeitschritt $k = kT_a$ , $k \in \mathbb{Z}$ und $u(k+n)$ bzw. $y(k+n)$ dem um $n \in \mathbb{Z}$ Zeitschritte verschobenen Signal entspricht. Dabei entsprechen $a_i \in \mathbb{R}$ und $b_i \in \mathbb{R}$ den Koeffizienten der Differenzengleichung. Eine weitere Beschreibungsform von linearen zeitdiskreten dynamischen Systemen ist die Zustandsraumdarstellung, sie wird in Kapitel \ref{a:n4sid} vorgestellt. Lineare dynamische Systeme stellen die am besten untersuchte Klasse von Systemen dar, da sich die meisten Prozesse durch Modelle dieser Form beschreiben oder annähern lassen.
+\item[Nichtlineare statische Systeme:] Lineare Systeme zeichnen sich dadurch aus, dass für sie das Superpositionsprinzip gilt, \cite{Lun1}. Sie können demnach durch einfach Linearkombination wie \eqref{eq:linstat} oder durch lineare Differentialgleichungen bzw. Differenzengleichung wie \eqref{eq:dynstat} beschrieben werden. Für nichtlineare statische Systeme gilt trifft dies nicht zu, für sie gilt allgemein der Zusammenhang 
+\begin{equation}
+y = g(u) .
+\end{equation}
+
+\end{description}
 
 \subsection{Parameteridentifikation}
-\subsubsection{Methode der kleinsten Quadrate}
-\subsubsection{Zustandsraumverfahren N4SID}
+Im Idealfall wurde mit den Methoden der Modellbildung ein Modell entwickelt, welches allgemeingültig oder für einen gewünschten Arbeitsbereich das Systemverhalten beschreibt. Wenn mit Hilfe dieses Modells eine Vorhersage über die Ausgangsgrößen des Systems getroffen werden soll und diese Ausgangsgrößen bei gegebenen Eingangsgrößen ein möglichst genaues Abbild des realen Systemverhaltens darstellen sollen, müssen zunächst die Modellparameter identifiziert werden. Für White box Modelle sind dies in der Regel physikalisch interpretierbare Parameter, die reale messbare Eigenschaften eines Systems repräsentieren wie beispielsweise Federkonstanten oder ein Innenwiderstände. Für Black box Modelle und unter Umständen auch für Grey box Modelle gilt dies nicht, sie werden meist durch mathematische Methoden abgeschätzt. Nachfolgend sollen zwei solcher Methoden vorgestellt werden.
+
+\subsubsection{Methode der kleinsten Fehlerquadrate}
+Die Methode der kleinsten Fehlerquadrate geht auf den Mathematiker Carl Friedrich Gauß zurück und dient als Basis für viele weitere Parameteridentifikationsverfahren. Für lineare Systeme wird davon ausgegangen, dass unbekannte Parameter $P$ existieren für einen Satz mit einer Anzahl von $i = 1, \dots ,N$ gemessenen Eingangsgrößen~$u_i$ und Ausgangsgrößen~$y_i$, die in Matrizenform 
+\begin{align}
+U = [u_1 \ldots u_N] & \quad & Y = [y_1 \ldots y_N]
+\end{align}
+zusammengefasst werden. Zur Bestimmung von $P$ sieht das Verfahren dann vor, dass die Modell-Ausgangsgrößen $\hat{y}_i$ mit den realen Messdaten $y_i$ des Systems verglichen werden. Da in der Regel $\hat{y}_i$ von $y_i$ zum Beispiel durch Messrauschen abweicht, kann das Modell nicht genau die gleichen Parameter $P$ besitzen wie das reale System. Für das Modell werden daher die Parameter $\hat{P}$ angenommen. Für die Abschätzung von $\hat{P}$ wird das oft auch Kostenfunktion genannte Gütemaß $J(P)$ eingeführt, für das die Bedingung
+\begin{equation}
+\hat{P} = \argmin\limits_{P} J(P)
+\label{eq:ls_bedingung}
+\end{equation}
+gelten soll. Die Kostenfunktion kann je nach Anwendungsfall unterschiedlich aufgestellt werden, meist wird jedoch die Summe der Fehlerquadrate
+\begin{equation}
+J(P) = \sum_{i=1}^N \|y_i - \hat{y}_i \|_2^2 = \sum_{i=1}^N (y_i - \hat{y}_i)^T(y_i - \hat{y}_i) = \text{spur}\big( (Y-PU)^T(Y-PU)\big)
+\end{equation}
+minimiert, wobei $\|~\cdot~\|$ der euklidischen Norm und $\text{spur}(\cdot)$ der Summe der Hauptdiagonaleinträge entspricht.  Unter der Berücksichtigung der Bedingung \eqref{eq:ls_bedingung} gilt für die geschätzten Parameter
+\begin{equation}
+\hat{P} = Y(U^T U)^{-1}U^T ,
+\end{equation}
+sofern $U^TU$ invertierbar, also regulär ist. Der Ausdruck $(U^T U)^{-1}U^T$ wird auch als Moore-Penrose-Pseudoinverse bezeichnet und kann beispielsweise durch QR-Zerlegung gelöst werden, \cite{Moe92}.
+
+\subsubsection{Zustandsraumverfahren 4SID}\label{a:n4sid}
+Die Methode der Subspace-based State-Space System Identification (4SID) ist ein weiteres Verfahren zur Parameterbestimmung anhand von gemessenen Eingangs- und Ausgangsgrößen. Dieses Verfahren basiert auf den Konzepten der Systemtheorie und errechnet die Parameter $A$, $B$, $C$, $D$ und $K$ des Zustandsraummodells
+\begin{subequations}
+\begin{align}
+x(k+1) &= A~x(k) + B~u(k) + K~e(k) \\
+y(k) &= C~x(k) + D~u(k) + e(k) , 
+\end{align}
+\label{eq:zustandsraummodell}
+\end{subequations}
+welches hier in der zeitdiskreten Variante in Innovationsform aufgeführt ist. Die Systemmatrix $A$ beschreibt das dynamische Verhalten des Systems, die Eingangsmatrix $B$ beschreibt den Einfluss der Eingangsgröße $u(k)$ auf den Zustandsvektor $x(k)$ und die Ausgangsmatrix $C$ bildet die Transformation der Zustände zur Ausgangsgröße $y(k)$ ab. Die Matrix $D$ wird mit Durchgriff bezeichnet und entfällt meist, da dies einer direkten Wirkung von Eingangsgrößen auf die Ausgangsgrößen entspricht, was in realen Systemen in der Regel nicht vorkommt. Der Einfluss der Störgrößen $e(k)$ auf die Zustände wird durch die Matrix $K$ beschrieben.\par
+Die prinzipielle Idee des 4SID-Verfahrens besteht darin, zunächst aus den Eingangs- und Ausgangsgrößen den Zustandsvektor abzuschätzen. Da $u(k)$ und $y(k)$ aus den Messdaten gegeben sind, könnte bei bekanntem Zustandsvektor $x(k)$ mit der Methode der kleinsten Fehlerquadrate der Parametersatz des Zustandsraummodells berechnet werden, wenn davon ausgegangen wird, dass der Fehler $e(k)$ unabhängig und $u(k)$ und $y(k)$ ist. Dieser Zusammenhang lässt sich durch Umformulierung von \eqref{eq:zustandsraummodell} zu
+\begin{equation}
+\begin{bmatrix} x(k+1) \\ y(k) \end{bmatrix} = \begin{bmatrix} A & B \\ C & D \end{bmatrix} 
+\begin{bmatrix} x(k) \\ u(k) \end{bmatrix}  + \begin{bmatrix} K \\ 1 \end{bmatrix} e(k) ,
+\end{equation}
+
+leichter erkennen. Da $x(k)$ aber gerade nicht bekannt ist, erfolgt die Abschätzung anhand eines Verfahrens, das sich aus einem umfangreichen Satz mathematischer Werkzeuge bedient. Da hier nur ein kurzer Überblick über die Subspace Identifikation gegeben werden soll, sei für eine detaillierte Beschreibung an dieser Stelle auf weiterführende Literatur verwiesen, \cite{OM96}. Der allgemeine Ablauf des Verfahrens durchläuft folgende Schritte:
+\begin{enumerate}
+\item Umformung von Eingangs- und Ausgangssignalen in Block-Hankel-Matrizen
+\item Projektion der Ein- und Ausgangsdaten in einen zu den Eingangssignalen orthogonalen Raum
+\item Singulärwertzerlegung der Projektion
+\item Bestimmung der Systemordnung anhand der Singulärwerte und Zerlegung der Datenmatrizen in Rausch- und Signalunterräume
+\item Bestimmung der erweiterten Beobachtbarkeitsmatrix
+\item Parameterabschätzung aus der erweiterten Beobachtbarkeitsmatrix
+\end{enumerate}
+
+Die Bestimmung der Systemordnung kann dabei auf unterschiedliche Arten erfolgen. Neben verschiedenen Methoden zum automatischen Auffinden der am besten geeigneten Systemordnung kann diese auch manuell festgelegt werden. Stehen dem Anwender a-priori Informationen zur Abschätzung der Systemordnung zur Verfügung, können durch geeignete Wahl der Systemordnung eventuell bessere Simulationsergebnisse erzielt werden, als wenn ein Verfahren eine viel höhere Systemordnung vorgibt.\par
+
+Die Implementierung des 4SID Verfahrens in \textsc{Matlab} durch die Funktion \texttt{n4sid} stellt eine einfach zu handhabende Methode zur Parameteridentifikation von linearen diskreten Zustandsraummodellen dar, die keine tiefergehende Kenntnis der im Verfahren verwendeten mathematischen Werkzeuge voraussetzt. Als Funktionsparameter werden lediglich ein Datensatz mit Eingangs- und Ausgangssignalen verlangt sowie die Festlegung, ob die Systemordnung durch das Verfahren selbst bestimmt werden soll oder durch den Anwender.
+
+\subsection{Stand der Technik}
+In den vergangenen Jahren wurden diverse Arbeiten zu Grey-box Modellierungsansätzen von Anlagen und Prozessen unterschiedlichster Art veröffentlicht. Darunter finden sich Grey-box Modelle für mechanische,\cite{Olo14} oder chemische Prozesse, \cite{Buc10}, aber auch Modelle, die in der Gebäudetechnik Anwendung finden. Motivation ist oft die Steigerung der Energieeffizienz von Gebäuden zum Beispiel durch eine Optimierung der Regelung mittels prädiktiver Regler, \cite{Pri13} \cite{Fas14}, wobei für Simulationen im Gebäudebereich oft das Simulationstool \textsc{Trnsys} verwendet wird. Der Modellierungsansatz dieser Arbeit greift ähnliche Konzepte auf, setzt bei der Implementierung allerdings auf das Programm \textsc{Matlab}. Das folgende Kapitel beschreibt die dazu durchgeführten Arbeiten, während Kapitel 4 eine Überblick über die Simulationsergebnisse gibt.
