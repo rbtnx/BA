@@ -1,5 +1,5 @@
 \section{Parameteridentifikation und Validierung}
-Dieses Kapitel beschreibt die Parameteridentifikation der im vorangegangenen Kapitel vorgestellten Modelle. Um zu überprüfen, ob und wie gut die parametrisierten Modelle das Systemverhalten widerspiegeln, wurde eine Validierung durch den Vergleich von simulierten und gemessenen Daten durchgeführt. Die Ergebnisse der Validierung sowie die Simulationsergebnisse des Gesamtmodells werden im Anschluss an die Parameteridentifkation vorgestellt und erläutert.
+Dieses Kapitel beschreibt die Parameteridentifikation der im vorangegangenen Kapitel vorgestellten Modelle. Um zu überprüfen, ob und wie gut die parametrisierten Modelle das Systemverhalten widerspiegeln, wurde anschließend eine Validierung durchgeführt, also eine Bestätigung der Modellresultate durch den Vergleich von gemessenen und simulierten Daten. Simulation oder Vorhersage bezeichnet dabei im weiteren Verlauf der Arbeit die Berechnung der Ausgangsgrößen eines Modells anhand von Eingangsgrößen und den entsprechenden Parametern. Die Ergebnisse der Validierung sowie die Simulationsergebnisse des Gesamtmodells werden im Anschluss an die Parameteridentifkation vorgestellt und erläutert.
 
 \subsection{Parameteridentifikation der Teilsysteme}
 Die in \ref{a:modellbeschreibung} vorgestellten Modelle beschreiben zunächst nur allgemein das Systemverhalten der Wärmeversorgungsanlage. Um das Verhalten der Anlage bei gegebenen Eingangsgrößen möglichst genau vorhersagen zu können, müssen die Parameter der Zustandsraummodelle und des statischen Volumenstrommodells ermittelt werden.\par
@@ -26,7 +26,7 @@ Für die Vorlauftemperatur wurde wie in Kapitel \ref{a:vorlauftemp} erwähnt eine 
 \label{tab:systemordnung_tv}
 \begin{tabular}{lrrrrr}
 \toprule
-              & \multicolumn{5}{c}{NRMSE}   \\ 
+              & \multicolumn{5}{c}{NRMSE in \%}   \\ 
 Systemordnung & $T_{V,1}$ & $T_{V,2}$ & $T_{V,3}$ & $T_{V,4}$ & $T_{V,5}$ \\ 
 \midrule
 n = 2         &  83.17   &  -12.11   &  25.24   &  52.53   &  80.34   \\
@@ -38,7 +38,7 @@ n = 'best'    &  84.54   &   9.735  &   27.19  &   72.92  &   59.55  \\
 
 Das Modell der Wärmemenge wurde ebenfalls mit Hilfe der \texttt{n4sid} Funktion parametrisiert. Allerdings wurde hier auf eine Festlegung der Systemordnung verzichtet und die von der Funktion ermittelte Systemordnung genutzt.
 
-\subsection{Validierung der Teilsysteme}
+\subsection{Validierung der Teilsysteme} \label{a:teil_val}
 Die Validierung der parametrisierten Modelle erfolgte durch einen Vergleich von Messdaten und Vorhersageergebnissen. Zu diesem Zweck wurden als Modelleingangsgrößen Daten verwendet, die nicht innerhalb aus demselben Zeitraum stammen, der für die Parametrisierung genutzt wurde. 
 
 \subsubsection{Volumenstrom}
@@ -108,10 +108,44 @@ Für die Wärmeleistungen $\dot{Q}_3$ und $\dot{Q}_4$ werden insgesamt niedrigere 
 \subsection{Simulationsergebnisse des Gesamtmodells}
 Das Gesamtmodell wurde evaluiert, indem die in Tabelle \ref{tab:input_output} beschriebenen Eingangs- und Störgrößen dem Modell als Eingangssignale vorgegeben wurden. Die simulierten Ausgangssignale wurden aufgezeichnet und mit realen Messdaten verglichen, um die Qualität der Modellierung abzuschätzen. Die Eingangssignale entsprechen Messdaten aus dem untersuchten Zeitraum vom 11. April 2016 bis 05. August 2016. Dabei wurde darauf geachtet, keine Messdaten zu nutzen, die ebenfalls zur Parameteridentifikation verwendet wurden. Die folgenden Kapitel beschreiben die Implementierung des Modell in \textsc{Matlab}, geben einen Überblick über die Valdierungsergebnisse und befassen sich mit eventuellen Fehlerquellen.
 
-\subsection{Implementierung}
+\subsubsection{Implementierung}
 Das Modell wurde in der Entwicklungsumgebung \textsc{Matlab} inklusive der \textsc{System Identification Toolbox} implementiert. In einem Hauptskript kann der Anwender den Zeitraum festlegen, für den das Modell eine Vorhersage der Ausgangsgrößen berechnen soll. Dabei legt der Anwender das Startdatum sowie den Simulationszeitraum in Tagen, wobei eine Zeit von 7 Tagen voreingestellt ist. Das Skript erstellt anschließend die benötigten Datensätze und führt eine Parameteridentifikation über einen Zeitraum von 3 Tagen vor dem Startdatum durch. Die Systemmatrizen der Zustandsraummodelle und die Parameter des statischen Volumenstrommodells werden abgespeichert, um im darauffolgenden Simulationsschritt zur Verfügung zu stehen. Die Simulationsergebnisse werden ebenfalls gespeichert und direkt im Anschluss an die Berechnung auf dem Bildschirm ausgegeben.
 
 \subsubsection{Validierung}
+Die Validierung der Teilmodelle erfolgte für jedes Teilsystem einzeln anhand realer Messdaten: die Messdaten wurden als Eingangssignal in jedes Teilsystem gegeben, das Systemverhalten wurde berechnet und die Ausgangssignale wurden mit Messdaten verglichen. Für die Simulation des Gesamtmodells bestehen die Eingangssignale für einige Teilmodelle aus vorher simulierten Ausgangsgrößen anderer Teilmodelle, wie sich anhand des Blockschaltbildes erkennen lässt. Liefert ein Teilmodell schlechte Simulationsergebnisse, wird dieser Fehler sich zwangsläufig fortpflanzen, weshalb insgesamt schlechtere Validierungsergebnisse für das Gesamtmodell erwartet werden können als für die Validierung der Teilmodelle. Tabelle \ref{tab:tv_sim_gesamt} zeigt die Übereinstimmung zwischen simulierten Vorlauftemperaturen und Messdaten bei verschiedenen Betriebsmodi. 
+\begin{table}[b]
+\centering
+\caption{Vergleich der Simulationsergebnisse für $T_{V,1}$ bis $T_{V,5}$ für verschiedene Betriebsmodi}
+\label{tab:tv_sim_gesamt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+                                 &              & \multicolumn{5}{c}{NRMSE in \%}   \\
+                                 &              & $T_{V,1}$ & $T_{V,2}$ & $T_{V,3}$ & $T_{V,4}$ & $T_{V,5}$ \\ \midrule
+\multirow{2}{*}{Betriebsmodus 1} & Gesamtmodell & 83.03   &  -14.32   & 12.46    &  52.53   &  80.34    \\
+                                 & Teilmodell   & 83.03  &   -12.11  &  25.24   &   52.53   &  80.34    \\ 
+\midrule
+\multirow{2}{*}{Betriebsmodus 3} & Gesamtmodell & 78.58    &  -48.87   & 72.86   & 77.99   & 51.51     \\
+                                 & Teilmodell   & 78.58    &  -39.45   & 72.79   & 77.99  &  62.96      \\ \bottomrule
+\end{tabular}
+\end{table}
+Die Übereinstimmungen für die im Gesamtmodell berechneten Vorlauftemperaturen sind erwartungsgemäß etwas niedriger, wenn zur Berechnung die Temperatur des zuvor durchflossenen Punktes genutzt wird, wie das bei $T_{V,2}$ und $T_{V,3}$ in beiden Betriebsmodi sowie bei $T_{V,5}$ im Betriebsmodus 3 der Fall ist. Die schlechten Übereinstimmungswerte für $T_{V,2}$ im Betriebsmodus 3 resultieren aus einem Ausfall des Temperatursensons an dieser Stelle. Zu erkennen ist auch, dass für $T_{V,1}$ und $T_{V,4}$ sowie für $T_{V,5}$ im Betriebsmodus 1 gleiche Übereinstimmungen für das Gesamtmodell wie für die Teilmodelle erzielt werden. Diese Temperaturen werden nur durch die Vorlauftemperaturen der Erzeuger berechnet werden, nutzen also keine vorher anderweitig berechneten Eingangsgrößen. Für Betriebsmodus 2 gab es im beobachteten Zeitraum keine Zeitspanne, in denen dieser Betriebsmodus ausreichend lange anhielt, um eine aussagekräftige Validierung durchzuführen.\par
+
+\begin{table}[bt]
+\centering
+\caption{Vergleich der Simulationsergebnisse für $\dot{Q}_{1}$ bis $\dot{Q}_{2}$ für verschiedene Betriebsmodi}
+\label{tab:q_sim_gesamt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+                                 &              & \multicolumn{5}{c}{NRMSE in \%}   \\
+                                 &              &$\dot{Q}_{1}$&$\dot{Q}_{2}$&$\dot{Q}_{3}$ & $\dot{Q}_{4}$ &  $\dot{Q}_{5}$ \\ \midrule
+\multirow{2}{*}{Betriebsmodus 1} & Gesamtmodell & 23.34   &  14.16   & -3.577   &  -8.638  &  42,88    \\
+                                 & Teilmodell   & 23.34   &   15.86  &  -3.569  &  -8.858  &  42.88    \\ 
+\midrule
+\multirow{2}{*}{Betriebsmodus 3} & Gesamtmodell & 2.004   &  -16.57  &  1.433  & -1.627  & -4.336     \\
+                                 & Teilmodell   & 3.722   &  12.81   &  1.226  & -1.301  &  -2.367      \\ \bottomrule
+\end{tabular}
+\end{table}
+
 
 \subsubsection{Einfluss der Flussumkehr auf die Simulationsergebnisse}
 \subsubsection{Fehlerquellen}

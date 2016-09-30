@@ -1,14 +1,23 @@
 \section{Grundlagen}
-Das folgende Kapitel fasst die theoretischen Grundlagen der physikalischen, mathematischen und systemtheoretischen Konzepte zusammen, die in dieser Arbeit Anwendung gefunden haben. Sie sollen dem Leser als Nachschlagewerk dienen und zum Verständnis des in dieser Arbeit gewählten Modellierungsansatzes beitragen. 
+Das folgende Kapitel fasst die theoretischen Grundlagen der physikalischen, mathematischen und systemtheoretischen Konzepte zusammen, die in dieser Arbeit Anwendung gefunden haben. Sie sollen dem Leser als Nachschlagewerk dienen und zum Verständnis des in dieser Arbeit gewählten Modellierungsansatzes beitragen. Zunächst werden die thermodynamischen Grundlagen von Heizkreisen erläutert, anschließend folgt ein Überblick über das Konzept der Modellbildung und verschiedenen Modellierungstypen. Der letzte Abschnitt des Kapitels befasst sich mit Parameteridentifikation und beschreibt zwei in dieser Arbeit genutzte Ansätze.
+
 \subsection{Thermodynamik von Heizkreisen}
-Wärmemengeformel:
+Heizungsanlagen werden in Gebäuden installiert, um Raumwärme und Warmwasser bereitzustellen. Die am häufigsten anzufindende Art der Heizungsanlage ist dabei die Warmwasserheizung. Hierbei wird Warmwasser durch Wärmeerzeuger bereitgestellt und über Umwälzpumpen durch Heizungsrohre zu Heizkörpern oder Heizflächen transportiert. Besteht ein Temperaturunterschied zwischen der Umgebungstemperatur und der Temperatur des Heizkörpers, wird unter Abkühlung des Warmwassers Wärmeenergie 
 \begin{equation}
-\dot{Q} = c_{w} \cdot \rho \cdot \dot{V} \cdot \Delta T
+\Delta Q = c_w \cdot m \cdot \Delta T
+\label{eq:waermeenergie}
+\end{equation}
+an die Umgebung abgegeben, wobei $c_w$ der spezifischen Wärmekapazität von Wasser, $m$ der Masse und $\Delta T$ der Temperaturänderung des Wassers entspricht. Wird statt der Wärmeenergie $Q$ die Wärmeleistung $\dot{Q}$ betrachtet, lässt sich \eqref{eq:waermeenergie} umformen zu
+\begin{equation}
+\dot{Q} = c_{w} \cdot \dot{m} \cdot \Delta T = c_{w} \cdot \rho \cdot \dot{V} \cdot \Delta T
 \label{eq:waermemenge}
 \end{equation}
+mit dem Massenstrom $\dot{m}$, der Dichte von Wasser $\rho$ und dem Volumenstrom $\dot{V}$ . Das so im sogenannten Verbraucher abgekühlte Wasser wird erneut dem Wärmeerzeuger zugeführt, wo das Heizungswasser Wärme aufnimmt und der Heizkreislauf von neuem beginnt,\cite{TBHK90}. Auf die Begriffe der Erzeuger und Verbraucher eines Heizkreises wird nachfolgend genauer eingegangen.
 
 \subsubsection{Erzeuger}
+Als Wärmeerzeuger werden in der Regel Heizkessel verwendet, die die chemisch gebundene Energie eines Brennstoffs wie Öl, Kohle oder Gas durch Verbrennung in thermische Energie umwandeln. Über Wärmetauscher wird die thermische Energie an das Heizungswasser übertragen. Die Temperatur des so erwärmten Heizwassers wird Vorlauftemperatur genannt. Die Heizleistung eines Wärmeerzeugers kann dabei durch Vorgabe einer Sollgröße geregelt werden, zum Beispiel durch Vorgabe einer Soll-Vorlauftemperatur, \cite{Her14}. 
 \subsubsection{Verbraucher}
+Heizkörper oder Heizflächen werden in der Heizungstechnik auch als Verbraucher bezeichnet. Sie entziehen dem Heizkreis Wärme, da durch sie eine Wärmeübertragung durch Konvektion und Wärmestrahlung an den sie umgebenden Raum stattfindet. Tritt Wasser mit einer Vorlauftemperatur $T_V$ in einen Heizkörper ein, kühlt sich das Wasser nach \eqref{eq:waermeenergie} ab und tritt mit einer Temperatur $T_R$ < $T_V$ aus dem Heizkörper wieder aus. Die Temperatur $T_R$ wird auch Rücklauftemperatur genannt.
 
 \subsection{Modellbildung}
 Ziel der Modellbildung ist es, ein Abbild eines realen Prozesses zu erhalten, wobei das Abbild idealerweise dasselbe Systemverhalten zeigt wie der reale Prozess. Die Modelle können ganz unterschiedlichen Zwecken dienen, beispielsweise der reinen Informationsgewinnung über das Systemverhalten oder aber als Grundlage für eine Regelung. Die Modellbildung wird in der Regel in folgenden Schritten vollzogen, \cite{Lun1}:
@@ -45,7 +54,7 @@ y(k) = \frac{1}{a_0}\left(\sum_{n=0}^N b_n u(k-n) - \sum_{n=1}^N a_n y(k-n) \rig
 \label{eq:dynstat}
 \end{equation}
 beschrieben werden, wobei $u(k)$ und $y(k)$ dem Eingangs- bzw. Ausgangssignal im Zeitschritt $k = kT_a$ , $k \in \mathbb{Z}$ und $u(k+n)$ bzw. $y(k+n)$ dem um $n \in \mathbb{Z}$ Zeitschritte verschobenen Signal entspricht. Dabei entsprechen $a_i \in \mathbb{R}$ und $b_i \in \mathbb{R}$ den Koeffizienten der Differenzengleichung. Eine weitere Beschreibungsform von linearen zeitdiskreten dynamischen Systemen ist die Zustandsraumdarstellung, sie wird in Kapitel \ref{a:n4sid} vorgestellt. Lineare dynamische Systeme stellen die am besten untersuchte Klasse von Systemen dar, da sich die meisten Prozesse durch Modelle dieser Form beschreiben oder annähern lassen.
-\item[Nichtlineare statische Systeme:] Lineare Systeme zeichnen sich dadurch aus, dass für sie das Superpositionsprinzip gilt, \cite{Lun1}. Sie können demnach durch einfach Linearkombination wie \eqref{eq:linstat} oder durch lineare Differentialgleichungen bzw. Differenzengleichung wie \eqref{eq:dynstat} beschrieben werden. Für nichtlineare statische Systeme gilt trifft dies nicht zu, für sie gilt allgemein der Zusammenhang 
+\item[Nichtlineare statische Systeme:] Lineare Systeme zeichnen sich dadurch aus, dass für sie das Superpositionsprinzip gilt, \cite{Lun1}. Sie können demnach durch einfach Linearkombination wie \eqref{eq:linstat} oder durch lineare Differentialgleichungen bzw. Differenzengleichung wie \eqref{eq:dynstat} beschrieben werden. Für nichtlineare statische Systeme trifft dies nicht zu, für sie gilt allgemein der Zusammenhang 
 \begin{equation}
 y = g(u) .
 \end{equation}
@@ -53,7 +62,7 @@ y = g(u) .
 \end{description}
 
 \subsection{Parameteridentifikation}
-Im Idealfall wurde mit den Methoden der Modellbildung ein Modell entwickelt, welches allgemeingültig oder für einen gewünschten Arbeitsbereich das Systemverhalten beschreibt. Wenn mit Hilfe dieses Modells eine Vorhersage über die Ausgangsgrößen des Systems getroffen werden soll und diese Ausgangsgrößen bei gegebenen Eingangsgrößen ein möglichst genaues Abbild des realen Systemverhaltens darstellen sollen, müssen zunächst die Modellparameter identifiziert werden. Für White box Modelle sind dies in der Regel physikalisch interpretierbare Parameter, die reale messbare Eigenschaften eines Systems repräsentieren wie beispielsweise Federkonstanten oder ein Innenwiderstände. Für Black box Modelle und unter Umständen auch für Grey box Modelle gilt dies nicht, sie werden meist durch mathematische Methoden abgeschätzt. Nachfolgend sollen zwei solcher Methoden vorgestellt werden.
+Im Idealfall wurde mit den Methoden der Modellbildung ein Modell entwickelt, welches allgemeingültig oder für einen gewünschten Arbeitsbereich das Systemverhalten beschreibt. Wenn mit Hilfe dieses Modells eine Vorhersage über die Ausgangsgrößen des Systems getroffen werden soll und diese Ausgangsgrößen bei gegebenen Eingangsgrößen ein möglichst genaues Abbild des realen Systemverhaltens darstellen sollen, müssen zunächst die Modellparameter identifiziert werden. Für White-box Modelle sind dies in der Regel physikalisch interpretierbare Parameter, die reale messbare Eigenschaften eines Systems repräsentieren wie beispielsweise Federkonstanten oder Innenwiderstände. Für Black-box Modelle und unter Umständen auch für Grey-box Modelle gilt dies nicht, sie werden meist durch mathematische Methoden abgeschätzt. Nachfolgend sollen zwei solcher Methoden vorgestellt werden.
 
 \subsubsection{Methode der kleinsten Fehlerquadrate}
 Die Methode der kleinsten Fehlerquadrate geht auf den Mathematiker Carl Friedrich Gauß zurück und dient als Basis für viele weitere Parameteridentifikationsverfahren. Für lineare Systeme wird davon ausgegangen, dass unbekannte Parameter $P$ existieren für einen Satz mit einer Anzahl von $i = 1, \dots ,N$ gemessenen Eingangsgrößen~$u_i$ und Ausgangsgrößen~$y_i$, die in Matrizenform 
