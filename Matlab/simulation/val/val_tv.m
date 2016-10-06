@@ -1,6 +1,6 @@
 eNames = {'est_tv1';'est_tv2';'est_tv3';'est_tv4';'est_tv5';'est_q1';'est_q2';'est_q3';'est_q4';'est_q5';'est_dt1';'est_dt2';'est_dt3';'est_dt4';'est_dt5'};
 startsim = ende+1;
-endsim = startsim + 7*1440-1;
+endsim = startsim + 2*1440-1;
 WMZ.WMZ1.time(startsim);
 
 for i=1:5

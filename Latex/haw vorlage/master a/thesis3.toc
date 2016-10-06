@@ -1,0 +1,10 @@
+\select@language {ngerman}
+\select@language {ngerman}
+\select@language {english}
+\select@language {ngerman}
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{6}{chapter*.5}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{7}{chapter*.6}
+\contentsline {chapter}{\numberline {1}Einf\"uhrung}{8}{chapter.1}
+\contentsline {chapter}{\numberline {2}Analyse}{9}{chapter.2}
+\contentsline {chapter}{\numberline {3}Design}{10}{chapter.3}
+\contentsline {chapter}{\numberline {4}Realisierung}{11}{chapter.4}

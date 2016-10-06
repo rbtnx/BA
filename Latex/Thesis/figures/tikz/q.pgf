@@ -1,0 +1,124 @@
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning,calc}
+\def\radius{.7mm} 
+\tikzstyle{block} = [draw,fill=blue!20,rectangle,minimum height=3em, minimum width=5em]
+\tikzstyle{tbox} = [rectangle,minimum height=1.5em, minimum width=2em]
+\tikzstyle{tbox2} = [rectangle,minimum height=1em, minimum width=2em]
+\tikzstyle{tbox3} = [rectangle,minimum height=1em, minimum width=6em]
+\tikzstyle{branch}=[fill,shape=circle,minimum size=2pt,inner sep=0pt]
+\begin{tikzpicture}[>=latex']
+
+\node[tbox2] at (-2,.25) (tv_1){$T_{V,1}$};
+\node[tbox2] at (-2,-.25) (t_a){$T_{A}$};
+\node[tbox2] at (-2,-1.25) (tv_2){$T_{V,2}$};
+\node[tbox2] at (-2,-2.75) (tv_3){$T_{V,3}$};
+\node[tbox2] at (-2,-4.25) (tv_4){$T_{V,4}$};
+\node[tbox2] at (-2,-5.75) (tv_5){$T_{V,5}$};
+
+\node[tbox2] at (2,0) (q_1){$\dot{Q}_{1}$};
+\node[tbox2] at (2,-1.5) (q_2){$\dot{Q}_{2}$};
+\node[tbox2] at (2,-3) (q_3){$\dot{Q}_{3}$};
+\node[tbox2] at (2,-4.5) (q_4){$\dot{Q}_{,4}$};
+\node[tbox2] at (2,-6) (q_5){$\dot{Q}_{5}$};
+
+\node[branch] at (-1.265,-1.75) (b2){};
+\node[branch] at (-1.265,-3.25) (b3){};
+\node[branch] at (-1.265,-4.75) (b4){};
+
+\node[block] at (0,0) (block1){};
+\foreach \x in {0} {
+	\foreach \y in {0} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{V,1}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{V,1}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{V,1}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{V,1}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+
+\node[block] at (0,-1.5) (block2){};
+\foreach \x in {-1.5} {
+	\foreach \y in {0} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{q,2}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{q,2}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{q,2}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{q,2}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+
+\node[block] at (0,-3) (block3){};
+\foreach \x in {-3} {
+	\foreach \y in {0} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{q,3}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{q,3}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{q,3}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{q,3}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+
+\node[block] at (0,-4.5) (block4){};
+\foreach \x in {-4.5} {
+	\foreach \y in {0} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{q,4}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{q,4}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{q,4}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{q,4}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+
+\node[block] at (0,-6) (block5){};
+\foreach \x in {-6} {
+	\foreach \y in {0} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{q,5}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{q,5}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{q,5}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{q,5}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+
+\draw[->] (tv_1) --  ($(block1.south west)!0.75!(block1.north west)$);
+\draw[->] (t_a) --  ($(block1.south west)!0.26!(block1.north west)$);
+\draw[->] (tv_2) --  ($(block2.south west)!0.75!(block2.north west)$);
+\draw[->] (tv_3) --  ($(block3.south west)!0.75!(block3.north west)$);
+\draw[->] (tv_4) --  ($(block4.south west)!0.75!(block4.north west)$);
+\draw[->] (tv_5) --  ($(block5.south west)!0.75!(block5.north west)$);
+
+\draw[->] (b2) -- ($(block2.south west)!0.26!(block2.north west)$);
+\draw[->] (b3) -- ($(block3.south west)!0.26!(block3.north west)$);
+\draw[->] (b4) -- ($(block4.south west)!0.26!(block4.north west)$);
+
+\draw[->] (block1) -- (q_1);
+\draw[->] (block2) -- (q_2);
+\draw[->] (block3) -- (q_3);
+\draw[->] (block4) -- (q_4);
+\draw[->] (block5) -- (q_5);
+
+\path (t_a) -- coordinate (branch) ($(block1.south west)!0.26!(block1.north west)$);
+\tikzstyle{s}=[shift={(0mm,\radius)}]
+    \draw[->] (branch) node[branch] {}{ % draw branch junction
+            \foreach \c in {2,3,4,5} {
+                % Draw semicircle junction to indicate that the lines are
+                % not connected. The intersection between the lines are
+                % calculated using the convenient -| syntax. Since we want
+                % the semicircle to have its center where the lines intersect,
+                % we have to shift the intersection coordinate using the 's'
+                % style to account for this.
+                [shift only] -- ([s]tv_\c -| branch) arc(90:-90:\radius)
+                % Note the use of the [shift only] option. It is not necessary,
+                % but I have used it to ensure that the semicircles have the
+                % same size regardless of scaling.
+            }
+        } |-  ($(block5.south west)!0.25!(block5.north west)$);
+
+
+
+\end{tikzpicture}

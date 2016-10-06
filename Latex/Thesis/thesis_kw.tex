@@ -35,24 +35,56 @@
 
  %%################ Document  settings ###################
 \include{header}
-
+\newcommand{\myinfo}[2]{
+  \gdef\@myinfo{%
+  \begin{tabular}{llll}
+  \textbf{1. Gutachter:} & Prof. Dr.-Ing. & #1 & HAW Hamburg\\
+  \textbf{2. Gutachter:} & M.Sc. & #2 & HAW Hamburg\\
+  \end{tabular}
+  \par\vspace{12pt}
+  }
+}
  %%#######################################################
  %%################## Document Data ######################
+
+\postdate{\par\vspace{20pt}\@myinfo\end{center}}
+\makeatother
+
  % Titel der Arbeit
 \title{\vspace{2cm} Thermisch-hydraulische Modellierung der Ringleitung-Wärmeversorgungsanlage eines
-Industriebetriebs \vspace{3cm}}
+Industriebetriebs \vspace{2cm} \\ Bachelorarbeit \vspace{0.3cm} \\ \Large im Fach Umwelttechnik}
+
+
 
 % Autoren
-\author{Kathrin Weihe \vspace{2cm} \\
+\author{vorgelegt von  \vspace{0.2cm}\\ \textbf{Kathrin Weihe} \\ \textbf{Matrikelnummer: 214455} \vspace{2cm} \\Hamburg, am}
+\myinfo{Gerwald Lichtenberg}{Kai Kruppa}
+
+
  %  Die zutreffende Zeile auskommentieren ...
-Betreuer: \\  Prof. Dr.-Ing. Gerwald Lichtenberg \\ M. Sc. Kai Kruppa  \\
-  \vspace{2cm} }
+%Gutachter: \\  Prof. Dr.-Ing. Gerwald Lichtenberg \\ M. Sc. Kai Kruppa  \\
+%  \vspace{2cm} }
 
 \date{\today}
 
 
  %%%%%%%%% Include only the sections you work with for faster compilation
 %\includeonly{}
+
+%Logo HAW
+
+\pretitle{%
+
+  \begin{center}
+  \LARGE
+  \includegraphics[width=10cm,height=2cm]{haw_logo.jpg}\\[\bigskipamount]
+  \normalsize
+  \definecolor{blue}{HTML}{000088}
+  \fontfamily{phv}\selectfont \textcolor{blue}{Fakultät Life Sciences} \fontfamily{cmr}\selectfont \\ 
+  \LARGE
+}
+
+\posttitle{\end{center}}
 
 
  %%##############################  CONTENTS ###################################
@@ -88,6 +120,8 @@ Hamburg, \today  \hfill  Kathrin Weihe
  %% Inhaltsverzeichnis							%% Table of Contents 
 \tableofcontents
 \cleardoublepage
+\listoffigures
+\listoftables
 
 
  %% Sections --------------------------------------------
@@ -95,6 +129,7 @@ Hamburg, \today  \hfill  Kathrin Weihe
 
 \setcounter{page}{1}
 \pagenumbering{arabic}
+
 \include{kapitel_1}
 
 \include{kapitel_2}

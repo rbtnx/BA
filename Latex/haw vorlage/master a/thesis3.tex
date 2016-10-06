@@ -1,0 +1,117 @@
+%---------------------------------------------------------------------------------------------------
+% Voreinstellungen (Layout, neue Befehle, etc.)
+%---------------------------------------------------------------------------------------------------
+
+\input{einstellungen/grundeinstellungen}															% Die stilistischen Parameter
+
+
+
+%--------------------------------------------------------------------------------------------------- 
+% Anfang des Schriftstücks
+%---------------------------------------------------------------------------------------------------	
+\begin{document}
+
+%--------------------------------------------------------------------------------------------------- 
+% Erstellen des Deck- und des Titelblatts
+%---------------------------------------------------------------------------------------------------
+	\createCoverAndTitlePage{Master}																			% Art der Arbeit
+													{thesis}																			% Bezeichnung arbeit oder thesis 
+													{Martin Mustermann}														% Author
+													{Entwicklung und Aufbau eines 
+													 mikrorechnergesteuerten 
+													 Bestückungsautomaten}											  % Titel				
+													{Automatisierung}						% Studiengang
+													{Prof.\ Dr.\ rer.\ nat.\ Martin Zapf}					% Erstgutachter
+													{Prof.\ Dr.\-Ing.\ Armin Kluge}								% Zweitgutachter
+													
+
+  \createAbstract					{Master}																			% Art der Arbeit
+													{thesis}																			% Bezeichnung arbeit oder thesis 
+													{Martin Mustermann}														% Author
+													{Entwicklung und Aufbau eines 
+													 mikrorechnergesteuerten 
+													 Bestückungsautomaten}											  % Titel				
+													{Development and Construction of a Microprocessor 
+													controlled allocation processor}							% Titel Englisch
+													{Steuerung, und viele weitere interessante 
+													Stichwort}																		% Stichworte
+													{Controller, Microprocessor, and other 
+													interesting words describing the whole 
+													process}																			% Keywords (Stichworte Emglisch)
+													{Diese Arbeit umfasst alles was man mit einem 
+													Mikrorechner machen kann und natürlich noch vieles mehr.
+													etc.}																					% Kurzzusammenfassung
+													{Inside this report the construction of a very 
+													important Controller for microproc-essors is 
+													described.												
+													etc.}																			% Abstract (Kurzzusammenfassung Englisch)
+
+												
+%--------------------------------------------------------------------------------------------------- 
+% Zusammenfassung
+%---------------------------------------------------------------------------------------------------			
+  									  													
+
+
+%--------------------------------------------------------------------------------------------------- 
+% Danksagung  
+%---------------------------------------------------------------------------------------------------	
+	\input{standard/danke}  																							
+
+%--------------------------------------------------------------------------------------------------- 
+% Verzeichnisse
+%---------------------------------------------------------------------------------------------------	
+  \tableofcontents                              												% Inhaltsverzeichnis
+	\listoftables                                 												% Tabellenverzeichnis
+	\listoffigures                                												% Abbildungsverzeichnis  
+	
+%--------------------------------------------------------------------------------------------------- 
+% Der erste Teil der Arbeit:
+%---------------------------------------------------------------------------------------------------
+	\input{kapitel/einfuehrung/einfuehrung.tex}
+	
+%---------------------------------------------------------------------------------------------------	
+% Der zweite Teil der Arbeit:
+%---------------------------------------------------------------------------------------------------
+	\input{kapitel/hauptteil/hauptteil.tex}
+
+%---------------------------------------------------------------------------------------------------
+% Der dritte Teil der Arbeit
+%---------------------------------------------------------------------------------------------------
+%	\input{kapitel/schluss/schluss.tex}
+																								
+%---------------------------------------------------------------------------------------------------	
+% Literaturverzeichnis
+%---------------------------------------------------------------------------------------------------		
+	\bibliographystyle{dinat}        		    														% Anpassung an deutsche Zitierweise
+                                          														% Alphabetische Sortierung, Abkürzungen
+  \bibliography{literatur/literatur}      														% Literaturverzeichnis
+  \input{literatur/literatur}																				% hier können alle Schriftstücke aufgeführt werden, die nicht zitiert, aber dennoch nennenswert sind!
+
+%---------------------------------------------------------------------------------------------------	
+% Anhänge
+%---------------------------------------------------------------------------------------------------	
+	\appendix
+% \input{anhang/hilfsmittel/hilfsmittel}															% Anhang A: Hilfsmittel zur Erstellung
+																																			% 					dieser Arbeit
+%	\input{anhang/quellcode/quellcode}																	% Anhang B: Quellcode
+
+%---------------------------------------------------------------------------------------------------	
+% Glossar
+%---------------------------------------------------------------------------------------------------	
+	\printnomenclature
+
+%---------------------------------------------------------------------------------------------------	
+% Stichwortverzeichnis
+%---------------------------------------------------------------------------------------------------	
+	\printindex
+	
+%---------------------------------------------------------------------------------------------------	
+% Erklärung über Selbstständigkeit
+%---------------------------------------------------------------------------------------------------		
+	\asurency	
+
+%--------------------------------------------------------------------------------------------------- 
+% Ende des Schriftstücks
+%--------------------------------------------------------------------------------------------------- 
+\end{document}

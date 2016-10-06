@@ -1,0 +1,57 @@
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning,calc}
+\tikzstyle{block} = [draw,fill=blue!20,rectangle,minimum height=3em, minimum width=5em]
+\tikzstyle{quad} = [draw,fill=blue!20,minimum size=1.5em]
+\tikzstyle{inv} = [minimum size=1.5em]
+\tikzstyle{rahmen} = [draw, rectangle, 
+    minimum height=18em, minimum width=23em]
+\tikzstyle{rahmen2} = [draw, rectangle, 
+    minimum height=17.5em, minimum width=22.5em]
+\tikzstyle{branch}=[fill,shape=circle,minimum size=3pt,inner sep=0pt]
+\tikzstyle{branch2}=[fill,shape=circle,minimum size=4pt,inner sep=0pt]
+\def\radius{.7mm} 
+\begin{tikzpicture}[>=latex']
+%\node[quad] at (2,-1.5) (eins){1};
+%\node[quad] at (3,-1.5) (div) {$\div$};
+\node[branch2] at (6.5,-0.5) (output_v){};
+\node[branch2] at (6.5,-2.5) (output_tr){};
+\node[branch2] at (6.5,-3.5) (output_tv){};
+\node[branch2] at (-1.5,-0.5)(input_vhz1){};
+\node[branch2] at (-1.5,-5) (input_thz1) {};
+\node[rahmen] at (2.5,-2.8) (rahm){};
+\node[rahmen2] at (2.5,-2.8) (rahm){};
+\node[block, align=center] at (1,-0.5) (block_v){\scriptsize statisches \\ \scriptsize Volumenstrommodell};
+\node[block, align = center] at (0,-5) (block_tv){\scriptsize Modell der \\ \scriptsize Vorlauftemperatur};
+\node[block, align = center] at (2.5,-5) (block_q){\scriptsize Modell der \\ \scriptsize W\"armemenge};
+\node[block, align = center] at (5,-2.5) (block_tr){\scriptsize Modell der \\ \scriptsize R\"ucklauftemperatur};
+\coordinate (Ecke1) at (3.6,-2.82);
+\coordinate (Ecke2) at (3.6,-2.18);
+\coordinate (kreuzung) at (3.54,-3.5);
+\node[branch] at (3.6,-0.5) (anker_v){};
+\node[branch] at (1.33,-3.5) (anker_tv){};
+\draw[->] (block_tv) -- (block_q);
+\draw[->] (block_q) -| (Ecke1) -- ($(block_tr.south west)!0.2!(block_tr.north west)$);
+\path (block_tv) -- coordinate (branch) (block_q);
+\draw[->] (branch) node[branch] {} |- (block_tr);
+%\draw[->] (block_v) -|(Ecke2) --  ($(block_tr.south west)!0.8!(block_tr.north west)$);
+\draw[->] (block_v) -- (output_v);
+\draw[->] (anker_v) -- (output_v);
+\draw[->] (block_tr) -- (output_tr);
+\draw[->]  (anker_tv) -- (kreuzung)  arc(180:0:\radius) -- (output_tv) ;
+\draw[->] (input_vhz1) -- (block_v){};
+\draw[->] (input_thz1) -- (block_tv){};
+%\draw[->] (eins) -- (div){};
+%\draw[->] (anker_v) -- (div){};
+%\draw[->] (div) -| (Ecke2) -- ($(block_tr.south west)!0.8!(block_tr.north west)$);
+\draw[->] (anker_v) -| (Ecke2) -- ($(block_tr.south west)!0.8!(block_tr.north west)$);
+\node[inv,align = center] at (-3.5,-.5) (text1) {\scriptsize [ $\dot{V}_{HZ1}$   $\dot{V}_{HZ2}$  $\dot{V}_{Kompressor}$ ]};
+\node[inv,align = center] at (-3.5,-5) (text2) {\scriptsize [ $T_{V,HZ1}$   $T_{V,HZ2}$  $T_{V,Kompressor}$ ]};
+\node[inv,align = center] at (8,-0.5) (text3) {\scriptsize [ $\dot{V}_1$ \ldots  $\dot{V}_5$ ] };
+\node[inv,align = center] at (8,-2.5) (text4) {\scriptsize [ $T_{R,1}$ \ldots  $T_{R,5}$ ] };
+\node[inv,align = center] at (8,-3.5) (text5) {\scriptsize [ $T_{V,1}$ \ldots  $T_{V,5}$ ] };
+\draw[->] (text1) -- (input_vhz1);
+\draw[->] (text2) -- (input_thz1);
+\draw[->] (output_v) -- (text3);
+\draw[->] (output_tr) -- (text4);
+\draw[->] (output_tv) -- (text5);
+\end{tikzpicture}

@@ -1,26 +1,43 @@
 \section{Parameteridentifikation und Validierung}
-Dieses Kapitel beschreibt die Parameteridentifikation der im vorangegangenen Kapitel vorgestellten Modelle. Um zu überprüfen, ob und wie gut die parametrisierten Modelle das Systemverhalten widerspiegeln, wurde anschließend eine Validierung durchgeführt, also eine Bestätigung der Modellresultate durch den Vergleich von gemessenen und simulierten Daten. Simulation oder Vorhersage bezeichnet dabei im weiteren Verlauf der Arbeit die Berechnung der Ausgangsgrößen eines Modells anhand von Eingangsgrößen und den entsprechenden Parametern. Die Ergebnisse der Validierung sowie die Simulationsergebnisse des Gesamtmodells werden im Anschluss an die Parameteridentifkation vorgestellt und erläutert.
+Dieses Kapitel beschreibt die Parameteridentifikation der im vorangegangenen Kapitel vorgestellten Modelle. Um zu überprüfen, ob und wie gut die parametrisierten Modelle das Systemverhalten widerspiegeln, wurde im Anschluss an die Parametrisierung eine Validierung durchgeführt, also eine Bestätigung der Modellresultate durch den Vergleich von gemessenen und simulierten Daten. Simulation oder Vorhersage bezeichnet dabei im weiteren Verlauf der Arbeit die Berechnung der Ausgangsgrößen eines Modells anhand von Eingangsgrößen und den entsprechenden Parametern. Die Ergebnisse der Validierung sowie die Simulationsergebnisse des Gesamtmodells werden im Anschluss an die Parameteridentifkation vorgestellt und erläutert.
 
 \subsection{Parameteridentifikation der Teilsysteme}
 Die in \ref{a:modellbeschreibung} vorgestellten Modelle beschreiben zunächst nur allgemein das Systemverhalten der Wärmeversorgungsanlage. Um das Verhalten der Anlage bei gegebenen Eingangsgrößen möglichst genau vorhersagen zu können, müssen die Parameter der Zustandsraummodelle und des statischen Volumenstrommodells ermittelt werden.\par
-Die für die Parametrisierung jedes Teilmodells genutzten Eingangs- und Ausgangsgrößen bestehen aus einem Satz von Messdaten, der über einen Zeitraum von 72 Stunden mit einer Abtastzeit von 60 Sekunden aufgenommen wurde. Die über diesen Zeitraum erhaltenen Modellparameter zeigen für einige Tage ausreichend genaue Simulationsergebnisse, wobei eine größer werdende Abweichung zwischen Simulations- und Messdaten zu erkennen ist, je weiter die Parametrisierung in der Vergangenheit liegt. Daher wurde für das Modell ein adaptiver Ansatz gewählt, bei dem in regelmäßigen Abständen eine erneute Parametrisierung der Teilmodelle stattfindet, um eine eventuelle Veränderung des Systemverhaltens abbilden zu können. Vorgabe für das Gesamtmodell war eine hinreichend genaue Vorhersage für einen Zeitraum von 7 Tagen.\par
-Um eine Abschätzung der Qualität der Parameter zu erhalten, wurde der Grad der Übereinstimmung zwischen Simulationsdaten $y$ und Messdaten $y_{mess}$ durch den Normalized Root Mean Square Error (NRMSE)
+Die für die Parametrisierung jedes Teilmodells genutzten Eingangs- und Ausgangsgrößen bestehen aus einem Satz von Messdaten, der über einen Zeitraum von 72 Stunden mit einer Abtastzeit von 60 Sekunden aufgenommen wurde. Die über diesen Zeitraum erhaltenen Modellparameter zeigen für einige Tage ausreichend genaue Simulationsergebnisse, wobei eine größer werdende Abweichung zwischen Simulations- und Messdaten zu erkennen ist, je weiter die Parametrisierung in der Vergangenheit liegt. Daher wurde für das Modell ein adaptiver Ansatz gewählt, bei dem in regelmäßigen Abständen eine erneute Parametrisierung der Teilmodelle stattfindet, um eine eventuelle Veränderung des Systemverhaltens abbilden zu können. Vorgabe für das Gesamtmodell war eine hinreichend genaue Vorhersage für einen Zeitraum von sieben Tagen.\par
+Um eine Abschätzung der Qualität der Parameter zu erhalten, wurde als Gütemaß der Grad der Übereinstimmung zwischen Simulationsdaten $y$ und Messdaten $y_{mess}$ durch den Normalized Root Mean Square Error (NRMSE)
 \begin{equation}
 \text{fit} = 100 \cdot \left(1 - \frac{\| y_{mess} - y \|_{2}}{ \| y_{mess} - \hat{y}_{mess} \|_{2}} \right)
 \end{equation}
-über die \text{Matlab} Funktion \texttt{goodnessOfFit} ermittelt. Dabei entspricht $\hat{y}_{mess}$ dem arithmetischen Mittelwert der Messdaten und $\| x \|$ der euklidischen Norm
+über die \text{Matlab} Funktion \texttt{goodnessOfFit} ermittelt. Dabei entspricht $\hat{y}_{mess}$ dem arithmetischen Mittelwert der Messdaten und $\| x \|_2$ der euklidischen Norm
 \begin{equation}
 \| x \|_{2} = \sqrt{\sum_{i=1}^N|x_i|^2} .
 \end{equation}
 Eine perfekte Übereinstimmung wird durch einen Wert von $fit = 100 \%$ ausgedrückt. Je negativer $fit$, desto schlechter ist die Übereinstimmung zwischen Simulation und Messung.
 
-\subsubsection{Parametrisierung des statischen Volumenstrommodell}
-Das Volumenstrommodell nach \eqref{eq:volumenstrommodell} wurde durch Lösung des Minimierungsproblems nach der Methode der kleinsten Quadrate parametrisiert. Hierfür wurde die \textsc{Matlab} Funktion \texttt{mldivide} bzw. der Operator $\cdot \textbackslash \cdot$ genutzt, welcher zur Lösung des Problems eine QR-Zerlegung nutzt, \cite{MAT16}.
+\subsubsection{Parametrisierung des statischen Volumenstrommodells}
+Das Volumenstrommodell nach \eqref{eq:volumenstrommodell} wurde durch Lösung des Minimierungsproblems nach der Methode der kleinsten Quadrate parametrisiert. Hierfür wurde die \textsc{Matlab} Funktion \texttt{mldivide} bzw. der Operator $\cdot \textbackslash \cdot$ genutzt, welcher zur Lösung des Problems eine QR-Zerlegung nutzt, \cite{MAT16}. Tabelle \ref{tab:v_param_guete} zeigt die Übereinstimmung zwischen Simulationsergebnissen und Messdaten für verschiedene Zeiträume. Die schlechten Übereinstimmungswerte für $V_3$ und $V_4$ werden im Kapitel \ref{a:v_val_teilmodell} diskutiert.
+
+\begin{table}[]
+\centering
+\caption{Übersicht über die NRMSE Übereinstimmung für das parametrisierte Volumenstrommodell zu verschiedenen Zeiträumen}
+\label{tab:v_param_guete}
+\begin{tabular}{lrrrrr}
+\toprule
+              & \multicolumn{5}{c}{NRMSE in \%}   \\ 
+Validierungszeitraum & $V_{1}$ & $V_{2}$ & $V_{3}$ & $V_{4}$ & $V_{5}$ \\ 
+\midrule
+16.04. - 23.04.    &  43.64   &   24.72   &   -9.49   &  -21.64   &  46.65   \\
+14.05. - 21.05.    &  22.94   &   47.34   &   -29.03  &  -50.49   &  15.37  \\ 
+27.05. - 03.06.    &  31.59   &   26.88   &   -69.82  &  -55.46   &  35.54  \\
+16.06. - 23.06.    &  28.21   &   13.76   &    8.66   &  -29.15   &  10.04  \\  
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsubsection{Parametrisierung der dynamischen Teilmodelle}
 Für die Vorlauftemperatur wurde wie in Kapitel \ref{a:vorlauftemp} erwähnt eine Systemordnung von $n = 2$ vorgegeben. Die Funktion \texttt{n4sid} der \textsc{System Identification Toolbox} von \textsc{Matlab} errechnet mit der Option \texttt{'best'} die Systemordnung selbständig, wobei die so ermittelten Systemordnungen für die Vorlauftemperatur in der Regel zwischen $n = 2$ und $n = 6$ lagen. Tabelle \ref{tab:systemordnung_tv} zeigt, dass zwischen den Simulationsergebnissen bei automatisch ermittelter Systemordnung und einer vorgegebenen Systemordnung von $n = 2$ keine signifikant besseren Vorhersageergebnisse erzielt werden können. In einigen Fällen war die Übereinstimmung zwischen Simulation und Messdaten bei höherer Systemordnung sogar schlechter.
 
-\begin{table}[]
+\begin{table}[bht]
 \centering
 \caption{Vergleich der Übereinstimmung zwischen Simulation und Messdaten anhand des NRMSE bei verschiedenen Vorgaben der Systemordnung. Die Simulation wurde mit Messergebnissen aus dem Zeitraum vom 16.04.2016 - 23.04.2016 verglichen.}
 \label{tab:systemordnung_tv}
@@ -39,10 +56,9 @@ n = 'best'    &  84.54   &   9.735  &   27.19  &   72.92  &   59.55  \\
 Das Modell der Wärmemenge wurde ebenfalls mit Hilfe der \texttt{n4sid} Funktion parametrisiert. Allerdings wurde hier auf eine Festlegung der Systemordnung verzichtet und die von der Funktion ermittelte Systemordnung genutzt.
 
 \subsection{Validierung der Teilsysteme} \label{a:teil_val}
-Die Validierung der parametrisierten Modelle erfolgte durch einen Vergleich von Messdaten und Vorhersageergebnissen. Zu diesem Zweck wurden als Modelleingangsgrößen Daten verwendet, die nicht innerhalb aus demselben Zeitraum stammen, der für die Parametrisierung genutzt wurde. 
+Die Validierung der parametrisierten Modelle erfolgte durch einen Vergleich von Messdaten und Vorhersageergebnissen. Zu diesem Zweck wurden als Modelleingangsgrößen Daten verwendet, die nicht aus demselben Zeitraum stammen, der für die Parametrisierung genutzt wurde. 
 
-\subsubsection{Volumenstrom}
-Abbildung \ref{fig:v_val} zeigt die über mit Hilfe des statischen Teilmodells simulierten Volumenströme $\dot{V}_{1}$ \ldots $\dot{V}_5$ für einen Zeitraum von 7 Tagen. Für $\dot{V}_1$, $\dot{V}_2$ und $\dot{V}_5$ lassen sich gute Simulationsergebnisse erzielen, während $\dot{V}_3$ und $\dot{V}_4$ teilweise starke Abweichungen von den Messwerten zeigen. Bei diesen Messstellen werden insgesamt geringere Volumenströme als an den anderen Punkten des Fünfecks gemessen, weshalb auch die Fehlerstreuung höher ausfällt \textcolor{red}PRÜFEN!!! Aus dem Messbericht der Plenum Ingenieursgesellschaft geht außerdem hervor, dass die Messdaten zu $\dot{V}_3$ mit großen Unsicherheiten behaftet sind, weshalb keine genaue Aussage über die Qualität der Simulationsergebnisse an diesem Punkt getätigt werden kann, \cite{Ple1}.
+\subsubsection{Volumenstrom}\label{a:v_val_teilmodell}
 \begin{figure}[htb] 
   \centering
      \includegraphics[width=0.8\textwidth]{val/v1.pdf}
@@ -54,30 +70,31 @@ Abbildung \ref{fig:v_val} zeigt die über mit Hilfe des statischen Teilmodells si
   \label{fig:v_val}
 \end{figure}
 
+Abbildung \ref{fig:v_val} zeigt die mit Hilfe des statischen Teilmodells simulierten Volumenströme $\dot{V}_{1}$ \ldots $\dot{V}_5$ für einen Zeitraum von sieben Tagen. Für $\dot{V}_1$, $\dot{V}_2$ und $\dot{V}_5$ lassen sich gute Simulationsergebnisse erzielen, während $\dot{V}_3$ und $\dot{V}_4$ teilweise starke Abweichungen von den Messwerten zeigen. Bei diesen Messstellen werden insgesamt geringere Volumenströme als an den anderen Punkten des Fünfecks gemessen, weshalb auch die relative Messungenauigkeit zunimmt, da diese steigt je kleiner der Messwert ist, \cite{PAR16}. Aus dem Messbericht der Plenum Ingenieurgesellschaft geht außerdem hervor, dass die Messdaten zu $\dot{V}_3$ mit großen Unsicherheiten behaftet sind, weshalb keine genaue Aussage über die Qualität der Simulationsergebnisse an diesem Punkt getätigt werden kann, \cite{Ple1}.
 
 \subsubsection{Vorlauftemperatur}\label{a:vorlauf_val}
-Durchgehend gute Simulationsergebnisse werden für $T_{V,1}$ erzielt. Der Einfluss der Vorlauftemperatur der HZ1 ist für $T_{V,1}$ in allen untersuchten Betriebsmodi groß, daher lässt sich die Vorlauftemperatur in Punkt $P_1$ sehr gut allein durch durch $T_{V,HZ1}$ beschreiben wie Abbildung \ref{fig:v_val} zeigt.
+Durchgehend gute Simulationsergebnisse werden für $T_{V,1}$ erzielt. Der Einfluss der Vorlauftemperatur der HZ1 ist für $T_{V,1}$ in allen untersuchten Betriebsmodi groß, daher lässt sich die Vorlauftemperatur in Punkt $P_1$ sehr gut allein durch $T_{V,HZ1}$ beschreiben wie Abbildung \ref{fig:v_val} zeigt.
 \begin{figure}[htb] 
   \centering
      \includegraphics[width=1.0\textwidth]{val/tv1_zoom.pdf}
   \caption{Ausschnitt der Simulationsergebnisse zu $T_{V,1}$.}
   \label{fig:tv1_val}
 \end{figure}
-In Betriebsmodus 1 und 2 wird $T_{V,5}$ ebenfalls durch die Vorlauftemperatur der HZ1 beschrieben und zeigt ähnlich gute Ergebnisse. Sobald das System im Betriebsmodus 3 betrieben wird und eine Umkehr der Fließrichtung stattfindet, wird $T_{V,5}$  gemäß \ref{eq:tv_modell} durch $T_{V,4}$ berechnet. In Abbildung \ref{fig:tv5_modi} sind die Simulationsergebnisse für beide Fließrichtungen dargestellt. Für den Betriebsmodus 3 erzielt die Simulation schlechtere  Übereinstimmungen, was auf eine ungenügende Beschreibung allein durch $T_{V,4}$ hindeuten kann. Im untersuchten Zeitraum wurden nur wenige Fließrichtungswechsel am Punkt $P_{5}$ beobachtet, so dass eine genauere Analyse der Wechselwirkungen nicht weiterverfolgt werden konnte. \par
+In Betriebsmodus 1 und 2 wird $T_{V,5}$ ebenfalls durch die Vorlauftemperatur der HZ1 beschrieben und zeigt ähnlich gute Ergebnisse. Sobald das System im Betriebsmodus 3 betrieben wird und eine Umkehr der Fließrichtung stattfindet, wird $T_{V,5}$  gemäß \eqref{eq:tv_modell} durch $T_{V,4}$ berechnet. In Abbildung \ref{fig:tv5_modi} sind die Simulationsergebnisse für beide Fließrichtungen dargestellt. Für den Betriebsmodus 3 erzielt die Simulation schlechtere  Übereinstimmungen, was auf eine ungenügende Beschreibung allein durch $T_{V,4}$ hindeuten kann. Im untersuchten Zeitraum wurden nur wenige Fließrichtungswechsel am Punkt $P_{5}$ beobachtet, so dass eine genauere Analyse der Wechselwirkungen nicht weiterverfolgt werden konnte. \par
 \begin{figure}[htb]
     \subfigure[$T_{V,5}$ im Betriebsmodus 1]{\includegraphics[width=0.49\textwidth]{val/tv5_zoom.pdf}}
     \subfigure[$T_{V,5}$ im Betriebsmodus 3]{\includegraphics[width=0.49\textwidth]{val/tv5_b3.pdf}}
 \caption{Vergleich der Vorhersageergebnisse für $T_{V,5}$ bei verschiedenen Fließrichtungen. Das Modell zeigt für negative Fließrichtung an $P_5$ bessere Ergebnisse (a) als für positive Fließrichtungen (b).}
 \label{fig:tv5_modi}
 \end{figure}
-Vergleicht man die Simulationsergebnisse für $T_{V,2}$ mit den Messdaten, lässt sich ein ähnlicher Signalverlauf erkennen, der aber zeitlich versetzt ist. Dies könnte darauf hindeuten, dass sich für $T_{V,2}$ bessere Simulationsergebnisse unter Berücksichtigung eines Totzeitübertragungsgliedes erzielen lassen könnten. Dies könnte ein Ansatz für eine weiterführende Optimierung des Modells sein.
+Vergleicht man die Simulationsergebnisse für $T_{V,2}$ mit den Messdaten, lässt sich ein ähnlicher Signalverlauf erkennen, der aber zeitlich versetzt ist. Dies könnte darauf hindeuten, dass sich für $T_{V,2}$ bessere Simulationsergebnisse unter Berücksichtigung eines Totzeitübertragungsgliedes erzielen lassen könnten. Dies könnte als Ansatz für eine weiterführende Optimierung des Modells dienen. \par
 \begin{figure}[htb] 
   \centering
      \includegraphics[width=1.0\textwidth]{val/tv2.pdf}
   \caption{Ausschnitt der Simulationsergebnisse zu $T_{V,2}$.}
   \label{fig:tv2_val}
 \end{figure}
-Für $T_{V,3}$ lassen sich für die meisten Zeiträume nur schlechte Simulationsergebnisse erzielen, da ein häufiger Fließrichtungswechsel stattfindet, teilweise geschieht dies mehrmals am Tag. Da die Implementation des Modells in \textsc{Matlab} keine automatisierte Umstellung der Parameter bei einem Wechsel des Betriebsmodus vorsieht. Abbildung \ref{fig:tv3_modi} zeigt einen Vergleich der Simulationsergebisse für $T_{V,3}$ für den Zeitraum vom 16.04.2016 bis 23.04.2016, in dem häufige Fließrichtungswechsel stattfanden, mit den Simulationsergebnisse vom 07.07.2016 bis 17.07.2016, in dem die Anlage im Betriebsmodus 2 lief.\par
+Für $T_{V,3}$ lassen sich für die meisten Zeiträume nur schlechte Simulationsergebnisse erzielen, da ein häufiger Fließrichtungswechsel stattfindet; teilweise geschieht dies mehrmals am Tag. Da die Implementation des Modells in \textsc{Matlab} keine automatisierte Umstellung der Parameter bei einem Wechsel des Betriebsmodus vorsieht, wird das System für solche Fälle nicht korrekt beschrieben und die Simulation ergibt unbrauchbare Ergebnisse. Abbildung \ref{fig:tv3_modi} zeigt einen Vergleich der Simulationsergebisse für $T_{V,3}$ für den Zeitraum vom 16.04.2016 bis 23.04.2016, in dem häufige Fließrichtungswechsel stattfanden, mit den Simulationsergebnissen vom 07.07.2016 bis 17.07.2016, in dem die Anlage im Betriebsmodus~2 lief.\par
 \begin{figure}[htb]
     \subfigure[$T_{V,3}$ bei häufigem Wechsel der Fließrichtung]{\includegraphics[width=0.49\textwidth]{val/tv3_schlecht.pdf}}
     \subfigure[$T_{V,5}$ bei konstanter Fließrichtung]{\includegraphics[width=0.49\textwidth]{val/tv3_gut.pdf}}
@@ -87,33 +104,42 @@ Für $T_{V,3}$ lassen sich für die meisten Zeiträume nur schlechte Simulationserg
 Für $T_{V,4}$ werden durch das Modell durchgehend gute Vorhersageergebnisse mit NRMSE-Werten von rund 50 - 60 \% erzielt.
 
 \subsubsection{Wärmeleistung}\label{a:waerme_val}
-Da die Wärmeleistung mittels Black-box lediglich durch eine Abhängigkeit von der Außentemperatur und der Vorlauftemperatur im selben Punkt abgeschätzt wird, liefert die Simulation erwartungsgemäß vergleichsweise schlechte Vorhersageergebnisse. Auffällig ist, dass für die Simulationen von $\dot{Q}_1$ , $\dot{Q}_2$ und $\dot{Q}_5$ insgesamt etwas bessere Übereinstimmungen zwischen Simulation und Messdaten erzielt werden können als für die Simulationen von $\dot{Q}_3$ und $\dot{Q}_4$ im selben Zeitraum, wie \ref{fig:q_gut} und \ref{fig:q_schlecht} zeigen.
-\begin{figure}[htb]
+Da die Wärmeleistung mittels Black-box lediglich durch eine Abhängigkeit von der Außentemperatur und der Vorlauftemperatur im selben Punkt abgeschätzt wird, liefert die Simulation erwartungsgemäß vergleichsweise schlechte Vorhersageergebnisse.
+\begin{figure}[hb]
+  \centering
+    \includegraphics[width=0.7\textwidth]{val/q3.pdf}
+    \includegraphics[width=0.7\textwidth]{val/q4.pdf}
+\caption{Vergleich der Vorhersageergebnisse für $\dot{Q}_3$ und $\dot{Q}_4$. Der NRMSE liegt im negativen Bereich und weist schlechtere Übereinstimmungen auf als die Simulationen für $\dot{Q}_1$, $\dot{Q}_2$ und $\dot{Q}_5$ }
+\label{fig:q_schlecht}
+\end{figure}
+
+\begin{figure}[tb]
   \centering
     \includegraphics[width=0.8\textwidth]{val/q1.pdf}
     \includegraphics[width=0.8\textwidth]{val/q2.pdf}
     \includegraphics[width=0.8\textwidth]{val/q5.pdf}
-\caption{Vergleich der Vorhersageergebnisse für $\dot{Q}_1$, $\dot{Q}_2$ und $\dot{Q}_5$. Der NRMSE liegt im Bereich von ca. 20 \% für alle drei Simulationen}
+\caption{Vergleich der Simulation für $\dot{Q}_1$, $\dot{Q}_2$ und $\dot{Q}_5$. Der NRMSE liegt zwischen 20 \% und 50 \% für alle drei Punkte}
 \label{fig:q_gut}
 \end{figure}
-Für die Wärmeleistungen $\dot{Q}_3$ und $\dot{Q}_4$ werden insgesamt niedrigere Werte gemessen als für die anderen drei Wärmeleistungen, was vor allem auf die geringen Volumenströme in diesen Punkten zurückzuführen ist. Solch niedrige Volumenströme und die damit verbundenen niedrigen Wärmeleistungen könnten auf eine Unterversorgung der Verbraucher hindeuten, wobei der untersuchte Zeitraum für die Validierung am 11.04.2016 begann und damit bereits nicht mehr innerhalb der Heizperiode lag. Eine eventuelle Unterversorgung würde bei milden Außentemperaturen nicht mehr so stark auffallen wie bei sehr niedrigen Außentemperaturen. Sollte tatsächlich durch zu geringe Volumenströme weniger Wärmeleistung an den Punkten $P_3$ und $P_4$ abgenommen werden können, als tatsächlich von den Verbrauchern benötigt wird, sind auch die Simulationsergebnisse wenig aussagekräftig. Die Wärmeleistungsmodelle wurden anhand von Messdaten trainiert, ein fehlerhafter Betrieb der Anlage würde sich demnach auch in den Parametern des Modells widerspiegeln. Zur Verbesserung der Vorhersage und eventuell auch zur Fehlererkennung wäre eine Analyse des tatsächlichen Verbraucherverhaltens empfehlenswert.
-\begin{figure}[htb]
-  \centering
-    \includegraphics[width=0.8\textwidth]{val/q3.pdf}
-    \includegraphics[width=0.8\textwidth]{val/q4.pdf}
-\caption{Vergleich der Vorhersageergebnisse für $\dot{Q}_3$ und $\dot{Q}_4$. Der NRMSE liegt im Bereich für beide Simulationen im negativen Bereich weist deutlich schlechtere Übereinstimmung mit den Messdaten auf als die Simulationen für $\dot{Q}_1$, $\dot{Q}_2$ und $\dot{Q}_5$ }
-\label{fig:q_schlecht}
-\end{figure}
+
+Auffällig ist, dass für die Simulationen von $\dot{Q}_1$ , $\dot{Q}_2$ und $\dot{Q}_5$ insgesamt etwas bessere Übereinstimmungen zwischen Simulation und Messdaten erzielt werden können als für die Simulationen von $\dot{Q}_3$ und $\dot{Q}_4$ im selben Zeitraum, wie Abbildungen \ref{fig:q_gut} und \ref{fig:q_schlecht} zeigen.
+
+Für die Wärmeleistungen $\dot{Q}_3$ und $\dot{Q}_4$ werden insgesamt niedrigere Werte gemessen als für die anderen drei Wärmeleistungen, was vor allem auf die geringen Volumenströme in diesen Punkten zurückzuführen ist. Solch niedrige Volumenströme und die damit verbundenen niedrigen Wärmeleistungen könnten auf eine Unterversorgung der Verbraucher hindeuten, wobei der untersuchte Zeitraum für die Validierung am 11.04.2016 begann und damit bereits nicht mehr innerhalb der Heizperiode lag. Eine eventuelle Unterversorgung würde bei milden Außentemperaturen nicht mehr so stark auffallen wie bei sehr niedrigen Außentemperaturen. Sollte tatsächlich durch zu geringe Volumenströme weniger Wärmeleistung an den Punkten $P_3$ und $P_4$ abgenommen werden können, als tatsächlich von den Verbrauchern benötigt wird, sind auch die Simulationsergebnisse wenig aussagekräftig. Die Wärmeleistungsmodelle wurden anhand von Messdaten trainiert, ein fehlerhafter Betrieb der Anlage würde sich demnach auch in den Parametern des Modells widerspiegeln.\par 
+Weiterhin entspricht die Berechnung der Wärmeleistung über ein Black-box-Modell nur einer groben Abschätzung. Die Außentemperatur ist in diesem Modellansatz die einzige Informationsquelle über den vermuteten Wärmebedarf, da dieser in der Regel bei niedrigen Außentemperaturen steigt. Nicht berücksichtigt werden die je nach Verbrauchertyp unterschiedlichen Wärmebedarfe. So ist davon auszugehen, dass Produktionshallen ein anderes Wärmebedarfsprofil besitzen als Bürogebäude. Die Berechnung der Wärmeleistung auf Grundlage des in dieser Arbeit genutzten Modells führt daher zwangsläufig zu schlechten Übereinstimmungen zwischen gemessenen und berechneten Daten. Zur Verbesserung der Vorhersage und eventuell auch zur Fehlererkennung wäre eine Analyse des tatsächlichen Verbraucherverhaltens empfehlenswert.
 
 \subsection{Simulationsergebnisse des Gesamtmodells}
-Das Gesamtmodell wurde evaluiert, indem die in Tabelle \ref{tab:input_output} beschriebenen Eingangs- und Störgrößen dem Modell als Eingangssignale vorgegeben wurden. Die simulierten Ausgangssignale wurden aufgezeichnet und mit realen Messdaten verglichen, um die Qualität der Modellierung abzuschätzen. Die Eingangssignale entsprechen Messdaten aus dem untersuchten Zeitraum vom 11. April 2016 bis 05. August 2016. Dabei wurde darauf geachtet, keine Messdaten zu nutzen, die ebenfalls zur Parameteridentifikation verwendet wurden. Die folgenden Kapitel beschreiben die Implementierung des Modell in \textsc{Matlab}, geben einen Überblick über die Valdierungsergebnisse und befassen sich mit eventuellen Fehlerquellen.
+Das Gesamtmodell wurde evaluiert, indem die in Tabelle \ref{tab:input_output} beschriebenen Eingangs- und Störgrößen dem Modell als Eingangssignale vorgegeben wurden. Die simulierten Ausgangssignale wurden aufgezeichnet und mit realen Messdaten verglichen, um die Qualität der Modellierung abzuschätzen. Die Eingangssignale entsprechen Messdaten aus dem untersuchten Zeitraum vom 11. April 2016 bis 05. August 2016. Dabei wurde darauf geachtet keine Messdaten zu nutzen, die vorher zur Parameteridentifikation verwendet wurden. Das folgende Kapitel beschreibt die Implementierung des Modells in \textsc{Matlab}, gibt einen Überblick über die Valdierungsergebnisse und befasst sich mit eventuellen Fehlerquellen.
 
 \subsubsection{Implementierung}
-Das Modell wurde in der Entwicklungsumgebung \textsc{Matlab} inklusive der \textsc{System Identification Toolbox} implementiert. In einem Hauptskript kann der Anwender den Zeitraum festlegen, für den das Modell eine Vorhersage der Ausgangsgrößen berechnen soll. Dabei legt der Anwender das Startdatum sowie den Simulationszeitraum in Tagen, wobei eine Zeit von 7 Tagen voreingestellt ist. Das Skript erstellt anschließend die benötigten Datensätze und führt eine Parameteridentifikation über einen Zeitraum von 3 Tagen vor dem Startdatum durch. Die Systemmatrizen der Zustandsraummodelle und die Parameter des statischen Volumenstrommodells werden abgespeichert, um im darauffolgenden Simulationsschritt zur Verfügung zu stehen. Die Simulationsergebnisse werden ebenfalls gespeichert und direkt im Anschluss an die Berechnung auf dem Bildschirm ausgegeben.
+Das Modell wurde in der Entwicklungsumgebung \textsc{Matlab} inklusive der \textsc{System Identification Toolbox} implementiert. In einem Hauptskript kann der Anwender den Zeitraum festlegen, für den das Modell eine Vorhersage der Ausgangsgrößen berechnen soll. Der Anwender legt das Startdatum sowie den Simulationszeitraum in Tagen fest, wobei eine Zeit von sieben Tagen voreingestellt ist. Das Skript erstellt anschließend die benötigten Datensätze und führt eine Parameteridentifikation über einen Zeitraum von drei Tagen vor dem Startdatum durch. Die Systemmatrizen der Zustandsraummodelle und die Parameter des statischen Volumenstrommodells werden abgespeichert, um im darauf folgenden Simulationsschritt zur Verfügung zu stehen. Die Simulationsergebnisse werden ebenfalls gespeichert und direkt im Anschluss an die Berechnung auf dem Bildschirm ausgegeben.\par 
+Zu beachten ist dabei, dass der Betriebsmodus der Anlage manuell im Skript eingestellt werden muss. Das Skript führt keine Analyse der Fließrichtungen durch und passt sich nicht selbständig einem Wechsel des Betriebsmodus an. Simulationsergebnisse für Zeiträume, in denen häufige Fließrichtungswechsel vorkommen, können daher unter Umständen ungewöhnlich schlechte Übereinstimmungswerte aufweisen.
 
 \subsubsection{Validierung}
-Die Validierung der Teilmodelle erfolgte für jedes Teilsystem einzeln anhand realer Messdaten: die Messdaten wurden als Eingangssignal in jedes Teilsystem gegeben, das Systemverhalten wurde berechnet und die Ausgangssignale wurden mit Messdaten verglichen. Für die Simulation des Gesamtmodells bestehen die Eingangssignale für einige Teilmodelle aus vorher simulierten Ausgangsgrößen anderer Teilmodelle, wie sich anhand des Blockschaltbildes erkennen lässt. Liefert ein Teilmodell schlechte Simulationsergebnisse, wird dieser Fehler sich zwangsläufig fortpflanzen, weshalb insgesamt schlechtere Validierungsergebnisse für das Gesamtmodell erwartet werden können als für die Validierung der Teilmodelle. Tabelle \ref{tab:tv_sim_gesamt} zeigt die Übereinstimmung zwischen simulierten Vorlauftemperaturen und Messdaten bei verschiedenen Betriebsmodi. 
-\begin{table}[b]
+Die Validierung der Teilmodelle erfolgte für jedes Teilsystem einzeln anhand realer Messdaten: die Messdaten wurden als Eingangssignal für jedes Teilsystem genutzt, das Systemverhalten wurde berechnet und die Ausgangssignale wurden mit Messdaten verglichen. Für die Simulation des Gesamtmodells bestehen die Eingangssignale für einige Teilmodelle aus vorher simulierten Ausgangsgrößen anderer Teilmodelle, wie sich anhand des Blockschaltbildes erkennen lässt. Liefert ein Teilmodell schlechte Simulationsergebnisse, wird dieser Fehler sich zwangsläufig fortpflanzen, weshalb insgesamt schlechtere Validierungsergebnisse für das Gesamtmodell erwartet werden können als für die Validierung der Teilmodelle. Dieser Zusammenhang gilt jedoch nicht für die Simulationsergebnisse der Volumenströme. Diese werden anhand eines statischen Modells berechnet, bei dem alle Ausgangsgrößen nur durch eine Linearkombination der Volumenströme der Erzeugergruppen beschrieben werden. Die Validierungsergebnisse für das Gesamtmodell decken sich demnach mit den Validierungsergebnissen des Teilmodells. Die Ergebnisse wurden bereits in \ref{a:v_val_teilmodell} diskutiert.\par
+In einigen nachfolgenden Tabellen werden die Simulationsergebnisse für verschiedene Betriebsmodi verglichen. Dabei stammen die für Betriebsmodus 1 verwendeten Validierungsdatensätze aus dem Zeitraum vom 16.04.2016 bis zum 23.04.2016, für Betriebsmodus 3 aus dem Zeitraum vom 29.07.2016 bis 02.08.2016. Für Betriebsmodus 2 gab es im beobachteten Zeitraum keine Zeitspanne, in denen dieser Betriebsmodus ausreichend lange anhielt, um eine aussagekräftige Validierung durchzuführen.
+
+\subsubsection*{Simulationsergebnisse der Vorlauftemperaturen} Tabelle \ref{tab:tv_sim_gesamt} zeigt die Übereinstimmung zwischen simulierten Vorlauftemperaturen und Messdaten bei verschiedenen Betriebsmodi. 
+\begin{table}[htb]
 \centering
 \caption{Vergleich der Simulationsergebnisse für $T_{V,1}$ bis $T_{V,5}$ für verschiedene Betriebsmodi}
 \label{tab:tv_sim_gesamt}
@@ -128,7 +154,7 @@ Die Validierung der Teilmodelle erfolgte für jedes Teilsystem einzeln anhand rea
                                  & Teilmodell   & 78.58    &  -39.45   & 72.79   & 77.99  &  62.96      \\ \bottomrule
 \end{tabular}
 \end{table}
-Die Übereinstimmungen für die im Gesamtmodell berechneten Vorlauftemperaturen sind erwartungsgemäß etwas niedriger, wenn zur Berechnung die Temperatur des zuvor durchflossenen Punktes genutzt wird, wie das bei $T_{V,2}$ und $T_{V,3}$ in beiden Betriebsmodi sowie bei $T_{V,5}$ im Betriebsmodus 3 der Fall ist. Die schlechten Übereinstimmungswerte für $T_{V,2}$ im Betriebsmodus 3 resultieren aus einem Ausfall des Temperatursensons an dieser Stelle. Zu erkennen ist auch, dass für $T_{V,1}$ und $T_{V,4}$ sowie für $T_{V,5}$ im Betriebsmodus 1 gleiche Übereinstimmungen für das Gesamtmodell wie für die Teilmodelle erzielt werden. Diese Temperaturen werden nur durch die Vorlauftemperaturen der Erzeuger berechnet werden, nutzen also keine vorher anderweitig berechneten Eingangsgrößen. Für Betriebsmodus 2 gab es im beobachteten Zeitraum keine Zeitspanne, in denen dieser Betriebsmodus ausreichend lange anhielt, um eine aussagekräftige Validierung durchzuführen.\par
+Die Übereinstimmungen für die im Gesamtmodell berechneten Vorlauftemperaturen sind erwartungsgemäß etwas niedriger als die Übereinstimmungen der Teilmodelle, wenn zur Berechnung die Temperatur des zuvor durchflossenen Punktes genutzt wird, zu erkennen an $T_{V,2}$ und $T_{V,3}$ in beiden Betriebsmodi sowie an $T_{V,5}$ im Betriebsmodus 3. Die schlechten Übereinstimmungswerte für $T_{V,2}$ im Betriebsmodus 3 resultieren aus einem Ausfall des Temperatursensons an dieser Stelle. Zu erkennen ist auch, dass für $T_{V,1}$ und $T_{V,4}$ sowie für $T_{V,5}$ im Betriebsmodus 1 gleiche Übereinstimmungen für das Gesamtmodell wie für die Teilmodelle erzielt werden. Diese Temperaturen werden nur durch die Vorlauftemperaturen der Erzeuger berechnet, nutzen also keine vorher anderweitig berechneten Eingangsgrößen. Für Validierungsergebnisse der Wärmeleistung ist ein ähnlicher Trend zu erkennen. Da die Wärmeleistung über ein Black-box-Modell aus der Vorlauftemperatur am selben Punkt abgeschätzt wird, war dieses Ergebnis auch zu erwarten. Die Wärmeleistung selbst ist zwar keine Ausgangsgröße des Gesamtmodells, aus ihr wird jedoch die Rücklauftemperatur errechnet. Um eine Einordnung der Simulationsergebnisse zu $T_{R,1}$ bis $T_{R,5}$ zu ermöglichen, sind die Übereinstimmungen der Wärmeleistungsvorhersage mit den Messdaten in Tabelle \ref{tab:q_sim_gesamt} aufgeführt. \par
 
 \begin{table}[bt]
 \centering
@@ -138,14 +164,51 @@ Die Übereinstimmungen für die im Gesamtmodell berechneten Vorlauftemperaturen si
 \toprule
                                  &              & \multicolumn{5}{c}{NRMSE in \%}   \\
                                  &              &$\dot{Q}_{1}$&$\dot{Q}_{2}$&$\dot{Q}_{3}$ & $\dot{Q}_{4}$ &  $\dot{Q}_{5}$ \\ \midrule
-\multirow{2}{*}{Betriebsmodus 1} & Gesamtmodell & 23.34   &  14.16   & -3.577   &  -8.638  &  42,88    \\
-                                 & Teilmodell   & 23.34   &   15.86  &  -3.569  &  -8.858  &  42.88    \\ 
+\multirow{2}{*}{Betriebsmodus 1} & Gesamtmodell & 23.34   &  14.16  & -3.577   &  -8.858  &  42.88    \\
+                                 & Teilmodell   & 23.34   &  15.86  &  -3.569  &  -8.858  &  42.88    \\ 
 \midrule
 \multirow{2}{*}{Betriebsmodus 3} & Gesamtmodell & 2.004   &  -16.57  &  1.433  & -1.627  & -4.336     \\
-                                 & Teilmodell   & 3.722   &  12.81   &  1.226  & -1.301  &  -2.367      \\ \bottomrule
+                                 & Teilmodell   & 2.007   &  12.81   &  1.226  & -1.627  &  -2.367      \\ \bottomrule
 \end{tabular}
 \end{table}
 
+\begin{figure}[htb]
+    \subfigure[Simulation von $T_{R,1}$ durch statisches Modell]{\includegraphics[width=0.49\textwidth]{val/Tr1_stat.pdf}}
+    \subfigure[Simulation von $T_{R,1}$ durch linearisiertes Modell]{\includegraphics[width=0.49\textwidth]{val/Tr1.pdf}}
+\caption{Vergleich der Simulation für $T_{R,1}$ für die zwei unterschiedlichen Modellansätze.}
+\label{fig:tr1_vergleich}
+\end{figure}
 
-\subsubsection{Einfluss der Flussumkehr auf die Simulationsergebnisse}
-\subsubsection{Fehlerquellen}
+\subsubsection*{Simulationsergebnisse der Rücklauftemperaturen}\label{a:rueck_sim}
+\begin{figure}[thb]
+    \subfigure[Simulation von $T_{R,3}$ durch statisches Modell]{\includegraphics[width=0.49\textwidth]{val/Tr3_stat.pdf}}
+    \subfigure[Simulation von $T_{R,3}$ durch linearisiertes Modell]{\includegraphics[width=0.49\textwidth]{val/Tr3.pdf}}
+\caption{Simulation von $T_{R,3}$ für die zwei unterschiedlichen Modellansätze. Beide Modellansätze liefern keine brauchbaren Simulationsergebnisse für $T_{R,3}$}
+\label{fig:tr3_vergleich}
+\end{figure}
+Die Rücklauftemperatur wurde wie in \ref{a:ruecklauftemperatur_modell} beschrieben über zwei Varianten errechnet. Für die erste Methode wurde ein statischer nichtlinearer Zusammenhang gewählt, die zweite Methode errechnet die Rücklauftemperatur über ein linearisiertes Modell der Temperaturdifferenz $\Delta T$. Ein Vergleich der Ergebnisse für beide Ansätze ist in Abbildung \ref{fig:tr1_vergleich} gezeigt. Insgesamt ließen sich für den untersuchten Zeitraum bessere Übereinstimmungsergebnisse mit Hilfe des linearisierten Modells ermitteln. Dabei lassen sich für Volumenströme, die stark um um den Nullpunkt schwanken, mit beiden Methoden keine guten Vorhersageergebnisse erzielen. Der Volumenstrom geht in beiden Ansätzen in antiproportionalem Verhältnis in die Berechnung der Rücklauftemperatur ein, Messfehler bzw. Simulationsfehler werden also verstärkt. Dies macht sich besonders stark bei Volumenströmen nahes des Nullpunktes bemerkbar. Im untersuchten Zeitraum trifft dies besonders für die Volumenströme am Punkt $P_3$ zu, wie in Abbildung \ref{fig:tr3_vergleich} zu erkennen ist. Beide Modellansätze liefern keine brauchbaren Simulationsergebnisse für diesen Punkt aufgrund des Zusammenspiels von stark mit Messrauschen behafteten Volumenstromdaten und schlechten Simulationsergebnissen für die Wärmeleistung. Eine Optimierung dieses Ansatzes könnte in der Anwendung von Filtern auf die Messdaten zu den Volumenströmen liegen. 
+
+\begin{table}[hb]
+\centering
+\caption{Vergleich der Simulationsergebnisse für $T_{R,1}$ bis $T_{R,5}$ für verschiedene Betriebsmodi und für beide Modellansätze. Mit (${}^*$) gekennzeichnete Werte basieren auf um den Nullpunkt fluktuierenden Volumenströmen}
+\label{tab:tr_sim_gesamt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+                                 &              & \multicolumn{5}{c}{NRMSE in \%}   \\
+                                 &              & $T_{R,1}$ & $T_{R,2}$ & $T_{R,3}$ & $T_{R,4}$ &  $T_{R,5}$ \\ 
+\midrule
+\multirow{2}{*}{Betriebsmodus 1} & statisches Modell       & -22.83  & -11.11  & -1406${}^*$  &  -18.17  &  -44.05    \\
+                                 & linearisiertes Modell   & 8.26    &  3.24   & -3640${}^*$ &  -10.93  &  4.15    \\ 
+\midrule
+\multirow{2}{*}{Betriebsmodus 3} & statisches Modell       & -3.92  &  -1460   &  -8.93  & 6.70   & -2177${}^*$     \\
+                                 & linearisiertes Modell   & -2.17  &  -596.6  &  -3.55  & 20.29  &  -1296${}^*$      \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Tabelle \ref{tab:tr_sim_gesamt} fasst die Simulationsergebnisse der beiden Modellansätze für die Rücklauftemperaturen $T_{R,1}$ bis $T_{R,5}$ für verschiedene Betriebsmodi zusammen. Deutlich zu erkennen sind die unterdurchschnittlich schlechten Simulationsergebnisse für um den Nullpunkt fluktuierende Volumenströme, welche in der Tabelle gesondert gekennzeichnet sind. Die niedrigen Übereinstimmungswerte von $T_{R,2}$ liegen dagegen an einem Ausfall des Temperatursensors an diesem Wärmemengenzähler, weshalb die Messdaten stark von den Simulationsergebnissen abweichen. Für den untersuchten Wertebereich der Rücklauftemperatur scheint das linearisierte Zustandsraummodell insgesamt etwas bessere Vorhersageergebnisse zu erzielen. Zu beachten ist dabei, dass die \texttt{n4sid} Funktion zusätzlich zu den Systemmatrizen des Zustandsraummodells auch ein Störgrößenmodell ermittelt, was einen Einfluss auf die bessere Übereinstimmung zwischen Messdaten und Simulationsergebnissen haben könnte. Weiterführende Analysen in diese Richtung, zum Beispiel durch einen Vergleich zwischen der Parameteridentifikation mit und ohne Störgrößenmodell, könnten darüber Aufschluss geben.
+
+\subsection{Zusammenfassende Fehlerdiskussion}
+Die Parameteridentifikation und die Ergebnisse der Simulation des Gesamtmodells wurden in diesem Kapitel vorgestellt und diskutiert. Da die Berechnungen der Volumenströme und Vorlauftemperaturen insgesamt gute Simulationsergebnisse zeigen, scheinen die gewählten Modellansätze für diese Teilmodelle eine gute Abbildung der realen thermodynamischen und hydraulischen Prozesse darzustellen. Auftretende Abweichungen der Vorhersageergebnisse für die Vorlauftemperaturen mit den Messdaten könnten durch ein nicht abgebildetes Totzeitverhalten erklärt werden, da einige Messdaten um eine Zeitspanne $\Delta t$ zu den Simulationsdaten verschoben erscheinen.\par
+Im Gegensatz dazu zeigen die Simulationsergebnisse des Verbrauchermodells schlechte Übereinstimmungen. Zum Einen können durch die reine Black-box-Parametrisierung anhand des Eingangs- und Ausgangsverhaltens Fehler der Anlage in das Modell einfließen. Außerdem wird die Wärmeleistung in jedem Punkt lediglich in Abhängigkeit zur Vorlauf- und Außentemperatur berechnet, was den tatsächlichen Verlauf des Wärmebedarfs wahrscheinlich nicht korrekt widerspiegelt. \par 
+Dieser Fehler in der Berechnung der Wärmeleistung beeinflusst die Simulationsergebnisse der Rücklauftemperatur ebenfalls, da diese in beiden angewandten Modellansätzen durch die Wärmeleistung beschrieben wird. Zusätzlich dazu führt die Berechnung der Rücklauftemperaturen bei niedrigen Volumenströmen nicht zu brauchbaren Ergebnissen, da der antiproportionale Zusammenhang zwischen Wärmeleistung und Volumenstrom zu einer Verstärkung von Simulationsfehlern führt. Für die zwei entwickelten Modellansätze zur Beschreibung der Rücklauftemperatur haben sich die Simulationen durch das linearisierte dynamische Modell als etwas besser erwiesen als die Berechnungen durch das statische nichtlineare Modell. Dies könnte an dem automatisch abgeschätzten Störgrößenmodell der \texttt{n4sid} Funktion liegen, was aber im Rahmen dieser Arbeit nicht näher untersucht wurde.\par 
+Für Zeiträume, in denen häufige Wechsel der Fließrichtung stattfinden, wurden ebenfalls große Abweichungen zwischen Vorhersage und Messwerten beobachtet. Die Implementierung des Modells sieht keine automatische Anpassung an einen Wechsel des Betriebsmodus vor, was bei der Auswertung der Übereinstimmung zwischen Simulation und Messdaten beachtet werden sollte.

@@ -1,0 +1,15 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdftex 2011.4.27)  27 APR 2011 19:42
+entering extended mode
+**E:/Internet/pruefungsausschuss/latexMaster/einstellungen/neuebefehle.sty
+(E:/Internet/pruefungsausschuss/latexMaster/einstellungen/neuebefehle.sty
+! Undefined control sequence.
+l.8 \renewcommand
+                 {\nomname}{Glossar}				% Das Symbolverzeichnis heisst nun "...
+
+? 
+! Emergency stop.
+l.8 \renewcommand
+                 {\nomname}{Glossar}				% Das Symbolverzeichnis heisst nun "...
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

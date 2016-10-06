@@ -23,12 +23,25 @@
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{caption}
+\usepackage{url}
+\usepackage{titling}
+\usepackage{acronym}
+
 
 
 %% Captions
 \captionsetup[figure]{labelfont=bf}
 \captionsetup[table]{labelfont=bf}
-\captionsetup{width=0.85\textwidth}
+\captionsetup{width=0.87\textwidth}
+
+
+%---------------------------------------------------------------------------------------------------
+% Erstellung von Deckblatt (Seite 1) und Titelblatt (Seite 2)
+%---------------------------------------------------------------------------------------------------
+\newcommand{\createCoverAndTitlePage}[7]{
+	\createCover{#1}{#2}{#3}{#4}
+	\createTitlePage{#1}{#2}{#3}{#4}{#5}{#6}{#7}
+}
 
 
  %%############### Choose LANGUAGE

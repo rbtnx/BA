@@ -51,8 +51,10 @@ function [SS_tv,SS_q,SS_dt,M,wp_calc,start,ende,est_data] = fette_ident(start_da
     % Q + dt an jedem Knoten mit n4sid
 
     for i=1:5
-        [SS_q.(sNames{i}),SS_q.(sNames{i+5})] = n4sid(est_data.(eNames{i+5}),'best','DisturbanceModel','none');
-        [SS_dt.(sNames{i}),SS_dt.(sNames{i+5})] = n4sid(est_data.(eNames{i+10}),1,'DisturbanceModel','none');
+        %[SS_q.(sNames{i}),SS_q.(sNames{i+5})] = n4sid(est_data.(eNames{i+5}),'best','DisturbanceModel','none');
+        %[SS_dt.(sNames{i}),SS_dt.(sNames{i+5})] = n4sid(est_data.(eNames{i+10}),1,'DisturbanceModel','none');
+        [SS_q.(sNames{i}),SS_q.(sNames{i+5})] = n4sid(est_data.(eNames{i+5}),'best');
+        [SS_dt.(sNames{i}),SS_dt.(sNames{i+5})] = n4sid(est_data.(eNames{i+10}),1);
     end
     
   

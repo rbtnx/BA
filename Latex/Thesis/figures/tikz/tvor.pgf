@@ -1,0 +1,90 @@
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning,calc}
+\tikzstyle{block} = [draw,fill=blue!20,rectangle,minimum height=3em, minimum width=5em]
+\tikzstyle{tbox} = [rectangle,minimum height=1.5em, minimum width=2em]
+\tikzstyle{tbox2} = [rectangle,minimum height=1em, minimum width=2em]
+\tikzstyle{tbox3} = [rectangle,minimum height=1em, minimum width=6em]
+\begin{tikzpicture}[>=latex']
+\coordinate (Ecke1) at (-1.5,-1);
+\node[block] at (0,0) (block1){};
+\foreach \x in {0} {
+	\foreach \y in {0} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{V,1}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{V,1}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{V,1}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{V,1}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+\node[tbox3] at (-3,-1) (tv_hz1){$T_{V,HZ1}$};
+\draw[->] (tv_hz1) -- (Ecke1)  |- (block1.west);;
+
+\node[tbox2] at (2,0) (tv_1){$T_{V,1}$};
+\draw[->]  (block1) -- (tv_1);
+
+\node[block] at (4,0) (block2){};
+\foreach \x in {0} {
+	\foreach \y in {4} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{V,2}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{V,2}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{V,2}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{V,2}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+\draw[->] (tv_1) -- (block2){};
+\node[tbox2] at (6,0) (tv_2){$T_{V,2}$};
+\draw[->] (block2) -- (tv_2);
+
+\node[block] at (8,0) (block3){};
+\foreach \x in {0} {
+	\foreach \y in {8} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{V,3}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{V,3}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{V,3}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{V,3}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+
+\draw[->] (tv_2) -- (block3) {};
+\node[tbox2] at (10,0) (tv_3){$T_{V,3}$};
+\draw[->] (block3) -- (tv_3);
+
+\node[block] at (0,-2) (block5){};
+\foreach \x in {-2} {
+	\foreach \y in {0} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{V,5}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{V,5}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{V,5}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{V,5}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+\draw[->] (Ecke1) |- (block5);
+\node[tbox2] at (2,-2) (tv_5){$T_{V,5}$};
+\draw[->] (block5) -- (tv_5);
+
+\node[block] at (0,-4) (block4){};
+\foreach \x in {-4} {
+	\foreach \y in {0} {
+		\node[tbox] at (\y -0.4,\x +0.2) (A){$A_{V,4}$};
+		\node[tbox] at (\y + 0.4,\x +0.2) (B){$B_{V,4}$};
+		\node[tbox] at (\y -0.4,\x -0.3) (C){$C_{V,4}$};
+		\node[tbox] at (\y+ 0.4,\x -0.3) (D){$D_{V,4}$};
+		\draw (\y,\x +0.35) -- (\y,\x -0.45);
+		\draw (\y -0.6,\x -0.025) -- (\y + 0.6,\x -0.025);
+	}
+}
+\node[tbox3] at (-3,-3.75) (tv_hz2){$T_{V,HZ2}$};
+\node[tbox3] at (-3,-4.25) (tv_komp){$T_{V,Kompressor}$};
+\draw[->] (tv_hz2) -- ($(block4.south west)!0.75!(block4.north west)$);
+\draw[->] (tv_komp) -- ($(block4.south west)!0.25!(block4.north west)$);
+\node[tbox2] at (2,-4) (tv_4){$T_{V,4}$};
+\draw[->] (block4) -- (tv_4);
+
+\end{tikzpicture}

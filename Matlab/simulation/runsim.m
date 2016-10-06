@@ -8,7 +8,7 @@ load('/home/kathrin/Uni/BA/Fette Daten/corrected_data/wmz.mat');
 
 %%% Hier Daten eintragen
 simzeit = 7;                        % Wie viele Tage sollen simuliert werden?
-start_date = datetime(2016,4,22);   % Wann soll die Simulation starten?
+start_date = datetime(2016,2,27);   % Wann soll die Simulation starten?
 
 startsim = (datenum(start_date)-datenum(2016,1,1))*24*60+1;
 endsim = startsim + simzeit*1440-1;
